@@ -19,29 +19,7 @@ Singapore University of Technology and Design
 # Digital Abstraction
 
 ## Overview
-```java
-public  class ParallaxScroller : MonoBehaviour
 
-{
-	public  Renderer[] layers;
-	public float[] speedMultiplier;
-	private float previousXPositionMario;
-	private float previousXPositionCamera;
-	public Transform mario;
-	public Transform mainCamera;
-	private float[] offset;
-
-	void  Start()
-	{
-		offset = new  float[layers.Length];
-		for(int i = 0; i<  layers.Length; i++){
-			offset[i] = 0.0f;	
-		}
-		previousXPositionMario = mario.transform.position.x;
-		previousXPositionCamera = mainCamera.transform.position.x;
-	}
-}
-```
 One of the cheapest ways to encode information is in terms of 0s and 1s, using  <span style="background-color:yellow; color:black"> voltages</span>. This method of determining *discrete* values out of voltages (which value is originally made up of real number, and therefore *continuous* and *infinite*) is called the **digital abstraction**.
 
 What are the benefits of the digital abstraction?
