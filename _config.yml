@@ -1,5 +1,5 @@
 # SITE CONFIGURATION
-baseurl: ""
+baseurl: "/website_dark"
 url: "https://natalieagus.github.io"
 
 # THEME-SPECIFIC CONFIGURATION
