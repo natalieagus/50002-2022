@@ -5,7 +5,8 @@ permalink: /notes/
 feature-img: "assets/img/pexels/travel.jpeg"
 tags: [Page]
 ---
-
+<br>
+<br>
 {% for t in site.notes %}
 
 <h2><a href="{{ t.url"" | prepend: site.baseurl | prepend: site.url }}">{{ t.title }}</a></h2>

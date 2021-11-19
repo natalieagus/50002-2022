@@ -2,47 +2,56 @@
 %padding-nav {
   padding: $padding-small $padding-x-large;
   @media (max-width: $xl-break) {
-    padding: $padding-small ($padding-large * 2);
+    padding: ($title-padding * 2) ($padding-large * 2);
   }
   @media (max-width: $l-break) {
-    padding: $padding-small $padding-large;
+    padding: ($title-padding * 2) $padding-large;
   }
   @media (max-width: $m-break) {
-    padding: $padding-small $padding-medium;
+    padding: ($title-padding * 2) $padding-medium;
   }
   @media (max-width: $sm-break) {
-    padding: $padding-small $padding-x-small;
+    padding: ($title-padding * 2) $padding-x-small;
   }
 }
 
 %padding-post {
-  padding: $padding-x-small $padding-x-large;
+  padding: 0% $padding-x-large;
   @media (max-width: $xl-break) {
-    padding: $padding-x-small ($padding-small);
+    padding: 0% ($padding-small);
   }
   @media (max-width: $l-break) {
-    padding: $padding-x-small $padding-small;
+    padding: 0% $padding-small;
   }
   @media (max-width: $m-break) {
-    padding: $padding-x-small $padding-small;
+    padding: 0% $padding-small;
   }
   @media (max-width: $sm-break) {
-    padding: $padding-x-small $padding-small;
+    padding: 0% $padding-small;
   }
 }
 
 %padding-header {
-  padding: $padding-medium $padding-large;
+  padding: $title-padding $padding-large;
   @media (min-width: $xl-break) {
-    padding: $padding-large $padding-large;
+    padding: $title-padding $padding-large;
   }
   @media (max-width: $sm-break) {
-    padding: $padding-large;
+    padding: $title-padding;
+  }
+}
+
+%margin-post {
+  margin-right: 20%;
+  margin-left: 20%;
+  @media (max-width: $break) {
+    margin-right: 10%;
+    margin-left: 5%;
   }
 }
 
 .txt-shadow {
-  text-shadow: 0.07em 0.10em 0.15em var(--text-shadow);
+  text-shadow: 0.07em 0.1em 0.15em var(--text-shadow);
 }
 
 .subtle-txt-shadow {

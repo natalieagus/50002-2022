@@ -9,7 +9,7 @@ article {
   @extend .comments;
 
   header {
-    margin-bottom: 6%;
+    margin-bottom: 4%;
     text-align: center;
   }
 
@@ -95,8 +95,8 @@ header {
 
   header {
     color: var(--header-text);
-    margin-bottom: 0;
-    padding: $padding-large/2.5 $padding-large;
+    margin-bottom: 1%;
+    padding: 2.5% 2.5%;
 
     .meta {
       color: var(--header-text);
@@ -165,8 +165,9 @@ header {
   grid-row: 1;
   display: grid;
   overflow: visible;
-  margin-right: 20%;
-  margin-left: 20%;
+  @extend %margin-post;
+  // margin-right: 20%;
+  // margin-left: 20%;
   line-height: 30pt;
   font-weight: 300;
   font-size: 14px;
