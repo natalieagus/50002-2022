@@ -6,6 +6,11 @@ color: turquoise
 excerpt_separator: <!--more-->
 ---
 
+<!-- To be placed at the beginning of the post, it is where the table of content will be generated -->
+* TOC
+{:toc}
+
+
 ## Lorem Ipsum
 
 from _"de Finibus Bonorum et Malorum"_ written by Cicero in 45 BC.
