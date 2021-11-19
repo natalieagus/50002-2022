@@ -47,8 +47,10 @@
   .post-teaser {
     @extend %padding-post;
     width: 100%;
-    margin-bottom: 0;
     display: inline-block;
+    padding: 1%;
+    padding-right: 10%;
+    padding-left: 10%;
     background-size: cover;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
@@ -75,7 +77,6 @@
         padding: 0;
         vertical-align: middle;
       }
-
     }
 
     .post-img img {
