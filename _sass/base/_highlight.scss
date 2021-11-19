@@ -12,8 +12,9 @@ figure.highlight,
   font-size: $font-size-code;
   line-height: $font-height-code;
   border-radius: $border-radius;
-  word-wrap: break-word;
-  overflow-x: auto;
+  word-wrap: initial;
+  box-sizing: initial;
+  overflow-x: scroll;
   > pre,
   pre.highlight {
     margin: 0;
