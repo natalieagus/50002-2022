@@ -6,7 +6,7 @@ $font-size: 1.1em;
 
 $monospace: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
   DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif !default;
-$font-size-code: 0.85em !default;
+$font-size-code: default;
 $font-height-code: 1.3em !default;
 $border-radius: 4px !default;
 
@@ -16,7 +16,7 @@ $padding-large: 9%;
 $padding-medium: 6%;
 $padding-small: 4%;
 $padding-x-small: 3%;
-$title-padding: 1%;
+$title-padding: 1.5%;
 $feature-image-padding: 10%;
 
 /* MOBILE */
