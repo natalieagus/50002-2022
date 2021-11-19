@@ -8,7 +8,8 @@ tags: [Page]
 
 {% for t in site.notes %}
 
-<h2><a href="{{ t.url }}">{{ t.title }}</a></h2>
+<h2><a href="{{ t.url"" | prepend: site.baseurl | prepend: site.url }}">{{ t.title }}</a></h2>
+
 
 {% endfor %}  
 

@@ -1,6 +1,6 @@
 ---
 layout: academic
-permalink: /website_dark/lecturenotes/coding
+permalink: /lecturenotes/coding
 title: Unity for Toddlers
 ---
 * TOC
