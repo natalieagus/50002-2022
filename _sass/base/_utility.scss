@@ -44,9 +44,9 @@
 %margin-post {
   margin-right: 20%;
   margin-left: 20%;
-  @media (max-width: $break) {
+  @media (max-width: $m-break) {
     margin-right: 10%;
-    margin-left: 1%;
+    margin-left: 5%;
   }
 }
 
