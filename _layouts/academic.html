@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-<script src="{{ "/assets/js/toc.js" | relative_url }}" ></script>
 <article {% if page.feature-img or page.color %}class="feature-image" {% endif %}>
   <header id="main" style="">
     <div class="title-padder">
@@ -105,4 +104,22 @@ layout: default
     charset="utf-8"
     src="https://vincenttam.github.io/javascripts/MathJaxLocal.js"
   >
+  </script>
+
+
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content_answer = this.nextElementSibling;
+      if (content_answer.style.display === "block") {
+        content_answer.style.display = "none";
+      } else {
+        content_answer.style.display = "block";
+      }
+    });
+  }
   </script>

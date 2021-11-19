@@ -1,10 +1,11 @@
 /* TYPOGRAPHY */
-$font-family-main: Helvetica, 'Source Sans Pro', Arial, sans-serif;
-$font-family-headings: Helvetica, 'Source Sans Pro', Arial, sans-serif;
-$font-family-logo: Helvetica, 'Source Sans Pro' , Arial, sans-serif;
+$font-family-main: Helvetica, "Source Sans Pro", Arial, sans-serif;
+$font-family-headings: Helvetica, "Source Sans Pro", Arial, sans-serif;
+$font-family-logo: Helvetica, "Source Sans Pro", Arial, sans-serif;
 $font-size: 1.1em;
 
-$monospace: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif !default;
+$monospace: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+  DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif !default;
 $font-size-code: 0.85em !default;
 $font-height-code: 1.3em !default;
 $border-radius: 4px !default;
@@ -26,9 +27,9 @@ $break: 768px;
 $sm-break: 576px;
 $x-sm-break: 320px;
 
-
 /* THEME COLOR SCHEMES */
-html, html[data-theme="light"] {
+html,
+html[data-theme="light"] {
   --background: #ffffff;
   --blockquote: #eef7fa;
   --selection: #d4d4d4;
@@ -37,7 +38,7 @@ html, html[data-theme="light"] {
   --header-background: #24292e;
   --header-text: #ffffff;
   --header-link: #383838;
-  --code-background: #E0E0E0;
+  --code-background: #e0e0e0;
   --code-inline: #24292e;
   --text-shadow: #3f3f3f;
   --text: #262626;
@@ -48,6 +49,9 @@ html, html[data-theme="light"] {
   --h5: #262626;
   --h6: #262626;
   --border: rgba(0, 0, 0, 0.2);
+  --bganswer: #eeffff;
+  --bganswerselect: #4bffff;
+  --bgfontcolor: #444;
 }
 
 html[data-theme="dark"] {
@@ -56,10 +60,10 @@ html[data-theme="dark"] {
   --selection: #545d68; // selection
   --meta: #909dab; // meta
   --link: #00a8e0; // theme, link, link shadow header bg
-  --header-background: #2A3444; // Color before header image load
+  --header-background: #2a3444; // Color before header image load
   --header-text: #e7f3f4; // header text, feature img text
   --header-link: #adbac7; // header link, search color
-  --code-background: #2A3444;
+  --code-background: #2a3444;
   --code-inline: #d9b600;
   --text-shadow: #2d333b; // text shadow
   --text: #cdd9e5; // text
@@ -72,11 +76,15 @@ html[data-theme="dark"] {
   --border: rgba(255, 255, 255, 0.5); // border
   --cusdis--color-text-default: var(--text);
   --cusdis--color-comment-username-text: var(--link);
+  --bganswer: #e6d4ff;
+  --bganswerselect: #ae75fd;
+  --bgfontcolor: #444;
 }
 
 /* BASE16 CODE HIGHLIGHT */
 // Material Theme
-html, html[data-theme="light"] {
+html,
+html[data-theme="light"] {
   --base00: #302f2d; // Default Background
   --base01: #2e3c43; // Lighter Background (Used for status bars) - NOT USED
   --base02: #314549; // Selection Background
