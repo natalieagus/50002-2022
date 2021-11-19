@@ -88,7 +88,8 @@ header {
     color: var(--header-text);
   }
 
-  h1.title, .post-info {
+  h1.title,
+  .post-info {
     @extend .txt-shadow;
   }
 
@@ -125,7 +126,7 @@ header {
 /*-- feature-image Responsive scrolling --*/
 .feature-image header {
   @media screen and (max-width: $break) {
-    padding: $padding-large*1.5 $padding-small;
+    padding: $padding-large * 1.5 $padding-small;
   }
 
   @media screen and (min-width: $break) {
@@ -142,18 +143,30 @@ header {
 }
 
 .post-content {
-  h1 { color: var(--h1); }
-  h2 { color: var(--h2); }
-  h3 { color: var(--h3); }
-  h4 { color: var(--h4); }
-  h5 { color: var(--h5); }
-  h6 { color: var(--h6); }
+  h1 {
+    color: var(--h1);
+  }
+  h2 {
+    color: var(--h2);
+  }
+  h3 {
+    color: var(--h3);
+  }
+  h4 {
+    color: var(--h4);
+  }
+  h5 {
+    color: var(--h5);
+  }
+  h6 {
+    color: var(--h6);
+  }
   grid-column: 0;
   grid-row: 1;
   display: grid;
   overflow: visible;
-  padding-left: 10%;
-  padding-right: 30%;
+  margin-right: 20%;
+  margin-left: 20%;
   line-height: 30pt;
   font-weight: 300;
   font-size: 14px;
