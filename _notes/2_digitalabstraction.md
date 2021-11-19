@@ -107,7 +107,6 @@ Consider two digital devices connected in series as shown in the figure below. T
 
 >*Why is this so?*
 
-<img src="https://dl.dropboxusercontent.com/s/9lejkhiqx50ga8y/p4.png?raw=1"    width="50%" height = "50%">
 
 This explanation can be made clear with the following example. Suppose we supply 0.5V and Device 1 is able to produce also 0.5V, which means digital bit . 
 * However, the problem is that a *wire*, that connects two or more combinational devices together is susceptible to **noise**. 
