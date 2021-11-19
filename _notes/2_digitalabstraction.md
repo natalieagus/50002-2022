@@ -81,7 +81,7 @@ The most naive way to use voltage to encode information is to use ‘low’ volt
 
 Anything that is between the low and high threshold value is called the invalid zone, as shown in the figure below:
   
-<img src="https://dl.dropboxusercontent.com/s/6uo61vk9yze1aot/Volt.png?raw=1"    width="80%" height = "80%">
+
   
 
 The static discipline is one of the **contracts** bound for all logical elements making up a digital system. The static discipline is stated as follows:
@@ -124,7 +124,7 @@ Instead of naively setting some voltage $V_{high}$ and $V_{low}$ as we did above
 
 Hence, we need to have something called the **noise margin** -- the yellow region illustrated in the Figure below. The noise margin is formed by setting *four* Voltage specifications:  $V_{ol}$, $V_{oh}$, $V_{il}$, $V_{ih}$, where  $V_{ol}$< $V_{il}$< $V_{ih}$ < $V_{oh}$ which **defines** what range of voltage values signifies a **valid** digital bit  and a **valid** digital bit `0` *for any combinational logic component in the system*: 
   
-<img src="https://dl.dropboxusercontent.com/s/pt0n36pmy9ncyc6/Volt_2.png?raw=1"    width="100%" height = "100%">
+
 
 >  <span style="background-color:yellow"> The *noise margin* adds as a **precaution** against external disturbances (noise). </span>
 
@@ -160,7 +160,7 @@ The VTC is a **plot** between the input voltage ($V_{in}$) to a digital system/d
 
 The image below shows the VTC of a **buffer**: a *low* $V_{in}$ gives a *low* $V_{out}$ and vice versa. 
 
-<img src="https://dl.dropboxusercontent.com/s/vod5ltqh4kq9119/vtcbuffer.png?raw=1"  width="60%"  height="100%" alt ="Figure 4"/>
+
 
 > What will the VTC of an inverter look like? 
 
