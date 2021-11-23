@@ -1,7 +1,9 @@
 ---
 layout: academic
-permalink: /lecturenotes/coding
+permalink: /notes/coding
 title: Unity for Toddlers
+description: Sequential Logic Devices can do what Combinational Logic Devices can't; to produce output that depends on both past and current input. 
+tags: [Coding]
 ---
 * TOC
 {:toc}

@@ -1,1 +1,12 @@
 # website_dark
+
+When adding new collection:
+1. Create folder with _[name], and populate with .md
+2. In config.yml, add under collections:
+    - Set output: true 
+    - Set permalink: /[permalink]/
+3. Enable tags for the collection:
+    - Under `_layouts/tags.html`, `class home`, collect tags in the collection (see liquid example for notes and problemset)
+    - Under `_layouts/tags.html`, `class "tag-posts"`, show tags and links (see liquid example for notes and problemset)
+4. Enable search for the collection:
+    - Under `assets/data/search.json`, add liquid template to loop through site.[collection]

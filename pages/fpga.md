@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Lecture Notes
-permalink: /notes/
+title: FPGA
+permalink: /fpga/
 feature-img: "assets/img/pexels/travel.jpeg"
 tags: [Page]
 ---
@@ -12,10 +12,10 @@ tags: [Page]
 
 
 <div class="posts">
-    {% unless site.notes %}
+    {% unless site.fpga %}
     <article><section class="post-content"><p>There are no posts</p></section></article>
     {% endunless %}
-    {% for post in site.notes %}
+    {% for post in site.fpga %}
     <div class="post-teaser">
         {% if post.thumbnail %}
         <div class="post-img">

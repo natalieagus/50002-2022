@@ -1,8 +1,9 @@
 ---
 layout: academic
-permalink: /lecturenotes/problemset
-title: Problem Set 7
+permalink: /problemset/problemset3
+title: Problem Set 3
 description: Week 10 practice questions containing topics from Memory Hierarchy and Cache Issues.
+tags: [Highlight, Markdown]
 ---
 
 

@@ -28,6 +28,32 @@ layout: page
     {% endif %}
     {% endfor %}
 
+    <!-- cycles through notes to get tags -->
+    {% for page in site.notes %}
+    {% if page.tags.size > 0 %}
+    {% assign page_tags = page.tags | join:'|' | append:'|' %}
+    {% assign rawtags = rawtags | append:page_tags %}
+    {% endif %}
+    {% endfor %}
+
+    <!-- cycles through pset to get tags -->
+    {% for page in site.problemset %}
+    {% if page.tags.size > 0 %}
+    {% assign page_tags = page.tags | join:'|' | append:'|' %}
+    {% assign rawtags = rawtags | append:page_tags %}
+    {% endif %}
+    {% endfor %}
+
+    <!-- cycles through fpga to get tags -->
+    {% for page in site.fpga %}
+    {% if page.tags.size > 0 %}
+    {% assign page_tags = page.tags | join:'|' | append:'|' %}
+    {% assign rawtags = rawtags | append:page_tags %}
+    {% endif %}
+    {% endfor %}
+
+
+
     <!-- Displays the list of tags-->
     {% include default/tags_list.html tags=rawtags %}
 
@@ -80,6 +106,45 @@ layout: page
                 </a>
 
                 {% include blog/post_info.html date=note.date %}
+            </h5>
+            {% endif %}
+            {% endfor %}
+
+            <!-- Notes -->
+            {% for page in site.notes %}
+            {% if page.tags contains tag %}
+            <h5 class="tag-title">
+                <a href="{{ page.url | relative_url }}">
+                    <i class="far fa-file-alt" aria-hidden="true"></i>
+                    {{ page.title }}
+                </a>
+                {% include blog/post_info.html date=page.date %}
+            </h5>
+            {% endif %}
+            {% endfor %}
+
+            <!-- Psets -->
+            {% for page in site.problemset %}
+            {% if page.tags contains tag %}
+            <h5 class="tag-title">
+                <a href="{{ page.url | relative_url }}">
+                    <i class="far fa-file-alt" aria-hidden="true"></i>
+                    {{ page.title }}
+                </a>
+                {% include blog/post_info.html date=page.date %}
+            </h5>
+            {% endif %}
+            {% endfor %}
+
+            <!-- FPGA -->
+            {% for page in site.fpga %}
+            {% if page.tags contains tag %}
+            <h5 class="tag-title">
+                <a href="{{ page.url | relative_url }}">
+                    <i class="far fa-file-alt" aria-hidden="true"></i>
+                    {{ page.title }}
+                </a>
+                {% include blog/post_info.html date=page.date %}
             </h5>
             {% endif %}
             {% endfor %}

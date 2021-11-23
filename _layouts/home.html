@@ -9,6 +9,15 @@ layout: default
         <h1> {{ site.header_text | default: "Change <code>header_text</code> in <code>_config.yml</code>"}} </h1>
     </div>
 
-    {% include blog/blog.html %}
+
+    <section class="post-content">
+        {% if page.bootstrap %}
+          <div class="bootstrap-iso">
+          {% endif %}
+            {{ content }}
+          {% if page.bootstrap %}
+          </div>
+        {% endif %}
+        </section>
 
 </div>
