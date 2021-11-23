@@ -40,7 +40,7 @@ How do we represent integers (basic numbers) in binary? Suppose we have binary n
     0 0 1 1 0 1 
 
 The above means the integer value:
-$0 \times 2^5 + 0 \times 2^4 + 1 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0 = 13$ in decimal (base 10). 
+$$0 \times 2^5 + 0 \times 2^4 + 1 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0 = 13$$ in decimal (base 10). 
 
 > Binary to Decimal conversion is really simple, but takes time to get used to. 
 
@@ -51,12 +51,12 @@ See the table below to find out the direct conversion between binary, octal, hex
 
 > After some practice, it should be easy to naturally guess the decimal value of any 4-bit number without computing them from scratch. 
 
-<img src="https://dl.dropboxusercontent.com/s/ariqv8mky94edtm/table.png?dl=0"  width="200"  height="400" />
+<img src="https://dl.dropboxusercontent.com/s/ariqv8mky94edtm/table.png?dl=0"  width="50%"  height="50%" />
 
 *Note:* 
 * We typically use the prefix `0x`  to indicate that a number system is encoded in hex and not decimal. 
 * If we encode a number in binary, we can use the prefix `0b` or not at all (because it is pretty obvious since a string of numbers only contain `0`s and `1`s).
-* Numbers encoded in oct will have the suffix $_8$.
+* Numbers encoded in oct will have the suffix $$_8$$.
 
 
 The examples below should provide a straightforward hints on how to convert between the number systems. 
@@ -64,9 +64,9 @@ The examples below should provide a straightforward hints on how to convert betw
 **Example 1:**
 
  1. Binary : 101 101 101 111
- 2.  Octal : $5557_8$:
+ 2.  Octal : $$5557_8$$:
 	 * To obtain this, group the binary digits into groups of 3 bits **from right to left** and convert them to its corresponding octal representation.
-	 * `101 101 101 111` : `5557`$_8$
+	 * `101 101 101 111` : `5557`$$_8$$
  3.  Decimal : 2927 
  4.  Hex: `0xB6F` 
 	 * To obtain this, group the binary into groups of 4 bits **from right to left** as well, and convert each group to its corresponding hex representation.
@@ -75,7 +75,7 @@ The examples below should provide a straightforward hints on how to convert betw
 **Example 2:**
 
  1. Binary : 111 110 101
- 2. Octal : $765_8$ 
+ 2. Octal : $$765_8$$ 
  3. Decimal : 501
 4.  Hex:
 	* **Pad** the higher bits of the binary so that the *total number of bits* is the closest **divisible** by 4. In this case, we expand from 9 bits to 12 bits by adding three `0`s at the higher bits. **Notice that this does not change the numerical value of the binary string.** 
@@ -91,19 +91,19 @@ Firstly, most computers chooses to use the **most significant bit (MSB)** as the
 > You can't tell whether a device supports signed or unsigned bits by staring at its output bits. This information need to be given to you beforehand, i.e: given when you bought the machine, or given to you in problem sets or quiz. 
 
 For example: 
-* `00101` is a positive number: $2^2 + 2^0 = 5$
-* `11011` is a negative number: $-2^4 + 2^3 +2^1+ 2^0 = -16 + 8 + 2 + 1 = -5$
+* `00101` is a positive number: $$2^2 + 2^0 = 5$$
+* `11011` is a negative number: $$-2^4 + 2^3 +2^1+ 2^0 = -16 + 8 + 2 + 1 = -5$$
 
-To compute the 2's Complement representation of $5$ and represent a negative version of it in a computer, we need to apply the following mathematical operation to the original bits:
+To compute the 2's Complement representation of $$5$$ and represent a negative version of it in a computer, we need to apply the following mathematical operation to the original bits:
 
  - **Step 1**: inverse all 0s into 1s and vice versa on the *original* binary number
 - **Step 2:** add 1 **to the number in step 1**
 
 > **Example:** 
-> `0 0 1 1 = 3` $\rightarrow$ we want to turn this into -3, so we do the steps below: 
+> `0 0 1 1 = 3` $$\rightarrow$$ we want to turn this into -3, so we do the steps below: 
 > **Step 1**: 1 1 0 0 (inversed)\
 > **Step 2**: 1 1 0 0 + 0 0 0 1 = 1 1 0 1 (add 1)
-> The value of the result of step 2 above is : $-2^3 + 2^2 + 2^0 = -3$.
+> The value of the result of step 2 above is : $$-2^3 + 2^2 + 2^0 = -3$$.
 
 The 2's Complement is an operation that can be applied to either numbers: the positive or the negative, and it will yield its counterpart. 
 
@@ -116,7 +116,7 @@ How to encode decimal in binary? We extend our prior knowledge. Suppose we have 
 ```
 
 The above means
-$-1 \times 2^3 + 1 \times 2^0 + 1 \times 2^{-3} + 1 \times 2^{-4}$.
+$$-1 \times 2^3 + 1 \times 2^0 + 1 \times 2^{-3} + 1 \times 2^{-4}$$.
 
 ## Encoding 
  
@@ -124,7 +124,7 @@ Encoding is the process of assigning *representations* to information. Strings o
 
 > For example, given four choices `A`, `B`, `C`, and `D`, we can assign two bits each to encode each choice: `00`, `01`, `10`, `11` if they are *equally probable.* 
 
-More precisely, it is called the **fixed length encoding**, that is used in practice when all choices $x_i, i=1,...N$ are ***equally* probable**.  
+More precisely, it is called the **fixed length encoding**, that is used in practice when all choices $$x_i, i=1,...N$$ are ***equally* probable**.  
 
 > There also exist variable length encoding but we will not learn that in this course. 
  
@@ -140,7 +140,7 @@ We can create electronic devices that are able to *map* (decode) a given encoded
 ## Information and uncertainty
 
 
-The amount of information held by an **event** is **inversely proportional to** the probability $p$ of that event happening,
+The amount of information held by an **event** is **inversely proportional to** the probability $$p$$ of that event happening,
 
 $$\begin{aligned}
 \text{Information } \propto \text{ Uncertainty} \propto \text{ }\frac{1}{p}.\end{aligned}$$
@@ -151,23 +151,23 @@ Equivalently, it is **proportional to** the *uncertainty* of that event happenin
 
 <span style="background-color:yellow">In laymen terms: *If an event is bound to happen, then the fact that the event happens does not give any kind of information*</span>
 
-For discrete events $(x_1, x_2, ... , x_N)$ with probability of occurence of $(p_1, p_2, ..., p_N)$, the basic measure of information for all of these events is the ***bit***. 
+For discrete events $$(x_1, x_2, ... , x_N)$$ with probability of occurence of $$(p_1, p_2, ..., p_N)$$, the basic measure of information for all of these events is the ***bit***. 
 
-The number of bits is needed to reveal that a random variable is $x_i$ is:
+The number of bits is needed to reveal that a random variable is $$x_i$$ is:
 
 $$\begin{aligned}
 I(X) =  \log_2 \frac{1}{p_i} \text{ bits},\end{aligned}$$
 
-where  $I(X)$ is the amount of information received in bits learning that the choice was $x_i$.   
+where  $$I(X)$$ is the amount of information received in bits learning that the choice was $$x_i$$.   
 
-> Example:   Let $N = 8$, and all 8 events are *equally probable.* The number of bits needed to encode all 8 events are: 
+> Example:   Let $$N = 8$$, and all 8 events are *equally probable.* The number of bits needed to encode all 8 events are: 
 > 
 > $$\begin{aligned} I(X) &= \log_2 \frac{1}{1/8} = 3 \text{ bits}. \end{aligned}$$ 
 > 
-> We need to receive 3 bits of information to learn that one event $x_i$ out of the 8 events happens. In this case, it can be `000, 001, 010, 011, 100, 101, 110,` and `111`. 
+> We need to receive 3 bits of information to learn that one event $$x_i$$ out of the 8 events happens. In this case, it can be `000, 001, 010, 011, 100, 101, 110,` and `111`. 
 
 
-With $N$ *equally probable choices,* if it is narrowed down to $M$ choices (where $N>M$), then we can say that we are given
+With $$N$$ *equally probable choices,* if it is narrowed down to $$M$$ choices (where $$N>M$$), then we can say that we are given
 
 $$\begin{aligned}
 I_{N\rightarrow M}(X) = \log_2 \left( \frac{N}{M} \right) \text{ bits of information}\end{aligned}$$
@@ -186,15 +186,15 @@ I_{8\rightarrow 3}(X) = \log_2 \left( \frac{8}{3} \right) = 1.42 \text{ bits of 
 
 This chapter quickly summarises how we can represent integers using different number systems, especially the binary number system that is especially useful for our computers since they can only store information in terms electrical voltages (representing simply strings of `1`s and `0`s). 
 
-Given $X$ bits,
+Given $$X$$ bits,
 
-1.  We can **encode** $2^X$ *choices, or random variables*
-	> Equivalently, given $Y$ choices, we need to use at least $\log_2(Y)$ bits to encode them, rounded up to the nearest integer (since we cannot technically subdivide "bits" in real life. 
+1.  We can **encode** $$2^X$$ *choices, or random variables*
+	> Equivalently, given $$Y$$ choices, we need to use at least $$\log_2(Y)$$ bits to encode them, rounded up to the nearest integer (since we cannot technically subdivide "bits" in real life. 
 
-2.  If it is **unsigned**, we can represent the number ranged from 0 to $2^X-1$
+2.  If it is **unsigned**, we can represent the number ranged from 0 to $$2^X-1$$
 
 3.  If it is **signed**, we can represent the number ranged from
-    $-2^{X-1}$ to $2^{X-1}-1$
+    $$-2^{X-1}$$ to $$2^{X-1}-1$$
 
 The prior knowledge of whether a device support signed or unsigned bits must be **given** to you. 
 
@@ -216,7 +216,7 @@ The prior knowledge of whether a device support signed or unsigned bits must be 
 	Note that transistor is *not the first* tool created to manipulate voltages: triode vacuum tubes and electro-mechanical relays were used in pre-1950s. Before electricity was discovered, people used **mechanical** gears and **punch cards** to encode  digital data. 
 	> Digital data is the *discrete*, discontinuous *representation* of **information** or works.
  <br/>
-* If you Google "triode vacuum tubes", and "electro-mechanical relays" -- or even the "**early transistors**", you'd realise that they have quite a **large** size and they are definitely **not cheap.** You can find some information [here](https://spectrum.ieee.org/tech-talk/semiconductors/devices/how-much-did-early-transistors-cost) for context, but on average in the past it costs about $8 each. They cost about **a billion times** more than they are now, *so your computers that have billions of transistors might cost you a few billion $ in the past (not to mention that it would've been enormous in size too).* 
+* If you Google "triode vacuum tubes", and "electro-mechanical relays" -- or even the "**early transistors**", you'd realise that they have quite a **large** size and they are definitely **not cheap.** You can find some information [here](https://spectrum.ieee.org/tech-talk/semiconductors/devices/how-much-did-early-transistors-cost) for context, but on average in the past it costs about $$8 each. They cost about **a billion times** more than they are now, *so your computers that have billions of transistors might cost you a few billion $$ in the past (not to mention that it would've been enormous in size too).* 
 	> It might be **unimaginable** how big and expensive computers were at first because we are so used to having portable computers -- consisted of billions of **cheap** and *extremely small* transistors (5-7nm) and pretty much "*unlimited*" storage unit (we can always buy external drive, cloud storage, extend our RAM or simply buy computers with terabytes of disk size). But in the past -- life wasn't quite as easy.
 <br/>
 * With this in mind, it makes sense that if someone (in the past) were to make a digital device **from scratch**, he or she has to be *mindful* with the **size and cost of the device**, and therefore has to be mindful with *counting (and probably minimising)* how many **bits** are needed to contain all information and *logic* necessary for the intended device to work.

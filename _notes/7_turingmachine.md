@@ -1,6 +1,6 @@
 ---
 layout: academic
-permalink: /notes/fsm
+permalink: /notes/turingmachine
 title: Week 4 Part 1 - Turing Machine
 description: A more powerful machine than the Finite State Machine
 tags: [combinational, sequential]
@@ -22,7 +22,7 @@ Singapore University of Technology and Design
   
 ## Overview
 
-A Finite State Machine does not keep track of the number of states it *visited*, it is only aware of the current state *it is in*. Therefore it is unable to solve problems like detecting palindrome or checking balanced parenthesis. There is no way to tell whether you have visited a state for the first time, or for the $n^{th}$ time. 
+A Finite State Machine does not keep track of the number of states it *visited*, it is only aware of the current state *it is in*. Therefore it is unable to solve problems like detecting palindrome or checking balanced parenthesis. There is no way to tell whether you have visited a state for the first time, or for the $$n^{th}$$ time. 
 
 > A Finite Automata (FSM), cannot **count**. 
 > 
@@ -40,7 +40,7 @@ A Turing Machine is often represented as an "arrow" and a series of input writte
 
 -  We can write onto the currently pointed location of the tape  (and also read from it).
 
-- Like an FSM, the Turing Machine also has a **specification**, illustrated by the truth table above. Building a Turing Machine with specification $K$ allows it to behave based on $K$ when fed any array of inputs. 
+- Like an FSM, the Turing Machine also has a **specification**, illustrated by the truth table above. Building a Turing Machine with specification $$K$$ allows it to behave based on $$K$$ when fed any array of inputs. 
 
 -  The pointer of the machine (black arrow)  represents our current input read on the tape. 
 
@@ -53,11 +53,11 @@ A Turing Machine is often represented as an "arrow" and a series of input writte
 
 <ins>Turing Machine Operation </ins>:
 
-1.   Referring to the figure above, we know that the start state is $S_0$, and as shown the black arrow is reading an input: $1$ 
+1.   Referring to the figure above, we know that the start state is $$S_0$$, and as shown the black arrow is reading an input: $$1$$ 
 
 2.  Then look at the functional specification table to know where to go next.
 
-	-  From the diagram, our current state is $S_0$ and input is $1$. From the table, this corresponds to the first row -- it tells us that we can write $1$ to the tape,
+	-  From the diagram, our current state is $$S_0$$ and input is $$1$$. From the table, this corresponds to the first row -- it tells us that we can write $$1$$ to the tape,
 	- And then *move the **tape*** to the *right* (or equivalently move the **arrow** to the *left*).
 	- It is important to write first, and then move the tape/arrow, not the other way around. So the sequence at each time step is: *read*-***write***-*move*. 
 
@@ -69,7 +69,7 @@ A Turing Machine is often represented as an "arrow" and a series of input writte
 
 ## Example 1: Implementing an Increment Machine
 
-Consider a machine whose job is to add $1$ to any *arbitrary* length input and present that as the output. An FSM can do this as well if the number of bits of input is **finite**, but it will run into a problem if the input bit is *too* *large*. An example of a 3-bit counter FSM is:
+Consider a machine whose job is to add $$1$$ to any *arbitrary* length input and present that as the output. An FSM can do this as well if the number of bits of input is **finite**, but it will run into a problem if the input bit is *too* *large*. An example of a 3-bit counter FSM is:
 
 <img src="https://dl.dropboxusercontent.com/s/j6p4riuu67t8l6l/fsm_cntr.png?raw=1"  width="60%" height = "60%">
 
@@ -85,7 +85,7 @@ With this sample input, the Turing Machine runs as follows:
 
 
 
-1. At `t=0`: The initial state of the machine is `S_0`, and the machine is currently reading $*$ as an input (beginning of string). According to the first row of the table, it should write back a $*$, and then move the tape to the left.  In fact, the machine keeps moving the tape to the left until the end of the string (+) is found: 
+1. At `t=0`: The initial state of the machine is `S_0`, and the machine is currently reading $$*$$ as an input (beginning of string). According to the first row of the table, it should write back a $$*$$, and then move the tape to the left.  In fact, the machine keeps moving the tape to the left until the end of the string (+) is found: 
 <img src="https://dl.dropboxusercontent.com/s/dnnziq8lk0uukj9/tmi2.png?raw=1"  width="60%" height = "60%">
 4. The machine then starts adding 1, and moving the tape to the right, keeping track of the *carry over* value: 
 <img src="https://dl.dropboxusercontent.com/s/gr4kh2zof2ubwxx/tmi3.png?raw=1"  width="60%" height = "60%">
@@ -139,18 +139,18 @@ As practice, you can try the running the machine using another set of input that
 ## Turing Machine as a Function
 
   
-Given a Turing Machine with a particular specification $K$ (symbolised as $T_K$), and a tape with particular input sequence $x$ (lets shorten it by calling it simply Tape $x$), we can define  $T_K[x]$ as running $T_K$ on tape $x$, 
+Given a Turing Machine with a particular specification $$K$$ (symbolised as $$T_K$$), and a tape with particular input sequence $$x$$ (lets shorten it by calling it simply Tape $$x$$), we can define  $$T_K[x]$$ as running $$T_K$$ on tape $$x$$, 
 
--  We can produce $y = T_K[x]$, where $y$ is the output of a series of binary numbers on that corresponding Tape $x$ after running $T_K$ on $x$. 
+-  We can produce $$y = T_K[x]$$, where $$y$$ is the output of a series of binary numbers on that corresponding Tape $$x$$ after running $$T_K$$ on $$x$$. 
 
--  Running $T_K[x]$ therefore can be seen as calling a *function* that takes in input $x$ and produces output $y$. 
+-  Running $$T_K[x]$$ therefore can be seen as calling a *function* that takes in input $$x$$ and produces output $$y$$. 
 
 Now the question that we need to address is, what kind of functions can Turing Machine compute? Or more generally, *what* can be computed and what *type*(s) of machines can compute them? 
 
 
 ### Church's Thesis and Computable Function
 
-The Church's Thesis states that: **Every discrete function computable by any *realisable* machine is computable by some Turing machine $i$**.
+The Church's Thesis states that: **Every discrete function computable by any *realisable* machine is computable by some Turing machine $$i$$**.
 
 >So what is "computable function"? 
 
@@ -159,12 +159,12 @@ Let's look at some definition: "A function is **computable** if there exists an 
 >What are the inputs to these functions?
 
 In essence, anything *discrete* (integers):
-- A list of numbers $\rightarrow$ can be encoded large integer
-- A list of characters $\rightarrow$ also can be encoded a large integer
-- A matrix of pixels $\rightarrow$ also  can be encoded a large integer 
+- A list of numbers $$\rightarrow$$ can be encoded large integer
+- A list of characters $$\rightarrow$$ also can be encoded a large integer
+- A matrix of pixels $$\rightarrow$$ also  can be encoded a large integer 
 - etc, you get the idea.
 
-Hence whatever inputs $x$ we put at the tape, ultimately we can see them as *a very large integer*.
+Hence whatever inputs $$x$$ we put at the tape, ultimately we can see them as *a very large integer*.
 
 > Can't wrap your head around it? Look up ASCII encoding and try to translate "Hello World" into binary.  You probably will get an output like:
 `01001000 01100101 01101100 01101100 01101111 00100000 01010111 01101111 01110010 01101100 01100100`. Now convert this into decimal, its a very large integer isn't it?
@@ -174,7 +174,7 @@ Hence whatever inputs $x$ we put at the tape, ultimately we can see them as *a v
 
 Any machine, there's so many examples: any machine that help you sort, search, re-order objects, find maximum or minimum (of something), perform mathematical operations (multiply, add, comparisons, etc), the list goes on.
 
-So what Church's Thesis tell us is that there always exist a Turing Machine $i$ that can compute *any function* that is computable by any *realisable* (i.e: able to be achieved or happen, or any mechanical) machine. 
+So what Church's Thesis tell us is that there always exist a Turing Machine $$i$$ that can compute *any function* that is computable by any *realisable* (i.e: able to be achieved or happen, or any mechanical) machine. 
 
 > Then, are there any uncomputable functions?
 
@@ -182,7 +182,7 @@ Just as there are infinitely many computable functions, there are also infinitel
 
 {% raw  %}
 
-One of most famous example of uncomputable function is the **Halting function** $f_H(K,j)$, defined as:
+One of most famous example of uncomputable function is the **Halting function** $$f_H(K,j)$$, defined as:
 
 $$
 \begin{aligned}
@@ -193,48 +193,48 @@ $$
 
 {% endraw %}
 
->In laymen term: the function determines whether Turing Machine that's run with specification $K$ will halt when given a tape containing input $j$. 
+>In laymen term: the function determines whether Turing Machine that's run with specification $$K$$ will halt when given a tape containing input $$j$$. 
 >What is "*halt*"? For example, we can write a program as an input to our machine (computers). 
 >
 >The program: `print("Hello World")` halts, while this program: `while(True): print("Hello World")` does not halt. 
 
-If $f_H(K,j)$ is computable, then there should be a  specification $H$ that can solve this.
+If $$f_H(K,j)$$ is computable, then there should be a  specification $$H$$ that can solve this.
 
-**Lets symbolise a Turing machine with this specification as $T_{H}[K,j]$**. 
+**Lets symbolise a Turing machine with this specification as $$T_{H}[K,j]$$**. 
 
-Now since there's no assumption on what $j$ is, $j$ can be a *machine* (i.e: program) as well. So the function $f_H(K,K)$ should work as well as $f_H(K,j)$. 
+Now since there's no assumption on what $$j$$ is, $$j$$ can be a *machine* (i.e: program) as well. So the function $$f_H(K,K)$$ should work as well as $$f_H(K,j)$$. 
 
-> In laymen term: inputting a machine to another machine is like putting a program as an input to another program. Lots of programs do this: compilers, interpreters, and assemblers all take programs as an input, and turn it into some other program. Remember, $T_K$ is basically a Turing machine with specification $K$. We can have a Turing machine that runs with specification $K$ with input **that is its own specification** (instead of another input string $j$, symbolised as $T_K[K]$. 
+> In laymen term: inputting a machine to another machine is like putting a program as an input to another program. Lots of programs do this: compilers, interpreters, and assemblers all take programs as an input, and turn it into some other program. Remember, $$T_K$$ is basically a Turing machine with specification $$K$$. We can have a Turing machine that runs with specification $$K$$ with input **that is its own specification** (instead of another input string $$j$$, symbolised as $$T_K[K]$$. 
 
-With this new information (and assumption that $f_H(K,j)$ is computable), lets define another specification $H'$ that implements this function:
+With this new information (and assumption that $$f_H(K,j)$$ is computable), lets define another specification $$H'$$ that implements this function:
 
 $$\begin{aligned}
 f_{H'}(K) = f_{H}(K, K) = &1 \text{ if } T_K[K] \text{ halts}\\
 &0 \text{ otherwise}
 \end{aligned}$$
 
-**Lets symbolise a Turing machine with this specification as $T_{H'}[K]$ (there's no more $j$).** 
+**Lets symbolise a Turing machine with this specification as $$T_{H'}[K]$$ (there's no more $$j$$).** 
 
 
-Finally, if we assume that $f_{H'}(K)$ is computable, then we can define another specification  $M$ that implements the following function: 
+Finally, if we assume that $$f_{H'}(K)$$ is computable, then we can define another specification  $$M$$ that implements the following function: 
 
 $$\begin{aligned}
 f_M(K) = &\text{loops forever} \text{ if } (f_{H'}(K)== 1) \\
 &halts \text{ otherwise}
 \end{aligned}$$
 
-**A Turing machine running with specification M is symbolised as $T_M[K]$.**
+**A Turing machine running with specification M is symbolised as $$T_M[K]$$.**
 
 >We have so many symbols now, let's do some recap:
->*  $K$ is an arbitrary Turing Machine specification, $T_K$ is a machine built with this specification. 
->* $j$ is an arbitrary input
->* $H$ is the specification that "solves" the halting function: $f_H(K,j)$. $T_H$ is a machine built with this specification.  
->* $H'$ is the specification that "solves" a special case of halting problem: $f_{H}(K,K)$,  i,e: when $T_K$ is fed $K$ as input (instead of $j$). $T_{H'}$ is a machine built with this specification. 
->* $M$ is the specification that tells the machine running it to loop if $f_{H'}$ returns 1, and halts otherwise. $T_{M}$ is a machine built with this specification. 
+>*  $$K$$ is an arbitrary Turing Machine specification, $$T_K$$ is a machine built with this specification. 
+>* $$j$$ is an arbitrary input
+>* $$H$$ is the specification that "solves" the halting function: $$f_H(K,j)$$. $$T_H$$ is a machine built with this specification.  
+>* $$H'$$ is the specification that "solves" a special case of halting problem: $$f_{H}(K,K)$$,  i,e: when $$T_K$$ is fed $$K$$ as input (instead of $$j$$). $$T_{H'}$$ is a machine built with this specification. 
+>* $$M$$ is the specification that tells the machine running it to loop if $$f_{H'}$$ returns 1, and halts otherwise. $$T_{M}$$ is a machine built with this specification. 
 
-> In summary terms: $T_M$ loops if $T_K[K]$ halts (hence the output of $T_{H'}[K]$ is 1), and vice versa. 
+> In summary terms: $$T_M$$ loops if $$T_K[K]$$ halts (hence the output of $$T_{H'}[K]$$ is 1), and vice versa. 
 
-Now since $K$ is an arbitrary specification, we can make $K=M$, and fed the function $f_M$ with itself:
+Now since $$K$$ is an arbitrary specification, we can make $$K=M$$, and fed the function $$f_M$$ with itself:
 
 $$\begin{aligned}
 f_M(M) = &\text{loops forever} \text{ if } (f_{H'}(M)== 1) \\
@@ -243,19 +243,19 @@ f_M(M) = &\text{loops forever} \text{ if } (f_{H'}(M)== 1) \\
 
 >Don't worry, we are almost at the end of our proof.
 >
-Running $T_M[M]$ will call these **chain of events.** We explain it in terms of "function calls" instead of Turing machine running (although they are equivalent) because it may be easier to understand:
-1. When we call $f_M(M)$ (running $T_M[M]$), it needs to call $f_{H'}(M)$ (run $T_{H'}[M]$)  because it depends on the latter's output 
-2.  $f_{H'}(M)$  depends on $f_H(M,M)$: the original halting function that outputs 1 if $T_M[M]$ halts, and 0 otherwise.
-3. That means, we need to call $f_H(M, M)$ to find out its output, so that $f_{H'}(M)$  can return. 
-4. Calling $f_H(M, M)$ requires us to run a Turing Machine with specification $M$ on input $M$ (run $T_M[M]$ for another time), identical with what we did in step (1) above (just like recursive function call here). 
+Running $$T_M[M]$$ will call these **chain of events.** We explain it in terms of "function calls" instead of Turing machine running (although they are equivalent) because it may be easier to understand:
+1. When we call $$f_M(M)$$ (running $$T_M[M]$$), it needs to call $$f_{H'}(M)$$ (run $$T_{H'}[M]$$)  because it depends on the latter's output 
+2.  $$f_{H'}(M)$$  depends on $$f_H(M,M)$$: the original halting function that outputs 1 if $$T_M[M]$$ halts, and 0 otherwise.
+3. That means, we need to call $$f_H(M, M)$$ to find out its output, so that $$f_{H'}(M)$$  can return. 
+4. Calling $$f_H(M, M)$$ requires us to run a Turing Machine with specification $$M$$ on input $$M$$ (run $$T_M[M]$$ for another time), identical with what we did in step (1) above (just like recursive function call here). 
 
 Now here is the contradiction: 
-* If the  running of $T_M[M]$ from step (4) **halts**, then it will cause $T_{H′}​[M]$ to return $1$. If $T_{H′}​[M]$ returns 1, then the running of $T_M[M]$ from step (1) **loops forever.** 
-* But, if the  running of $T_M[M]$ from step (4) **loops forever**, then it will cause $T_{H′}​[M]$ to return $0$. If $T_{H′}​[M]$ returns 0, then the running of $T_M[M]$ from step (1) **halts.**
+* If the  running of $$T_M[M]$$ from step (4) **halts**, then it will cause $$T_{H′}​[M]$$ to return $$1$$. If $$T_{H′}​[M]$$ returns 1, then the running of $$T_M[M]$$ from step (1) **loops forever.** 
+* But, if the  running of $$T_M[M]$$ from step (4) **loops forever**, then it will cause $$T_{H′}​[M]$$ to return $$0$$. If $$T_{H′}​[M]$$ returns 0, then the running of $$T_M[M]$$ from step (1) **halts.**
 
 **Neither can happen.**  
 
-Therefore, specification $M$ does not exist and it is not realisable. And by extension, everything falls apart: specification $H'$ and $H$ do not exist either. This means that $f_H(K,j)$ **is not computable.** 
+Therefore, specification $$M$$ does not exist and it is not realisable. And by extension, everything falls apart: specification $$H'$$ and $$H$$ do not exist either. This means that $$f_H(K,j)$$ **is not computable.** 
 
 ### Universal Function
 
@@ -263,11 +263,11 @@ The universal function is defined as:
 
 $$ f_{U}(K,j) = T_K[j]$$ 
 
-Let's say we can write a specification $U$ that realises this function. 
+Let's say we can write a specification $$U$$ that realises this function. 
 
-This means that a Turing Machine that runs $U$ is a Turing machine that is capable of ***simulating* an arbitrary Turing machine on arbitrary input**. This is called a **Universal Turing Machine**.
+This means that a Turing Machine that runs $$U$$ is a Turing machine that is capable of ***simulating* an arbitrary Turing machine on arbitrary input**. This is called a **Universal Turing Machine**.
 
-The universal machine essentially achieves this by reading both the specification of the machine $K$ that we are going to **simulate** as well as the input $j$ to that machine from its own tape.
+The universal machine essentially achieves this by reading both the specification of the machine $$K$$ that we are going to **simulate** as well as the input $$j$$ to that machine from its own tape.
 
 > A more familiar term for this "specification" is simply a *program*.
 
@@ -277,18 +277,18 @@ The universal function is a model of general purpose computer. **Our computers a
 
 Summary:
 
-1.  Back to the notion of universal function $U$ above,  it has two inputs $K$, and $j$. Let's build a Turing machine with this specification, and symbolise it as $T_U(K, j)$. 
+1.  Back to the notion of universal function $$U$$ above,  it has two inputs $$K$$, and $$j$$. Let's build a Turing machine with this specification, and symbolise it as $$T_U(K, j)$$. 
 
-2. The "specification" $K$ is basically a **program** that specifies which computable functions we want to simulate.  
+2. The "specification" $$K$$ is basically a **program** that specifies which computable functions we want to simulate.  
 
-3.  $j$, is the data tape $T_K$ is going supposed to read.
-4. We can create  a Turing Machine $K$ to run on input $j$: $T_K[j]$, but of course **this machine $T_K$ can only perform function $K$.** 
+3.  $$j$$, is the data tape $$T_K$$ is going supposed to read.
+4. We can create  a Turing Machine $$K$$ to run on input $$j$$: $$T_K[j]$$, but of course **this machine $$T_K$$ can only perform function $$K$$.** 
 
-5.  Meanwhile, $T_U$: our universal machine, interprets the data, $K$ and $j$  is **capable of emulating the behavior of  $T_K[j]$** (without having to build $T_K$). 
+5.  Meanwhile, $$T_U$$: our universal machine, interprets the data, $$K$$ and $$j$$  is **capable of emulating the behavior of  $$T_K[j]$$** (without having to build $$T_K$$). 
 
-6. Therefore with $T_U$, we no longer need to make any other Turing Machine $T_K$ that can only compute function $K$**, because $T_U$ can emulate the behavior of any Turing Machines**
+6. Therefore with $$T_U$$, we no longer need to make any other Turing Machine $$T_K$$ that can only compute function $$K$$**, because $$T_U$$ can emulate the behavior of any Turing Machines**
 
-The closest actual realisation of $T_U$ is basically our general purpose computer. It can run programs and perform it just as intended.  We can simply write any new program $K$, and execute it on $T_U$ using some input $j$. 
+The closest actual realisation of $$T_U$$ is basically our general purpose computer. It can run programs and perform it just as intended.  We can simply write any new program $$K$$, and execute it on $$T_U$$ using some input $$j$$. 
 
 We no longer need different machines to: watch TV shows, listen to music, and chat with our friends. We just need our computer to do all the three different tasks.
 
@@ -300,14 +300,14 @@ Well, technically, our computers have *a very long tape* (i.e: its memory), wher
 
 ## Summary: The Computer Science Revolution
 
-Imagine the hassle and inconvenience if we need to build a different physical machine $T_M$ each time we need to compute a new function $f_M$. 
+Imagine the hassle and inconvenience if we need to build a different physical machine $$T_M$$ each time we need to compute a new function $$f_M$$. 
 
 For example, suppose we want to make a **physical machine** that can perform **sorting** where it receives an array of integer as an input. 
 
 We probably need other "simpler" (physical) machines that can perform comparison, addition, shifting, etc because all these parts are required to do the former tasks. This is very complex to do as we have many things to consider:
 * How do we connect these machines together? Do we solder thousands of wires manually?
 * How big or heavy, or costly is this final machine going to be?
-* If we need to add or compare $N$ terms together, how many "adder" machines do we need? Can we reuse them? Or do we order $N$ duplicates of these physical adder machine? 
+* If we need to add or compare $$N$$ terms together, how many "adder" machines do we need? Can we reuse them? Or do we order $$N$$ duplicates of these physical adder machine? 
 
 In order to be efficient, we need to replace each of these hardwares with a *coded description* of that piece of hardware (i.e: a software), then its easy to cut, change, mix, and modify them around. Writing a merge-sort algorithm is so much easier (instead of building a physical machine that can perform sorting). Also, programs can easily receive another program as input and output other programs. 
 
@@ -323,7 +323,7 @@ The concept of a universal Turing Machine is an *ideal abstraction*, since we ca
 >We can only create a very long "tape" such that it appears "infinite" to some extent. 
 
 If we manage to create a physical manifestation of Universal Turing Machine, we need to ensure that this machine is **programmable**. This can be achieved by designing an **instruction set** so that we can write "programs" / "algorithms" *using these instruction set*.
-> Hence allowing it to emulate the behavior of whatever machine $k$ when running the program with its corresponding input $j$ on this machine. 
+> Hence allowing it to emulate the behavior of whatever machine $$k$$ when running the program with its corresponding input $$j$$ on this machine. 
 
 An instruction set is a set of standard *basic* commands that we can use as **building blocks** so that we can write a bigger programs that will cause the machine running it to emulate complex tasks. 
 

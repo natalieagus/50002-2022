@@ -34,31 +34,31 @@ In this document, we will begin by understanding what does it mean to simply cre
  
 
 ## An Example of a Basic Programmable Control System
-Suppose we have a simple sequential logic circuit called Machine $M$ as shown below. It receives **one** $N$ bit *input*, and produces **two** output: $N$ bit `output1` and  1 bit `output2`.   Formally, we call this "circuit" a datapath. A **datapath** is a collection of functional units made up of combinational devices, registers, and buses. 
+Suppose we have a simple sequential logic circuit called Machine $$M$$ as shown below. It receives **one** $$N$$ bit *input*, and produces **two** output: $$N$$ bit `output1` and  1 bit `output2`.   Formally, we call this "circuit" a datapath. A **datapath** is a collection of functional units made up of combinational devices, registers, and buses. 
 
 <img src="https://dl.dropboxusercontent.com/s/yt5vj66b71tfkmn/A.png?raw=1"  width="60%" height = "60%">
 
-> Note that since the machine receives $N$ bit inputs, it means that there are $N$ **units** of each 2-to-1 multiplexers *in parallel*, as shown:
+> Note that since the machine receives $$N$$ bit inputs, it means that there are $$N$$ **units** of each 2-to-1 multiplexers *in parallel*, as shown:
 > <br><img src="https://dl.dropboxusercontent.com/s/js10ymfd5shqxbp/mux_n.png?raw=1" width="50%" height="50%"><br>
 > The registers also are actually N 1-bit registers:
 > <br><img src="https://dl.dropboxusercontent.com/s/spox2rzjii4b735/regsN.png?raw=1" width="50%" height="50%"><br>
-> In diagrams, they are only drawn once, but you can differentiate between a single wire (that carries 1-bit of information) with a bunch of wires that carry $>1$ bits of information by the "/" symbol. 
+> In diagrams, they are only drawn once, but you can differentiate between a single wire (that carries 1-bit of information) with a bunch of wires that carry $$>1$$ bits of information by the "/" symbol. 
 
-In this example, Machine $M$ also has four control signals, symbolised as $\text{A}_{\text{SEL}}$, $\text{B}_{\text{SEL}}$, $\text{A}_{\text{LE}}$, and $\text{B}_{\text{LE}}$. These four control signals are dictated by a **control FSM unit** shown below, meaning that these four signals will vary accordingly at each time step, hence changing the *behaviour* of the circuit above when we need it: 
+In this example, Machine $$M$$ also has four control signals, symbolised as $$\text{A}_{\text{SEL}}$$, $$\text{B}_{\text{SEL}}$$, $$\text{A}_{\text{LE}}$$, and $$\text{B}_{\text{LE}}$$. These four control signals are dictated by a **control FSM unit** shown below, meaning that these four signals will vary accordingly at each time step, hence changing the *behaviour* of the circuit above when we need it: 
 <br><img src="https://dl.dropboxusercontent.com/s/zshb59hefekv1nr/cfsm.png?raw=1"  width="40%" height = "40%">
 
-Other notable components of $M$:
+Other notable components of $$M$$:
 * A decrement unit symbolised as `-1`
 * Computation of  `z = (input == 0) ? 1 : 0`
 * A multiplier unit symbolised as `*`
 
 In other words, we **can control the processing of inputs at each time-step** (clock cycle) with a (plugged in) Control FSM unit. 
 
-If we can load another Control FSM unit that also produces these four signals but in different sequences, then we allow machine $M$ to be *programmable*. The complete circuit after plugging in a Control FSM unit is as shown: 
+If we can load another Control FSM unit that also produces these four signals but in different sequences, then we allow machine $$M$$ to be *programmable*. The complete circuit after plugging in a Control FSM unit is as shown: 
 
 <img src="https://dl.dropboxusercontent.com/s/k9m89zfzb7aqopj/B.png?raw=1"  width="60%" height = "60%">
 
-For example, let's say we have Control FSM unit type $A$ that has the following functional specifications (its starting state is $S_0$):
+For example, let's say we have Control FSM unit type $$A$$ that has the following functional specifications (its starting state is $$S_0$$):
 
 $$\begin{matrix}
 S_i & S_{i+1} & A_{SEL} & A_{LE} & B_{SEL} & B_{LE}\\
@@ -70,17 +70,17 @@ S_3 & S_3 & 0 & 0 & 0 & 0\\
 \hline
 \end{matrix}$$
 
-> This specification allows Machine $M$ to be able to compute $\text{Input}\times(\text{Input}-1)$ at the $4^{th}$ clock cycle *(counted from the moment stable input is fed -- assuming this is the first cycle t=0)*. The answer will be ready at the `output1` port at t=3 later after feeding in the input to the machine. 
+> This specification allows Machine $$M$$ to be able to compute $$\text{Input}\times(\text{Input}-1)$$ at the $$4^{th}$$ clock cycle *(counted from the moment stable input is fed -- assuming this is the first cycle t=0)*. The answer will be ready at the `output1` port at t=3 later after feeding in the input to the machine. 
 
-> Take some time to **analyse** the datapath by running it with some small input value, e.g: Let $N=6$ and Input = $5$ = `000101` (in 6 bits). 
-> So for example, at $t=0$ we know that Input $=5$ and $S_{t=0} = S_0$. 
+> Take some time to **analyse** the datapath by running it with some small input value, e.g: Let $$N=6$$ and Input = $$5$$ = `000101` (in 6 bits). 
+> So for example, at $$t=0$$ we know that Input $$=5$$ and $$S_{t=0} = S_0$$. 
 > Ask yourself:
-> - What is the value of "Output 1" and  $S_{t=1}$ at $t=1$? 
-> - Has "Output 1" contained the answer at $t=1$?
-> - What about at $t=2$? 
-> - Confirm at which timestep $t$ will we have the correct value of $\text{Input}\times(\text{Input}-1) = 5\times 4 =20$ =`010100` at "Output 1" port? 
+> - What is the value of "Output 1" and  $$S_{t=1}$$ at $$t=1$$? 
+> - Has "Output 1" contained the answer at $$t=1$$?
+> - What about at $$t=2$$? 
+> - Confirm at which timestep $$t$$ will we have the correct value of $$\text{Input}\times(\text{Input}-1) = 5\times 4 =20$$ =`010100` at "Output 1" port? 
 
-Now let's say we have another control FSM unit $B$ that has the following functional specifications (*Note: "$-\-$" means "does not matter"*, and its starting state is also $S_0$):
+Now let's say we have another control FSM unit $$B$$ that has the following functional specifications (*Note: "$$-\-$$" means "does not matter"*, and its starting state is also $$S_0$$):
 
 $$\begin{matrix}
 Z & S_i & S_{i+1} & A_{SEL} & A_{LE} & B_{SEL} & B_{LE}\\
@@ -92,11 +92,11 @@ Z & S_i & S_{i+1} & A_{SEL} & A_{LE} & B_{SEL} & B_{LE}\\
 \hline
 \end{matrix}$$
 
->This specification allows Machine $M$ to be able to compute $\text{Input}$ factorial and produce it at the "Output 1" port on after *certain* time steps. Similarly, take some time to *analyse* the  datapath by running it with some small input value, e.g: Let $N=2$ and Input $=3$  =  `11` (in 2 bits), and find out how long it takes to produce the correct output: $3! = 3\times 2 =6$.
+>This specification allows Machine $$M$$ to be able to compute $$\text{Input}$$ factorial and produce it at the "Output 1" port on after *certain* time steps. Similarly, take some time to *analyse* the  datapath by running it with some small input value, e.g: Let $$N=2$$ and Input $$=3$$  =  `11` (in 2 bits), and find out how long it takes to produce the correct output: $$3! = 3\times 2 =6$$.
 
-**The programmability feature of machine $M$ allows us to reuse datapaths to solve new problems.** However machine $M$ cannot be called a general purpose computer because:
-* It has very limited storage: it can only read input of $N$ bits, whatever that is being fed in. 
-* It has a tiny repertoire of operations: $\text{Input}$ factorial and $\text{Input}\times(\text{Input}-1)$. 
+**The programmability feature of machine $$M$$ allows us to reuse datapaths to solve new problems.** However machine $$M$$ cannot be called a general purpose computer because:
+* It has very limited storage: it can only read input of $$N$$ bits, whatever that is being fed in. 
+* It has a tiny repertoire of operations: $$\text{Input}$$ factorial and $$\text{Input}\times(\text{Input}-1)$$. 
 * It is unable to generate a new program and execute it. We need to replace the entire Control FSM unit for it to be able to be "reprogrammed". In other words, theres *no basic instruction set* that can be used as building blocks to create a more complex programs to control it.  
 
 Now it is clear that what we need to do to create a general-purpose computer is to:
@@ -156,13 +156,13 @@ The CPU is able to *read* **and** *write* bits of data to and from a memory unit
 
 <span style="background-color:yellow">  The "*data*" that is stored in this expandable resource pool  is not just simply **inputs**, i.e: images, videos, documents, etc,  but **also instructions** that make up a *program*. This is where your instruction resides when it is *about* to be **executed** by the CPU. </span>
 
-Since the memory unit can **store** a huge amount of data (in Gigabytes), the CPU must be able to *read* just a particular $N$ bits of relevant data from the memory unit. It is able to do this by giving an **address** as an input to the memory unit. The memory unit **receives this address** and output the data stored at the given address. To *write* onto the memory unit, the CPU must provide two inputs: the **address** where this $N$ bits of data should be stored, and the data itself. 
+Since the memory unit can **store** a huge amount of data (in Gigabytes), the CPU must be able to *read* just a particular $$N$$ bits of relevant data from the memory unit. It is able to do this by giving an **address** as an input to the memory unit. The memory unit **receives this address** and output the data stored at the given address. To *write* onto the memory unit, the CPU must provide two inputs: the **address** where this $$N$$ bits of data should be stored, and the data itself. 
 
-We will learn more about the anatomy of the memory unit, but for now we can think of it as a device that can store a huge amount of data, separated into addressable segments that can hold $N$ bit of data each, as shown in the figure below. It generally receives three kinds of input, 1-bit WE signal (write enable), address, and data input (bit size varies, depending on how much data can the memory holds). 
+We will learn more about the anatomy of the memory unit, but for now we can think of it as a device that can store a huge amount of data, separated into addressable segments that can hold $$N$$ bit of data each, as shown in the figure below. It generally receives three kinds of input, 1-bit WE signal (write enable), address, and data input (bit size varies, depending on how much data can the memory holds). 
 
 > Think of a memory unit as similar to a storage facility that has a large amount of storage units. Each unit has the same volume, and it can store a bunch of objects in it. People usually can rent these units to place their belongings. 
 
->If we rent such unit, we are typically given an *address* -- some kind of index to identify the unit that is ours. The $N$-bit data is the "object" that we put in a storage unit (addressable segment), and the *memory address* is the identifier of the storage unit location where the data is held.
+>If we rent such unit, we are typically given an *address* -- some kind of index to identify the unit that is ours. The $$N$$-bit data is the "object" that we put in a storage unit (addressable segment), and the *memory address* is the identifier of the storage unit location where the data is held.
 
 
 <img src="https://dl.dropboxusercontent.com/s/42f2xrubviwc5oj/ramaddr.png?raw=1"  width="100%" height = "100%">
@@ -179,18 +179,18 @@ We will learn more about the anatomy of the memory unit, but for now we can thin
 
 * In each *row* (series of 4 segments), lower addresses are written on the right, and higher addresses on the left (hence address 0 is given for the most upper right segment and so on). 
 
-* Each *row* contains $4\times8$ bits in total $=32$ bits. 
+* Each *row* contains $$4\times8$$ bits in total $$=32$$ bits. 
 
-* A memory unit typically receives $N$ bits of data input. Similarly, it typically outputs $N$ bits of data at a time, where $N=32$ or $N=64$. **In this course, we will learn a 32-bit toy architecture (called the $\beta$) and therefore we will always $N=32$.** 
+* A memory unit typically receives $$N$$ bits of data input. Similarly, it typically outputs $$N$$ bits of data at a time, where $$N=32$$ or $$N=64$$. **In this course, we will learn a 32-bit toy architecture (called the $$\beta$$) and therefore we will always $$N=32$$.** 
 	> Therefore we will illustrate the memory unit to always have four 8-bit segments per row in this course -- because it receives input or produce output in chunks of 32-bit data at time. 
 
-	Modern computers in 2020 typically adopt the $64$ bit architecture (so we have *64-bit words* for these architecture) . 
+	Modern computers in 2020 typically adopt the $$64$$ bit architecture (so we have *64-bit words* for these architecture) . 
 * The number of bits that can be received in ADDR input port is either **fixed** **(also 32 bits for this course)** or **depends on how many bits** are needed to address all the segments in the memory unit. 
-	> For example, if we have a memory unit of size $128$ KB = $128 \times 1024 = 131072$ bytes, we need **at least** $\log_2(131072) = 17$ address bits. It is alright to receive more address bits. 
+	> For example, if we have a memory unit of size $$128$$ KB = $$128 \times 1024 = 131072$$ bytes, we need **at least** $$\log_2(131072) = 17$$ address bits. It is alright to receive more address bits. 
 	>
-	>What is the maximum memory unit size that we can have with $32$ address bits? 
+	>What is the maximum memory unit size that we can have with $$32$$ address bits? 
 
-* In the figure above, each *row* contains $4\times8$ bits in total $=32$ bits. We call a block of `32` bits as a **word.** Since the memory unit is byte addressable, a 32-bit word has *four* addresses. **By convention, we select the smallest of the four addresses to be the overall address of the word**.  
+* In the figure above, each *row* contains $$4\times8$$ bits in total $$=32$$ bits. We call a block of `32` bits as a **word.** Since the memory unit is byte addressable, a 32-bit word has *four* addresses. **By convention, we select the smallest of the four addresses to be the overall address of the word**.  
 	* So for example in the figure above, the first *word* (in the first row), has address `0x0000`.
 	* The subsequent *word* in the second row has address `0x0004`, and so on. 
 	* **Each subsequent word has their addresses increased by 4**.  
@@ -214,11 +214,11 @@ We can clearly see how electronic devices that are designed based on this model 
 > **Trial by simulation** is our best technique for making choices.  
 >
 
-In this course, we will learn the $\beta$ **instruction set** -- an **instruction set architecture** (ISA), a CPU ***blueprint*** that defines an *abstract* model of  a general-purpose computer. It specifies many crucial information that describes how a CPU should work, such as what instructions the CPU can process, how it interacts with the memory unit, the basic CPU components, instruction formats, and many more.  
+In this course, we will learn the $$\beta$$ **instruction set** -- an **instruction set architecture** (ISA), a CPU ***blueprint*** that defines an *abstract* model of  a general-purpose computer. It specifies many crucial information that describes how a CPU should work, such as what instructions the CPU can process, how it interacts with the memory unit, the basic CPU components, instruction formats, and many more.  
 
-Its **implementation**: the $\beta$ **CPU**, is a 32-bit Von Neumann-based toy CPU created by MIT as a teaching tool to introduce students to *programmable datapaths* and *instruction sets*, among all others. We can write any algorithm using a mixture of $\beta$ instructions. The CPU can emulate any machine behaviour that we want by executing it. 
+Its **implementation**: the $$\beta$$ **CPU**, is a 32-bit Von Neumann-based toy CPU created by MIT as a teaching tool to introduce students to *programmable datapaths* and *instruction sets*, among all others. We can write any algorithm using a mixture of $$\beta$$ instructions. The CPU can emulate any machine behaviour that we want by executing it. 
 
-Modern ISAs (e.g: ARM, x86) and its corresponding CPU architecture is certainly much more complex than the $\beta$, however the $\beta$ is more than sufficient for us to understand and appreciate the basic concepts of programmable datapath and instruction sets. Some notable ISA in the past are [6502](https://www.masswerk.at/6502/6502_instruction_set.html), [AVR](http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf), and [32-bit x86](http://www.cs.virginia.edu/~evans/cs216/guides/x86.html). 
+Modern ISAs (e.g: ARM, x86) and its corresponding CPU architecture is certainly much more complex than the $$\beta$$, however the $$\beta$$ is more than sufficient for us to understand and appreciate the basic concepts of programmable datapath and instruction sets. Some notable ISA in the past are [6502](https://www.masswerk.at/6502/6502_instruction_set.html), [AVR](http://ww1.microchip.com/downloads/en/devicedoc/atmel-0856-avr-instruction-set-manual.pdf), and [32-bit x86](http://www.cs.virginia.edu/~evans/cs216/guides/x86.html). 
 
 
 
@@ -228,12 +228,12 @@ Recall that in order for a machine to be **programmable** (used for general purp
 
 Beside defining the machine's operation types, the ISA should also define the supported data types, the *registers* (How many internal registers are there? How to address them? etc), and various other fundamental features such as addressing mode, input and output, and many more.  
 
-Let's dive in to the $\beta$ ISA right away.   
+Let's dive in to the $$\beta$$ ISA right away.   
 
 
-### $\beta$ ISA Format
+### $$\beta$$ ISA Format
 
-Each instruction that the $\beta$ supports is written in a **specific encoding.** There are in total of 32 disctinct operations/instructions that the $\beta$ should be able to execute, each having its own operation encoding (`OPCODE`). 
+Each instruction that the $$\beta$$ supports is written in a **specific encoding.** There are in total of 32 disctinct operations/instructions that the $$\beta$$ should be able to execute, each having its own operation encoding (`OPCODE`). 
 
 
 >The complete documentation on each instruction in detail can be found [here](https://dl.dropboxusercontent.com/s/2hzbawz9v51g6fu/beta_documentation.pdf?dl=0).  
@@ -243,8 +243,8 @@ All instructions have the same characteristics:
 * Only **one instruction** is executed in each clock cycle. Each
 instruction is considered **atomic** and is presumed to **complete** *before* the next instruction is executed. 
 
-### $\beta$ Machine Model
-The $\beta$ is a **general-purpose** 32-bit architecture. All registers are 32 bits wide. There are 33 registers in total (in the entire CPU):
+### $$\beta$$ Machine Model
+The $$\beta$$ is a **general-purpose** 32-bit architecture. All registers are 32 bits wide. There are 33 registers in total (in the entire CPU):
 * The PC register: contain the *address* of the **instruction** that's supposed to be **executed** by the CPU.
 	* When loaded with an *address*, it can point to any location in the *byte-addressed* memory. 
 	* The memory unit returns the instruction (32-bit data) stored at this *address* for the CPU to decode and execute. 
@@ -263,13 +263,13 @@ Note that :
 * **Conditional branch instructions** (BEQ and BNE) are *separated* from comparison instructions (CMPLE, CMPLT, CMPEQ). 
 	> Branch instructions test the value of a register that can be the result of a previous compare instruction.
 
-### $\beta$ Instruction Encoding 
+### $$\beta$$ Instruction Encoding 
 
 There are **only two types** of instruction encoding: Without Literal (Type 1) and With Literal (Type 2). All integer manipulation is between registers, with **up to two** source operands (one may be a sign-extended 16-bit literal), and **one destination** register.
 - **Instructions *without* literals** (Type 1) include arithmetic and logical operations between two registers whose result is placed in a third register.
 - **Instructions with literals** (Type 2) include all other operations and instruction literals is represented in two's complement.
 
-The figure below shows the two types of $\beta$ instruction encoding:
+The figure below shows the two types of $$\beta$$ instruction encoding:
 
  <img src="https://dl.dropboxusercontent.com/s/6sij3diwmtxs7q3/S4.png?raw=1"  width="100%" height = "100%">
 
@@ -288,37 +288,37 @@ The 32-bit instruction `I` is segmented to various sections:
 	- `Ra` contains the source data. 
 	- `c` is a 16-bit signed constant or literal. 
 
->The reason for this Type 2  instruction is that some operations require a constant instead. For examplem we want to add the *content* of register `Ra` with a constant `c` $= 4$ instead. Then we can encode `c=0000 0000 0000 0100` as the last 16 bits of the instruction. 
+>The reason for this Type 2  instruction is that some operations require a constant instead. For examplem we want to add the *content* of register `Ra` with a constant `c` $$= 4$$ instead. Then we can encode `c=0000 0000 0000 0100` as the last 16 bits of the instruction. 
   
 
 
 **Example 1:**
--  Suppose we have following 32-bit instruction: $I=$`110000 00011 00001 1111111111111101`
-- Refer to the $\beta$ documentation, and we can find that first 6 bits corresponds to the `OPCODE: ADDC`  (Type 2)
+-  Suppose we have following 32-bit instruction: $$I=$$`110000 00011 00001 1111111111111101`
+- Refer to the $$\beta$$ documentation, and we can find that first 6 bits corresponds to the `OPCODE: ADDC`  (Type 2)
 - Segment the instructions: `Rc =  I[25:21] = 3`, `Ra = I[20:16] = 1`, and `c = -3`. 
-- Refer to the $\beta$ documentation to find out what ADDC does:
+- Refer to the $$\beta$$ documentation to find out what ADDC does:
 	- To add the content of Register `R1` with `c = -3`
 	- And store it in Register `R3`
 	- Increase the content of PC by 4
 	- In register sign language:
-		- `PC` $\leftarrow$ `PC+4`
-		- `Reg[Rc]` $\leftarrow$ `Reg[Ra]`  + `SEXT[c]`
+		- `PC` $$\leftarrow$$ `PC+4`
+		- `Reg[Rc]` $$\leftarrow$$ `Reg[Ra]`  + `SEXT[c]`
 		> Since `c` is 16 bits, it has to be sign-extended (`SEXT`) to be 32 bits before added with the content of `Ra`. `Reg` refers to the REGFILE and `Reg[Rx]`  means the *content* of register addressed as `Rx` in the REGFILE. We end up with `c=0xFFFFFFFD`.
 
  **Example 2:**
- -	Now suppose we have the following 32-bit instruction: $I=$`011001 01001 00011 0000000000001000` 
- -	Refer to the $\beta$ documentation, and we can find that first 6 bits corresponds to the `OPCODE: ST`  (Type 2)
+ -	Now suppose we have the following 32-bit instruction: $$I=$$`011001 01001 00011 0000000000001000` 
+ -	Refer to the $$\beta$$ documentation, and we can find that first 6 bits corresponds to the `OPCODE: ST`  (Type 2)
 - Segment the instructions: `Rc = I[25:21] = 9`, `Ra = I[20:16] = 3`, and `c = 8`. 
-- Refer to the $\beta$ documentation to find out what ST does:
+- Refer to the $$\beta$$ documentation to find out what ST does:
 	- To store the content of `Rc` to the memory unit
 	- In address: content of `Ra` + `c`
 	- 	In register sign language:
-		- `PC` $\leftarrow$ `PC+4`
-		- `EA` $\leftarrow$ `Reg[Ra]`  + `SEXT[c]`
-		- `Mem[EA]` $\leftarrow$ `Reg[Rc]`
+		- `PC` $$\leftarrow$$ `PC+4`
+		- `EA` $$\leftarrow$$ `Reg[Ra]`  + `SEXT[c]`
+		- `Mem[EA]` $$\leftarrow$$ `Reg[Rc]`
 		> `EA` means effective address. `Mem[EA]` refers to the content of the Memory Unit at address EA. Again `c` is sign extended to form 32 bits: `0x00000008`.
 
-<span style="background-color:yellow">  It is imperative that you read the beta documentation up until page 12, to understand all 32 basic instructions of the $\beta$ machine individually **before proceeding** to the next chapter. </span> In the next few weeks, we will take this knowledge to the next level as you learn how to hand assemble C-language into this low-level machine language. 
+<span style="background-color:yellow">  It is imperative that you read the beta documentation up until page 12, to understand all 32 basic instructions of the $$\beta$$ machine individually **before proceeding** to the next chapter. </span> In the next few weeks, we will take this knowledge to the next level as you learn how to hand assemble C-language into this low-level machine language. 
 
 
 
@@ -336,7 +336,7 @@ int x = 3;
 x = x + 10;
 ```
 
-The compiler (GCC, for example) compiles the code above and translate it into the appropriate assembly language. Suppose we are running it on a $\beta$ machine and that the compiler supports it, the code above will be translated into $\beta$ assembly as an *intermediate* step: 
+The compiler (GCC, for example) compiles the code above and translate it into the appropriate assembly language. Suppose we are running it on a $$\beta$$ machine and that the compiler supports it, the code above will be translated into $$\beta$$ assembly as an *intermediate* step: 
 
 ```cpp
 LDR(x, R0)
@@ -345,7 +345,7 @@ ST(R0, x) | Note this is a "macro" for ST(R0, x, R31). You'll learn "macro" in l
 x : LONG(3)
 ```
 
-Finally, it will be converted into $\beta$ machine language, 32-bit for each line of assembly code. We may know this as an " *executable*", that is a piece of information that is directly "understandable" by the machine without the help of an intemediary translator anymore like a compiler/interpreter, or an assembler:
+Finally, it will be converted into $$\beta$$ machine language, 32-bit for each line of assembly code. We may know this as an " *executable*", that is a piece of information that is directly "understandable" by the machine without the help of an intemediary translator anymore like a compiler/interpreter, or an assembler:
 
 ```cpp
 011111 00000 11111 0000 0000 0000 0010
@@ -364,39 +364,39 @@ Don't worry yet as of now. What we need to know (and get familiar with) is simpl
 
 
 
-## Preview: The $\beta$ CPU
+## Preview: The $$\beta$$ CPU
 
-The $\beta$ CPU falls under the family of RISC (reduced instruction set computing) processor. This type of computer processor possesses a small but highly optimised set of instructions, and are currently used for smartphones and tablet computers, among other devices. 
+The $$\beta$$ CPU falls under the family of RISC (reduced instruction set computing) processor. This type of computer processor possesses a small but highly optimised set of instructions, and are currently used for smartphones and tablet computers, among other devices. 
 
-The full anatomy of the (general-purpose) $\beta$ datapath is shown in the Figure below. Remember that this is an **implementation** of the $\beta$ instruction set architecture (i.e: its abstraction).  This circuitry is therefore able to execute any $\beta$ instruction as intended within a clock cycle. 
+The full anatomy of the (general-purpose) $$\beta$$ datapath is shown in the Figure below. Remember that this is an **implementation** of the $$\beta$$ instruction set architecture (i.e: its abstraction).  This circuitry is therefore able to execute any $$\beta$$ instruction as intended within a clock cycle. 
 
-<span style="background-color:yellow">  The details of the $\beta$ datapath will be explained in the next chapter, so that you have a complete understanding on how the datapath allows the working of each of the 32 instruction sets. </span>
+<span style="background-color:yellow">  The details of the $$\beta$$ datapath will be explained in the next chapter, so that you have a complete understanding on how the datapath allows the working of each of the 32 instruction sets. </span>
 
 <img src="https://dl.dropboxusercontent.com/s/7vn4p9ucsydqu9e/beta.png?raw=1"  width="100%" height = "100%">
 
-As of right now, we just need to understand the *big idea* of  the $\beta$ ISA , and how the $\beta$ CPU realises it: 
+As of right now, we just need to understand the *big idea* of  the $$\beta$$ ISA , and how the $$\beta$$ CPU realises it: 
 1. The **PC (program counter)** is a part of the CPU that in theory, fetch one instruction (set to be 32-bit in length) from the Memory Unit per clock cycle. 
 2. The **`OPCODE`** part of the instruction is processed by the Control Logic unit, and appropriate control signals are produced.
 3. <span style="background-color:yellow">  The *combination* of these **control signals** reprogram the datapath so that we can reuse it to execute different types of instruction. </span>
 4. The other parts of the instruction: `Rb`,  `Ra`, `Rc` or `c`,  tells us which registers in the REGFILE to use for this instruction. 
 5. Step 1-4 are repeated for *each* clock cycle, and each instruction is **atomic**.
 
-The $\beta$ CPU hardware is therefore designed so that it can ***implement*** the $\beta$ ISA, and therefore we can give an actual physical form (of a machine) that is programmable and able to execute each defined $\beta$ instruction correctly as intended.
+The $$\beta$$ CPU hardware is therefore designed so that it can ***implement*** the $$\beta$$ ISA, and therefore we can give an actual physical form (of a machine) that is programmable and able to execute each defined $$\beta$$ instruction correctly as intended.
 
 
 
 ## Summary
-In the beginning of this chapter we were given the programmable Machine $M$, that is capable of computing the simple factorial function. We then proceeded by arguing that Machine $M$ is not enough to be used for a *general* purpose machine, that is to be used as an implementation of a Universal Turing Machine.
+In the beginning of this chapter we were given the programmable Machine $$M$$, that is capable of computing the simple factorial function. We then proceeded by arguing that Machine $$M$$ is not enough to be used for a *general* purpose machine, that is to be used as an implementation of a Universal Turing Machine.
 
 What we need to do to create a general-purpose computer is to:
 * **Design a general purpose data path** (architecture), which can be used to efficiently solve most problems, and
 * **Design a proper instruction set** to allow for easier ways to control it. 
 
- The $\beta$ ISA and its implementation, the $\beta$ CPU fulfils both requirement. If used to execute proper instruction, it should be able to emulate what Machine $M$ is able to do. 
+ The $$\beta$$ ISA and its implementation, the $$\beta$$ CPU fulfils both requirement. If used to execute proper instruction, it should be able to emulate what Machine $$M$$ is able to do. 
 
-> So how do we write the code to do factorial in a way that $\beta$ CPU can execute?  
+> So how do we write the code to do factorial in a way that $$\beta$$ CPU can execute?  
 
-Suppose we have the simple factorial program written in $C$:
+Suppose we have the simple factorial program written in $$C$$:
 > Unlike in Python, in C we cannot write standalone instructions without declaring a function. We will learn function linkage procedure in Week 9. For now to simplify, assume that instructions below are part of some pre-defined function in some .c script. 
 
 ```cpp
@@ -412,7 +412,7 @@ while (r2 != 0){
 ans = r1; 
 ```
 
-This can be (hand) assembled into $\beta$ assembly language: 
+This can be (hand) assembled into $$\beta$$ assembly language: 
 ```cpp
 .include beta.uasm 
 
@@ -433,12 +433,12 @@ n: LONG(9)
 ans: LONG(0)
 ```
 
-Of course then the final step is to convert this into machine language and load it to the Memory Unit, and allow the PC of the $\beta$ machine to execute the first line of instruction (ADDC) . 
+Of course then the final step is to convert this into machine language and load it to the Memory Unit, and allow the PC of the $$\beta$$ machine to execute the first line of instruction (ADDC) . 
 
 > You can actually do this! Open `bsim.jar`, paste the assembly code above and run it. 
 <img src="https://dl.dropboxusercontent.com/s/oo514c8yuq48ies/bsimsample.png?raw=1"  width="80%" height = "80%">
 
-When the machine halts, we should have the answered stored somewhere in the memory unit, thus effectively enabling $\beta$ machine to emulate the ability of Machine $M$ without changing its datapath. 
+When the machine halts, we should have the answered stored somewhere in the memory unit, thus effectively enabling $$\beta$$ machine to emulate the ability of Machine $$M$$ without changing its datapath. 
 
 We will learn more about how to hand assemble and manually execute the code soon. Right now, this is here to give you a *preview* of what is to come in the next few weeks. 
 

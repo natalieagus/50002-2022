@@ -22,8 +22,8 @@ Singapore University of Technology and Design
 ## Overview
 Recall that the ideal behaviors and characteristics of a **combinational logic device** are:
 
-  1.  The device should be able to tolerate some amount of errors due to its *Noise Margins.* The Noise Margin exists if its VTC gain $>1$.
- 2.  If we have **high gain**, that means we can have **more noise margin**.
+1.  The device should be able to tolerate some amount of errors due to its *Noise Margins.* The Noise Margin exists if its VTC gain $$>1$$.
+2.  If we have **high gain**, that means we can have **more noise margin**.
 	 > Take some time to convince yourself that this is true.
 3.  The device should be cheap, and small sized. 
 	> We do not want to have bulky devices, do we?
@@ -55,7 +55,7 @@ Notable parts of  MOSFET and its function:
 
   2.  It has 4 terminals. Input is supplied at the **gate**, and output is obtained at the **drain**.
 
-  3.  The current flow between source and drain $I_{DS}$ is proportional to $\frac{W}{L}$ (the width and the length) of the MOSFET.
+  3.  The current flow between source and drain $$I_{DS}$$ is proportional to $$\frac{W}{L}$$ (the width and the length) of the MOSFET.
 
   4.  Source and drain is physically symmetrical, we name them depending on the type of the MOSFET.
 
@@ -81,7 +81,7 @@ There are two types of FETs: the **NFET** and the **PFET**.
 
 Some terms we need to set straight before we proceed:
 1.  `VDD` : voltage source
-2.  $V_{TH}$: threshold voltage.
+2.  $$V_{TH}$$: threshold voltage.
 3.  `GND` : ground
 4.  *Reverse-biased:* a state whereby D is insulated from S, where current cannot flow from D to S **in the presence of applied voltage**.
 5.  A FET that is  "ON" refers to a state whereby  there exists a connection between D and S, so that current can flow through them.
@@ -106,11 +106,11 @@ See the figure below and its corresponding explanation to understand better how 
 	- Bulk is connected to `GND` to keep the PN junction reverse biased, meaning that no current should flow or leak between source and bulk and between drain and bulk.
 	- S (and also bulk) is connected to `GND` for NFET. Current from D is therefore *drained* to `GND` connected to S.
 	
-2.  It is "**ON**" when $V_{GS} = V_G - V_S$ is **high** enough. Since source terminal is connected to the `GND` for NFET, 
-	- $V_{GS} = V_G - 0 = V_G$, 
-	- the NFET is \"ON\" whenever $V_G$ is high enough, i.e: $> V_{TH}$.
-	- When $V_G > V_{TH}$, it draws the electrons towards the gate. An n-channel (made of electrons) will be formed between source and drain.
-	- Note that $V_{TH}$ for NFET is *positive*.
+2.  It is "**ON**" when $$V_{GS} = V_G - V_S$$ is **high** enough. Since source terminal is connected to the `GND` for NFET, 
+	- $$V_{GS} = V_G - 0 = V_G$$, 
+	- the NFET is \"ON\" whenever $$V_G$$ is high enough, i.e: $$> V_{TH}$$.
+	- When $$V_G > V_{TH}$$, it draws the electrons towards the gate. An n-channel (made of electrons) will be formed between source and drain.
+	- Note that $$V_{TH}$$ for NFET is *positive*.
 3.  When it is \"ON\", current can pass from D to S.
 	- Electrons, its **majority** charge carrier flows from S to D
 		>We can say that its majority charge carrier is drained at D. 
@@ -123,15 +123,15 @@ See the figure below and its corresponding explanation to understand better how 
 
 <img src="https://dl.dropboxusercontent.com/s/u7nuy6cayaik0q7/pfet_t.png?raw=1"  width="50%" height = "50%">	  
 
-1.  The PFET symbol is similar to NFET except that it has the by the  bubble $\circ$.
+1.  The PFET symbol is similar to NFET except that it has the by the  bubble $$\circ$$.
 2. Conversely, 
 	- Bulk is connected to `VDD` to keep the PN junction reverse biased, meaning that no current should flow or leak between source and bulk and between drain and bulk.
 	- S (and also bulk) is connected to `VDD` for PFET. Current can flow from S to D.
-  3.  It is "ON" when $V_{GS}$ is **low** enough. Since source terminal is connected to `VDD` for PFET, 
-	  - $V_{GS} = V_G - VDD$, 
-	  - Hence effectively PFET is \"ON\" whenever $V_G - VDD$ is low enough, i.e: $< V_{TH}$. 
+  3.  It is "ON" when $$V_{GS}$$ is **low** enough. Since source terminal is connected to `VDD` for PFET, 
+	  - $$V_{GS} = V_G - VDD$$, 
+	  - Hence effectively PFET is \"ON\" whenever $$V_G - VDD$$ is low enough, i.e: $$< V_{TH}$$. 
 	  - When $$V_G < `VDD` + V_{TH}$$ (or equivalently, $$V_{GS} < V_{TH}$$), it draws the holes towards the gate. A p-channel (made of holes) will be formed between source and drain.
-	  - Note that $V_{TH}$ for PFET is *negative*.
+	  - Note that $$V_{TH}$$ for PFET is *negative*.
 
 
 
@@ -140,7 +140,7 @@ See the figure below and its corresponding explanation to understand better how 
 		>We can say that its majority charge carrier is drained at D.
 	- The output of an PFET is also at the D terminal.
 	- Hence, the output of an \"ON\" p-type is '1'
-5.  It is "OFF" when $V_{GS}$ is **high**, as it encourages depletion region to form further.
+5.  It is "OFF" when $$V_{GS}$$ is **high**, as it encourages depletion region to form further.
 
   In summary: 
 >  <span style="background-color:yellow"> MOSFETs operates using **voltages**. No current flows from the gate towards source/drain since the gate is insulated from source and drain. This is unlike common (cheaper) PNP and NPN transistor (standard bipolar junction transistor -- BJT) that operates using current. The "output" that we get at the drain of either PFET or NFET is a result of the connection between Source and Drain due to the presence / absence of voltage in the gate.  </span>
@@ -286,34 +286,34 @@ The NAND gate is just one of many possible gates that we will encounter in this 
 
 Recall that combinational devices have timing specifications that tells us the upper bound required **propagation** time to compute the specified output given a set of valid and stable input values. 
 
-### Propagation Delay $t_{pd}$
+### Propagation Delay $$t_{pd}$$
 
 So far we haven't discussed about this term called *propagation delay*, which is *specification* that a combinational logic device must have.
 
-The propagation delay, denoted as $t_{pd}$ is defined as follows:
+The propagation delay, denoted as $$t_{pd}$$ is defined as follows:
 
 >  <span style="background-color:yellow"> Assume the output of a device is initially invalid. The propagation delay is the time taken for the device to produce a **valid** output, measured the moment it was given a **valid** input. </span>
 
-The effective $t_{pd}$ of an entire circuit is the **maximum** *cumulative* propagation delay *over all paths from inputs to outputs* in the combinational logic circuit. 
+The effective $$t_{pd}$$ of an entire circuit is the **maximum** *cumulative* propagation delay *over all paths from inputs to outputs* in the combinational logic circuit. 
 
-The intuition behind why  t$_{pd}$ is calculated as the *maximum cumulative propagation delay* over all paths:
+The intuition behind why  t$$_{pd}$$ is calculated as the *maximum cumulative propagation delay* over all paths:
 
 - Each component (gates, made up of FETS in CMOS arrangements) in the combinational logic circuit must wait for one another to produce a valid overall output.
 - All components have to produce valid results before final **output** (the last logic gate in the circuit) can be produced.
 
   
 
-### Contamination delay $t_{cd}$
+### Contamination delay $$t_{cd}$$
 
 
 Another timing specification that is typically measured an indicated on a combinational logic device is the contamination delay.
 
-The contamination delay  denoted as $t_{cd}$ is defined as follows:
+The contamination delay  denoted as $$t_{cd}$$ is defined as follows:
 >  <span style="background-color:yellow"> Assume the output of a device is initially valid. The contamination delay is the time taken for the device to produce an **invalid** output, measured  from the moment it was given an **invalid** input. </span>
 
-The effective $t_{cd}$ of an entire circuit is the **minimum** *cumulative* contamination delay over *all paths from inputs to outputs* in the combinational logic circuit. 
+The effective $$t_{cd}$$ of an entire circuit is the **minimum** *cumulative* contamination delay over *all paths from inputs to outputs* in the combinational logic circuit. 
 
-The intuition behind why t$_{cd}$ is calculated as the minimum cumulative contamination delay over all paths:
+The intuition behind why t$$_{cd}$$ is calculated as the minimum cumulative contamination delay over all paths:
 - It takes the fastest route to propagate *invalid* signal and
 - Finally *contaminates ANY output* (to be invalid, when it was initially valid).
 
@@ -326,9 +326,9 @@ Complementary pull-up (made up of PFETs) and pull-down circuits (made up of NFET
 
 <img src="https://dl.dropboxusercontent.com/s/nhxsimty73njphx/example.png?raw=1"     width="80%" height = "80%">
 
-Given the $t_{pd}$ and $t_{cd}$ for the NAND gate: $t_{pd} = 4 ns$, $t_{cd}=1ns$, we can find that:
-- The overall $t_{pd}$ of the circuit is $12 ns$ (the path in red)
-- The overall $t_{cd}$ of the circuit is $2 ns$ (the path in blue)
+Given the $$t_{pd}$$ and $$t_{cd}$$ for the NAND gate: $$t_{pd} = 4 ns$$, $$t_{cd}=1ns$$, we can find that:
+- The overall $$t_{pd}$$ of the circuit is $$12 ns$$ (the path in red)
+- The overall $$t_{cd}$$ of the circuit is $$2 ns$$ (the path in blue)
 
  
  ## Summary

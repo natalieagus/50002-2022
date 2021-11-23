@@ -52,7 +52,7 @@ So as you can see, "NAND" is just a short for "not-an-and". The output of a NAND
 
   
 
-There are 16-possible 2-input gates, as shown in the image below. The AND gate and the NAND gate are among the few ones that are more common. The OR, NOR, XOR, and XNOR gates are very commonly used too. In short, **there are $2^{2^x}$ possible x-input gates**, but not all are exactly useful in practice.
+There are 16-possible 2-input gates, as shown in the image below. The AND gate and the NAND gate are among the few ones that are more common. The OR, NOR, XOR, and XNOR gates are very commonly used too. In short, **there are $$2^{2^x}$$ possible x-input gates**, but not all are exactly useful in practice.
 
 > *Note:* please do not memorize these things blindly. They're **logic**, encoded in binary. The names of the gates signify the logic, for example logic AND means that we shall *detect* and produce a discernible output if input `i` **and** `j` (or any other inputs) to the device are all `1`. 
 
@@ -67,9 +67,9 @@ We can also have functional specifications in terms of **boolean expression**. T
 1. For each row in with output = 1, if the value of the input is a 0, then express it with a NOT.
 
 	> Taking the NAND gate's truth table as example, 
-	> - For row 1 of NAND gate's truth table, we have $\overline{A} \text{ } \overline{B}$. 
-	> - For row 2, we have $\overline{A}B$. 
-	> - For row 3 we have $A\overline{B}$.
+	> - For row 1 of NAND gate's truth table, we have $$\overline{A} \text{ } \overline{B}$$. 
+	> - For row 2, we have $$\overline{A}B$$. 
+	> - For row 3 we have $$A\overline{B}$$.
 3. Sum all the expressions from the rows with Y=1.
 	> Taking the NAND gate's truth table as example, the sum of product is:
 $$\begin{aligned}
@@ -124,7 +124,7 @@ Explanation:
 * The boolean expression of the output Y contains **4 terms** that are added or summed together.
  * The 4-input OR gate at the output Y represents the **summation** of these four terms.
 * The AND gates in the *second "column"* of the figure represents the **combination** of each of the input terms, 
-	> For example: $\overline{C} \text{ }\overline{B} A$ means *not C*, *not B*, and *A* combined together as an input to a 3-input AND gate. 
+	> For example: $$\overline{C} \text{ }\overline{B} A$$ means *not C*, *not B*, and *A* combined together as an input to a 3-input AND gate. 
 * The INV at the input represents the NOT inputs *(negated inputs).*
 
 Using these steps, we can come up with the *simplest* (not necessarily the most efficient, cheapest, smallest, etc), most straightforward logic synthesis. 
@@ -160,10 +160,10 @@ $$\begin{aligned}
 \end{aligned}$$
 
 
-Note that the boolean algebra properties above also applies for the inverted form, e.g: if $\bar{a}$ is swapped with $a$ instead: 
-*  $a+\bar{a}b = a+b$ (original); $\bar{a}+ab = \bar{a}+b$ (invert $a$)
-* $ab + \bar{a}b = b$ (original); $a\bar{b} + \bar{a}\bar{b} = \bar{b}$ (invert $b$) 
-* $a(a+b) = a$ (original); $\bar{a}(\bar{a}+\bar{b}) = \bar{a}$ (invert both)
+Note that the boolean algebra properties above also applies for the inverted form, e.g: if $$\bar{a}$$ is swapped with $$a$$ instead: 
+*  $$a+\bar{a}b = a+b$$ (original); $$\bar{a}+ab = \bar{a}+b$$ (invert $$a$$)
+* $$ab + \bar{a}b = b$$ (original); $$a\bar{b} + \bar{a}\bar{b} = \bar{b}$$ (invert $$b$$) 
+* $$a(a+b) = a$$ (original); $$\bar{a}(\bar{a}+\bar{b}) = \bar{a}$$ (invert both)
 
 There's a lot of boolean theorems that are derived from the above, for example:
 
@@ -180,7 +180,7 @@ ab + \bar{a}c + bc &=  ab + \bar{a}c + (\bar{a}+a)bc\\
 \end{aligned}
 $$
 
-What's important is to **pay attention** to the relationship between each variables. You can easily let $\bar{a} = x$ and find the formula applies as well for the inverted version. 
+What's important is to **pay attention** to the relationship between each variables. You can easily let $$\bar{a} = x$$ and find the formula applies as well for the inverted version. 
  
 ### DeMorgan's Theorem
 
@@ -213,7 +213,7 @@ The Karnaugh Map offers an alternative method to perform boolean minimization. T
 
 <img src="https://dl.dropboxusercontent.com/s/3aaw73p23w2zd4j/k1.png?raw=1"    width="60%" height="60%">
 
-The number of **cells** of Karnaugh maps with $x$ inputs is $2^x$ cells. Then, fill in '1' to all the cells that represent logic '1' on the boolean expression. 
+The number of **cells** of Karnaugh maps with $$x$$ inputs is $$2^x$$ cells. Then, fill in '1' to all the cells that represent logic '1' on the boolean expression. 
 
 For instance, here is an example of a  truth table and its corresponding Karnaugh map:
 
@@ -249,14 +249,14 @@ To convert this Map back into boolean expression, we need to look at each group 
 2. In the green group, the output is  `1` regardless of M. Therefore, the boolean expression for the green group is AC.
 
 3. The complete simplified boolean expression is: X = M + AC.
-	> X = M + AC is logically equivalent to X = $\bar{A}M\bar{C}$+$\bar{A}MC$+ $AM\bar{C}$+$A\bar{M}C$+$AMC$ (the sum of products of its truth table). 
+	> X = M + AC is logically equivalent to X = $$\bar{A}M\bar{C}$$+$$\bar{A}MC$$+ $$AM\bar{C}$$+$$A\bar{M}C$$+$$AMC$$ (the sum of products of its truth table). 
 	> 
 	> You can also obtain the minimized expression using boolean algebra:
-	> - Reduction rule: $\bar{A}M\bar{C}$+$\bar{A}MC$ = $\bar{A}M$
-	> - Reduction rule: $AM\bar{C}$+$AMC$ = $AM$
-	> - So far we have: X = $AM+ \bar{A}M+AM\bar{M}{C}$
-	> - We can further reduce the first two terms, resulting in  X = $M+A\bar{M}{C}$
-	> - Use absorption rule to absorb $\bar{M}$, we end up with X = $M+AC$
+	> - Reduction rule: $$\bar{A}M\bar{C}$$+$$\bar{A}MC$$ = $$\bar{A}M$$
+	> - Reduction rule: $$AM\bar{C}$$+$$AMC$$ = $$AM$$
+	> - So far we have: X = $$AM+ \bar{A}M+AM\bar{M}{C}$$
+	> - We can further reduce the first two terms, resulting in  X = $$M+A\bar{M}{C}$$
+	> - Use absorption rule to absorb $$\bar{M}$$, we end up with X = $$M+AC$$
 
 <div class="yellowbox"> Note that minimised boolean forms are not necessarily unique. The number of terms left in the final expression is unique but its possible to have a different form. </div>
 
@@ -285,18 +285,18 @@ Or the **primitive** way:
 <br>
 * **Step 1:** Construct a **pull-down circuitry**: 
 	* for each '+' (OR) we build a parallel NFET circuit
-	* for each $\cdot$ (AND) we build a series NFET circuit 
+	* for each $$\cdot$$ (AND) we build a series NFET circuit 
 
 	Therefore we have two sets of two NFETs in series: 
 	<img src="https://dl.dropboxusercontent.com/s/vsfyv7iefuv19cx/DEVMOS1.png?raw=1"    width="60%" height = "60%">
 
 * **Step 2:** Add inverter at the output.
 	* In **Step 1** we created a pull-down circuitry that is *activated* when each of the terms in the boolean expression produces an overall '1'. 
-		> E.g: when $B, C$ are both 1, the pull-down is activated as current can flow from $Y$ to the GND. The effective output at $Y$ will be then `0` when $B,C$ are both  `1`. 
+		> E.g: when $$B, C$$ are both 1, the pull-down is activated as current can flow from $$Y$$ to the GND. The effective output at $$Y$$ will be then `0` when $$B,C$$ are both  `1`. 
 	* Since what we want is the *opposite*, we need to put an inverter at the output. 
-		>that is   $Y=1$ when $B,C$ are both 1, we need to put an inverter at the output, as shown: 
+		>that is   $$Y=1$$ when $$B,C$$ are both 1, we need to put an inverter at the output, as shown: 
 		<img src="https://dl.dropboxusercontent.com/s/x2ktjw4gqxx979r/devmos2.png?raw=1"    width="60%" height = "60%"> 
-		<div class="yellowbox"> If what you want is for $Y$ to be <code>0</code> when $B,C$ are both <code>1</code> then there's no need to put an inverter in the end. Just draw the complementary pullup and call it a day </div>
+		<div class="yellowbox"> If what you want is for $$Y$$ to be <code>0</code> when $$B,C$$ are both <code>1</code> then there's no need to put an inverter in the end. Just draw the complementary pullup and call it a day </div>
 <br>
 * **Step 3:** Construct the **complementary** pull-up circuitry and assemble. 
 	>  Refer to the CMOS recipe in the previous chapter. 
@@ -318,15 +318,15 @@ Note that the CMOS recipes that we learn in this course also **does not guarante
 The Multiplexer (shorted as "mux") is a special combinational logic device that is very commonly used in practice. It is implemented using basic logic gates (INV, AND, and OR, or NANDs). The mux is expensive to manufacture, but *universal*, meaning that it can **implement any boolean function because essentially it "hardcodes" the truth table**. 
 
 The symbol for a mux is as shown in the image below. The truth table is written at the side. A mux **always** has **three** types of terminals: 
-* $2^k$ bits data inputs, 
+* $$2^k$$ bits data inputs, 
 * `k` bits selector signal(s) --*this is also an input, but we have a special name for them them: selector*-- , and 
 * 1-bit output. 
 
 It's functioncomponents: the inputs, the selector signal(s), and the output. It basically "*allows*" oneeither of the input signals to be reflected at  `OUT`pass through when selected. 
 
-For example in the case of 2-input mux below, when S=0, it will reflect whatever value the signal  $A$ carries (`1` or `0`) as its output:
+For example in the case of 2-input mux below, when S=0, it will reflect whatever value the signal  $$A$$ carries (`1` or `0`) as its output:
 
-> Take some time to make sense of the truth table. That is if S=0, OUT = A. Else, if S=1, OUT = B. produce the signal  $D_0$ as its output:
+> Take some time to make sense of the truth table. That is if S=0, OUT = A. Else, if S=1, OUT = B. produce the signal  $$D_0$$ as its output:
 
 <img src="https://dl.dropboxusercontent.com/s/nbatvm3m7xvq279/muxtt.png?raw=1"    width="50%" height="50%">
 
@@ -335,7 +335,7 @@ You can build a 2-input multiplexer using basic gates:
 
 Some properties about multiplexers:
 1. Muxes are **universal**, meaning that it can implement any boolean functions
-1. A Mux can have $2^k$ data inputs, and $k$ bits select inputs, and **only can have 1 output** terminal. 
+1. A Mux can have $$2^k$$ data inputs, and $$k$$ bits select inputs, and **only can have 1 output** terminal. 
 
 We can also generalise the multiplexer to take more inputs: 4, or 8, or 16, etc. We can either build a bigger multiplexer or cascade many 2-input multiplexers. The following figure shows an example of a 4-input multiplexer, implemented as a big mux (left) or using a series of 2-input mux (right):  
 
@@ -350,23 +350,23 @@ Below is an example of how a mux can be used to implement a more complex combina
 
 <img src="https://dl.dropboxusercontent.com/s/lryt8p85jrowz40/addr.png?raw=1"    width="30%" height = "30%">  
 
-The multiplexer can simply implement the truth table by mapping each type of output bit $C_{out}$, and $S$ in each of the input terminals of the mux as illustrated below (for the carry out): 
+The multiplexer can simply implement the truth table by mapping each type of output bit $$C_{out}$$, and $$S$$ in each of the input terminals of the mux as illustrated below (for the carry out): 
 
 
 <img src="https://dl.dropboxusercontent.com/s/0vpdyz1lch62jd1/muxc.png?raw=1"    width="60%" height="60%">
 
-We can do the same thing for $S$, and both of them combined will function as a full adder. 
+We can do the same thing for $$S$$, and both of them combined will function as a full adder. 
 
 ### Decoder
 
-The Decoder (also known as "demux") is a special combinational logic device that is also very commonly used in practice. It can have $k$ select inputs, and $2^k$ possible output combinations. The schematic of a 1-select input decoder is:
+The Decoder (also known as "demux") is a special combinational logic device that is also very commonly used in practice. It can have $$k$$ select inputs, and $$2^k$$ possible output combinations. The schematic of a 1-select input decoder is:
 
 <img src="https://dl.dropboxusercontent.com/s/btt8jleh2quwnjq/decoder2hzdkw3c4rzxsd6p/demuxin.png?raw=1"    width="50%" height = "50%">
 
 > Practice: Draw out the truth table of the decoder above.
 
 
-The schematic of a 2-select inputs decoder: $S_0$ and $S_1$ is (we omit the "IN") because it is usually just VDD:
+The schematic of a 2-select inputs decoder: $$S_0$$ and $$S_1$$ is (we omit the "IN") because it is usually just VDD:
 
 <img src="https://dl.dropboxusercontent.com/s/8uagnvsipvppgby/decoderinside.png?raw=1"    width="50%" height = "570%">
 
@@ -376,11 +376,11 @@ The schematic of a 2-select inputs decoder: $S_0$ and $S_1$ is (we omit the "IN"
 
 Some properties about decoders:
 
-1. A Decoder is basically the *opposite* of a multiplexer. It has $k$ select inputs, and $2^k$  **possible data outputs**, and only 1 bit of input (typically VDD). The symbol is shown below:
+1. A Decoder is basically the *opposite* of a multiplexer. It has $$k$$ select inputs, and $$2^k$$  **possible data outputs**, and only 1 bit of input (typically VDD). The symbol is shown below:
     <img src="https://www.dropbox.com/s/ig6s46lb2s992c2/demux.png?raw=1"    width="60%" height = "60%"> 
 1. This figure omits the 1 bit input to the decoder because **it is always set to 1** in practice.
-2. Therefore, for a 4 bit decoder as shown in the figure above, the input signals are only the two **SELECTOR** signals, denoted as $IA_0$ and $IA_1$ in the figure.
-3. **At any given time** only 1 bit of the $2^k$ output bits can be  `1` (high). This is apparent when we try to draw the truth table for a $k$ input decoder. For example, the truth table for a 1-selector bit decoder is:
+2. Therefore, for a 4 bit decoder as shown in the figure above, the input signals are only the two **SELECTOR** signals, denoted as $$IA_0$$ and $$IA_1$$ in the figure.
+3. **At any given time** only 1 bit of the $$2^k$$ output bits can be  `1` (high). This is apparent when we try to draw the truth table for a $$k$$ input decoder. For example, the truth table for a 1-selector bit decoder is:
 
     $$
     \begin{matrix}
@@ -406,7 +406,7 @@ Some properties about decoders:
     \end{matrix}
     $$
 
-    >In other words, only the selected output $i$ is HIGH ( `1`), and the rest of the $2^k-1$ data output is LOW (`0`).
+    >In other words, only the selected output $$i$$ is HIGH ( `1`), and the rest of the $$2^k-1$$ data output is LOW (`0`).
 
 ### Read-Only-Memories (ROM)
 
@@ -422,24 +422,24 @@ Explanation for the schematic above:
 
 - At the output of the decoder, the little circuit with inverted triangle symbol signifies a **pulldown circuit** (an NFET connected to ground), which will "drain" a signal into LOW (0).
 
-- Recall that at  each **combination** of select signal $A, B$, and $C_i$, only one of the 8 outputs of the decoder will be  `1`. 
-	> - For example, when $A=0, B=0, C_{in}=1$, the second output line of the decoder from the top is  `1`:<br>
+- Recall that at  each **combination** of select signal $$A, B$$, and $$C_i$$, only one of the 8 outputs of the decoder will be  `1`. 
+	> - For example, when $$A=0, B=0, C_{in}=1$$, the second output line of the decoder from the top is  `1`:<br>
 	<img src="https://dl.dropboxusercontent.com/s/o5meriyxc47k0bn/sel1.png?raw=1" width="40%" height="40%">
-	> - There's a pulldown at the S line, which drains the `VDD` and results in `0` at S line towards the inverter. There's no pulldown for the $C_{out}$ line, so the value fed in towards the inverter in the $C_{out}$ line is `1`> - There's a pulldown for S (it is connected to the ground), which makes it 0, and no pulldown for the $C_{out}$, which makes it 1.<br>
-	> - Therefore, when $A=0, B=0, C_i=1$, $S=0$ and $C_{out}$ is 1. 
+	> - There's a pulldown at the S line, which drains the `VDD` and results in `0` at S line towards the inverter. There's no pulldown for the $$C_{out}$$ line, so the value fed in towards the inverter in the $$C_{out}$$ line is `1`> - There's a pulldown for S (it is connected to the ground), which makes it 0, and no pulldown for the $$C_{out}$$, which makes it 1.<br>
+	> - Therefore, when $$A=0, B=0, C_i=1$$, $$S=0$$ and $$C_{out}$$ is 1. 
 
-- Note the **presence of inverters by invention** at the end of the two vertical output lines for $S$ and $C_{out}$, so the overall output is inverted to be  `1` for $S$S and `0` for $C_{out}$.
+- Note the **presence of inverters by invention** at the end of the two vertical output lines for $$S$$ and $$C_{out}$$, so the overall output is inverted to be  `1` for $$S$$S and `0` for $$C_{out}$$.
 
-- By **invention**, the location of the "pulldown" circuits **correspond to a '1' in the truth table** for that particular output ($S$ or $C_{out}$).
+- By **invention**, the location of the "pulldown" circuits **correspond to a '1' in the truth table** for that particular output ($$S$$ or $$C_{out}$$).
 
-- For $K$ inputs, decoder produces $2^K$ signals, only  `1` which is asserted (valid "High", or simply "selected") at a time. 
+- For $$K$$ inputs, decoder produces $$2^K$$ signals, only  `1` which is asserted (valid "High", or simply "selected") at a time. 
 
 The properties of ROM are as follows:
 
 1. ROMs ignore the structure of combinational functions (our truth table is "hardcoded". 
 2. The selectors are like **addresses** of an entry.
-3. For an $N$-input boolean function, the size of ROM is roughly $2^N \times \text{ \#outputs}$. 
-	> For example, the Full Adder has 3 inputs (A, B, $C_{in}$), and 2 outputs (S and $C_{out}$). Hence the size of the ROM is $2^3 * 2 = 16$.
+3. For an $$N$$-input boolean function, the size of ROM is roughly $$2^N \times \text{ \#outputs}$$. 
+	> For example, the Full Adder has 3 inputs (A, B, $$C_{in}$$), and 2 outputs (S and $$C_{out}$$). Hence the size of the ROM is $$2^3 * 2 = 16$$.
 
 
 ## Conclusion

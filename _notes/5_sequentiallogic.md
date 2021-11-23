@@ -21,7 +21,7 @@ Singapore University of Technology and Design
 ## Overview
 
 
-So far we have learned the basics of **combinational logic device**, which is in essence a device that is capable to adhere to a given functional specification (truth table). One apparent feature of a combinational logic device is that its output always depends on the **current** input.  However, external input is *unreliable*, and there's no guarantee that the input will be available for at least $t_{pd}$--until the combinational device produces meaningful results. We need to find a way to **synchronize** the external input signal such that there's enough time for the entire circuit to finish its computation properly. 
+So far we have learned the basics of **combinational logic device**, which is in essence a device that is capable to adhere to a given functional specification (truth table). One apparent feature of a combinational logic device is that its output always depends on the **current** input.  However, external input is *unreliable*, and there's no guarantee that the input will be available for at least $$t_{pd}$$--until the combinational device produces meaningful results. We need to find a way to **synchronize** the external input signal such that there's enough time for the entire circuit to finish its computation properly. 
 
 We also need to create another type of device, called the sequential logic device, whereby its output depends not only on the current input, but a *series of past inputs* as well.  If a sequential logic device has a finite number of states, it also known as the finite state machine (FSM). The FSM can be seen as an abstract mathematical model of a **sequential** logic function. More about FSM can be learned in the next chapter. 
 
@@ -69,7 +69,7 @@ How we intend to use the device:
 >
 >Then after some time, we supply valid low voltage at G. Hopefully at Q now we have the value that was supplied at D when G was high *without having to hold D's value(s) as they were*. 
 >
->If we put many of these devices in parallel, we can have a fixed N-bit output that is "remembered" by the device without having to always supply these combination of values at the input ports D. We can then use the output of these memory devices as an input to the combinational logic device for at least as long as its $t_{pd}$ (to finish computation). *Hopefully, we then don't have to worry about unreliable external input anymore.* 
+>If we put many of these devices in parallel, we can have a fixed N-bit output that is "remembered" by the device without having to always supply these combination of values at the input ports D. We can then use the output of these memory devices as an input to the combinational logic device for at least as long as its $$t_{pd}$$ (to finish computation). *Hopefully, we then don't have to worry about unreliable external input anymore.* 
 
 The figure below illustrates an example of 4-bit input and corresponding 4-bit output. Each of the device drawn as a rectangle (with the ">" symbol at its lower left corner) is called a **Flip-Flop** (see later section).  They are made up of D-latches. 
 
@@ -88,11 +88,11 @@ There are **two** problems that arises from using this simple D-latch in our ele
 
 	In practice, this is *not acceptable* because we do not want our electronic devices (e.g: computers) to have invalid output computed (e.g: be unstable, or hang, or freeze) at any point in time, *even when D is transitioning*. We want it to be **robust**, and **reliable** at **all** times. 
 
-	<div class="redbox"> Combinational component within an electronic device requires a certain amount of time ($t_{pd}$) to produce meaningful results; and over this time-frame we need to hold its input <strong>stable</strong>, however external input is *unreliable* so theres <strong>no guarantee</strong> that this requirement is fulfilled. </div>
+	<div class="redbox"> Combinational component within an electronic device requires a certain amount of time ($$t_{pd}$$) to produce meaningful results; and over this time-frame we need to hold its input <strong>stable</strong>, however external input is *unreliable* so theres <strong>no guarantee</strong> that this requirement is fulfilled. </div>
 
 	Therefore, we create another device to using D-latches, and they are called **D Flip-Flop** or more informally a *Register* to **synchronize** external input with the circuit's CLK, and also *switch* between write and memory mode as we intend it to behave.
 
-	A **D Flip-Flop** with a right CLK setup will be able to produce a **valid and stable** output for an entire clock period -- *long enough* for any combinational logic connected downstream to finish its computation ($t_{pd}$) and produce meaningful output before the next **output** value is produced. 
+	A **D Flip-Flop** with a right CLK setup will be able to produce a **valid and stable** output for an entire clock period -- *long enough* for any combinational logic connected downstream to finish its computation ($$t_{pd}$$) and produce meaningful output before the next **output** value is produced. 
 
 We address these problems in the next two sections.
 
@@ -104,23 +104,23 @@ We address these problems in the next two sections.
 
 The *dynamic discipline* is a contract that is made to address the first problem above: the possibility of **storing invalid information** in the memory device. It is imperative to never violate the dynamic discipline to ensure any sequential logic circuits to work properly.
 
-The dynamic discipline states that there are **two timing** **requirements for the input signal supplied at D**, named as $T_{setup}$ and $T_{hold}$, which lengths are:
-1. $T_{setup}$ = *approximately* $2 \times t_{pd}$  of the components that make up the D-latch.
+The dynamic discipline states that there are **two timing** **requirements for the input signal supplied at D**, named as $$T_{setup}$$ and $$T_{hold}$$, which lengths are:
+1. $$T_{setup}$$ = *approximately* $$2 \times t_{pd}$$  of the components that make up the D-latch.
 
-1. $T_{hold}$ =  *approximately* $t_{pd}$   of the components that make up the D-latch.
+1. $$T_{hold}$$ =  *approximately* $$t_{pd}$$   of the components that make up the D-latch.
 
-$T_{setup}$ is defined as  the minimum amount of time that the voltage on wire D needs to be valid/stable **BEFORE** the **clock edge changes from '1' to '0'** (turning from write mode to memory mode).
+$$T_{setup}$$ is defined as  the minimum amount of time that the voltage on wire D needs to be valid/stable **BEFORE** the **clock edge changes from '1' to '0'** (turning from write mode to memory mode).
 
 
-$T_{hold}$ is defined as the minimum amount of time that the voltage on wire D needs to be valid/stable **AFTER** the **clock edge reaches a valid '0' from a previous '1'**.
+$$T_{hold}$$ is defined as the minimum amount of time that the voltage on wire D needs to be valid/stable **AFTER** the **clock edge reaches a valid '0' from a previous '1'**.
 
-As explained in the previous notes,  $t_{pd}$ is the propagation delay of the combinational logic devices (components) that make up a D-latch, e.g: a multiplexer, which has a $t_{pd}$ value. The multiplexer can be made using a handful NAND gates. To clarify, this $t_{pd}$ is the propagation delay of that multiplexer or  components (combinational logic devices) that are used to make up a D-latch.
+As explained in the previous notes,  $$t_{pd}$$ is the propagation delay of the combinational logic devices (components) that make up a D-latch, e.g: a multiplexer, which has a $$t_{pd}$$ value. The multiplexer can be made using a handful NAND gates. To clarify, this $$t_{pd}$$ is the propagation delay of that multiplexer or  components (combinational logic devices) that are used to make up a D-latch.
 
-> Why are the lengths for $T_{setup}$ and $T_{hold}$ dependent on the the $t_{pd}$ of the components that make up the D-latch? 
+> Why are the lengths for $$T_{setup}$$ and $$T_{hold}$$ dependent on the the $$t_{pd}$$ of the components that make up the D-latch? 
 
- > For $T_{setup}$, you can figure this out by thinking, **how long** you **should** wait to ensure that the output signal at Q reflects what was supplied at D (requires $1\times t_{pd}$), and to ensure that this output at Q maintains this value when CLK at G turns `0` (from Q', requires *another* $1\times t_{pd}$). 
+ > For $$T_{setup}$$, you can figure this out by thinking, **how long** you **should** wait to ensure that the output signal at Q reflects what was supplied at D (requires $$1\times t_{pd}$$), and to ensure that this output at Q maintains this value when CLK at G turns `0` (from Q', requires *another* $$1\times t_{pd}$$). 
 
-> For $T_{hold}$, you can figure this out by realising that CLK is an **input** to the D-latch system as well, and the device needs **some time** ($1\times t_{pd}$) to realise that it is in memory mode after CLK turns to a valid `0`. Throughout this brief period. of time, the input at D must be held valid/stable. 
+> For $$T_{hold}$$, you can figure this out by realising that CLK is an **input** to the D-latch system as well, and the device needs **some time** ($$1\times t_{pd}$$) to realise that it is in memory mode after CLK turns to a valid `0`. Throughout this brief period. of time, the input at D must be held valid/stable. 
 
 ## Edge-Triggered D Flip-Flop 
 
@@ -139,7 +139,7 @@ We can decribe the structure of a Flip-Flop as follows:
  - The first D-latch that receives the external input D is called the **master** latch, and the second D-latch is called the **slave** latch.
    
  -  There is an **inverter** applied on the G input on the master Flip-Flop, so the master latch receives or "sees" the **inverted**  clock signal.
--  The star ($\star$) symbol represents the intermediary output and its not observable outside of the system. 
+-  The star ($$\star$$) symbol represents the intermediary output and its not observable outside of the system. 
 - The output at the Q port of the slave latch is the observable output of the Flip-Flop.
 
   
@@ -154,11 +154,11 @@ We can decribe the structure of a Flip-Flop as follows:
 
 - When CLK signal is 0, the G port of **master** latch will receive a `1` (due to the inverter) and the G port of **slave** flip flop will receive a `0` **at the same time.**
 
-	This means that the **master** latch is in "write mode", i.e: it lets signal from its D wire through to its Q port, while the **slave** latch is in "memory mode", i.e: slave's output depends on **its own** memory  Q' and not affected by input on $\star$.
+	This means that the **master** latch is in "write mode", i.e: it lets signal from its D wire through to its Q port, while the **slave** latch is in "memory mode", i.e: slave's output depends on **its own** memory  Q' and not affected by input on $$\star$$.
 
 - When CLK signal is 1, the G port of **master** latch will receive a `0` due to the inverter and the G wire of **slave** latch will receive a 1.
 
-	This means that the **master** latch is in "memory mode", i.e: master's output depends on its own memory  Q' and is not affected by any value on input port D. Meanwhile, the **slave** latch is on "write mode", i.e: it lets signal from the $\star$ wire to be passed through its slave input port D.
+	This means that the **master** latch is in "memory mode", i.e: master's output depends on its own memory  Q' and is not affected by any value on input port D. Meanwhile, the **slave** latch is on "write mode", i.e: it lets signal from the $$\star$$ wire to be passed through its slave input port D.
 
 - Hence, **only ONE of the two D-Latches is on "write mode" at a time** or equivalently, **only one D-latch is on "memory-mode" at a time.**
 
@@ -173,7 +173,7 @@ The explanation above is illustrated in terms of **waveforms** below. Take some 
 Notice two further behaviors in the Flip-Flop:
 
 
-1. Unlike the $\star$, the signal at Q is **stable throughout an entire clock period**, and change *only* in the **next** clock period. In comparison, the $\star$  is only stable **half the time** when the master latch is at memory mode, but reflects ever-changing D-input signal during write mode. 
+1. Unlike the $$\star$$, the signal at Q is **stable throughout an entire clock period**, and change *only* in the **next** clock period. In comparison, the $$\star$$  is only stable **half the time** when the master latch is at memory mode, but reflects ever-changing D-input signal during write mode. 
 
 2. The edge-triggered flip-flop in this particular configuration, where the master is the one that receives the **inverted** CLK signal produces **new** value at Q (reflects the input at D) at every **rising edge** of the CLK. 
 
@@ -186,23 +186,23 @@ Notice two further behaviors in the Flip-Flop:
   
 
 
-## $t_{pd}$ and $t_{cd}$ of Sequential Logic vs Combinational Logic Devices
+## $$t_{pd}$$ and $$t_{cd}$$ of Sequential Logic vs Combinational Logic Devices
 
-In the previous chapter, we learned about the definition $t_{CD}$ and $t_{PD}$ for combinational logic (CL) devices, and how to compute these values. For **sequential logic (SL) devices**, i.e: circuits with Flip-Flops and CLs combined, these timings mean as follows:
+In the previous chapter, we learned about the definition $$t_{CD}$$ and $$t_{PD}$$ for combinational logic (CL) devices, and how to compute these values. For **sequential logic (SL) devices**, i.e: circuits with Flip-Flops and CLs combined, these timings mean as follows:
   
 
-1. $t_{CD}$ of a Flip-Flop (or sequential logic devices) is the time taken for an **invalid** CLK input (**not input to the sequential logic circuit**),  <span style="background-color:yellow"> as a result of *transition* from '0' to '1'</span>, to produce an **invalid** *final* output of the SL (Sequential Logic) device. 
+1. $$t_{CD}$$ of a Flip-Flop (or sequential logic devices) is the time taken for an **invalid** CLK input (**not input to the sequential logic circuit**),  <span style="background-color:yellow"> as a result of *transition* from '0' to '1'</span>, to produce an **invalid** *final* output of the SL (Sequential Logic) device. 
 
-1. $t_{PD}$ of a Flip-Flop (or sequential logic devices) is the time taken for **valid '1'** CLK input (**again, not input to the sequential logic circuit**), to produce a **valid** *final* output of the SL device. 
+1. $$t_{PD}$$ of a Flip-Flop (or sequential logic devices) is the time taken for **valid '1'** CLK input (**again, not input to the sequential logic circuit**), to produce a **valid** *final* output of the SL device. 
 
 
   
   
 
-Note the **subtle difference** between the $t_{PD}$ and $t_{CD}$ of a combinational vs a sequential device. 
+Note the **subtle difference** between the $$t_{PD}$$ and $$t_{CD}$$ of a combinational vs a sequential device. 
 
 To summarise:
-- In combinational device, there is no input CLK and units with *feedback* paths like the Flip Flops involved. $t_{PD}$ of a combinational device is the time measured from the moment a **valid** input is fed to the circuit to the moment it produces a **valid** output of the circuit, and $t_{CD}$ is the time measured from the moment an **invalid** input is fed to the circuit to the moment it produces an **invalid** output. 
+- In combinational device, there is no input CLK and units with *feedback* paths like the Flip Flops involved. $$t_{PD}$$ of a combinational device is the time measured from the moment a **valid** input is fed to the circuit to the moment it produces a **valid** output of the circuit, and $$t_{CD}$$ is the time measured from the moment an **invalid** input is fed to the circuit to the moment it produces an **invalid** output. 
 
 - However, in SL, our "input" will be the **CLK** and not the "user" input, and in particular only are concerned with the **CLK transition from `0` to `1`**, where the D Flip-Flop "captures" a new input value. 
   
@@ -227,13 +227,13 @@ Reasons:
 
 - This implies that the master goes into write mode while the slave goes into memory mode *simultaneously*.
 
-- However, the $\star$ at the output of the master cannot change *immediately* in order to fulfil the ${t_{H}}$ requirement of the slave. 
+- However, the $$\star$$ at the output of the master cannot change *immediately* in order to fulfil the $${t_{H}}$$ requirement of the slave. 
  
-- The $\star$ has to retain its previous valid value (when the clock was valid) and **cannot immediately** do the following before the ${t_{H}}$ requirement of the slave is fulfilled:
+- The $$\star$$ has to retain its previous valid value (when the clock was valid) and **cannot immediately** do the following before the $${t_{H}}$$ requirement of the slave is fulfilled:
 	- Become invalid due to transition in the CLK value, or
 	- Reflect whatever new input is given at D port of the master latch, even though the master latch is at the write mode. 
 	
-- This means the **contamination** delay of the master latch (time taken on signal on $\star$ is be invalid after CLK at G port  becomes invalid) has to be **larger** than the hold time of the slave latch *so that the Flip-Flop system obeys the dynamic discipline.* 
+- This means the **contamination** delay of the master latch (time taken on signal on $$\star$$ is be invalid after CLK at G port  becomes invalid) has to be **larger** than the hold time of the slave latch *so that the Flip-Flop system obeys the dynamic discipline.* 
 
   
 
@@ -245,38 +245,38 @@ Reasons:
 
 **The *dynamic discipline* has to always be obeyed at any part of the sequential logic circuit/device.** 
 
-Due to this, we have **two** timing constraints called **$t_1$ and $t_2$** that should **always** apply for <span style="background-color:yellow">  **any** path between two (one upstream and one downstream) connecting Flip-Flops </span> (regardless of how many CLs are there in the middle of the two Flip-Flops) in a SL circuit. 
+Due to this, we have **two** timing constraints called **$$t_1$$ and $$t_2$$** that should **always** apply for <span style="background-color:yellow">  **any** path between two (one upstream and one downstream) connecting Flip-Flops </span> (regardless of how many CLs are there in the middle of the two Flip-Flops) in a SL circuit. 
 
 Take into example a very simple combination as shown in the figure below, consisted of two Flip-Flops and one CL device in between. Let's name the Flip-Flop on the left the "upstream" Flip-Flop and the Flip-Flop on the right the "downstream" Flip-Flop: 
 
 <img src="https://dl.dropboxusercontent.com/s/2e6c8of9d5ipw0t/Q11.png?raw=1"  alt="Fig6"  width="70%" height = "70%">
 
-If we were to plot the timing diagram of the CLK, output of R1 ($Q_{R1}$), and the output of the CL (CL out), we have the following:
+If we were to plot the timing diagram of the CLK, output of R1 ($$Q_{R1}$$), and the output of the CL (CL out), we have the following:
 <img src="https://dl.dropboxusercontent.com/s/dxcun9lssktr6rn/Q12.png?raw=1"  alt="Figure4"  width="70%" height = "70%">
 
 
 From the diagram above, we can define two timing constraints for this particular scenario:
-- $t_1$ : $t_{CD} R_1 + t_{CD} CL \geq t_{H} R_2$
-- $t_2$ : $t_{PD} R_1 + t_{PD} CL + t_S R_2 \leq t_{CLK}$
+- $$t_1$$ : $$t_{CD} R_1 + t_{CD} CL \geq t_{H} R_2$$
+- $$t_2$$ : $$t_{PD} R_1 + t_{PD} CL + t_S R_2 \leq t_{CLK}$$
 
-where $t_{CLK}$ is the clock period.  
+where $$t_{CLK}$$ is the clock period.  
 
 Explanation:
-- The $t_1$ constraints ensures that the $t_H$ requirement of the downstream register, R2, is fulfilled by the devices thats put upstream (before it), that is CL and R1 in the example above. 
-	- When the CLK rises at $t_i$, both R1 and R2 are "*capturing*" different values, **simultaneously**. 
-	- R1 is receiving *current* input value at $t_i$, while R2 is receiving the *computed* old input value that was produced by R1 at $t_{i-1}$. 
-	- The devices upstream of R2 has to **help** to hold on to this *old*  $t_{i-1}$ values for the $t_H$ of R2 to be fulfilled before responding to the rising edge of the clock and producing new values. 
+- The $$t_1$$ constraints ensures that the $$t_H$$ requirement of the downstream register, R2, is fulfilled by the devices thats put upstream (before it), that is CL and R1 in the example above. 
+	- When the CLK rises at $$t_i$$, both R1 and R2 are "*capturing*" different values, **simultaneously**. 
+	- R1 is receiving *current* input value at $$t_i$$, while R2 is receiving the *computed* old input value that was produced by R1 at $$t_{i-1}$$. 
+	- The devices upstream of R2 has to **help** to hold on to this *old*  $$t_{i-1}$$ values for the $$t_H$$ of R2 to be fulfilled before responding to the rising edge of the clock and producing new values. 
 
-- The $t_2$ constraints ensures that the clock period is **long enough** for three things to complete:
+- The $$t_2$$ constraints ensures that the clock period is **long enough** for three things to complete:
 	- Valid signal to be produced at the output of R1 and 
 	- Signal to *propagate* through CL in between, and 
 	- Signal to be set-up at the downstream register R2 (for memory mode).
 	
-- The $t_1$ and $t_2$ requirements must be fulfilled within **any paths between two connecting DFFs** in a circuit, in order for the overall circuit to obey the dynamic discipline.
+- The $$t_1$$ and $$t_2$$ requirements must be fulfilled within **any paths between two connecting DFFs** in a circuit, in order for the overall circuit to obey the dynamic discipline.
 
-We can call the $t_{PD} CL$ (propagation delay of the CL) as the time taken to do **actual work** or **logic computation**. 
+We can call the $$t_{PD} CL$$ (propagation delay of the CL) as the time taken to do **actual work** or **logic computation**. 
 
- <div class="redbox">It should be clear by now why the input to this CL must be stable for at least $t_{pd}$ for it to have meaningful output, and how our new circuit with DFFs (obeying dynamic discipline, $t_1$, and $t_2$ constraint) guarantees this -- something that unreliable external input alone cannot guarantee if it were to be fed directly to the CL units.</div>
+ <div class="redbox">It should be clear by now why the input to this CL must be stable for at least $$t_{pd}$$ for it to have meaningful output, and how our new circuit with DFFs (obeying dynamic discipline, $$t_1$$, and $$t_2$$ constraint) guarantees this -- something that unreliable external input alone cannot guarantee if it were to be fed directly to the CL units.</div>
 
 The propagation or contamination delays of a Flip-Flop is not considered a logic computation, because unlike combinational logic devices (that can be made to implement functionalities such as addition, subtraction, boolean expressions, etc), a Flip-Flop **does not implement** any other special functionalities except to function as a memory device. 
   
@@ -292,12 +292,12 @@ In any sequential logic circuit we use a **single synchronous clock**, meaning t
 
 <div class="redborder">However, we still have one small issue: the external input need to obey the dynamic discipline of the <i>first</i> 'upstream' DFF (that directly receives external input) in the circuit.  </div>
 
-In practice, it is **not possible** for any arbitrary input to always be synchronised with the clock, i.e: to obey the $t_S$ and $t_H$ requirements (of the external input facing 'upstream' DFF) at all times. Recall that dynamic discipline is crucial for any sequential logic circuit to work properly. We are now going to discuss what happens if **dynamic discipline is violated**.
+In practice, it is **not possible** for any arbitrary input to always be synchronised with the clock, i.e: to obey the $$t_S$$ and $$t_H$$ requirements (of the external input facing 'upstream' DFF) at all times. Recall that dynamic discipline is crucial for any sequential logic circuit to work properly. We are now going to discuss what happens if **dynamic discipline is violated**.
 
 <img src="https://dl.dropboxusercontent.com/s/ucujrzj5imp4xxy/metas.png?raw=1"  alt="Figure10"  width="60%" height = "60%">
 
 
-Look at the figure above. Let D be the "user" input to the Flip-Flop and OUT be the output "Q" of the Flip-Flop. When one of the timing constraints ($t_{H}$ in this case) imposed by the dynamic discipline is violated, we may end up storing the invalid values during read/memory mode. This event of storing invalid value is called the **metastable state**. 
+Look at the figure above. Let D be the "user" input to the Flip-Flop and OUT be the output "Q" of the Flip-Flop. When one of the timing constraints ($$t_{H}$$ in this case) imposed by the dynamic discipline is violated, we may end up storing the invalid values during read/memory mode. This event of storing invalid value is called the **metastable state**. 
 
 
 
@@ -312,36 +312,36 @@ Due to the existence of a feedback loop in the D-latch as shown,
 
 ..it has a unique property where there exist a point in its voltage characteristics function whereby **Vin = Vout**. 
 
-We can measure and plot $V_{in}$ (Q') versus $V_{out}$ (Q) in the D-latch, and come up with a VTC plot as follows:
+We can measure and plot $$V_{in}$$ (Q') versus $$V_{out}$$ (Q) in the D-latch, and come up with a VTC plot as follows:
 
 <img src="https://dl.dropboxusercontent.com/s/t4ji250oufvdsun/metastable.png?raw=1"  alt="Figure4"  width="80%" height = "80%">
 
 
-The red line signifies the feedback constraint, where we have **Q** at $V_{out}$ to be equivalent to **Q'** as $V_{in}$. **This is the effect of connecting the output of the multiplexer to itself, on the first input port**. 
+The red line signifies the feedback constraint, where we have **Q** at $$V_{out}$$ to be equivalent to **Q'** as $$V_{in}$$. **This is the effect of connecting the output of the multiplexer to itself, on the first input port**. 
 
 The green line signifies the VTC of a "closed latch" state, i.e: when the selector bit of the multiplexer receives a '0' as shown in the diagram above. 
 
-Notice that in the closed latch state, the D-latch passes the value from $V_{in}$ (Q') as the output at $V_{out}$ (Q), and thus we have a shape that resembles that of a buffer. 
+Notice that in the closed latch state, the D-latch passes the value from $$V_{in}$$ (Q') as the output at $$V_{out}$$ (Q), and thus we have a shape that resembles that of a buffer. 
 
-There are three solutions formed by the intersections of the red line (feedback constraint) and the green line (VTC of the closed latch), as indicated by the three circles in the figure above: two end points that results in "valid" voltages (either `0` or `1`), and one middle point that is *metastable* (denoted as $V_m$).
+There are three solutions formed by the intersections of the red line (feedback constraint) and the green line (VTC of the closed latch), as indicated by the three circles in the figure above: two end points that results in "valid" voltages (either `0` or `1`), and one middle point that is *metastable* (denoted as $$V_m$$).
 
 What is the meaning of these *solutions*? Well, we are indeed creating a device which output is connected back as its input, so we need to know where the system will *tend towards*. 
 
 
 Let's think about this particular scenario while looking at the VTC plot above:
-- If the initial $V_{in}$ value is *well* *below* $V_m$, then it will produce an even lower $V_{out}$. 
+- If the initial $$V_{in}$$ value is *well* *below* $$V_m$$, then it will produce an even lower $$V_{out}$$. 
 
-- This $V_{out}$ becomes a new $V_{in_2}$ when the signal traverse the loop for the second time, and produce another even lower $V_{out_2}$. 
-- Eventually, the value of $V_{out_N}$ after certain N loops traversal tends towards the **stable** low indicated by the teal circle on the left. 
-- In summary, **during each loop $i$, $V_{out_i}$ produced is always *less* than $V_{in_i}$**, and thus after a few loops, the final value of $V_{out}$  tends towards the *teal* point of the left. 
+- This $$V_{out}$$ becomes a new $$V_{in_2}$$ when the signal traverse the loop for the second time, and produce another even lower $$V_{out_2}$$. 
+- Eventually, the value of $$V_{out_N}$$ after certain N loops traversal tends towards the **stable** low indicated by the teal circle on the left. 
+- In summary, **during each loop $$i$$, $$V_{out_i}$$ produced is always *less* than $$V_{in_i}$$**, and thus after a few loops, the final value of $$V_{out}$$  tends towards the *teal* point of the left. 
  
 	> *The little note at the figure above illustrates this scenario too.* 
 
-Otherwise, if the initial value of $V_{in}$ is well above $V_m$, then the opposite applies and the final value of $V_{out}$ after N loops will tend towards the stable high indicated by the teal circle on the right, since $V_{out_i}$ is always greater than $V_{in_i}$ at each loop $i$.
+Otherwise, if the initial value of $$V_{in}$$ is well above $$V_m$$, then the opposite applies and the final value of $$V_{out}$$ after N loops will tend towards the stable high indicated by the teal circle on the right, since $$V_{out_i}$$ is always greater than $$V_{in_i}$$ at each loop $$i$$.
 
-However, if we have $V_{in} = V_m$, then from the graph we can easily see that $V_{out}$ will *again* be at equivalent value, at $V_m$ in the following loop traversal. This $V_{out} = V_m$ will be an input back at $V_{in}$ (in the next loop), which will produce $V_m$ again *over and over* (perpetually) under ideal, noise-free case. 
+However, if we have $$V_{in} = V_m$$, then from the graph we can easily see that $$V_{out}$$ will *again* be at equivalent value, at $$V_m$$ in the following loop traversal. This $$V_{out} = V_m$$ will be an input back at $$V_{in}$$ (in the next loop), which will produce $$V_m$$ again *over and over* (perpetually) under ideal, noise-free case. 
 
-Therefore, without the presence of noise or external disturbances, if $V_in$ is *exactly* at $V_m$ then there is **always** a **chance** that we could *wait* **forever** for it to be able to settle to either a stable values. A small presence of noise will drive $V_{in}$ down or up and eventually it *may* settle to a stable value, however this is **not guaranteed in bounded time**. 
+Therefore, without the presence of noise or external disturbances, if $$V_in$$ is *exactly* at $$V_m$$ then there is **always** a **chance** that we could *wait* **forever** for it to be able to settle to either a stable values. A small presence of noise will drive $$V_{in}$$ down or up and eventually it *may* settle to a stable value, however this is **not guaranteed in bounded time**. 
 
 The state whereby your SL device is unable to settle to a stable / valid value for unknown period of time is called the metastable state. Obviously we **do not** want this because the output of the device is invalid during this unknown time frame, and therefore rendered *useless*. 
 
@@ -349,15 +349,15 @@ The state whereby your SL device is unable to settle to a stable / valid value f
 - It corresponds to an **invalid** logic level -- the switching threshold of a device
 
 - It is an **unstable** equilibrium, a small noise/pertubation may cause it to *accelerate* towards either ends: a stable `0` or `1`... *eventually* (but it might not too).
-- Depending on how close $V_{in}$ is to $V_m$ and presence of noise, it also **may take forever** to settle towards a stable value (unbounded time).
+- Depending on how close $$V_{in}$$ is to $$V_m$$ and presence of noise, it also **may take forever** to settle towards a stable value (unbounded time).
 - Every bistable system exhibits **at least one** metastable state.
 
 
-Hence, the metastable state is an **inevitable** risk of synchronization *because* our active device **always** have a **fixed-point voltage $V_m$** such that $V_{in} = V_m$ implies $V_{out} = V_m$, caused inherently by the feedback loop constraint and the VTC of the multiplexer. 
+Hence, the metastable state is an **inevitable** risk of synchronization *because* our active device **always** have a **fixed-point voltage $$V_m$$** such that $$V_{in} = V_m$$ implies $$V_{out} = V_m$$, caused inherently by the feedback loop constraint and the VTC of the multiplexer. 
 
-The **violation of dynamic discipline** may put our feedback loop at some voltage *near* $V_m$. The **time taken** for $V_{out}$ to eventually settle towards a stable `0` or `1` is **inversely** proportional to current $\|V_{out} - V_m\|$, and is *theoretically infinite* for $V_{out} = V_m$. 
+The **violation of dynamic discipline** may put our feedback loop at some voltage *near* $$V_m$$. The **time taken** for $$V_{out}$$ to eventually settle towards a stable `0` or `1` is **inversely** proportional to current $$\|V_{out} - V_m\|$$, and is *theoretically infinite* for $$V_{out} = V_m$$. 
 
-Since there is **no lower bound** on $\|V_{out} - V_m\|$, then there is **no upper bound** for the settling time of eventual $V_{out}$ value. 
+Since there is **no lower bound** on $$\|V_{out} - V_m\|$$, then there is **no upper bound** for the settling time of eventual $$V_{out}$$ value. 
  
 **In other words, we cannot completely avoid the metastable state**. 
 > If an SL device enters the metastable state, it *might* eventually settle to a valid zero... or a valid one, but there is no guarantee when this will happen. It may take a second,  or it may take forever to settle. 

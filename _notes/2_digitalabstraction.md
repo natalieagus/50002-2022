@@ -82,7 +82,7 @@ Therefore, one can say that **a combinational logic device always obeys the stat
 ## Voltage Specifications and Noise Margin
 
 
-Consider two digital devices connected in series as shown in the figure below. These devices are called a **buffer**, meaning that they pass the same bit over (if it receives a low voltage, it will produce a low voltage and vice versa). If we were to *naively decide* that any voltage below $V_{low}$=`0.5V` as digital bit `0`, and any voltage above $V_{high}$=`2.5V` as digital bit `1`, then our device **may violate the static discipline.** 
+Consider two digital devices connected in series as shown in the figure below. These devices are called a **buffer**, meaning that they pass the same bit over (if it receives a low voltage, it will produce a low voltage and vice versa). If we were to *naively decide* that any voltage below $$V_{low}$$=`0.5V` as digital bit `0`, and any voltage above $$V_{high}$$=`2.5V` as digital bit `1`, then our device **may violate the static discipline.** 
 
 >*Why is this so?*
 
@@ -99,46 +99,46 @@ Device 1 in the figure above **violates** static discipline because *given a **v
 
 Hence, we need to account for the presence of some light **noise**.
 
-Instead of naively setting some voltage $V_{high}$ and $V_{low}$ as we did above, we need to set a *range* of Voltages as valid bit `1` and `0` respectively, and ensuring that we  
+Instead of naively setting some voltage $$V_{high}$$ and $$V_{low}$$ as we did above, we need to set a *range* of Voltages as valid bit `1` and `0` respectively, and ensuring that we  
 
 
-Hence, we need to have something called the **noise margin** -- the yellow region illustrated in the Figure below. The noise margin is formed by setting *four* Voltage specifications:  $V_{ol}$, $V_{oh}$, $V_{il}$, $V_{ih}$, where  $V_{ol}$< $V_{il}$< $V_{ih}$ < $V_{oh}$ which **defines** what range of voltage values signifies a **valid** digital bit  and a **valid** digital bit `0` *for any combinational logic component in the system*: 
+Hence, we need to have something called the **noise margin** -- the yellow region illustrated in the Figure below. The noise margin is formed by setting *four* Voltage specifications:  $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, $$V_{ih}$$, where  $$V_{ol}$$< $$V_{il}$$< $$V_{ih}$$ < $$V_{oh}$$ which **defines** what range of voltage values signifies a **valid** digital bit  and a **valid** digital bit `0` *for any combinational logic component in the system*: 
   
 <img src="https://dl.dropboxusercontent.com/s/pt0n36pmy9ncyc6/Volt_2.png?raw=1"    width="100%" height = "100%">
 
 >  <span style="background-color:yellow"> The *noise margin* adds as a **precaution** against external disturbances (noise). </span>
 
 Below are the explanations necessary to understand the fFigure 3 above:
-1.  $V_{ol}$ (voltage output low) and $V_{oh}$ (voltage output high) is the voltage that **your system** outputs, depending on whether your system is outputting bit `0` or '1'. The output of this system is going to be received by another system after traversing through some wire.
+1.  $$V_{ol}$$ (voltage output low) and $$V_{oh}$$ (voltage output high) is the voltage that **your system** outputs, depending on whether your system is outputting bit `0` or '1'. The output of this system is going to be received by another system after traversing through some wire.
 
  
-2.  $V_{il}$ (voltage input low) or $V_{ih}$ (voltage input high) is the voltage that **your system** receives as **input** from another system.
+2.  $$V_{il}$$ (voltage input low) or $$V_{ih}$$ (voltage input high) is the voltage that **your system** receives as **input** from another system.
 
-3.  The **absolute difference** between $V_{ol}$ and $V_{il}$ is called the **low bit noise margin**, and the **absolute difference** between $V_{oh}$ and $V_{ih}$ is called the **high bit noise margin**.
+3.  The **absolute difference** between $$V_{ol}$$ and $$V_{il}$$ is called the **low bit noise margin**, and the **absolute difference** between $$V_{oh}$$ and $$V_{ih}$$ is called the **high bit noise margin**.
 	> Noise margin is formally defined as the **maximum** voltage amplitude of *extraneous* (erronous) signal that can be added to the noise-free input level *without* causing a drastic change in the output voltage and that it is still within the valid logic level. 
 
 4.  The **noise immunity** (like an "overall" or "effective" noise margin) is the ***minimum*** between the high bit noise margin and the low bit noise margin.
 
-5.  $V_{ol}$ is **less** than $V_{il}$, because we would want to have some *buffer* against noise. A device always outputs a lower voltage value to signify digital bit `0`'0' and accepts a slightly higher low-voltage value as digital bit `0`'0'. The same logic applies for the higher region as well, as $V_{oh}$ is greater than $V_{ih}$
+5.  $$V_{ol}$$ is **less** than $$V_{il}$$, because we would want to have some *buffer* against noise. A device always outputs a lower voltage value to signify digital bit `0`'0' and accepts a slightly higher low-voltage value as digital bit `0`'0'. The same logic applies for the higher region as well, as $$V_{oh}$$ is greater than $$V_{ih}$$
 
   
 
-6.  In our previous case in Figure earlier, if $V_{ol}$ is set to be `0.5V`, and $V_{il}$ is set to be `0.6V`, then *Device 2*  will be able to **tolerate** up to `0.1V` of noise (if any). Therefore, `0.55V` in our example above is still '*seen*' as a valid bit `0` when it arrives at the input terminal of Device 2, thus making Device 1 ***obeys the static discipline.***
+6.  In our previous case in Figure earlier, if $$V_{ol}$$ is set to be `0.5V`, and $$V_{il}$$ is set to be `0.6V`, then *Device 2*  will be able to **tolerate** up to `0.1V` of noise (if any). Therefore, `0.55V` in our example above is still '*seen*' as a valid bit `0` when it arrives at the input terminal of Device 2, thus making Device 1 ***obeys the static discipline.***
 
 
-Once **set and chosen,** these four voltage specifications: $V_{ol}$, $V_{oh}$, $V_{il}$, and $V_{ih}$ are to be obeyed by every digital **device in an entire combinational logic circuit**.
+Once **set and chosen,** these four voltage specifications: $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, and $$V_{ih}$$ are to be obeyed by every digital **device in an entire combinational logic circuit**.
 
   
 
 ## Voltage Transfer Characteristic Function (VTC)
 
 
-The VTC is a **plot** between the input voltage ($V_{in}$) to a digital system/device vs the output voltage ($V_{out}$) of this digital system.
+The VTC is a **plot** between the input voltage ($$V_{in}$$) to a digital system/device vs the output voltage ($$V_{out}$$) of this digital system.
 
 >  <span style="background-color:yellow"> VTC **does not** tell us how fast the device is. It just captures the static behavior of the device and tells us what *kind* of device it is.
 > </span>
 
-The image below shows the VTC of a **buffer**: a *low* $V_{in}$ gives a *low* $V_{out}$ and vice versa. 
+The image below shows the VTC of a **buffer**: a *low* $$V_{in}$$ gives a *low* $$V_{out}$$ and vice versa. 
 
 <img src="https://dl.dropboxusercontent.com/s/vod5ltqh4kq9119/vtcbuffer.png?raw=1"  width="60%"  height="60%" alt ="Figure 4"/>
 
@@ -147,35 +147,35 @@ The image below shows the VTC of a **buffer**: a *low* $V_{in}$ gives a *low* $V
 
 The purpose of plotting a VTC (*typically obtained from device measurements, i.e: we supply input voltages at intervals and measure the output*) helps us to **determine** whether or not a digital device **can be used** as a combinational logic device. 
 
-> In other words, to find out if we can find a set of four voltage specifications: $V_{ol}$, $V_{oh}$, $V_{il}$, and $V_{ih}$ for the device so that **the device obeys the static discipline**.
+> In other words, to find out if we can find a set of four voltage specifications: $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, and $$V_{ih}$$ for the device so that **the device obeys the static discipline**.
 
 Explanation of the VTC figure above:
-- The red zone is called the **forbidden zone**. It is formed by the four voltage specifications: $V_{ol}$, $V_{oh}$, $V_{il}$, and $V_{ih}$ that we set for the entire system. <br>
+- The red zone is called the **forbidden zone**. It is formed by the four voltage specifications: $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, and $$V_{ih}$$ that we set for the entire system. <br>
 - The name *'forbidden zone'* comes e the fact that <span style="background-color:yellow">any value within this zone means that the device receives **valid** input but is unable to produce a valid output</span> hence **violating the static disciplin**e and cannot be used as a combinational logic device.
 
-You can quickly tell if a digital device can be *potentially* be used as a combinational logic device **iff**: you can **find** a set of these four voltage specifications: $V_{ol}$, $V_{oh}$, $V_{il}$, and $V_{ih}$ **whereby its VTC curve  does not cross the forbidden zone** and that $V_{ol}$< $V_{il}$ < $V_{ih}$ < $V_{oh}$.
-* We typically begin by *guessing* each value of $V_{ol}$, $V_{oh}$, $V_{il}$, and $V_{ih}$ and check if the curve crosses the forbidden zone (check if static discpline obeyed) formed by these four values. 
+You can quickly tell if a digital device can be *potentially* be used as a combinational logic device **iff**: you can **find** a set of these four voltage specifications: $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, and $$V_{ih}$$ **whereby its VTC curve  does not cross the forbidden zone** and that $$V_{ol}$$< $$V_{il}$$ < $$V_{ih}$$ < $$V_{oh}$$.
+* We typically begin by *guessing* each value of $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, and $$V_{ih}$$ and check if the curve crosses the forbidden zone (check if static discpline obeyed) formed by these four values. 
 
 * If static discipline is violated, we either adjust our guess or find another device. 
-* Also, we want to choose  $V_{ol}$, $V_{oh}$, $V_{il}$, and $V_{ih}$ that **maximises noise immunity**. -
+* Also, we want to choose  $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, and $$V_{ih}$$ that **maximises noise immunity**. -
 
 If you can satisfy the condition highlighted above, then it means that the device is a combinational logic device. It's VTC curve has to possesses both **characteristics** below:
 
-1.  There exist *some region in the VTC* whereby  <span style="background-color:yellow">its **absolute** `Gain` is $>1$ </span>. `Gain` is actually a function of $V_{in}$ and is **formally** defined as: 
+1.  There exist *some region in the VTC* whereby  <span style="background-color:yellow">its **absolute** `Gain` is $$>1$$ </span>. `Gain` is actually a function of $$V_{in}$$ and is **formally** defined as: 
 
 	$$\begin{aligned}
 	\text{Gain}(V_{in}) = \frac{d V_{out}}{d V_{in}} \end{aligned}$$
 
-	In laymen terms you can approximate `Gain` during some transition $V_{in_i}$ to $V_{in_j}$ that results in some $V_{out_k}$ to $V_{out_l}$ respectively by the simply computing the slope between these two points on the VTC: 
+	In laymen terms you can approximate `Gain` during some transition $$V_{in_i}$$ to $$V_{in_j}$$ that results in some $$V_{out_k}$$ to $$V_{out_l}$$ respectively by the simply computing the slope between these two points on the VTC: 
 	
 	$$ \text{Gain} \approx \frac{V_{out_l}-V_{out_k}}{V_{in_j}-V_{in_i}}  $$
 
-	If you have found four voltage specifications $V_{ol}$, $V_{oh}$, $V_{il}$, and $V_{ih}$ for which the device still obeys the static discipline, you can **approximate** device's maximum `Gain` by computing: 
+	If you have found four voltage specifications $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, and $$V_{ih}$$ for which the device still obeys the static discipline, you can **approximate** device's maximum `Gain` by computing: 
 
 	$$\max\text{Gain}\approx \frac{V_{oh} - V_{ol}}{ V_{ih} - V_{il}}$$
 
 
-1.  If  absolute `Gain` $>1$, then there is a **finite, positive** noise margin. If absolute `Gain`$=1$, then there's **zero** noise margin. It is *impossible* to have absolute `Gain` $<1$ and still have the four Voltage specifications $V_{ol}$ < $V_{il}$ < $V_{ih}$ < $V_{oh}$.
+1.  If  absolute `Gain` $$>1$$, then there is a **finite, positive** noise margin. If absolute `Gain`$$=1$$, then there's **zero** noise margin. It is *impossible* to have absolute `Gain` $$<1$$ and still have the four Voltage specifications $$V_{ol}$$ < $$V_{il}$$ < $$V_{ih}$$ < $$V_{oh}$$.
 	  
 	  > You might want to ponder a little and convince yourself why the statement above is true. 
 

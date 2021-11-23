@@ -35,15 +35,15 @@ We will learn in detail how each of them works in the later sections.
 
 A FSM (Finite State Machine) is formally defined to have:
 
-1.  A set of $k$ states: $S_1, S_2, ..., S_k$ (where one of them should be the "initial" state)
+1.  A set of $$k$$ states: $$S_1, S_2, ..., S_k$$ (where one of them should be the "initial" state)
 
-1.  A set of $m$ inputs: $I_1, I_2, ..., I_m$
+1.  A set of $$m$$ inputs: $$I_1, I_2, ..., I_m$$
 
-1.  A set of $n$ outputs: $O_1, O_2, ..., O_n$
+1.  A set of $$n$$ outputs: $$O_1, O_2, ..., O_n$$
 
-1.  Transition rules $s'(S_i, I_i)$ for each of the $k$ states and $m$ inputs
+1.  Transition rules $$s'(S_i, I_i)$$ for each of the $$k$$ states and $$m$$ inputs
 
-1.  Output rules: $f(S_i)$ for each of the $k$ states
+1.  Output rules: $$f(S_i)$$ for each of the $$k$$ states
 
 
 
@@ -57,14 +57,14 @@ Suppose we have a simple digital lock machine, that will open only if we give th
  
   <img src="https://dl.dropboxusercontent.com/s/peuby3etfi3twvx/Q2%202.png?raw=1"  width="100%" height = "100%">
 
-That **S_X** in bold represents the *initial* state. The **arrows** are the possible *transitions* between states. The little numbers beside the arrows are the kind of *input* required for state transition to happen. The word $U$ inside each state circle is the *output* of each state. If it is unlocked, $U=1$, otherwise $U=0$ for a locked output 
+That **S_X** in bold represents the *initial* state. The **arrows** are the possible *transitions* between states. The little numbers beside the arrows are the kind of *input* required for state transition to happen. The word $$U$$ inside each state circle is the *output* of each state. If it is unlocked, $$U=1$$, otherwise $$U=0$$ for a locked output 
 * When input `0110` is entered in that *exact* sequence, you'll land at `S_3` -- and the lock will be **unlocked**. 
 
 * If at `S_0, S_1,` or `S_3` you *mistakenly* entered `0` instead of `1` (the correct subsequent digit to enter), then its counted as you *restarted* to `S_0` (not `S_X` -- because the first digit of the password is `0`). 
 * If at `S_3` you entered `1`, then you land at `S_1` because its counted that the latest correct sequence so far is `01` (the `0` refers to the input entered that caused transition from `S2` to `S_3`).
 
 There are **five** states in total, and we can encode them using 3 bits: `000, 001, 010, 011`, and `110` for `S_X, S_0, S_1, S2`, and `S_3` respectively. 
-> Since we have 5 states, we need at least $\log_2(5) = 3$ (rounded up) bits to represent the states, *any* 5 distinct values  from `000` to `111`. **This is called encoded representation** of the states.
+> Since we have 5 states, we need at least $$\log_2(5) = 3$$ (rounded up) bits to represent the states, *any* 5 distinct values  from `000` to `111`. **This is called encoded representation** of the states.
 
 Then, we can represent the functionality of the FSM in terms of a truth table below
 
@@ -87,7 +87,7 @@ S_i &  In & S_{i+1} & Out\\
 $$
 
 
-<span style="background-color:yellow">  **Important**: $s$ state bits allow us to encode up to  $2^s$ different states. </span>
+<span style="background-color:yellow">  **Important**: $$s$$ state bits allow us to encode up to  $$2^s$$ different states. </span>
 
 
 *Note: the output column in the figure above contains the output that depends on the *current* state only (also known as the Moore Machine, see next section).* 
@@ -177,7 +177,7 @@ $$
 
 {% raw %}
 
-Since there are two state bits, we can label the first bit (MSB) as $$S_{0_i}$$ and the second bit (LSB) as  $$S_{1_i}$$ (at time step $i$). We technically have three input bits: $$S_{0_i}$$, $$S_{1_i}$$, and $In$,  and three output bits: $$S_{0_{i+1}}$$, $$S_{1_{i+1}}$$, and $Out$  in total for the combinational logic part of the FSM. 
+Since there are two state bits, we can label the first bit (MSB) as $$S_{0_i}$$ and the second bit (LSB) as  $$S_{1_i}$$ (at time step $$i$$). We technically have three input bits: $$S_{0_i}$$, $$S_{1_i}$$, and $$In$$,  and three output bits: $$S_{0_{i+1}}$$, $$S_{1_{i+1}}$$, and $$Out$$  in total for the combinational logic part of the FSM. 
 
 The boolean equation for the FSM  (Moore) truth table above is therefore:
 
@@ -190,7 +190,7 @@ Out &= S_{0_i}  \cdot S_{1_i} \cdot \overline{\text{in}}  + S_{0_i} \cdot S_{1_i
 $$
 {% endraw %}
 
-> Exercise: Can you minimise the equation above further? For the output bits, its obvious that current input does not matter since it is a Moore machine (can be proved mathematically as well by minimising the $Out$ boolean equation). 
+> Exercise: Can you minimise the equation above further? For the output bits, its obvious that current input does not matter since it is a Moore machine (can be proved mathematically as well by minimising the $$Out$$ boolean equation). 
 
 To build the equivalent Mealy machine, we can transform the Mealy Machine truth table (pasted below for easier reference) into a boolean equation:
 
@@ -239,11 +239,11 @@ One possible schematic for the Moore version of the lock is :
 
 There are some differences when implementing a specification as a Moore machine vs a Mealy machine. A Moore machine has these characteristics:
 
-1. The output  obtained is **depends** **only** on the **current** state (regardless of the input). For example in our simple digital lock above, the output = `1` (unlocked) only happens in State $S_3$ (`11`), regardless of whether the input is 0 or 1. 
+1. The output  obtained is **depends** **only** on the **current** state (regardless of the input). For example in our simple digital lock above, the output = `1` (unlocked) only happens in State $$S_3$$ (`11`), regardless of whether the input is 0 or 1. 
 
 2.  Sometimes, a Moore machine **may require more states**. It requires 4 states for the simple digital lock (vs 3 states in its Mealy configuration). 
 
-3. The output of a Moore machine is *synchronized* with the state change.  In the example of our smaller digital lock above, the lock is unlocked **only in the *next*** cycle (only in the next cycle where you'll reach $S_3$ *after* you keyed in the password: `011` in the current cycle). 
+3. The output of a Moore machine is *synchronized* with the state change.  In the example of our smaller digital lock above, the lock is unlocked **only in the *next*** cycle (only in the next cycle where you'll reach $$S_3$$ *after* you keyed in the password: `011` in the current cycle). 
 
   
 
@@ -251,27 +251,27 @@ On the other hand, a Mealy machine has these characteristics:
 
 1.  The output of a Mealy machine is affected by both the current state and the current input.
 
-2. Mealy machines react *immediately* with the presence of an input (instead of having to obtain the output in the next cycle). We can see that in the digital lock's truth table, that when we are at state $S_2$ = `10`, we obtain the unlock (out = `1`) state **immediately** after we key in the last digit of the password. 
+2. Mealy machines react *immediately* with the presence of an input (instead of having to obtain the output in the next cycle). We can see that in the digital lock's truth table, that when we are at state $$S_2$$ = `10`, we obtain the unlock (out = `1`) state **immediately** after we key in the last digit of the password. 
 
 3. Typically we can have *less states* and *less transitions*. This means that we can potentially use less registers and logic gates (for the CL) in a Mealy machine, potentially reducing its cost (and size). 
 
   
 
-Further observation: A Mealy machine can seem *faster* or *more responsive* than the Moore machine since the output can  be produced approximately $t_{pd}$ (or almost immediately if $t_{pd}$ of the last CL unit is small) after input arrives. However  the output of a Moore machine is only obtained in the **next CLK cycle**. 
+Further observation: A Mealy machine can seem *faster* or *more responsive* than the Moore machine since the output can  be produced approximately $$t_{pd}$$ (or almost immediately if $$t_{pd}$$ of the last CL unit is small) after input arrives. However  the output of a Moore machine is only obtained in the **next CLK cycle**. 
 
-One CLK period typically takes much longer than the $t_{pd}$ of that smaller CL (at the output of the Flip-Flop) because:
-- Dynamic discipline has to be obeyed, thus $t_{pd}$ of the bigger CL should be smaller than the CLK period 
-- Logically, $t_{pd}$ of the smaller CL should be smaller than the $t_{pd}$ of a bigger CL, supporting the statement above. 
+One CLK period typically takes much longer than the $$t_{pd}$$ of that smaller CL (at the output of the Flip-Flop) because:
+- Dynamic discipline has to be obeyed, thus $$t_{pd}$$ of the bigger CL should be smaller than the CLK period 
+- Logically, $$t_{pd}$$ of the smaller CL should be smaller than the $$t_{pd}$$ of a bigger CL, supporting the statement above. 
 
 
 ## Enumerating FSM 
 
   
 
-The goal of this section is that, after establishing the abstraction (specs) of the FSM, we want to make a physical machine that can conform to the functional specification of our designed FSM. For any FSM, we can say that in general we need $i$ input bits, $s$ state bits, and $o$ output bits.
+The goal of this section is that, after establishing the abstraction (specs) of the FSM, we want to make a physical machine that can conform to the functional specification of our designed FSM. For any FSM, we can say that in general we need $$i$$ input bits, $$s$$ state bits, and $$o$$ output bits.
 
 
-The truth table will look something like this for any *arbitrary* FSM with  $i$ input bits, $s$ state bits, and $o$ output bits:
+The truth table will look something like this for any *arbitrary* FSM with  $$i$$ input bits, $$s$$ state bits, and $$o$$ output bits:
  
 
 <img src="https://dl.dropboxusercontent.com/s/bmm0uh4uzk6mrwe/Q1.png?raw=1"  width="70%" height = "70%">
@@ -288,26 +288,26 @@ In short, we need **to create a combinational logic device** that conforms to th
 
   
 
-Given $i$ input bits, $s$ state bits, and $o$ output bits we have a total combination of $2^{i+s}$ input-state combinations, and each input-state pair has $o$ bits as an output.  
+Given $$i$$ input bits, $$s$$ state bits, and $$o$$ output bits we have a total combination of $$2^{i+s}$$ input-state combinations, and each input-state pair has $$o$$ bits as an output.  
 
-> <span style="background-color:yellow">  Hence, the number of possible FSMs that can be captured with $i$ input bits, $o$ output bits, and $s$ state bits is $2^{(o+s)2^{i+s}}$ FSMs *(Note: some FSMs in these many possible FSMs may be equivalent)*. </span>
+> <span style="background-color:yellow">  Hence, the number of possible FSMs that can be captured with $$i$$ input bits, $$o$$ output bits, and $$s$$ state bits is $$2^{(o+s)2^{i+s}}$$ FSMs *(Note: some FSMs in these many possible FSMs may be equivalent)*. </span>
 
 *Why is this so?*
--  We have $2^{i+s}$ input-state combinations if we have $i$ input bits and $s$ states -- *to define a particular FSM, we need to decide what is the value of next state and its corresponding output for each state-input combination.* 
+-  We have $$2^{i+s}$$ input-state combinations if we have $$i$$ input bits and $$s$$ states -- *to define a particular FSM, we need to decide what is the value of next state and its corresponding output for each state-input combination.* 
 
--  Each combination results in $o$ output bits and $s$ end-state bits.
-- This results in total of: $(o+s)2^{i+s}$ bits (to fill up) in both the output column and the next-state column
+-  Each combination results in $$o$$ output bits and $$s$$ end-state bits.
+- This results in total of: $$(o+s)2^{i+s}$$ bits (to fill up) in both the output column and the next-state column
 - Each bit can take up 2 values: `0` or `1`
--  Therefore we have $2^{(o+s)2^{i+s}}$ different FSMs
+-  Therefore we have $$2^{(o+s)2^{i+s}}$$ different FSMs
 
-> For example, if $i=1, o=1, s=1$, then we can have $256$ different FSMs. The picture below shows 4 examples of the 256 different FSMS to paint a clearer picture. The shaded region (input-state combinations) are always the same, but the two columns on its right (next state-output combinations) always differ by at least one bit to define a *different* FSM. 
+> For example, if $$i=1, o=1, s=1$$, then we can have $$256$$ different FSMs. The picture below shows 4 examples of the 256 different FSMS to paint a clearer picture. The shaded region (input-state combinations) are always the same, but the two columns on its right (next state-output combinations) always differ by at least one bit to define a *different* FSM. 
 
   
 
 <img src="https://dl.dropboxusercontent.com/s/pspqvc7b00homaa/fsms.png?raw=1"  width="100%" height = "100%">
   
 
-The reason we want to **enumerate** number of possible FSMs given $s$ state bits, $i$ input bits, and $o$ output bits is because if we are going to make a *hardware* for this FSM using some generic components such as the multiplexer, ROMs, or other memory unit, we want to know *how many different FSMs* can we program onto this particular hardware size which we probably mass-produce.
+The reason we want to **enumerate** number of possible FSMs given $$s$$ state bits, $$i$$ input bits, and $$o$$ output bits is because if we are going to make a *hardware* for this FSM using some generic components such as the multiplexer, ROMs, or other memory unit, we want to know *how many different FSMs* can we program onto this particular hardware size which we probably mass-produce.
 
 
 ## FSM Equivalence and Reduction
@@ -317,15 +317,15 @@ FSM A and FSM B shown below have the same functionality, however FSM A has doubl
 
 To reduce the number of states in an FSM, we need to find pairs of **equivalent** states and merge them. 
 
-<span style="background-color:yellow">  Two states $S_i$ and $S_j$ are equivalent iff:  <span style="background-color:yellow">   for  an  arbitrary input  sequence applied  at  both  states,  the  **same**  **output sequence**  results </span>. 
+<span style="background-color:yellow">  Two states $$S_i$$ and $$S_j$$ are equivalent iff:  <span style="background-color:yellow">   for  an  arbitrary input  sequence applied  at  both  states,  the  **same**  **output sequence**  results </span>. 
 
-In FSM A, we can deduce that $S_3$ and $S_2$ are **identical**:
+In FSM A, we can deduce that $$S_3$$ and $$S_2$$ are **identical**:
 1. In both states, the output is `1`
-2. When either states receive input: `0`, it will transition to $S_0$ 
-3. When either states receive an input: `1`, it will transition to $S_3$
+2. When either states receive input: `0`, it will transition to $$S_0$$ 
+3. When either states receive an input: `1`, it will transition to $$S_3$$
 4. There is no other input that can be fed to either states except the ones in (2) and (3).
 
-Therefore, we can safely merge $S_3$ and $S_2$ into a new state $S_4$. The same steps (1) to (4) can be applied between the new state $S_4$ and state $S_1$, merging the two further and resulting in a minimised FSM like FSM B. 
+Therefore, we can safely merge $$S_3$$ and $$S_2$$ into a new state $$S_4$$. The same steps (1) to (4) can be applied between the new state $$S_4$$ and state $$S_1$$, merging the two further and resulting in a minimised FSM like FSM B. 
 
 Having less states will result in less bits to represent the states in the machine, and less transitions (i.e: simpler truth table). This in turn allows us to build the machine at a cheaper cost (less registers used to store state bits) and smaller size.
 
