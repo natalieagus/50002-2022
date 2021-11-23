@@ -20,9 +20,9 @@ Singapore University of Technology and Design
 
 # Getting Good with FPGA: Building the Beta CPU
 
-This document is created for the sake of enhancing our understanding in how basic CPU works by actually implementing it onto an FPGA. We will create our 32-bit $\beta$ CPU and use simple dual-port RAM to simulate some of the instructions that we have learned in class and **test** if they're working properly. 
+This document is created for the sake of enhancing our understanding in how basic CPU works by actually implementing it onto an FPGA. We will create our 32-bit $$\beta$$ CPU and use simple dual-port RAM to simulate some of the instructions that we have learned in class and **test** if they're working properly. 
 
-You are recommended to read this document only after you've understood **completely** up until the chapter on $\beta$ datapath and are comfortable enough with HDL programming:
+You are recommended to read this document only after you've understood **completely** up until the chapter on $$\beta$$ datapath and are comfortable enough with HDL programming:
 * You're **confident** with your understanding about sequential logic and synchronization. 
 * You're **comfortable** with how memory read and write works, and memory addressing. 
 * You **know** how to use common components like `counter`, `edge detector`, `button conditioner`, and `fsm` properly.
@@ -34,8 +34,8 @@ The completed project can be found <a href="https://github.com/natalieagus/Sampl
 ## Creating a Memory Unit 
 
 You can use a bunch of `dff`s as a memory unit, but its going to take a lot of the logic cells of your FPGA. Let's do the math: 
-* The $\beta$ CPU is a 32-bit architecture. 
-* If you want your memory unit to support 128 words, then you need 32 $\times$ 128 `dff`s = 4096 `dff`s. If we're being optimistic and assume that 1 `dff` use 1 logic cell, that's alot of logic cells used simply for the memory unit (about 12% of the Au's cells).  
+* The $$\beta$$ CPU is a 32-bit architecture. 
+* If you want your memory unit to support 128 words, then you need 32 $$\times$$ 128 `dff`s = 4096 `dff`s. If we're being optimistic and assume that 1 `dff` use 1 logic cell, that's alot of logic cells used simply for the memory unit (about 12% of the Au's cells).  
 
 We shall use another component instead: `simple_ram` or `simple_dual_ram`. The difference is that in `simple_dual_ram` you can perform read and write at the same clock cycle, whereas in `simple_ram` you only have 1 address port for *either* read or write. 
 
@@ -60,7 +60,7 @@ out = memory_unit.read_data;
 ```
 * The memory unit is **always reading**, depending on what is the current `<read address>`. You can simply ignore the `.read_data` if you don't need it. 
 
-* Number of bits for `.raddr` / `waddr` is $\log_2$(`DEPTH`). 
+* Number of bits for `.raddr` / `waddr` is $$\log_2$$(`DEPTH`). 
 * **Important** documentation: 
 	* <span style="background-color:yellow">`.read_data` always produces the output from `.raddr` supplied in the previous clock cycle. </span> The documentation says that if you supplied address `A` at `t=0`, then at `t=1` (next clock cycle), `Mem[A]` is produced at `.read_data` port. 
 	* <span style="background-color:yellow"> If you perform **read and write** to the **same location** at the **same clock cycle** e.g: at`t=0`, the result of the data written will be observed only **two clock cycles later** at `t=2`. *At `t=1`, the old data is still produced at the read port.* 
@@ -102,7 +102,7 @@ io_led[1] = ram.out[7:0];
 	> Test it by reading using the same address (set `io_dip[0]` to be equal to `io_dip[1]` when you wrote the data). 
 
 
-Now that we understand how the `simple_ram` module works, lets create a module that corresponds to this memory unit in the $\beta$ schematic shown our notes:
+Now that we understand how the `simple_ram` module works, lets create a module that corresponds to this memory unit in the $$\beta$$ schematic shown our notes:
 > Note: there's two read ports, and one write port.
 
 <img src="https://dl.dropboxusercontent.com/s/4v5wpc0sw7xlbml/memunit.png?raw=1" width="70%" height="70%">
@@ -157,9 +157,9 @@ We will create two `ram` units as *instruction* memory and **data** memory. In p
 }
 ```
 
-Then in the `always` block we simply make the correct connections. One thing to pay attention to is the fact that $\beta$ assumes byte-addressable memory unit but the `ram` modules uses **word addressing.**
+Then in the `always` block we simply make the correct connections. One thing to pay attention to is the fact that $$\beta$$ assumes byte-addressable memory unit but the `ram` modules uses **word addressing.**
 
-Therefore we need to **truncate** the two LSB off the addresses supplied by $\beta$: `ia` (instruction address), `radr` and `wadr` (read and write address to the data memory, both are supplied by the same source the output of the `ALU`).
+Therefore we need to **truncate** the two LSB off the addresses supplied by $$\beta$$: `ia` (instruction address), `radr` and `wadr` (read and write address to the data memory, both are supplied by the same source the output of the `ALU`).
 
 The complete implementation of `memory_unit.luc` can be found <a href="https://github.com/natalieagus/SampleAlchitryProjects/blob/master/BetaComponents/source/memoryunit.luc
 " target="_blank">here</a>. 
@@ -168,7 +168,7 @@ The complete implementation of `memory_unit.luc` can be found <a href="https://g
 ## The ALU 
 The ALU is a combinational logic unit, so creating it is pretty straightforward. 
 
-> Just remember that in this document we are recreating the original $\beta$ CPU (32-bit architecture) so we need to create a `32-bit` ALU instead of the `16-bit` we used for 1D project. 
+> Just remember that in this document we are recreating the original $$\beta$$ CPU (32-bit architecture) so we need to create a `32-bit` ALU instead of the `16-bit` we used for 1D project. 
 
 
 We need to ensure that it performs the right operation given an `ALUFN` input. The unit should have the following input and output terminals:
@@ -327,7 +327,7 @@ Similarly, `reset` and `irq` cases have to be handled separately. They have to b
 The complete implementation of `control_unit.luc` can be found <a href="https://github.com/natalieagus/SampleAlchitryProjects/blob/master/BetaComponents/source/control_unit.luc" target="_blank">here</a>.
 
 ## Assembling the Beta
-Now that we have all the three major components: the alu, the control unit, and the regfile, we can assemble the rest of the parts together to form a complete $\beta$ CPU.  Its complete schematic is shown below:
+Now that we have all the three major components: the alu, the control unit, and the regfile, we can assemble the rest of the parts together to form a complete $$\beta$$ CPU.  Its complete schematic is shown below:
 
 <img src="https://dl.dropboxusercontent.com/s/7vn4p9ucsydqu9e/beta.png?raw=1" width="70%" height="70%">
 
@@ -350,9 +350,9 @@ module beta_cpu (
 ```
 > The `slowclk` is used to *slow down* the rate at which the content of `pcreg` is changed, so that we can **have enough time** to **observe** the output and test our device. It is an input signal that produces a `1` **once** every second and `0` otherwise.  
 >
-> All the I/O terminals of the $\beta$ CPU will be connected to the memory unit later on in `au_top.luc`. 
+> All the I/O terminals of the $$\beta$$ CPU will be connected to the memory unit later on in `au_top.luc`. 
 
-Then, declare all major components for the $\beta$ CPU that we have previously created.  `pc` register can be created as a 32-bit `dff`:
+Then, declare all major components for the $$\beta$$ CPU that we have previously created.  `pc` register can be created as a 32-bit `dff`:
 ```cpp
   control_unit control_system(.clk(clk));
   alu alu_system;
@@ -386,7 +386,7 @@ For example, here's how you can create the `asel` mux:
 ```
 
 In order for us to **observe** the output, we need to slow down the rate of change of `ia` supplied by `pc` register.  We can do this by triggering a change in `pc.d` only when `slowclk == b1`.
-> Note: `pc` reg produces a *new* `ia` at the time when `slowclk == b1` + 1 system `clk` period and the output of the $\beta$ stays the same until the next `slowclk == b1` is triggered, hence giving us enough time to study it. 
+> Note: `pc` reg produces a *new* `ia` at the time when `slowclk == b1` + 1 system `clk` period and the output of the $$\beta$$ stays the same until the next `slowclk == b1` is triggered, hence giving us enough time to study it. 
 
 ```cpp
 if (slowclk){ 

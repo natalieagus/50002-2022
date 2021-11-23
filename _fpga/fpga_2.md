@@ -31,12 +31,12 @@ The Alchitry Au board comes with **100MHz** on-board clock. When used properly, 
 <br><img src="https://dl.dropboxusercontent.com/s/7ynz6v0w3u95zud/counter.png?raw=1"  width="60%" height = "60%"><br>
 
 Above is a sample schematic of a simple sequential logic module. Assuming the D Flip-Flop `R1` is triggered at each positive clock edge, then:
-* The combinational logic unit applies some function $f$ to its input `QR1`.
+* The combinational logic unit applies some function $$f$$ to its input `QR1`.
 
-* At the first cycle, the value loaded to `R1` is `INIT`, and hence at the signal at `CL out` = $f($`INIT`$)$
-* At the second cycle, we apply $f$ again, resulting in `CL out` = $f(f($`INIT`$))$, and so on. 
-* We need to ensure that dynamic discipline is obeyed, meaning that $t1$ and $t2$ timing constraints are satisfied. 
-	* Typically this isn't much of an issue, unless you perform intensive computations in the combinational logic unit such that its `tpd` gets too large and violates the $t2$ constraint. 
+* At the first cycle, the value loaded to `R1` is `INIT`, and hence at the signal at `CL out` = $$f($$`INIT`$$)$$
+* At the second cycle, we apply $$f$$ again, resulting in `CL out` = $$f(f($$`INIT`$$))$$, and so on. 
+* We need to ensure that dynamic discipline is obeyed, meaning that $$t1$$ and $$t2$$ timing constraints are satisfied. 
+	* Typically this isn't much of an issue, unless you perform intensive computations in the combinational logic unit such that its `tpd` gets too large and violates the $$t2$$ constraint. 
 	* *Alchitry Lab will warn you if timing contraints are violated,* which means you need to break down the combinational logic unit into smaller parts and adding more DFFs in between. 
 
 To make things simple, let's use the **8-bit ripple-carry adder** unit that we made in *Part 1*, to **increment the value of `INIT` by the constant `2` at each clock cycle**:
@@ -119,7 +119,7 @@ You should see a new script called `counter.luc` added under `Components` afterw
 
 The output of the counter is `n` bits as defined by the `SIZE` parameter. Without any `DIV`, then the counter will produce an output that's incremented by 1 at every `clk` cycle. 
 
-If `i` is set to be nonzero, then the counter will produce an `n` bit output that is incremented by 1 at a **slower** clock rate -- `clk` is slowed down by $2^i$ times. **Therefore, we can use a 1-bit counter as a <a href="https://reference.digilentinc.com/learn/programmable-logic/tutorials/use-flip-flops-to-build-a-clock-divider/start" target="_blank">frequency divider</a>  -- i.e: produce a clock signal with slower rate.** 
+If `i` is set to be nonzero, then the counter will produce an `n` bit output that is incremented by 1 at a **slower** clock rate -- `clk` is slowed down by $$2^i$$ times. **Therefore, we can use a 1-bit counter as a <a href="https://reference.digilentinc.com/learn/programmable-logic/tutorials/use-flip-flops-to-build-a-clock-divider/start" target="_blank">frequency divider</a>  -- i.e: produce a clock signal with slower rate.** 
 
 > You don't have to read the details if you are running low on time. Just know that you can use a `counter` component with `#DIV` set to produce a clock signal with slower rate. 
 
