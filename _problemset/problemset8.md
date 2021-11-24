@@ -57,7 +57,7 @@ Consider a virtual memory system that uses a single-level page map to translate 
 	There are half as many entries. Doubling the page size while maintaining the size of virtual memory means there are half as many virtual pages as before. So the number of page table entries is also cut in half.
 	</p></div><br>
 
-7. The following table shows the first 8 entries in the page map. Recall that the valid bit is 1 if the page is resident in physical memory and 0 if the page is on disk or hasn’t been allocated. If there are 1024 ($$2^{10}$$) bytes per page, what is the physical address corresponding to the decimal virtual address 3956?
+7. The following table shows the first 8 entries in the page map. Recall that the valid bit is 1 if the page is resident in physical memory and 0 if the page is on disk or hasn’t been allocated. If there are 1024 ($$2^{10}$$) bytes per page, what is the physical address corresponding to the decimal virtual address 3956?<br><br>
 	$$
 	\begin{matrix}
 	\text{Virtual Page} & \text{Valid bit} & \text{Physical page}\\
@@ -71,9 +71,9 @@ Consider a virtual memory system that uses a single-level page map to translate 
 	6 & 0 & 4\\
 	7 & 1 & 1\\
 	\hline
-	\end{matrix}$$
+	\end{matrix}$$<br><br>
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	3956 = 0xF74. So the virtual page number is 3 with a page offset of 0x374. Looking up page table entry for virtual page 3, we see that the page is resident in memory (valid bit = 1) and lives in physical page 2. So the corresponding physical address is (2<<10)+0x374 = 0xB74 = 2932.
+	`3956 = 0xF74`. So the **VPN** is `3` with a page offset of `0x374`. Looking up page table entry for **VPN** 3, we see that the page is resident in memory (valid bit = `1`) and lives in physical page (**PPN**) `2`. So the corresponding physical address is `(2<<10)+0x374 = 0xB74 = 2932`.
 	</p></div><br>
 
 
@@ -83,7 +83,7 @@ Consider two possible page-replacement strategies: LRU (the least recently used 
 
 1. For each of the two strategies, what pages will be in the memory at the end of the following sequence of virtual page accesses? Read the sequence from left to right: (6, 3, 2, 8, 4).
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	LRU:<br>
+	**LRU**:<br>
 	start: 4 3 2 1<br>
 	access 6: replace 1 => 6 4 3 2<br>
 	access 3: reorder list => 3 6 4 2<br>
@@ -91,7 +91,7 @@ Consider two possible page-replacement strategies: LRU (the least recently used 
 	access 8: replace 4 => 8 2 3 6<br>
 	access 4: replace 6 => 4 8 2 3<br>
 	<br>
-	FIFO:<br>
+	**FIFO**:<br>
 	start: 4 3 2 1<br>
 	access 6: replace 1 => 6 4 3 2<br>
 	access 3: no change => 6 4 3 2<br>
@@ -108,7 +108,7 @@ Consider two possible page-replacement strategies: LRU (the least recently used 
 
 3. Which (if either) replacement strategy will work best when the machine accesses pages in the following (repeated sequence) order: (3, 4, 5, 6, 7, 3, 4, 5, 6, 7, ...)?
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	Both strategies have a 100% miss rate in the steady state.
+	Both strategies have a **100% miss rate** in the steady state.
 	</p></div><br>
 
 4. Which (if either) replacement strategy will work best when the machine accesses pages in a randomly selected order, such as (3, 4, 2, 8, 7, 2, 5, 6, 3, 4, 8, ...)?
@@ -124,7 +124,7 @@ Consider a virtual memory system that uses a single-level page map to translate 
 <img src="https://dl.dropboxusercontent.com/s/93f6hoa3nk9iyah/vapa.png?raw=1" width="50%" height="50%">
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-The PA is <code>0x0492</code>. You can obtain it by figuring out how many bits is the VPN. Given that there's 1024 bytes per page, this gives us the clue that PO is 10 bits, which means that VPN is consisted of 6 bits: <code> 000111</code>. From the table, we find that the PPN is <code>1</code> for VPN 7. Appending PPN and PO and making it 16 bits hex representation, we have PO: <code> 0010010010 </code> and PPN: <code> 000001 </code>. Appending them together and converting them to results in <code>0x0492</code>.
+The PA is <code>0x0492</code>. You can obtain it by figuring out how many bits is the **VPN**. Given that there's 1024 bytes per page, this gives us the clue that `PO` (Page Offset) is **10 bits**, which means that **VPN** is consisted of **6 bits**: <code> 000111</code>. From the table, we find that the **PPN** is <code>1</code> for **VPN** `7`. Appending **PPN** and **PO** and making it 16 bits hex representation, we have PO: <code> 0010010010 </code> and PPN: <code> 000001 </code>. Appending them together and converting them to results in <code>0x0492</code>.
 </p></div><br>
 
 
@@ -141,7 +141,7 @@ Refer to the state of RAM, pagetable, and TLB above. The addresses in the RAM, D
 1. How many bits is PO, PPN, and VPN?
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	#bits of PO is 4, #bits of PPN is 2, #bits of VPN is 3
+	 **PO** is 4 bits, **PPN** is 2 bits, **VPN** is 3 bits.
 	</p></div><br>
 
 2. Which of the following instructions **does not** require access to the pagetable?
@@ -151,25 +151,25 @@ Refer to the state of RAM, pagetable, and TLB above. The addresses in the RAM, D
 	*	`ADDC(R31, 0b1000000, R2), LD(R2, 0b0011000, R3), SHLC(R3, 0x4, R3)`
 	
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	You don't require access to the pagetable if the entry is already cached at the TLB. The second instruction and the third instruction requires translation of VPN 3 and VPN 1 which are both present in the TLB -- this means we don't need to access the pagetable anymore. 
+	You don't require access to the pagetable if the entry is already cached at the TLB. The second instruction and the third instruction requires translation of **VPN** `3` and **VPN** `1` which are both present in the TLB -- this means we don't need to access the pagetable anymore. 
 	</p></div><br>
 
 3. We want to call the following instruction: `ST(R31, 0b1100100, R31)`. Where is this data with VA of`0b1100100` located?
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	VPN 6 is not resident. Therefore it is on disk. 
+	**VPN** `6` is not resident. Therefore it is on disk. 
 	</p></div><br>
 
 4. Where will the content for VPN 6 be located in the RAM after the instruction `ST(R31, 0b1100100, R31)` is executed, i.e: which data -- A, B, C, or D will be replaced by the content of VPN 6?
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	It will replace data B since its PPN is not in the pagetable (means that its not a relevant content and can be overwritten). 
+	It will replace data `B` since its **PPN** is not in the pagetable (means that its not a relevant content and can be overwritten). 
 	</p></div><br>
 
 5. Draw the state of the TLB after `ST(R31, 0b1100100, R31)` is executed.
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	<img src="https://dl.dropboxusercontent.com/s/3q2ydp6117bq1dm/TLBANS.png?raw=1" width="70%" height="70%">
+	<img src="https://dl.dropboxusercontent.com/s/3q2ydp6117bq1dm/TLBANS.png?raw=1" width="80%" height="80%">
 	</p></div><br>
 
 

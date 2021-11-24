@@ -23,7 +23,7 @@ Each topic's questions are grouped into **three** categories: basic, intermediat
 
 
 # CMOS Technology
-You can refer to the notes <a href="https://natalieagus.github.io/50002/cmos_technology.html" target="_blank">here</a> if you need to revise. 
+
 
 ## Combinational Logic Timing (Basic)
 
@@ -37,9 +37,9 @@ Consider the following combinational logic device.
 Compute the **overall** propagation delay and contamination delay for the circuit. 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-Overal  tpd = 6ns, $$t_{pd​}$$ = 6ns  (counting paths from the AND gate, OR gate, and XOR gate). 
+Overall  **tpd** = 6ns (counting paths from the AND gate, OR gate, and XOR gate). 
 <br><br>
-Overall  tcd = 1ns, tcd ​= 1ns  (counting the shortest path from XOR gate). </p></div><br>
+Overall  **tcd** = 1ns, **tcd** ​= 1ns  (counting the shortest path from XOR gate). </p></div><br>
 
 
 ## Tracing CMOS Circuit (Basic)
@@ -85,24 +85,24 @@ Refer to the FA circuitry below:
 <img src="https://dl.dropboxusercontent.com/s/nqfbozivm2mdrvf/Q12.png?raw=1" width="50%" height = "50%">
 
 Answer the following questions:
-1. **Compute** the  tpd​  and  tcd of the full adder above.
-2.  If we were to put several of these FAs to form an 8-bit ripple-carry adder as shown, **compute** the tpd and tcd  of an 8-bit ripple-carry adder made of 8 of these FA circuits. 
+1. **Compute** the  **tpd​**  and  **tcd** of the full adder above.
+2.  If we were to put several of these FAs to form an 8-bit ripple-carry adder as shown, **compute** the **tpd** and **tcd**  of an 8-bit ripple-carry adder made of 8 of these FA circuits. 
 
 	<img src="https://dl.dropboxusercontent.com/s/y30lar5nypnbh52/Q13.png?raw=1" width="70%" height = "70%">
 
-
+	<br>
 	*Hint: In the figure,  C0​  is assumed to be **grounded** for this particular **instance**, so this sample device can only add two numbers and not subtract them.*
 
-	*However, is the computation of tpd​  and  tcd of an 8-bit ripple carry adder usage specific?* 
+	*However, is the computation of tpd​  and  **tcd** of an 8-bit ripple carry adder usage specific?* 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 <ol type="1">
-<li> The tpd is 1.8 and the tcd  is 0.3 for a single FA. </li>
+<li> The **tpd** is 1.8 and the **tcd**  is 0.3 for a single FA. </li>
 <br>
-<li> For the 8-bit ripple-carry adder, we do not have an input  C0 as it is grounded However the tcd​  is <i>still</i> 0.3 as the specification of contamination delay is <strong>not</strong> usage specific. Its  tpd  is approximately 8 times bigger than a single FA, then its tpd= 14.4. To be exact, if  Ai XOR Bi is <i>parallel</i>, meaning that Ai, Bi are given and valid at the same time for all adder units $$i=0,1,...7$$
-Then the tpd is: $$1.8+7\times1.3=10.9$$</li>
+<li> For the 8-bit ripple-carry adder, we do not have an input  **C0** as it is grounded However the tcd​  is <i>still</i> 0.3 as the specification of contamination delay is <strong>not</strong> usage specific. Its  **tpd**  is approximately 8 times bigger than a single FA, then its **tpd** = 14.4. To be exact, if  **Ai XOR Bi** is <i>parallel</i>, meaning that **Ai**, **Bi** are given and valid at the **same time** for all adder units $$i=0,1,...7$$
+Then the **tpd** is: $$1.8+7\times1.3=10.9$$</li>
 <br>
-However if the question is asking for the  tcd  of  <strong>this</strong>  particular device with no  C0 input terminal at all then the answer is  0.6ns  since there's no  C0. </ol></p></div><br>
+However if the question is asking for the  **tcd**  of  <strong>this</strong>  particular device with no  **C0** input terminal at all then the answer is  0.6ns  since there's no  **C0**. </ol></p></div><br>
 
 
 ## Combinational Construction Rules (Challenging)
@@ -111,7 +111,7 @@ During lecture, we learned a first set of principles that define a combinational
 1.  One or more digital inputs
 2.  One or more digital outputs
 3.  A **functional** specification that details the value of each output for every possible combination of valid input values
-4.  A **timing** specification consisting (at minimum) of an upper bound  tpd  on the required time for the device to compute the specified output values from an arbitrary set of stable, valid input values.
+4.  A **timing** specification consisting (at minimum) of an upper bound  **tpd**  on the required time for the device to compute the specified output values from an arbitrary set of stable, valid input values.
 
 We also learned a second set of rules, that a set of interconnected elements ***is*** a combinational device if:
 1.  **Each** circuit element is combinational
@@ -165,12 +165,12 @@ x & y & z \\
 <br>
 <li>One has to find the <strong>longest</strong> path from (any) input to (any) output to find the <strong>total</strong> propagation delay of the combinational circuit.</li>
 <br>
-<li> No, the signal can <strong>propagate</strong> back into the circuit's input so using the <i>longest</i> path to calculate  tpd  is not applicable anymore. </li></ol>
+<li> No, the signal can <strong>propagate</strong> back into the circuit's input so using the <i>longest</i> path to calculate  **tpd**  is not applicable anymore. </li></ol>
 </p></div><br>
 
 # Logic Synthesis
 
-You can refer to the notes <a href="https://natalieagus.github.io/50002/logic_synthesis.html" target="_blank">here</a> if you need to revise. 
+
 
 ## CMOS Circuit Boolean Expression (Basic)
 
@@ -204,12 +204,12 @@ Consider the following circuit that implements the 2-input function $$H(A,B)$$:
 1. Write down the **truth table** for $$H$$.
 
 2. Give a **sum-of-products expression** that corresponds to your truth table.
-3. Using the information below, what are the tcd and tpd of the circuit?
-	- tcd and tpd of NR2:  5, 30
-	- tcd and tpd of ND2: 5, 30
-	- tcd and tpd of AN2:  6, 50
-	- tcd and tpd of OR2: 10, 20
-	- tcd and tpd of INV: 1, 3
+3. Using the information below, what are the **tcd** and **tpd** of the circuit?
+	- **tcd** and **tpd** of NR2:  5, 30
+	- **tcd** and **tpd** of ND2: 5, 30
+	- **tcd** and **tpd** of AN2:  6, 50
+	- **tcd** and **tpd** of OR2: 10, 20
+	- **tcd** and **tpd** of INV: 1, 3
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
@@ -225,15 +225,15 @@ A & B & H \\
 \hline
 \end{matrix}
 $$</li><br>
-<li> We begin by finding the expression of the topmost two circuits and applying de Morgan's law $$\overline{A + \overline{B}} = \overline{A}B$$ 
-<br><br>Then, we find the expression of the next pair, which is $$AB$$
+<li> We begin by finding the expression of the topmost two circuits and applying de Morgan's law: $$\overline{A + \overline{B}} = \overline{A}B$$ 
+<br><br>Then, we find the expression of the next pair, which is: $$AB$$
 We combine this with the above using a NOR gate and reduce the result, $$\overline{\overline{A}B + AB} = \overline{B}$$<br>
 <br>Finally, we find the expression for the bottom two pairs, which is simply: $$A+B$$
 Combining this with the above expression, we reduce and apply de Morgan's law:
 $$\begin{aligned} \overline{(A+B)\overline{B}} &= \overline{A \overline{B} + B \overline{B}} = \overline{A\overline{B}} = \overline{A} + B\\
 \end{aligned}$$
 </li><br>
-<li> <strong>The contamination delay</strong> is the path  (from any input to any output)  that results in the shortest time: NR2 + NR2 + ND2 = 5 + 5 + 5 = 15. <strong>The propagation delay</strong> is the path (from any input to any output) that results in the longest time: AN2 + NR2 + ND2 = 50 + 30 + 30 = 110.</li></ol>
+<li> <strong>The contamination delay</strong> is the path  (from any input to any output)  that results in the **shortest** time: **NR2 + NR2 + ND2 = 5 + 5 + 5 = 15**. <strong>The propagation delay</strong> is the path (from any input to any output) that results in the **longest** time: **AN2 + NR2 + ND2 = 50 + 30 + 30 = 110**.</li></ol>
 </p></div><br>
 
   
@@ -289,7 +289,7 @@ What is the the **sum-of-products** for the following ROM (Read Only Memory)?
   
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 $$Y = \bar{A}\bar{B}\bar{C} + \bar{A}BC + A \bar{B} C+ AB\bar{C}$$ 
-<br><br>This expression can be computed easily after you create a truth table first out of the ROM.
+This expression can be computed easily after you create a truth table first out of the ROM.
 </p></div><br>
 
 
@@ -307,11 +307,11 @@ Take a look at the figure above. **Which** of the above ROM represents the funct
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-ROM [3] represents half-adder functionality. 
-<br><br>
-Y's output shows a XOR(A,B) while Z's output shows an AND(A,B). 
-<br><br>
-Hence this make Y to be the SUM output and Z to be the CARRY output.
+**ROM [3]** represents half-adder functionality. 
+<br>
+**Y**'s output shows a **XOR(A,B)** while **Z**'s output shows an **AND(A,B)**. 
+<br>
+Hence this make **Y** to be the **SUM** output and **Z** to be the **CARRY** output.
 </p></div><br>
   
 
@@ -343,7 +343,7 @@ https://dl.dropboxusercontent.com/s/6romn7t1g594ddz/pfetup.png?raw=1"  width="50
 </li><br>
 <li>From the pulldown diagram, it seems like the output is 0 if D is 1, or A and C is 1, or B and C is 1. Therefore, the output for the gate is the <strong>inverse</strong> of the expression of the pulldown circuitry, which is the output of the pullup circuitry above: $$\overline{(A+B) C + D} = (\overline{A} \text{ }\overline{B} + \overline{C}) \overline{D}$$
 </li><br>
-<li> The voltage of the output terminal at "0" steady state is 0 (GND). The voltage of the output terminal at "1" steady state is VDD's voltage.</li></ol></p></div><br>
+<li> The voltage of the output terminal at `0` steady state is `0` (GND). The voltage of the output terminal at `1` steady state is VDD's voltage.</li></ol></p></div><br>
 
 
   
@@ -399,10 +399,10 @@ She has burned out 97 of her chips, and needs your help before destroying the re
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 <ol type="1">
-<li> When $$A=0, B=1$$ or $$A=1, B=0$$
+<li> When: $$A=0, B=1$$ or $$A=1, B=0$$
 .. it means that there's an <strong>open connection</strong> between VDD and GND. This caused the gate to short circuit, and hence its burning out.</li><br>
 <li> <strong>Yes</strong>, when: $$A=1, B=1 \text{ then} C=0$$ or $$A=0, B=0 \text{ then} C=1$$ This is when the pullup and pulldown circuit aren't both ON at the same time.</li><br>
-<li> <strong>No</strong>. When $$A=1, B=0$$ then the circuit will burn out again, since the pullup and pulldown will be active, thus burning out the circuit. Also, the output is not defined when $$A=0, B=1$$ This is because neither the pullup or pulldown are active.</li><br>
+<li> <strong>No</strong>. When: $$A=1, B=0$$ then the circuit will burn out again, since the pullup and pulldown will be active, thus burning out the circuit. Also, the output is not defined when: $$A=0, B=1$$ This is because neither the pullup or pulldown are active.</li><br>
 <li><strong>Yes</strong>. It exhibits the behavior of an <strong>inverter</strong>, i.e: A and B are connected to the same Vin.</li>
 </ol>
 </p>
@@ -466,7 +466,7 @@ CD  & 0 & 0& 1 & 1\\
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-The minimised boolean expression is $$AD + \bar{B}\bar{C} + \bar{B} \bar{D}$$
+The minimised boolean expression is: $$AD + \bar{B}\bar{C} + \bar{B} \bar{D}$$
 They're obtained from "three" boxes: 
 <ul>
 <li> on the lower right corner (row 3 and 4, with column 3 and 4), </li>

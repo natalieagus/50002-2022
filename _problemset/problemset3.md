@@ -27,7 +27,6 @@ Each topic's questions are grouped into **three** categories: basic, intermediat
 
 # Sequential Logic and Synchronization
 
-You can refer to the notes <a href="https://natalieagus.github.io/50002/sequential_logic.html" target="_blank">here</a> if you need to revise. 
 
 ## Warm-up Timing Computations (Basic)
   
@@ -37,11 +36,11 @@ Consider the following diagram of a simple sequential circuit:
   
 The components labeled CL1 and CL2 are combinational; R1 and R2 are edge triggered flip flops. Timing parameters for each component are as noted. Answer both questions below:
 
-1. Suggest the values for each timing specifications ($$t_S$$, $$t_H$$, $$t_{CD}$$ , $$t_{CD}$$ CL2, $$t_{PD}$$, $$t_{CLK}$$ -- clock period) for the system **as a whole** using the timing specifications of each of the internal components that are given in the figure. 
+1. Suggest the values for each timing specifications (**ts**, **th**, **tcd** , **tcd** CL2, **tpd**, **tclk** -- clock period) for the system **as a whole** using the timing specifications of each of the internal components that are given in the figure. 
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	$$t_H$$ and $$t_S$$ is for IN, $$t_{CD}$$ and $$t_{PD}$$ is for CLK. Below are the proposed values:
+	**th** and **ts** is for IN, **tcd** and **tpd** is with reference to the CLK. Below are the proposed values:
 	$$
 	\begin{aligned}
 	t_S &= t_{S.R1} + t_{PD.CL1} = 4 + 3 = 7\\
@@ -51,17 +50,17 @@ The components labeled CL1 and CL2 are combinational; R1 and R2 are edge trigger
 	t_{PD} &= t_{PD.R2} = 8\\
 	t_{CLK} &\geq t_{PD.R1} + t_{PD.CL2} + t_{S.R2} = 2 + 15 + 16 = 33
 	\end{aligned}$$
-	<div class="redbox">From this, hopefully you realise that the $$t_{PD}$$ and $$t_{CD}$$ of a sequential circuit is counted from the <strong>last</strong> downstream register(s) -- there can be more than one -- in the circuit because our reference "input" is no longer IN but the CLK.<br><br>Similarly, $$t_S$$ and $$t_H$$ is concerning the path from IN until the <strong>first</strong> upstream register(s) -- there can be more than one -- in the circuit.<br><br><strong>The dynamic discipline is always obeyed in any middle path</strong> between two DFFs or register in the circuit because of the hardware characteristics ($$t_{CD}$$s and CLK period) of the sequential circuit, so we don't need to worry about that. Therefore the definition of $$t_S$$ and $$t_H$$ of the <strong>entire</strong> circuit is only concerning the first upstream register, because this is where we need need to be wary of its $$t_S$$ and $$t_H$$ since it has to be fulfilled by the (unreliable) external input.</div>
+	<div class="redbox">From this, hopefully you realise that the **tpd** and **tcd** of a sequential circuit is counted from the <strong>last</strong> downstream register(s) (there can be more than one) in the circuit because our reference "input" is no longer IN but the CLK.<br><br>Similarly, **ts** and **th** is concerning the path from **INPUT** until the <strong>first</strong> upstream register(s) (there can be more than one)  in the circuit.<br><br><strong>The dynamic discipline is always obeyed in any middle path</strong> between two DFFs or register in the circuit because of the hardware characteristics (tcds and CLK period) of the sequential circuit, so we don't need to worry about that. Therefore the definition of **ts** and **th** of the <strong>entire</strong> circuit is only concerning the first upstream register, because this is where we need need to be wary of its **ts** and **th** since it has to be fulfilled by the (unreliable) external input.</div>
 	</p>
 	</div><br>
 	
 	
-3. Suppose you had available a faster version of CL2 having a propagation delay of 3 and a contamination delay of zero. Could you substitute the faster CL2 for the one shown in the diagram **Explain.**
+2. Suppose you had available a faster version of CL2 having a propagation delay of 3 and a contamination delay of zero. Could you substitute the faster CL2 for the one shown in the diagram **Explain.**
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	
-	No we can't. The contamination delay for R1 is 1, while the contamination delay for CL2 is 0. After CLK change, R2 input is valid and stable for 1s due to $$t_{CD}$$ of CL2 before turning invalid, but its $$t_H$$ required is 8.5s.
+	No we can't. The contamination delay for R1 is 1, while the contamination delay for CL2 is 0. After CLK change, R2 input is valid and stable for 1s due to **tcd** of CL2 before turning invalid, but its **th** required is 8.5s.
 	</p>
 	</div><br>
 
@@ -77,7 +76,7 @@ Now we feed it the following input signal and CLK signal. **Which of the followi
 <strong>Signal 2</strong> is the output of the device since there's two <strong>unknown</strong> outputs (it takes two half-clock cycles for the input to be propagated to the output). 
 <br>
 <br>
-Signal 5, although it has "invalid" values for two clock cycles isn't the answer because since it is an odd-numbered DFFs, it will  <strong>change output</strong> at the </strong>falling</strong> edge, as opposed to rising edge in a normal DFF with two latches.
+Signal 5, although it has "invalid" values for two clock cycles isn't the answer because since it is an odd-numbered DFFs, it will  <strong>change output</strong> at the <strong>falling</strong> edge, as opposed to rising edge in a normal DFF with two latches.
 </p>
 </div><br>
 
@@ -90,16 +89,16 @@ Consider the following circuit, and notice the **feedback loop**:
 
 Setup time, hold time, propagation delay, and contamination delay (all in nanoseconds) of each component is as written above. Lets now analyse its timing constraints:
 
-1.  What is the minimum contamination delay ($$t_{CD}$$) of Combinational Logic 1 such that the sequential circuit may still function properly?
+1.  What is the minimum contamination delay (**tcd**) of Combinational Logic 1 such that the sequential circuit may still function properly?
 
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	The combinational logic unit 1 (CL1) is responsible for the hold times of R4 and R1. Since R1's $$t_{H}$$ is larger than R4, we should use  that (R1's $$t_{H}$$) to compute min $$t_{CD}$$ for CL1.  
+	The combinational logic unit 1 (CL1) is responsible for the hold times of R4 and R1. Since R1's **th** is larger than R4, we should use  that (R1's **th**) to compute min **tcd** for CL1.  
 
-	$$t_{H}$$ of R1 can be satisfied using the $$t_{CD}$$ of CL1 plus the $$\min t_{CD}$$ of either R1, R2, or R3. 
+	th of R1 can be satisfied using the **tcd** of CL1 plus the <strong>minimum</strong> **tcd** of either R1, R2, or R3. 
 
-	Hence, minimum acceptable $$t_{CD}$$ of CL1 is $$t_{H}$$ R1 - $$t_{CD}$$ R1 = 1.2 - 0.3 = 0.9ns.
+	Hence, minimum acceptable **tcd** of CL1 is: **th** R1 - **tcd** R1 = 1.2 - 0.3 = 0.9ns.
 	</p>
 	</div><br>
 
@@ -108,16 +107,16 @@ Setup time, hold time, propagation delay, and contamination delay (all in nanose
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	The clock period must be big enough for signals to propagate from the upstream registers on the left to any downstream registers R1 or R4.<br><br>There are <strong>six</strong> paths to be considered in total where $$t_2$$ constraint must be obeyed in <strong>all</strong> of them: R1-CL1-R1, R1-CL1-R4, R2-CL1-R1, R2-CL1-R4, R3-CL1-R1, and R3-CL1-R4.<br><br>The longest path is formed by the $$t_{PD}$$ of R3 + $$t_{PD}$$ CL1 + $$t_{S}$$ R1 = 1.5 + 2 + 2 = 5.5ns.
+	The clock period must be big enough for signals to propagate from the upstream registers on the left to any downstream registers R1 or R4.<br><br>There are <strong>six</strong> paths to be considered in total where **t2** constraint must be obeyed in <strong>all</strong> of them: R1-CL1-R1, R1-CL1-R4, R2-CL1-R1, R2-CL1-R4, R3-CL1-R1, and R3-CL1-R4.<br><br>The longest path is formed by the **tpd** of R3 + **tpd** CL1 + **ts** R1 = 1.5 + 2 + 2 = 5.5ns.
 	</p>
 	</div><br>
 
-1.  Write down the minimum hold time ($$t_{H}$$) for the IN signal to the system.
+1.  Write down the minimum hold time (**th**) for the IN signal to the system.
 
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	The input must satisfy the $$t_{H}$$ of both R2 and R3, which is 2ns.
+	The input must satisfy the **th** of both R2 and R3, which is 2ns.
 	</p>
 	</div><br>
 	
@@ -126,7 +125,7 @@ Setup time, hold time, propagation delay, and contamination delay (all in nanose
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	The propagation time of the circuit is counted from R4 onwards since it is the last register in the circuit, hence it $$t_{PD}$$ R4 + $$t_{PD}$$ CL2 = 3.5ns.
+	The propagation time of the circuit is counted from R4 onwards since it is the last register in the circuit, hence it is: **tpd** R4 + **tpd** CL2 = 3.5ns.
 	</p>
 	</div><br>
 
@@ -143,7 +142,7 @@ We are given the following specification about the multiplexer's valid operating
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	We plot the line $$Vout == Vin$$ and find the intersection with the VTC curve to be approximately at 2.35V. This is the Vin value that has the highest probability for the device to stay in metastable state.
+	We plot the line $$\text{Vout} == \text{Vin}$$ and find the intersection with the VTC curve to be approximately at 2.35V. This is the **Vin** value that has the highest probability for the device to stay in metastable state.
 	</p>
 	</div><br>
 
@@ -158,7 +157,7 @@ We are given the following specification about the multiplexer's valid operating
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	Both input voltage values are <i>invalid</i> inputs. <br><br>From the graph, we can deduce that $$V_{IN} = 2.1V$$ results in $$V_{OUT} = 1V$$, while $$V_{IN} = 2.5V$$  results in $$V_{OUT} = 3.3V$$. <br><br>Taking $$2.35V$$ as the most likely voltage value for the device to stay in the metastable state, $$3.3V$$ is nearer to $$2.35V$$ as opposed to $$1V$$. Hence, we can deduce that  $$V_{IN} = 2.5V$$ is more likely to cause the device to stay in the metastable state.
+	Both input voltage values are <i>invalid</i> inputs. <br><br>From the graph, we can deduce that **Vin** = 2.1V results in Vout= 1V, while **Vin** = 2.5V  results in **Vout** = 3.3V. <br><br>Taking 2.35V as the most likely voltage value for the device to stay in the metastable state, 3.3V is nearer to 2.35V as opposed to 1V. Hence, we can deduce that  **Vin** = 2.5V is more likely to cause the device to stay in the metastable state.
 	</p>
 	</div><br>
 
@@ -169,8 +168,8 @@ The following circuit diagram implements a sequential circuit with two state bit
 <img src="https://dl.dropboxusercontent.com/s/etums208i4we063/fig1.png?raw=1" width="70%" height="70%">
 
 The specifications are as follows:
-* $$t_{PD}$$, $$t_{CD}$$, $$t_{S}$$, $$t_{H}$$, of both registers: 0.5s, 0.3s, 1.0s, and 0.5s respectively.
-* $$t_{PD}$$, $$t_{CD}$$ of inverters and NOR gates: 0.5s, and 0.4s respectively.
+* **tpd, tcd, ts, th,** of both registers: 0.5s, 0.3s, 1.0s, and 0.5s respectively.
+* **tpd**, **tcd** of inverters and NOR gates: 0.5s, and 0.4s respectively.
 
 Answer the following questions:
 
@@ -185,7 +184,7 @@ Answer the following questions:
 	t_{PD.REG} + t_{PD.NOR2} + t_{S.REG} &\leq t_{CLK}
 	\end{aligned}$$
 	<br>
-	We need to find the largest value of $$t_{CLK}$$ that satisfies both constraints. This comes from the first constraint that requires $$t_{CLK} \geq$$ 2.5s.
+	We need to find the largest value of **tclk** that satisfies both constraints. This comes from the first constraint that requires $$t_{CLK} \geq 2.5\text{s}$$
 	</p>
 	</div><br>
 
@@ -193,7 +192,8 @@ Answer the following questions:
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	No, the circuit won't operate correctly since $$t_{CD.REG} < t_{HOLD.REG}$$, i.e., the output of the left register doesn't meet the required hold time when connected directly to the input of the right register.
+	No, the circuit won't operate correctly since $$t_{CD.REG} < t_{HOLD.REG}$$ 
+	i.e., the output of the left register doesn't meet the required hold time when connected directly to the input of the right register.
 	</p>
 	</div><br>
 
@@ -232,11 +232,11 @@ Some of the specifications refer to "bounded time" which means there is a *speci
 2. A circuit that in bounded time indicates which of two game show contestants pressed their button first.
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	This is a restatement of the "bounded time arbiter problem", known to be unsolvable in theory. In practice we can build a circuit to solve this problem where the probability of failure is related to $$t_{PD}$$. For "large" $$t_{PD}$$ (eg, 10's of nanoseconds in today's technologies) the probability of failure can be made very small (eg, 1 failure in billions of years).
+	This is a restatement of the "bounded time arbiter problem", known to be unsolvable in theory. In practice we can build a circuit to solve this problem where the probability of failure is related to tpd. For "large" **tpd** (eg, 10's of nanoseconds in today's technologies) the probability of failure can be made very small (eg, 1 failure in billions of years).
 	</p>
 	</div><br>
 
-3. A circuit that determines if button A was pressed ***before*** a specified deadline. Assume the circuit has an accurate internal signal that transitions from 0 to 1 when the deadline is reached. The output should be 1 if the button was pressed on or before the deadline, 0 if pressed after the deadline. The output should be valid and stable within a specified $$t_{PD}$$.
+3. A circuit that determines if button A was pressed ***before*** a specified deadline. Assume the circuit has an accurate internal signal that transitions from 0 to 1 when the deadline is reached. The output should be 1 if the button was pressed on or before the deadline, 0 if pressed after the deadline. The output should be valid and stable within a specified tpd.
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	This is another restatement of the "bounded time arbiter problem", known to be unsolvable in theory. Of course, given sufficiently long time bounds, we can engineer practical approximate solutions (see the answer to the previous question).
@@ -282,7 +282,7 @@ Some of the specifications refer to "bounded time" which means there is a *speci
 	3.  10 if contestant B is pressing her button
 	4.  11 if both contestants are pressing their buttons
 
-	The output should be **valid and stable** within a specified $$t_{PD}$$ of the most recent input transition.
+	The output should be **valid and stable** within a specified **tpd** of the most recent input transition.
 	
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
@@ -294,7 +294,6 @@ Some of the specifications refer to "bounded time" which means there is a *speci
 
 # State Machine
 
-You can refer to the notes <a href="https://natalieagus.github.io/50002/finite_state_machine.html" target="_blank">here</a> if you need to revise. 
 
 ## Classifying FSM (Basic)
 The diagram below illustrates the FSM diagram of a machine that has the same purpose. The circle that is bolded signifies the starting state. 
@@ -343,7 +342,7 @@ The ACME Company has recently received an order from a Mr. Wiley E. Coyote for t
   
 Unfortunately the design notes for the P3 are *incomplete*. Using the specification above and clues gleaned from the partially completed diagrams below **fill in the information that is missing from the state transition diagram** with its **accompanying truth table**. 
 
-<img src="https://dl.dropboxusercontent.com/s/1ww80s7vpxznf1k/Q1%202.png?raw=1" width="70%" height="70%">
+<img src="https://dl.dropboxusercontent.com/s/1ww80s7vpxznf1k/Q1%202.png?raw=1" width="90%" height="90%">
 
 When done,
 *  Each state in the transition diagram should be assigned a 2-bit state name S1S0 (note that in this design the state name is not derived from the combination that opens the lock),
@@ -360,7 +359,7 @@ Also, **what is the combination of the lock**?
 <p>
 This state machine is a <strong>Moore machine</strong>. The completed state transition diagram and truth table is as follows:
 <br>
-<img src="https://dl.dropboxusercontent.com/s/nstfdu7qea4dozo/Q2%202.png?raw=1" width="70%" height="70%">
+<img src="https://dl.dropboxusercontent.com/s/nstfdu7qea4dozo/Q2%202.png?raw=1" width="90%" height="90%">
 <br>
 The combination for the lock is <code>100</code>.
 </p></div>
@@ -407,13 +406,16 @@ Construct a "divisible-by-3" FSM that accepts a binary number entered one bit at
 3. Write down the boolean equation for the FSM.
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
+
+	The boolean equation for the FSM is:
 	$$
 	\begin{aligned}
-	\text{light } &= \overline{S_1} * \overline{S_0}\\
-	S_1' &= \overline{S_1} * S_0 * \overline{b} + S_1 * \overline{S_0} * b \\\\
-	S_0' &= \overline{S_1} * \overline{S_0} * b + S_1 * \overline{S_0} * \overline{b}
+	\text{light } &= \overline{S_1} \times \overline{S_0}\\
+	S_1' &= \overline{S_1} \times S_0 \times \overline{b} + S_1 \times \overline{S_0} \times b \\
+	S_0' &= \overline{S_1} \times \overline{S_0} \times b + S_1 \times \overline{S_0} \times \overline{b}\\
 	\end{aligned}
 	$$
+
 	</p>
 	</div><br>
 
@@ -464,13 +466,13 @@ Let's analyse the circuit by answering the questions below:
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	All combinations: <code>AB=00, 01, 10</code>, or <code>11</code>. You can prove it easily by brute force: checking if <code>AB = 00</code> next if its previously set to some value <code>AB = ij</code> given existing value <code>x</code>. 
-	</p></div>
+	</p></div><br>
 
 7. What is the value of output `y` when the current state is `AB = 11` and the current input is `x = 0`?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	Tracing it out, we have <code>y=1</code>. 
-	</p></div>
+	</p></div><br>
 
 8. The propagation delays for all the combinational logic gates and the flip-flops are `2ns`. The clock frequency is `100MHz`. **What is the worst case delay** in nanosecond for the next states at `A` and `B` to appear (i.e. for `A` and `B` to be valid) after the input `x` is changed to be a valid input. *Assume that the initial states `AB` are given and fixed.*
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
@@ -478,14 +480,14 @@ Let's analyse the circuit by answering the questions below:
 	From the frequency, we can compute the <i>period</i> of the clock to be <code>10ns</code>. 
 	<br><br>
 	For the <strong>worst</strong> case delay, we need to consider the scenario that input <code>x</code> is propagated up to input of the register and <i>it just missed the <code>clk</code> rise</i>. It takes <code>4ns</code> to propagate through the <code>AND</code> and <code>OR</code> gates, and another <code>10ns</code> to wait for another <code>clk</code> rise. Finally, it takes <code>2ns</code> to propagate through the register to produce <code>A</code> or <code>B</code>. Hence the <strong>worst case delay</strong> is <code>4+10+2 = 16ns</code>.
-	</p></div>
+	</p></div><br>
 
 
-9. The **propagation** delays for all the combinational logic gates and the flip-flops are `2ns`. Each `dff` have $$t_H$$ and $$t_S$$ of `1ns` each.  If the clock frequency is not given, what is the **maximum clock frequency** *(smallest `clk` period)* that we can have for this device?
+9. The **propagation** delays for all the combinational logic gates and the flip-flops are `2ns`. Each `dff` have **th** and **ts** of `1ns` each.  If the clock frequency is not given, what is the **maximum clock frequency** *(smallest `clk` period)* that we can have for this device?
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	The clock period has to satisfy the <strong>feedback</strong> path ($$t_2$$ timing constraint), that is made up with $$t_{PD}$$ of the <code>dff</code>,  $$t_{PD}$$ of the <code>AND</code> gate,  $$t_{PD}$$ of the <code>OR</code> gate, plus $$t_S$$ of the register. This adds up to <code>2+2+2+1 = 7ns</code>. Hence the maximum frequency is $$\frac{1}{(7*10^{-9})}$$ <code> = 142.9MHz</code.
+	The clock period has to satisfy the <strong>feedback</strong> path (t2 timing constraint), that is made up with **tpd** of the <code>dff</code>,  **tpd** of the <code>AND</code> gate,  **tpd** of the <code>OR</code> gate, plus **ts** of the register. This adds up to <code>2+2+2+1 = 7ns</code>. Hence the maximum frequency is $$\frac{1}{(7*10^{-9})}$$ <code> = 142.9MHz</code.
 	</p>
 	</div><br>
 
@@ -506,7 +508,7 @@ The device `A2` has the following schematic:
 <img src="https://dl.dropboxusercontent.com/s/9e2jzfrwtjto34p/Q4.png?raw=1" width="40%" height="40%">
 
 
-It is made out of this device we call `A000R` with $$t_{CD}$$ = `1ns`, and $$t_{PD}$$ = `3ns` with the following schematic:
+It is made out of this device we call `A000R` with **tcd** = `1ns`, and **tpd** = `3ns` with the following schematic:
 
 <img src="https://dl.dropboxusercontent.com/s/55rj88ehoozyo6y/Q5.png?raw=1" width="40%" height="40%">
 
@@ -529,72 +531,72 @@ $$
 $$
 
 The timing specifications for other devices in the state machine is:
-*  The Mux has the following time specification: $$t_{CD}$$ = `1ns`, and $$t_{PD}$$ = `2ns`.
+*  The Mux has the following time specification: **tcd** = `1ns`, and **tpd** = `2ns`.
 
-* The Registers has the following time specification: $$t_{CD}$$ = `2ns`, $$t_{PD}$$ = `5ns`, $$t_S$$ = `2ns`, $$t_H$$ = `2ns`.
+* The Registers has the following time specification: **tcd** = `2ns`, **tpd** = `5ns`, **ts** = `2ns`, **th** = `2ns`.
 
-Both `A1` and `A2` are **combinational** logic that contains `A000R` only. Unfortunately, the design for `A1` is *missing*. We only know that `A1` uses only `A000R` to compute the output and the next state function **and that A1 has the same $$t_{PD}$$ as A2**. The other information that we have is that the output of `A1`, `X[2:0]` is a sequence of decimal, `[1, 2, 3, ... ]` in the *binary* form, i.e. `[001, 010, 011, ...]`.
+Both `A1` and `A2` are **combinational** logic that contains `A000R` only. Unfortunately, the design for `A1` is *missing*. We only know that `A1` uses only `A000R` to compute the output and the next state function **and that A1 has the same **tpd** as A2**. The other information that we have is that the output of `A1`, `X[2:0]` is a sequence of decimal, `[1, 2, 3, ... ]` in the *binary* form, i.e. `[001, 010, 011, ...]`.
 
 Answer the following questions:
 1. How many bits should the constant `Z1` have?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	Since one of the inputs to the muxes are 3-bits, this hardware is implemented using three 2-input mux. <code>Z1</code> is essentially <strong>three bits</strong>, connected to <i>each</i> of the three copies of 2-input muxes.
-	</p></div>
+	</p></div><br>
 
 2. How many bits should the constant `Z2` have?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	<strong>1 bit</strong>. The number of bits of each input to a combinational logic device such as <code>A1</code> <i>does not depend on anything else or other inputs.</i>
-	</p></div>
+	</p></div><br>
 
 3. What is the decimal value of `Z1`?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	Since <code>X[2:0]</code> produces an increasing sequence from decimal value of <code>1,2,3,4,...</code> etc, we can easily guess that the the decimal value of <code>Z1</code> should be <code>0</code>, such that when there's a <code>RESET</code>, the output of the register <code>R1</code> is zero.
-	</p></div>
+	</p></div><br>
 
 4. What is the decimal value of `Z2`?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	<code>Z2</code>'s decimal value is <code>1</code>. The same reason applies: since the sequence <code>X[2:0]</code> produced by <code>A1</code> is increasing by 1, the input to <code>A1</code> should be 1 such that at *every* cycle, theres an addition of 1 to be produced at <code>X</code>.
-	</p></div>
+	</p></div><br>
 
-5. What is the $$t_{PD}$$ of `A2` in nanosecond?
+5. What is the **tpd** of `A2` in nanosecond?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	The  $$t_{PD}$$  of <code>A000R</code> is 3ns, hence the  $$t_{PD}$$  of <code>A2</code> is <code>9ns</code> since it is made out of three <code>A000R</code> modules connected in series.
-	</p></div>
+	The  **tpd**  of <code>A000R</code> is 3ns, hence the  **tpd**  of <code>A2</code> is <code>9ns</code> since it is made out of three <code>A000R</code> modules connected in series.
+	</p></div><br>
 	
 6. What is the minimum clock period in nanosecond?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-		The <i>longest</i> path that the clock period has to satisfy is <code>R1 -> A1 -> A2 -> Z1 -> R2</code>. Hence we need to consider the $$t_{PD}$$ of all devices in its path (except <code>R2</code>) plus $$t_S$$ of <code>R2: 5+9+9+2+2 = 27ns</code>.
-	</p></div>
+		The <i>longest</i> path that the clock period has to satisfy is <code>R1 -> A1 -> A2 -> Z1 -> R2</code>. Hence we need to consider the **tpd** of all devices in its path (except <code>R2</code>) plus **ts** of <code>R2: 5+9+9+2+2 = 27ns</code>.
+	</p></div><br>
 
-7. What is the minimum $$t_{CD}$$ of `A1` in nanosecond such that $$t_H$$ of input (`Z2`) can be 0?
+7. What is the minimum **tcd** of `A1` in nanosecond such that **th** of input (`Z2`) can be 0?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	$$t_{CD}$$ of <code>A1</code> has to be large enough so as to satisfy  $$t_H$$ of <code>R1</code>. $$t_H$$ of <code>R1</code> is <code>2ns</code>, and  $$t_{CD}$$ of the mux is <code>1ns</code>. Therefore min $$t_{CD}$$ of <code>A1</code> is <code>2-1 = 1ns</code>.
-	</p></div>
+	**tcd** of <code>A1</code> has to be large enough so as to satisfy  **th** of <code>R1</code>. **th** of <code>R1</code> is <code>2ns</code>, and  **tcd** of the mux is <code>1ns</code>. Therefore min **tcd** of <code>A1</code> is <code>2-1 = 1ns</code>.
+	</p></div><br>
 
-8. What is value of `A2`'s $$t_{CD}$$ in nanosecond?
+8. What is value of `A2`'s **tcd** in nanosecond?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	The $$t_{CD}$$ of <code>A2</code> is basically the $$t_{CD}$$ of a single <code>A000R (1ns)</code> since that is the <i>shortest</i> path from any input to any output in <code>A2</code>.
-	</p></div>
+	The **tcd** of <code>A2</code> is basically the **tcd** of a single <code>A000R (1ns)</code> since that is the <i>shortest</i> path from any input to any output in <code>A2</code>.
+	</p></div><br>
 
 9. When `RESET` is `1` for several cycles, what will be the value of `X[2:0]`?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	When <code>RESET</code> is <code>1</code>, the output of <code>R1</code> will be <code>000</code>. Hence the value of <code>X[2:0]</code> will be <code>001</code>..
-	</p></div>
+	</p></div><br>
 
 10. When X's output is sequences of value `[1, 2, 3, ...]`, what is the value of `RESET`?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	<code>RESET</code> has to be <code>0</code> to enable the <i>addition</i> of the previous value of X to take effect, and form a new value of X in the next clock cycle.
-	</p></div>
+	</p></div><br>
 
 Now, suppose that at time `t=0`, `RESET` signal is changed from `1` to `0`, and `X` becomes `001`. From then on, `RESET` remains 0:
 
@@ -602,19 +604,19 @@ Now, suppose that at time `t=0`, `RESET` signal is changed from `1` to `0`, and 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	 <code>X</code>  is  <code>001</code>  and  <code>Y</code>  is  <code>000</code>  at  <code>t=0</code>. Using the truth table of  <code>A000R</code> and the schematic of  <code>A1</code>, we can deduce that  <code>O[2:0]</code>at  <code>t=0</code> is  <code>1</code>.
-	</p></div>
+	</p></div><br>
 
 2. What is the decimal value of `O[2:0]` at time `t = 1`?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	 <code>X</code>  is  <code>010</code>  and  <code>Y</code>  is  <code>001</code>  at  <code>t=1</code>. Using the truth table of  <code>A000R</code> and the schematic of  <code>A1</code>, we can deduce that  <code>O[2:0]</code>at  <code>t=1</code> is  <code>3</code>.
-	</p></div>
+	</p></div><br>
 
 3. What is the decimal value of `O[2:0]` at time `t=3`?
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	 <code>X</code>  is  <code>011</code>  and  <code>Y</code>  is  <code>011</code>  at  <code>t=2</code>. Using the truth table of  <code>A000R</code> and the schematic of  <code>A1</code>, we can deduce that  <code>O[2:0]</code>at  <code>t=3</code> is  <code>2</code>.
-	</p></div>
+	</p></div><br>
 
 
 
@@ -631,7 +633,7 @@ Assume, in each case, that the device is to take a series of `0`s and `1`s that 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	<strong>Yes</strong>. It is a bit tedious for 277 digits, but you should be able to sketch FSM for 3 or 4 digits.
-	</p></div>
+	</p></div><br>
 
 
 1. The device is to have a **single** output, which is 1 only under this specific condition: *when more 0s than 1s have been entered*.
@@ -639,14 +641,14 @@ Assume, in each case, that the device is to take a series of `0`s and `1`s that 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	<strong>No</strong>. Requires unbounded counting.
-	</p></div>
+	</p></div><br>
 
 1. The device is to have a **single** output, which is 1 only under this specific condition: *when the number entered thus far is **divisible** by 3.*
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	<strong>Yes</strong>, can be done by a 3-state machine.
-	</p></div>
+	</p></div><br>
 
 
 1. The device is to have a **single** output, which is 1 only under this specific condition: *when an odd number of 1s and and even number of 0s have been entered.*
@@ -654,7 +656,7 @@ Assume, in each case, that the device is to take a series of `0`s and `1`s that 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
 	<strong>Yes</strong>,, can be done with a 4-state machine. 
-	</p></div>
+	</p></div><br>
 
 
 

@@ -22,14 +22,14 @@ This page contains all practice questions that constitutes the topics learned in
 Each topic's questions are grouped into **three** categories: basic, intermediate, and challenging. You are recommended to do all basic problem set before advancing further. 
 
 # Basics of Information 
-You can refer to the notes <a href="https://natalieagus.github.io/50002/basics_of_information.html" target="_blank">here</a> if you need to revise. 
+
 
 ## Warm Up (Basic)
 
 Suppose that you are to guess the value of a 16-bit number: 0x$$Z_1Z_2Z_3Z_4$$ You are told that the value of $$Z_1$$ is B. Thus you have been given [N] bits of information. **What is the value of [N]?**
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-The variable $$Z_x$$ represents strings of  <strong> 4 binary digits (bits)</strong> since these are in hexadecimal number system (indicated with the prefix  <code>0x</code>.) 
+The variable **Zx** represents strings of  <strong> 4 binary digits (bits)</strong> since these are in hexadecimal number system (indicated with the prefix  <code>0x</code>.) 
 <br><br>
 We are literally <i>told</i> that the first hex digit is <code>B = 1011</code>. Hence we are given <strong>[N] = 4 bits of information</strong>.  There are still other 12 bits which values we do not know.</p></div><br>
 
@@ -48,9 +48,10 @@ Initially, there are 101 choices. The information that Bob gave Alice narrows do
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-Initially, there are 101 * 101 choices. Pressing two letter keys consecutively (might be repeated) narrows down the choices onto 26 * 26. 
-<br><br>
-Hence the information given is: $$\log_2(101^2) - \log_2(26^2) = 3.916$$.
+Initially, there are `101x101` choices. Pressing two letter keys consecutively (might be repeated) narrows down the choices onto `26x26`. 
+<br>
+Hence the information given is: <br>
+$$\log_2(101\times101) - \log_2(26\times26) = 3.916$$.
 </p></div><br>
 
 
@@ -183,7 +184,7 @@ Almost all computers use a 2's complement representation for integers since the 
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-There are: $$2^{32}$$ different values.
+There are **2^(32)** different values.
 </p></div><br>
   
 
@@ -347,7 +348,7 @@ In this case, ZZZ is: $$(-1-A)$$
 
 Now, let's say we have 8 bit number. We can represent -1 using all 1's : <code>1111 1111</code>. Then, lets represent A arbitrarily as <code>a7 a6 a5 a4 a3 a2 a1 a0</code>, where $$a_i$$ can be 0 or 1. 
 <br><br>
-Subtracting -1 with A will flip the bits of A, such that if $$a_i = 0$$, then $$1 - a_i = 1$$, and if $$a_i = 1$$ then $$1- a_i = 0$$
+Subtracting -1 with A will flip the bits of A, such that if $$a_i = 0$$ then $$1 - a_i = 1$$ and if $$a_i = 1$$ then $$1- a_i = 0$$
 
 Hence, we can rewrite the above into,
 $$\begin{aligned}
@@ -358,8 +359,7 @@ which is exactly the two complement's steps.
 
 
 # The Digital Abstraction
-You can refer to the notes <a href="https://natalieagus.github.io/50002/the_digital_abstraction.html" target="_blank">here</a> if you need to revise. 
-  
+
   
 
 ## VTC Plot (Basic)
@@ -386,18 +386,18 @@ When answering the questions below, assume that all voltages are constrained to 
   
   
 
-1. Can one choose a Vol of 0V for this device? **Explain**.
-2. **What's the smallest** Vol one can choose and still the device obey the static discipline?
-3. Assuming that we want to have 0.5V noise margins for both "0" and "1" values, **what are the appropriate voltage levels** for Vol, Vil, Vih, and Voh so that the device obeys the static discipline? *Hint: there are many choices. Just choose the one that obeys the static discipline and the NM constraint.*
+1. Can one choose a **Vol** of 0V for this device? **Explain**.
+2. **What's the smallest** **Vol** one can choose and still the device obey the static discipline?
+3. Assuming that we want to have 0.5V noise margins for both "0" and "1" values, **what are the appropriate voltage levels** for Vol, Vil, Vih, and **Voh** so that the device obeys the static discipline? *Hint: there are many choices. Just choose the one that obeys the static discipline and the NM constraint.*
 4. **What device** is this called?
 
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 <ol type="1">
-<li> No. From the plot, it can be seen that Vout can never reach below 0.5V. If Vol is chosen to be 0V, then the device doesn't satisfy the static discipline anymore.
+<li> No. From the plot, it can be seen that **Vout** can never reach below 0.5V. If **Vol** is chosen to be 0V, then the device doesn't satisfy the static discipline anymore.
 </li><br>
-<li> 0.5V. That is the lowest amount of Vout that the device can produce.</li><br>
+<li> 0.5V. That is the lowest amount of **Vout** that the device can produce.</li><br>
 <li> We can choose $$V_{OL} = 0.5V$$ from the graph, since the device is capable of producing such low voltage. With NM of 0.5V, that means that: $$V_{IL} = V_{OL} + 0.5V = 1V$$
 From the graph, we can also choose $$V_{OH} = 4V$$ 
 as the part with the highest gain in the middle of the graph can most probably be the forbidden zone. Therefore, $$V_{IH} = V_{OH} - 0.5V.= 3.5V$$</li><br>
@@ -420,7 +420,7 @@ as the part with the highest gain in the middle of the graph can most probably b
 No. This device gain is less than 1, hence it cannot be used as a combinational device.
 </p></div><br>
 
-**(b).** You are designing a new logic family and trying to decide on values of the four parameters: Vol, Vil, Vih, and Voh that lead to non-zero noise margins for various possible inverter designs. Four proposed inverter designs exhibit the VTC shown in the diagrams below. **For each design, either specify four suitable values** of Vol, Vil, Vih, and Voh or **explain why no values can obey the static discipline.** 
+**(b).** You are designing a new logic family and trying to decide on values of the four parameters: Vol, Vil, Vih, and **Voh** that lead to non-zero noise margins for various possible inverter designs. Four proposed inverter designs exhibit the VTC shown in the diagrams below. **For each design, either specify four suitable values** of Vol, Vil, Vih, and **Voh** or **explain why no values can obey the static discipline.** 
 
 *Hint: you may want to start by choosing NM to be 0.5V for ease of computation.*
 
@@ -439,10 +439,10 @@ For (D), choose NM = 0.5V, then $$V_{OL} = 0.5V, V_{IL} = 1V, V_{IH} = 5, V_{OH}
 ## Static Discipline (Basic)
 
 
-**(a).** Consider a combinational *buffer* with one input and one output. Suppose we set its input to some voltage $$V_{IN}$$, wait for the device to reach a steady state, then measure the voltage on its output Vout and find out $$V_{OUT} < V_{OL}$$. **What can we deduce about the value of $$V_{IN}$$?**
+**(a).** Consider a combinational *buffer* with one input and one output. Suppose we set its input to some voltage $$V_{IN}$$, wait for the device to reach a steady state, then measure the voltage on its output **Vout** and find out $$V_{OUT} < V_{OL}$$. **What can we deduce about the value of $$V_{IN}$$?**
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-We have a valid <strong>low</strong> output, but that doesnt mean that we have a valid <strong>low</strong> input. However we know for sure that input cannot be higher than Vih because static discipline requires the output to be higher than Voh if this is the case for a buffer. 
+We have a valid <strong>low</strong> output, but that doesnt mean that we have a valid <strong>low</strong> input. However we know for sure that input cannot be higher than **Vih** because static discipline requires the output to be higher than **Voh** if this is the case for a buffer. 
 <br><br>
 Hence, the only thing we can infer is that$$V_{IN} < V_{IH}$$ (means input voltage is either a valid low or an invalid value).
 </p></div><br>
@@ -454,7 +454,7 @@ Hence, the only thing we can infer is that$$V_{IN} < V_{IH}$$ (means input volta
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 We have a valid <strong>high</strong> output, but that doesnt mean that we have a valid <strong>low</strong> input. <strong>Static discipline</strong> states that <i>given a valid input, the device is always able to give a valid output,</i> but it does not mean that the reverse is true, i.e: invalid input does <strong>NOT</strong> have to give out invalid output.
 <br><br>
-However we do know for sure that the <i>input cannot be higher than</i> Vih because static discipline requires the output to be lower than Vol if this is the case for an inverter. Hence, the only thing we can infer is that $$V_{IN} < V_{IH}$$ (means input voltage is either a valid low or an invalid value).
+However we do know for sure that the <i>input cannot be higher than</i> **Vih** because static discipline requires the output to be lower than **Vol** if this is the case for an inverter. Hence, the only thing we can infer is that $$V_{IN} < V_{IH}$$ (means input voltage is either a valid low or an invalid value).
 </p></div><br>
 
  
@@ -482,5 +482,5 @@ Which of the following specification(s) **does not obey** the static discipline?
 
   
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-<strong>None of them</strong> obey the static discipline. You may easily check whether the device is able to provide the prescribed Voh given a corresponding Vih in the options, and whether it is able to provide as well the given Vol given a coresponding Vil in the options from tracing the graph.
+<strong>None of them</strong> obey the static discipline. You may easily check whether the device is able to provide the prescribed **Voh** given a corresponding **Vih** in the options, and whether it is able to provide as well the given **Vol** given a coresponding **Vil** in the options from tracing the graph.
 </p></div><br>

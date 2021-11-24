@@ -175,12 +175,12 @@ The diagram below illustrates a blocked, direct-mapped cache for a computer that
 
 1. Using the row and column labels from the figure, in what cache location could we find the data from that memory location? You may assume that e.g: Row 15 means index `0xF`, Row 14 means index `0xE`, and so on. 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	Expanding the last 8-bit of the memory location we have <code>0111 1011</code>. There are two bits for block indexing and four bits for row indexing. Since last two bits are disregarded as indicted in the image, the block index is 10 and the row index is 0111. This corresponds to "DATA 10" column and "Row 7" row. 
+	Expanding the last 8-bit of the memory location we have <code>0111 1011</code>. There are two bits for block indexing and four bits for row indexing. Since last two bits are disregarded as indicted in the image, the block index is `10` and the row index is `0111`. This corresponds to `DATA 10` column and `Row 7` row. 
 	</p></div><br>
 
 2. Can data from locations `0x0012347B` and `0x00123470` be present in the cache at the same time?
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	Expanding the last 8-bit of the memory location we have <code>0111 1011</code> and <code>0111 0000</code> respectively. So <strong>yes</strong>, they can be both present in the cache at the same time. <code>0x0012347B</code> stays at "DATA 10" column and <code>0x00123470</code> stays at "DATA 00" column, and both resides in Row 7.
+	Expanding the last 8-bit of the memory location we have <code>0111 1011</code> and <code>0111 0000</code> respectively. So <strong>yes</strong>, they can be both present in the cache at the same time. <code>0x0012347B</code> stays at `DATA 10` column and <code>0x00123470</code> stays at `DATA 00` column, and both resides in `Row 7`.
 	</p></div><br>
 
 ## 3-Way Set Associative Cache Arithmetic (Intermediate)

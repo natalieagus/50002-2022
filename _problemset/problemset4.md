@@ -55,11 +55,12 @@ We encode the state of a Turing machine into 2 bits, the value that is read (inp
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 From the explanation above, we have:
 <ul>
-<li> $$s$$ = 2</li>
-<li> $$i$$ = 2</li>
-<li> $$o$$ = 3</li>
+<li> **s = 2**</li>
+<li> **i = 2**</li>
+<li> **o = 3**</li>
 </ul>
-We can enumerate $$2^{(s+o)2^{s+i}}$$ FSM, and hence the answer to this question is $$2^{80}$$
+We can enumerate this many FSMs given s, o, and i bits: $$2^{(s+o)2^{s+i}}$$ 
+Hence the answer to this question is: $$2^{80}$$
 </p></div><br>
 
 
@@ -114,7 +115,7 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 	S_2 & 0 & S_0 & 0 & L\\
 	S_2 & 1 & S_2 & 0 & L\\
 	\hline
-	\end{matrix}$$
+	\end{matrix}$$<br><br>
 
 * **Specification 2**: 
 	$$\begin{matrix}
@@ -125,7 +126,7 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 	S_1 & 0 & S_0 & 0 & L\\
 	S_1 & 1 & S_1 & 1 & L\\
 	\hline
-	\end{matrix}$$
+	\end{matrix}$$<br><br>
 
 * **Specification 3**: 
 	$$\begin{matrix}
@@ -136,7 +137,7 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 	S_1 & 0 & S_0 & 0 & L\\
 	S_1 & 1 & S_1 & 0 & L\\
 	\hline
-	\end{matrix}$$
+	\end{matrix}$$<br><br>
 
 * **Specification 4**: 
 	$$\begin{matrix}
@@ -149,7 +150,7 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 	S_2 & 0 & S_0 & 0 & L\\
 	S_2 & 1 & S_2 & 1 & L\\
 	\hline
-	\end{matrix}$$
+	\end{matrix}$$<br><br>
 
 * **Specification 5**: 
 	$$\begin{matrix}
@@ -162,7 +163,7 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 	S_2 & 0 & S_0 & 0 & L\\
 	S_2 & 1 & S_2 & 0 & R\\
 	\hline
-	\end{matrix}$$
+	\end{matrix}$$<br><br>
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
@@ -188,7 +189,7 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	<strong>No</strong>. <i>Addresses</i> for each register involved in the instruction must be encoded <i>within the instruction</i>, i.e: 5 bits for 32 registers. An instruction is 32 bits long for $$\beta$$ architecture, so having too many registers will make encoding infeasible.
+	<strong>No</strong>. <i>Addresses</i> for each register involved in the instruction must be encoded <i>within the instruction</i>, i.e: 5 bits for 32 registers. An instruction is 32 bits long for Beta architecture, so having too many registers will make encoding infeasible.
 	</p></div><br>
 
 3. In Theory, which machine is least powerful but sufficient to compute each of the following functions? Choose for the four following possible choices ranked by its level of "powerfullness":  
@@ -197,6 +198,7 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 	* Combinational Logic (least powerful)
 	* Uncomputable	
 	
+	<br>
 	The functions in question are:
 	* **Function 1:** A processor that executes Beta instruction set
 	
@@ -244,5 +246,5 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer"><p>
 
-	There are 20 bytes in the data above. We need at least $$\lceil\log_2(20)\rceil$$= <strong>5 bits for addressing.</strong>
+	There are 20 bytes in the data above. We need at least $$\lceil\log_2(20)\rceil$$ which results to at least <strong>5 bits for addressing.</strong>
 	</p></div>

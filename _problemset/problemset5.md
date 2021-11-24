@@ -66,18 +66,18 @@ Finally, **what is the result stored in R0?**
 <div cursor="pointer" class="collapsible">Show Answer</div>
 <div class="content_answer"><p>
 The machine language is:
-<pre><code>I = 0x5678
+
+<div class="class=language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>I = 0x5678
 B = 0x1234
-|| LD(R31,I,R0) -> 011000 00000 11111 0101 0110 0111 1000 
-0x601F5678
-|| SHLC(R0,2,R0) -> 111100 00000 00000 0000 0000 0000 0010 
-0xF0000002
-||LD(R0,B,R1) -> 011000 00001 00000 0001 0010 0011 0100
-0x60201234
-||MULC(R1,17,R1) -> 110010 00001 00001 0000 0000 0001 0001
-0xC8210011
-||ST(R1,B,R0) -> 011001 00001 00000 0001 0010 0011 0100
-0x64201234</code></pre>
+0x601F5678 || LD(R31,I,R0) -> 011000 00000 11111 0101 0110 0111 1000 
+0xF0000002 || SHLC(R0,2,R0) -> 111100 00000 00000 0000 0000 0000 0010 
+0x60201234 ||LD(R0,B,R1) -> 011000 00001 00000 0001 0010 0011 0100
+0xC8210011 ||MULC(R1,17,R1) -> 110010 00001 00001 0000 0000 0001 0001
+0x64201234||ST(R1,B,R0) -> 011001 00001 00000 0001 0010 0011 0100
+</code></pre></div>
+</div>
 
 Explanation:
 <ul>
@@ -116,11 +116,11 @@ Based on the above data, **which machine would you choose?**
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 First we find out the time taken to execute those instructions:
 <ul>
-<li> $$x$$: $$\frac{3.6M}{40M / 2}$$ = $$0.18$$ seconds </li> 
-<li> $$y$$: $$\frac{1.9M} {100M / 10}$$ = $$0.19$$ seconds </li> 
-<li> $$z$$: $$\frac{4.2M}{60M / 3}$$ = $$0.21$$ seconds </li> 
+<li> $$x: \frac{3.6M}{40M / 2} = 0.18s$$ </li> 
+<li> $$y: \frac{1.9M} {100M / 10} = 0.19s$$ </li> 
+<li> $$z: \frac{4.2M}{60M / 3} = 0.21s$$  </li> 
 </ul>
-From the result above, $$x$$ is the fastest machine. Hence we choose $$x$$.
+From the result above, **x** is the fastest machine. Hence we choose **x**.
 </p></div><br>
   
 ## Clumsy Lab Assistant (Basic)
@@ -139,7 +139,7 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 2. Notta notices that `WASEL` is always zero in this table. Explain briefly under what circumstances `WASEL` would be non-zero.
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	<code>WASEL</code> is <code>1</code> if an <stong><i>interrupt, an illegal opcode is trapped, or a fault occurs</i></strong>. When <code>WASEL</code> is <code>1</code>, it selects <code>XP</code> as the write address for the register file; <code>Reg[XP]</code> is where we store the current <code>PC+4</code>whenever there is an interrupt, a fault, or an illegal opcode.
+	<code>WASEL</code> is <code>1</code> if an <strong><i>interrupt, an illegal opcode is trapped, or a fault occurs</i></strong>. When <code>WASEL</code> is <code>1</code>, it selects <code>XP</code> as the write address for the register file; <code>Reg[XP]</code> is where we store the current <code>PC+4</code>whenever there is an interrupt, a fault, or an illegal opcode.
 	</p></div><br>
 
 3. Notta has noticed the following C code fragment appears frequently in the benchmarks:
@@ -172,11 +172,17 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 	
 	Give a ***register-transfer language description*** for the `LDX` instruction. 
 
-	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	<pre><code>LDX( Ra, Rb, Rc ):
+	<div cursor="pointer" class="collapsible">Show Answer</div>
+	<div class="content_answer">
+	<p>
+
+	<div class="class=language-cpp highlighter-rouge">
+	<div class="highlight">
+	<pre class="highlight"><code>LDX( Ra, Rb, Rc ):
 		EA <- Reg[Ra] + Reg[Rb]
 		Reg[Rc] <- Mem[EA]
-		PC <- PC + 4</code></pre>
+		PC <- PC + 4</code></pre></div>
+	</div>
     </p></div><br>
 
 4. Using a table like the one above specify the control signals for the LDX opcode.
@@ -199,10 +205,14 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 	The register transfer language description of  <code>STX</code> would be:
-	<pre><code>STX(Rc, Rb, Ra)
+	<div class="class=language-cpp highlighter-rouge">
+	<div class="highlight">
+	<pre class="highlight"><code>STX(Rc, Rb, Ra)
 	EA <- Reg[Ra] + Reg[Rb]
 	Mem[EA] <- Reg[Rc]
-	PC <- PC + 4</code></pre>
+	PC <- PC + 4</code></pre></div>
+	</div>
+
 	It's evident that we need to perform <strong>3 register reads,</strong> but the Beta's register file has only <strong>2 read ports.</strong> Thus we need to add a <strong>third read port</strong> to the register file.
 	<br><br>
 	Incidentally, adding a third read port would eliminate the need for the <code>RA2SEL</code> mux because we <i>no longer need to choose between <code>Rb</code> and <code>Rc</code></i>, since each register field has its own read port.
@@ -215,8 +225,11 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 	<img src="https://dl.dropboxusercontent.com/s/ysf5rtc0d9mwsil/ctrlnew.png?raw=1" width="20%" height="20%">
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	<pre><code>Reg[Rc] <-- (PC+4)+4*SXT(C) 
-	PC <-- PC + 4</code></pre>
+	<div class="class=language-cpp highlighter-rouge">
+	<div class="highlight">
+	<pre class="highlight"><code>Reg[Rc] <-- (PC+4)+4*SXT(C) 
+	PC <-- PC + 4</code></pre></div>
+	</div>
 	</p></div><br>
 
 2. Explain why the following instruction cannot be added to our Beta instruction set without further hardware modifications on the datapath:
@@ -228,7 +241,7 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 	To implement this <code>PUSH</code>, somehow the <code>ALU</code> would have to produce <i>two</i> 32-bit values instead of the original one 32-bit output. The new two 32-bit values are: <code>Reg[Ra]</code> to be used as the memory address and <code>Reg[Ra]+4</code> to be written into the register file.
-	</p></ins>
+	</p></div><br>
 
 
 ## Another New Beta Instruction (Basic)
@@ -271,7 +284,7 @@ $$\begin{matrix}
 	\hline
 	0 & - & - & 1 & 1 & "B" & 0 & Z?0:1 & 0 \end{matrix}$$
 <br>
-Note: <code>Z?0:1</code> -- means <code>0</code> if <code>Z==1</code>, and <code>1</code> otherwise.
+Note: <code>Z?0:1</code> means <code>0</code> if <code>Z==1</code>, and <code>1</code> otherwise.
 </p></div><br>
 
 
@@ -471,45 +484,56 @@ Give your instruction sequence for each of the six indicated faults and briefly 
 <i>Note: there's many alternate answers. They aren't unique.</i> 
 
 **Fault A:** Input 1 of `PCSEL` mux has a value of `0` instead of `PC+4+4*SEXT(C)`.
-<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-<pre><code>| starts at address 0
+<div cursor="pointer" class="collapsible">Show Answer</div>
+<div class="content_answer"><p>
+<div class="class=language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>| starts at address 0
 . = 0
 BEQ(R0,.+4,R31) | 0x0
 ADDC(R0,1,R0) | 0x4
-</code></pre>
-<br>
+</code>
+</pre>
+</div>
+</div>
 Execute for 2 cycles (i.e., execute two instructions):
 <ul>
 <li> If fault A is not present, <code>R0</code> contains <code>1</code> after the second cycle, since the second instruction is fetched from location <code>0x4</code>. </li>
-<li> If fault A is present, the second instruction is fetched from location <code>0</code> (instead of <code>4</code>, since the input <code>1</code> to the <code>PCSEL</code> mux is <code>0</code>), so the value of <code>R0</code> stays <code>0</code>.
+<li> If fault A is present, the second instruction is fetched from location <code>0</code> (instead of <code>4</code>, since the input <code>1</code> to the <code>PCSEL</code> mux is <code>0</code>), so the value of <code>R0</code> stays <code>0</code>.</li>
 </ul>
-<br>
 Note that the label <code>.+4</code> means “memory location of current instruction + 4”, which is <code>0+4</code> here.
 </p></div><br>
 
 **Fault B:** `RA2SEL` multiplexer control signal is `0` instead of as per intended current instruction `OPCODE`.
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-<pre><code>| starts at address 0
+<div class="class=language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>| starts at address 0
 . = 0
 ADDC(R1,1,R1)
 ST(R1,0,R0)
 LD(R0,0,R0)
-</code></pre>
+</code></pre></div>
+</div>
 Execute for 3 cycles:
 <ul>
 <li> If fault B is not present, the <code>ST</code> instruction writes the value <code>1</code> into location <code>0</code>, which is then <code>LD</code>-ed (loaded) into <code>R0</code>.</li>
 <li> If fault B is present, the <code>ST</code> instruction writes the contents of <code>R0</code> instead (ie, the value <code>0</code>), so now the <code>LD</code> instruction puts <code>0</code> into <code>R0</code>.</li> 
-</lu></p></div><br>
+</ul></p></div><br>
 
 **Fault C:** `Z` input to control logic is always `0` instead of the correct value depending on `RD1`.
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-<pre><code>| starts at address 0
+<div class="class=language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>| starts at address 0
 . = 0
 BEQ(R0,.+8,R31)
 ADDC(R0,0,R0)
 ADDC(R0,1,R0)
-</code></pre>
+</code></pre></div>
+</div>
 Execute for 2 cycles:
 <ul>
 <li> If fault C is not present, <code>R0</code> is incremented to <code>1</code> since the branch to memory location <code>8</code> is taken.</li> 
@@ -519,39 +543,49 @@ Execute for 2 cycles:
 
 **Fault D:** `BSEL` multiplexer control signal `0`  instead of as per intended current instruction `OPCODE`.
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-<pre><code>| starts at address 0
+<div class="class=language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>| starts at address 0
 . = 0
 ADDC(R0,1,R0)
-</code></pre>
+</code></pre></div>
+</div>
 Execute for 1 cycle:
 <ul>
 <li>If fault D is not present, <code>R0</code> is increment to <code>1</code>. </li>
-<li> If fault D is present, the high-order 5-bits of the literal field (i.e., where <code>Rb</code> is encoded) is used as a register address, and the contents of that register is added to <code>R0</code>. Since the literal is <code>1</code>, the second register is <code>R0</code> (containing <code>0</code>), so the value written into <code>R0</code> is <code>0</code>.</li>
+<li> If fault D is present, the high-order 5-bits of the literal field (i.e., where <code>Rb</code> is encoded) is used as a register address, and the contents of that register is added to <code>R0</code>. Since the literal is <code>1</code>, the second register is <code>R0</code> (containing <code>0</code>), so the value written into <code>R0</code> is <code>0</code>.</li></ul>
 </p></div><br>
 
 **Fault E:** `WR` memory control signal is `0`  instead of as per intended current instruction `OPCODE`.
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-<pre><code>| starts at address 0
+<div class="class=language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>| starts at address 0
 . = 0
 ADDC(R1,1,R1)
 ST(R1,X,R31)
 LD(R31,X,R0)
 . = 0x100
 X: LONG(0)
-</code></pre>
+</code></pre></div>
+</div>
 Execute for 3 cycles:
 <ul>
 <li> If fault E is not present, the  instruction writes the value <code>1</code>  into <code>Mem[X]</code>, which is then <code>LD</code>-ed (loaded) into <code>R0</code>. </li>
 <li> If fault E is present, the <code>ST</code> instruction has no effect, so now the <code>LD</code> instruction loads the original value of location <code>X</code> into <code>R0</code>.</li>
 </ul>
+</p></div><br>
 
 **Fault F:** Input `0` of `WDSEL` mux has a value of `0` instead of `PC+4`.
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-<pre><code>| starts at address 0
+<div class="class=language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>| starts at address 0
 . = 0
 BEQ(R0,.+4,R1)
 SUBC(R1,3,R0)
-</code></pre>
+</code></pre></div>
+</div>
 Execute for 2 cycles:
 <ul>
 <li> If fault F is not present, the <code>BEQ</code> instruction loads <code>4</code> into <code>R1</code> and the <code>SUBC</code> loads <code>1</code> into <code>R0</code>.</li>
