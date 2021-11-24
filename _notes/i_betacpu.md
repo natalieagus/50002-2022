@@ -3,7 +3,7 @@ layout: academic
 permalink: /notes/betacpu
 title: Week 5 Part 1 - Building Beta CPU
 description: In-depth study on the Beta CPU's datapath
-tags: [instructionset, combinational, sequential, beta, interrupt, exception]
+tags: [instructionset, combinational, sequential, beta, interrupt, exception, datapath]
 ---
 
 * TOC

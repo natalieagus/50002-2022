@@ -2,7 +2,7 @@
 layout: academic
 permalink: /problemset/problemset2
 title: Problem Set 2
-description: Week 2 practice questions containing topics from CMOS Technology and Logic Synthesis.
+description: Week 2 practice questions containing topics from CMOS Technology and Logic Synthesis
 tags: [cmos, mosfet, combinational, booleanalgebra, binary]
 ---
 
