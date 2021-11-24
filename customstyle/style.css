@@ -2,24 +2,31 @@
   border-style: solid;
   border-color: #287ec7;
   padding: 10px;
+  line-height: 1.8;
+  color: black;
 }
 
 .redborder {
   border-style: solid;
   border-color: #ff0000;
   padding: 10px;
+  line-height: 1.8;
 }
 
 .greenbox {
   background-color: #cfc;
   padding: 10px;
   border: 1px solid green;
+  line-height: 1.8;
+  color: black;
 }
 
 .orangebox {
   background-color: #ffe4b5;
   padding: 10px;
   border: 1px solid #ff8c00;
+  line-height: 1.8;
+  color: black;
 }
 
 .redbox {
@@ -27,6 +34,8 @@
   border: 1px solid #fa8072;
   display: block;
   padding: 10px;
+  line-height: 1.8;
+  color: black;
 }
 
 .bluebox {
@@ -34,6 +43,7 @@
   border: 1px solid #87cefa;
   display: block;
   padding: 10px;
+  color: black;
 }
 
 .yellowbox {
@@ -41,6 +51,8 @@
   border: 1px solid #ffff66;
   display: block;
   padding: 10px;
+  line-height: 1.8;
+  color: black;
 }
 
 .redtext {
@@ -138,6 +150,18 @@
   z-index: 100;
   font-family: "Helvetica Neue";
 }
+
+/* ::-webkit-scrollbar {
+  width: 0; 
+  background: transparent; 
+}
+*/
+
+.stackedit__left__inner {
+  overflow-y: scroll;
+  height: 75vh;
+}
+
 @media (min-width: 1060px) {
   .stackedit__left {
     display: block;

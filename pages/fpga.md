@@ -3,7 +3,7 @@ layout: default
 title: FPGA
 permalink: /fpga/
 feature-img: "assets/img/pexels/travel.jpeg"
-tags: [Page]
+tags: [fpga]
 ---
 <div id="main" class="call-out"
       style="background-image: url('{{ site.header_feature_image | relative_url }}')">

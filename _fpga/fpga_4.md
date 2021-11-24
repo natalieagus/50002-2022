@@ -533,21 +533,24 @@ The easiest way to observe the output of `beta` and determining whether it wors 
 ```
 
 Instruction loading should happen pretty fast that we won't even notice it. The first instruction to be executed is `ADDC(R31, 7, R1)`, hence the output that you should see is as follows:
-<img src="https://dl.dropboxusercontent.com/s/d4jc6s59uvkpinc/instr_pc0.png?raw=1" width="50%" height="50%">
+<br>
+<img src="https://dl.dropboxusercontent.com/s/d4jc6s59uvkpinc/instr_pc0.png?raw=1" width="50%" height="50%"><br>
 
 * `PC` register is at `0x0`
 * `ALU` output is `0x7`
 * ..and `rb_data` output is `0x0` (since all registers in the `REGFILE` initially contains `0`). 
 
 One second later, you should see this output due to instruction `CMPEQ(R1, R1, R2)`:
-<img src="https://dl.dropboxusercontent.com/s/fi6d5htp5drqakh/instr_pc1.png?raw=1" width="50%" height="50%">
+<br>
+<img src="https://dl.dropboxusercontent.com/s/fi6d5htp5drqakh/instr_pc1.png?raw=1" width="50%" height="50%"><br>
 
 * `PC` register is at `0x4`
 * `ALU` output is `0x1` because comparing the same register contents should always result in a `1`
 * ..and `rb_data` output is `0x7` (showing that loading	`7` to `R1` in the previous cycle is successful)
 
 The third instruction `ST(R1, 32)` should result in this output:
-<img src="https://dl.dropboxusercontent.com/s/reihm5lswrjhabw/instr_pc2.png?raw=1" width="50%" height="50%">
+<br>
+<img src="https://dl.dropboxusercontent.com/s/reihm5lswrjhabw/instr_pc2.png?raw=1" width="50%" height="50%"><br>
 
 * `PC` register is at `0x8`
 * `ALU` output is `0x20` because that's the address that we're storing to (`32` in decimal)
@@ -555,14 +558,16 @@ The third instruction `ST(R1, 32)` should result in this output:
 
 
 Let's test whether the value `0x7` was properly stored to the `data_memory` by loading it in the next cycle with this instruction: `LD(R31, 32, R3)`. The output that we should see is:
-<img src="https://dl.dropboxusercontent.com/s/cvyt1m24xk814ge/instr_pc3.png?raw=1" width="50%" height="50%">
+<br>
+<img src="https://dl.dropboxusercontent.com/s/cvyt1m24xk814ge/instr_pc3.png?raw=1" width="50%" height="50%"><br>
+
 * `PC` register is at `0xC`
 * `ALU` output is `0x20` because that's the address that we're loading from (`32` in decimal)
 * ..and `rb_data` output is `0x0` (content of `R0` as per `instruction[16:11]`)
 
 
 And then perform a branch based on the content of `R3`: `BNE(R3, 0, R1)`. This should result in a branch if the load was successful, as `Reg[R3]` will be nonzero. The output you should see is:
-<img src="https://dl.dropboxusercontent.com/s/0it220j8pjxd82d/instr_pc4.png?raw=1" width="50%" height="50%">
+<br><img src="https://dl.dropboxusercontent.com/s/0it220j8pjxd82d/instr_pc4.png?raw=1" width="50%" height="50%"><br>
 
 * `PC` register is at `0x10`
 * `asel` is set to `1` during `BNE` (actually it doesnt matter what `asel` is) and this routes `PC+4+4*SXT(c)` to `ALU`'s output. The effective "target" address if `BNE` is successful is `0` and therefore `ALU` output that shows `0` above is *correct*

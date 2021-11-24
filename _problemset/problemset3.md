@@ -2,7 +2,8 @@
 layout: academic
 permalink: /problemset/problemset3
 title: Problem Set 3
-description: Week 3 practice questions containing topics from Sequential Logic, Synchronization and Finite State Machine.
+description: Week 3 practice questions containing topics from Sequential Logic, Synchronization and Finite State Machine
+tags: [dynamicdiscipline, fsm, combinational, sequential]
 ---
 
 

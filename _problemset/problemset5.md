@@ -2,7 +2,8 @@
 layout: academic
 permalink: /problemset/problemset5
 title: Problem Set 5
-description: Week 5 practice questions containing topics from  Beta Datapath.
+description: Week 5 practice questions containing topics from  Beta CPU Datapath
+tags: [instructionset, combinational, sequential, beta, interrupt, exception, datapath]
 ---
 
 

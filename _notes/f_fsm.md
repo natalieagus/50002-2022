@@ -2,7 +2,7 @@
 layout: academic
 permalink: /notes/fsm
 title: Week 3 Part 2 - Finite State Machine
-description: Combining sequential and combinational logic devices to make a real and useful machine.
+description: Combining sequential and combinational logic devices to make a real and useful machine
 tags: [fsm, combinational, sequential]
 ---
 

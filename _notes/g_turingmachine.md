@@ -3,7 +3,7 @@ layout: academic
 permalink: /notes/turingmachine
 title: Week 4 Part 1 - Turing Machine
 description: A more powerful machine than the Finite State Machine
-tags: [combinational, sequential]
+tags: [turing, combinational, sequential]
 ---
 
 

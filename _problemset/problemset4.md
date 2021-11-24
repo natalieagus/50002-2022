@@ -2,7 +2,8 @@
 layout: academic
 permalink: /problemset/problemset4
 title: Problem Set 4
-description: Week 4 practice questions containing topics from Turing Machine and ISA.
+description: Week 4 practice questions containing topics from Turing Machine and ISA
+tags: [turing, combinational, sequential, instructionset, beta]
 ---
 
 

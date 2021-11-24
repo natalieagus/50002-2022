@@ -2,7 +2,8 @@
 layout: academic
 permalink: /problemset/problemset8
 title: Problem Set 8
-description: Week 11 practice questions containing topics from Virtual Memory and Virtual Machine.
+description: Week 11 practice questions containing topics from Virtual Memory and Virtual Machine
+tags: [virtual, memorydevice, kernel, paging]
 ---
 
 * TOC

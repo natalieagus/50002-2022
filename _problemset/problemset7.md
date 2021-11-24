@@ -2,7 +2,8 @@
 layout: academic
 permalink: /problemset/problemset7
 title: Problem Set 7
-description: Week 10 practice questions containing topics from Memory Hierarchy and Cache Issues.
+description: Week 10 practice questions containing topics from Memory Hierarchy and Cache Issues
+tags: [sram, dram, memorydevice, addressing, cache, policy, page]
 ---
 
 

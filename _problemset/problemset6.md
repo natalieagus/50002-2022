@@ -2,7 +2,8 @@
 layout: academic
 permalink: /problemset/problemset6
 title: Problem Set 6
-description: Week 9 practice questions containing topics from Assembler and Compilers, Stack and Procedure.
+description: Week 9 practice questions containing topics from Assembler and Compilers, Stack and Procedure
+tags: [beta, assembly, stack, procedures, function, recursion]
 ---
 
 * TOC

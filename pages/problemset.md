@@ -3,7 +3,6 @@ layout: default
 title: Problem Set
 permalink: /problemset/
 feature-img: "assets/img/pexels/travel.jpeg"
-tags: [Page]
 ---
 <div id="main" class="call-out"
       style="background-image: url('{{ site.header_feature_image | relative_url }}')">
