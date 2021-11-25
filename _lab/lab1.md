@@ -18,6 +18,13 @@ Singapore University of Technology and Design
 Modified by: Kenny Choo, Natalie Agus, Oka Kurniawan (2021)
 # Lab 1: CMOS
 
+## Starter Code
+Please download the code for Task G [here](https://drive.google.com/open?id=1-9Br3ltPENepJLff9DazDgSD2s6M54k3&authuser=nn88blue%40gmail.com&usp=drive_fs). 
+For task A-F, you will need to follow the class and type the code from scratch. You can obtain the necessary courseware materials (`jsim` and other supporting files) from our **course handout**. 
+
+> Find its link on edimension and bookmark it if you haven't already!
+
+
 ## Related Class Materials
 The lecture notes on Digital Abstraction and CMOS Technology are closely related to this lab.
 
@@ -73,24 +80,24 @@ The JSim netlist format is quite similar to that used by [SPICE](https://en.wiki
   * Comment and blank lines are ignored when JSim processes your netlist
   * C++/Java style comments can also be used
   * “//”, all characters starting with this and to the end of the line are ignored.
-  * “/*” and “*/”, any lines or parts of lines enclosed by these are ignored.
+  * “/*” and “*/”, any lines or parts of lines enclosed by these are ignored.<br><br>
 * **Continuation line**
   * Indicated by a “+” as the first character.
   * Treated as if they had been typed at the end of the previous line (without the “+” of course)
   * No limit to length of an input line, but breaking long lines using “+” makes it easier to edit and understand
-  * “+” also continues comment lines
+  * “+” also continues comment lines<br><br>
 * **Control statement**
   * Indicated by “.” (period) as the first character.
-  * Provides information about how the circuit is to be simulated
+  * Provides information about how the circuit is to be simulated<br><br>
 * **Circuit element**
   * Indicated by a letter as the first character, that represents the type of circuit element. e.g. “r” for resistor, “c” for capacitor, “m” for MOSFET, “v” for voltage source.
   * Remainder of line specifies which circuit nodes connect to which device terminals and any parameters needed by that type of circuit element. For example, the following line describes a 1000Ω resistor called “R1” that connects to nodes A and B: `R1 A B 1k`
 
-> Note that the numbers can be entered using engineering suffixes for readability. Common suffixes are kilo:
-> * “k”=1000 
-> * micro:“u”=1E-6 
-> * nano:“n”=1E-9  
-> * pico:“p”=1E-12
+> Note that the numbers can be entered using engineering suffixes for readability. Common suffixes are:
+> * **kilo**: “k” = 1000 
+> * **micro**: “u” = 1E-6 
+> * **nano**: “n” = 1E-9  
+> * **pico**: “p” = 1E-12
 
 
 ## Part 1: Characterising MOSFETs (45 mins)
@@ -136,5 +143,347 @@ After a pause, a **waveform** window will pop up where we can take some measurem
   * The readout in the upper left corner will show the coordinates for both cursors and the delta between the two coordinates.  
   * You can return to one cursor by releasing the left button.
 
+## Making Measurements on the MOSFETS
+
+### Task A: MOSFET “on” Effective Sheet Resistance 
+
+To get a sense of how well the channel of a turned-on MOSFET conducts, let us estimate the effective resistance of the channel while the MOSFET is in the linear conduction region.   <span style="background-color:yellow; color: black">  We’ll use the Vgs = 5V curve (the **upper-most plot** in the window)  </span> .  The equation at the linear region is given by:
+
+$$
+\begin{align}
+I_D = \mu_n C_{ox} \frac{W}{L} \left[(V_{GS} - V{th}) V_{DS} - \frac{V_{DS}^2}{2} \right] (1+\lambda V_{DS})
+\end{align}
+$$
+
+The actual effective resistance is given by $$\delta V_{DS}/\delta I_{DS}$$ and <span style="background-color:yellow; color: black">  clearly depends on which VDS we choose  </span>.  
+> Let’s use VDS = 1.2V.  
+
+We could determine the resistance graphically **from the slope of a line tangent to the IDS curve at VDS = 1.2V**.  But we can get a rough idea of the channel resistance by determining the slope of a line passing through the origin and the point we chose on the IDS curve, i.e., $$.2V/ I_{DS}$$.
+
+Of course, the channel resistance depends on the dimensions of the MOSFET we used to make the measurement.  
+> For MOSFETs, their IDS is proportional to W/L where W is the width of the MOSFET (1.2 microns in this example) and L is the length (0.6 microns in this example).  
+When reporting the effective channel resistance, it’s useful to report the sheet resistance, i.e., the resistance when W/L = 1.  That way you can easily estimate the effective channel resistance for other size devices by scaling the sheet resistance appropriately.  
+> Since W/L = 2 for the device you measured, it conducts twice as much current and has half the channel resistance as a device with W/L = 1, so you need to double the channel resistance you computed above in order to estimate the effective channel sheet resistance.
+
+<div class="yellowbox"><div class="custom_box"> **Record** down the value for the effective channel sheet resistance you calculated from that measurement.  You need this information to get Checkoff 1. You can access the checkoffs 1 to 7 for Lab 1 through eDimension.  </div></div><br>
+
+### Task B: MOSFET “off” Leakage Current 
+Now let us see how well the MOSFET turns “off.”  Take some measurements of IDS at various points along the VGS=0V curve (the bottom-most plot in the window).  
+> Notice that they are not zero!  MOSFETs do conduct minute amounts of current even when officially “off”, a phenomenon called “subthreshold conduction”.  While negligible for most purposes, this current is significant if we are trying to store charge on a capacitor for long periods of time (*this is what DRAMs try to do*).  
+ 
+Make a measurement of IDS when **VGS=0V and VDS=2.5V**.  
+* Based on this measurement report how long it would take for a .05pF capacitor to discharge from 5V to 2.5V, i.e., to change from a valid logic “1” to a voltage in the forbidden zone.  
+* Recall from Physics II (10.005) that Q = CV, so we can estimate the discharge time as t=CV/IOFF.  
+* So if our MOSFET switch controls access to the storage capacitor, you can see we will need to refresh the capacitor’s charge at fairly frequent intervals. 
+
+<div class="yellowbox"><div class="custom_box"> **Record** down the estimated discharge time.  You will need this information for Checkoff 2.  </div></div><br>
 
 
+## Part 2: Gate-level Timing (90 mins)
+
+### Setup and Introduction
+
+#### Defining Circuit Elements Using “.subckt” 
+The following JSim netlist shows you how to define your own circuit elements using the “.subckt” statement:
+
+```cpp
+* circuit for Lab#1, parts C thru F
+.include "nominal.jsim"
+
+* 2-input NAND: inputs are A and B, output is Z
+.subckt nand2 a b z
+MPD1 z a 1 0 NENH sw=8 sl=1
+MPD2 1 b 0 0 NENH sw=8 sl=1
+MPU1 z a vdd vdd PENH sw=8 sl=1
+MPU2 z b vdd vdd PENH sw=8 sl=1
+.ends
+
+* INVERTER: input is A, output is Z
+.subckt inv a z
+MPD1 z a 0 0 NENH sw=16 sl=1
+MPU1 z a vdd vdd PENH sw=16 sl=1
+.ends
+```
+
+
+The “.subckt” statement introduces a new level of netlist. 
+* All lines following the “.subckt” up to the matching “.ends” statement will be treated as a self-contained subcircuit. 
+* This includes **model definitions**, **nested subcircuit definitions**, **electrical nodes** and **circuit elements**. 
+
+The only parts of the subcircuit visible to the outside world are its terminal nodes which are listed following the name of the subcircuit in the “.subckt” statement:
+
+```cpp
+.subckt name terminals…
+* internal circuit elements are listed here
+.ends
+```
+
+In the example netlist, two subcircuits are defined: 
+* `nand2` which has **3 terminals** named “a”, “b” and “z” inside the nand2 subcircuit 
+* `inv` which has 2 terminals named “a” and “z”.
+
+#### Using Subcircuits
+
+Once the definitions are complete, you can create an **instance** of a subcircuit using the “X” circuit element:
+
+```cpp
+Xid nodes… name
+```
+
+where `name` is the name of the circuit definition to be used, `id` is a <span style="background-color:yellow; color: black">**UNIQUE**</span> name for this instance of the subcircuit and `nodes…` are the names of **electrical nodes** that will be hooked up to the **terminals** of the subcircuit instance.  
+> There should be the same number of nodes listed in the “X” statement as there were terminals in the “.subckt” statement that defined name.  
+
+For example, here’s a short netlist that instantiates 3 NAND gates (called “g0”, “g1” and “g2”):
+
+```cpp
+Xg0 d0 ctl z0 nand2
+Xg1 d1 ctl z1 nand2
+Xg2 d2 ctl z2 nand2
+```
+
+**Explanation**:
+* The node `ctl` connects to **all** three `nand2` gates instances; all the other terminals are connected to different nodes.  
+* Note that any nodes that are private to the subcircuit definition (i.e., nodes used in the subcircuit that don’t appear on the terminal list) will be **unique** for each instantiation of the subcircuit (**like local variables**)
+  * For example, there is a private node named `1` used inside the `nand2` definition.  
+  * When JSim processes the three “X” statements above, it will make three independent nodes called “xg0.1”, “xg1.1” and “xg2.1”, one for each of the three instances of nand2.  
+  * There is <span style="background-color:yellow; color: black">no sharing of internal elements</span> or nodes between multiple instances of the same subcircuit.
+  * The example netlist above uses `vdd` (jsim standard for **POWER SOURCE) whenever a connection to the power supply is required.
+
+
+#### Shared Nodes
+
+There are two common shared nodes in jsim: `vdd` and `0`. Please **do not use these to name your custom electrical nodes**. 
+
+It is sometimes convenient to define nodes that are shared by the entire circuit, including subcircuits; for example, power supply nodes.  The ground node “0” is such a node; all references to “0” anywhere in the netlist refer to the same electrical node.  The included netlist file nominal.jsim defines another shared node called “vdd” using the following statements:
+```cpp
+.global vdd
+VDD vdd 0 3.3v
+```
+The example netlist above allows us to use `vdd` whenever a connection to the power supply is required.
+
+#### Symbolic Dimensions
+The other new twist introduced in the example netlist is the use of symbolic dimensions for the MOSFETs (“SW=” and “SL=”) instead of physical dimensions (“W=” and “L=”).  Symbolic dimensions specify multiples of a parameter called SCALE, which is also defined in `nominal.jsim`:
+
+```cpp
+.option SCALE=0.6u
+```
+
+So with this scale factor, specifying “SW=8” is equivalent to specifying “W=4.8u.”  
+
+Using symbolic dimensions is encouraged since it makes it easier to determine the W/L ratio for a MOSFET (the current through a MOSFET is proportional to W/L) and it makes it easy to move the design to a new manufacturing process that uses different dimensions for its MOSFETs.  Note that in almost all instances “SL=1” since increasing the channel length of a MOSFET reduces its current carrying capacity, not something we’re usually looking to do.
+
+We’ll need to keep the PN junctions in the source and drain diffusions **reverse biased** to ensure that the MOSFETs stay electrically isolated, so the substrate terminal of NFET (those specifying the “NENH” model) should always be hooked to ground (node `0`).  Similarly the substrate terminal of PFET (those specifying the “PENH” model) should always be hooked to the power supply (node `vdd`).
+
+
+
+### Task C: Optimising Noise Margins 
+To **maximize noise margins** we want to have the **transition** in the voltage transfer characteristic (VTC) of the `nand2` gate **centered halfway** between ground and the power supply voltage (3.3V) 
+> Why? Ask yourself, and review the lecture on digital abstraction.  
+ 
+To determine the VTC for `nand2`, we’ll perform a `dc` analysis to plot the gate’s output voltage as a function of the input voltage using the following additional netlist statements:
+
+```cpp
+* dc analysis to create VTC
+Xtest vin vin vout nand2
+Vin vin 0 0v
+
+Vol vol 0 0.3v   
+Voh voh 0 3v 	 
+
+.dc Vin 0 3.3 .005
+.plot vin vout voh vol
+```
+
+Combine this netlist fragment with the `nand2` subckt definition given above and run the simulation.  
+* To center the VTC transition, keep the size of the NFET in the `nand2` definition as `SW=8 SL=1` and adjust the width of both pFETs until the plots for vin and vout intersect at about 1.65 volts.  
+* Just try different integral widths (i.e, 9, 10, 11, …). 
+* Report the integral width that comes closest to having the curves intersect at 1.65V.
+
+<div class="yellowbox"><div class="custom_box">**Record** down the SW value you found.  You will need this information for Checkoff 3.</div></div><br>
+
+### Task D: Finding Noise Immunity 
+
+<span style="background-color:yellow; color: black">The **noise immunity** of a gate is the **smaller** of the low noise margin (Vil - Vol) and the high noise margin (Voh - Vih).</span>  
+> If we specify VOL = 0.3V and VOH = 3.0V, what is the largest possible noise immunity we could specify and still have the “improved” NAND gate of part (C) be a legal member of the logic family?
+  	
+<div class="yellowbox"><div class="custom_box">**Record** down the noise immunity value.  You will need this information for Checkoff 4. </div></div><br>
+
+**Hint:** 
+* To measure the low noise margin, use the VTC to determine what VIN has to be in order for VOUT to be 3V, and then subtract VOL (0.3V) from that number. 
+* To measure the high noise margin, use the VTC to determine what VIN has to be in order for VOUT to be 0.3V, and then subtract that number from VOH (3.0V).  
+* We’ve added some voltage sources corresponding to VOL and VOH (which lines of the code was it?) to make it easier to make the measurements on the VTC plot.
+ 
+> **Note**: make these measurements using your “improved” `nand2` gate that has the centered VTC, i.e., with the updated widths for the PFETS.
+
+## Contamination and Propagation delays (45 mins)
+
+Now that we have the MOSFETs ratioed properly to **maximize noise immunity**, let’s measure the contamination time (tc) and propagation time (tp) of the `nand2` gate. 
+
+<div class="redbox"><div class="custom_box">The contamination delay, **tcd**, for the `nand2` gate will be a **lower** bound for all the tc measurements we make. Similarly, the propagation delay, **tpd**, for the `nand2` gate will be an **upper** bound for all the tP measurements. </div></div><br>
+ 
+Recall that <span style="background-color:yellow; color: black">**the contamination delay is the period of output validity after the inputs have become invalid**</span>. That means there are **four** scenarios, depending on the combination of input and output values:
+* The period of output remaining at valid `1` (before falling to valid `0` eventually) after input that was previously at valid `1` has turned invalid 
+* The period of output remaining at valid `1` (before falling to valid `0` eventually) after input that was previously at valid `0` has turned invalid 
+* The period of output remaining at valid `0` (before rising to valid `1` eventually) after input that was previously at valid `1` has turned invalid 
+* The period of output remaining at valid `0` (before rising to valid `1` eventually) after input that was previously at valid `0` has turned invalid 
+  
+> Note that *output remaining at valid `1`* means to maintain output voltage value above Voh, while *input at valid `1`* means to receive input voltage valyue above Vih. The same applies for valid `0` on both input and output. Revise the lecture on Digital Abstraction if you're still confused about this concept of valid `0` and `1`. 
+
+The first two cases are called tc **fall**, while the latter two cases are called tc **rise**. The name rise or fall depends on whether the **output** is about to fall or rise. 
+
+The truth table of the `nand2` gate is as follows:
+
+a | b| z
+---------|----------|---------
+0 | 0 | 1
+0 | 1 | 1 
+1 | 0 | 1 
+1 | 1 | 0
+
+Therefore the computation of tc **fall** and tc **rise** for `nand2` gate is: 
+<br>
+
+$$
+\begin{aligned}
+t_{c_{FALL}} &= \text{time elapsed from when input > Vil to when output < Voh}\\
+t_{c_{RISE}} &= \text{time elapsed from when input < Vih to when output > Vol}\\
+t_{cd} &= \min(t_{c_{RISE}}, t_{c_{FALL}})
+\end{aligned}
+$$
+
+> tc fall is computed based on the third row of the `nand2` truth table. We first set the input at valid `0`, so we have the output at valid `1`. Then, we shall *increase* the input value to eventually no longer be valid `0` (> Vil) and compute the period of time where the output still remains at valid `1` (before eventually falling). The same logic applies for tc rise. 
+
+The computation of tc **fall** and tc **rise** is **not the same** for all gates. For instance, the computation for the two values for a **buffer** is:
+<br>
+
+$$
+\begin{aligned}
+t_{c_{FALL}} &= \text{time elapsed from when input < Vih to when output < Voh}\\
+t_{c_{RISE}} &= \text{time elapsed from when input > Vil to when output > Vol}\\
+t_{cd} &= \min(t_{c_{RISE}}, t_{c_{FALL}})
+\end{aligned}
+$$
+
+> Pause and ensure you understand how the formulas above are derived. 
+
+Similarly, <span style="background-color:yellow; color: black">**the propagation delay is the period of output invalidity after the inputs have become valid**</span>. 
+
+That means there are **four** scenarios, depending on the combination of input and output values:
+* The period of output turning to valid `0` (from being in valid `1` previously) after the input has become a valid `1` 
+* The period of output turning to valid `0` (from being in valid `1` previously) after the input has become a valid `0` 
+* The period of output turning to valid `1` (from being in valid `0` previously) after the input has become a valid `1` 
+* The period of output turning to valid `1` (from being in valid `0` previously) after the input has become a valid `0` 
+
+The first two cases are called tp **fall**, while the latter two cases are called tp **rise**.
+
+Therefore the computation of tp **fall** and tp **rise** for `nand2` gate is: 
+
+<br>
+$$
+\begin{aligned}
+t_{p_{FALL}} &= \text{time elapsed from when input }\geq \text{Vih to when output} \leq \text{ Vol}\\
+t_{p_{RISE}} &= \text{time elapsed from when input }\leq \text{Vil to when output} \geq \text{ Voh}\\
+t_{pd} &= \min(t_{p_{RISE}}, t_{p_{FALL}})
+\end{aligned}
+$$
+
+
+Following standard practice, we’ll choose the logic thresholds as follows:
+
+> Vol = 10% of power supply voltage = .3V
+> Vil  = 20% of power supply voltage = .6V
+> Vih  = 80% of power supply voltage = 2.6V
+> Voh = 90% of power supply voltage = 3V
+
+<div class="redbox"><div class="custom_box">Review the lecture on CMOS Technology to refresh your understanding on propagation delay and contamination delay. This is **VERY** important especially for Week 3 materials.  </div></div><br>
+
+#### Generating test signal
+The final thing that we have to prepare to plot a VTC is to generate a test signal. You can use a voltage source with either a pulse or piecewise linear waveform to generate test signals for your circuit.  Here’s how to enter them in your netlist:
+        	
+```cpp
+Vid output 0 pulse(val1 val2 td tr tf pw per)
+```
+
+This statement produces a periodic waveform with the following shape:
+
+![waveform](/50002/assets/contentimage/lab1/5.png)
+
+### Task E: Measuring tpd and tcd
+Replace the netlist fragment from Task C with the following test circuit that will let us measure various delays:
+
+```cpp
+* test jig for measuring tcd and tpd
+Xdriver vin nin inv
+Xtest vdd nin nout nand2
+Cload nout 0 .02pf
+Vin vin 0 pulse(3.3,0,5ns,.1ns,.1ns,4.8ns)
+   	
+Vol vol 0 0.3v   // make measurements easier!
+Vil vil 0 0.6v
+Vih vih 0 2.6v
+Voh voh 0 3.0v
+
+.tran 15ns
+.plot vin
+.plot nin nout vol vil vih voh
+```
+
+> Note: make these measurements using your “improved” nand2 gate from Task C that has the centered VTC, i.e., with the updated widths for the PFETs.
+
+* We use an **inverter** (`inv`) to drive the `nand2` input since we would normally expect the test gate to be driven by the output of another gate (there are some subtle timing effects that we’ll miss if we drive the input directly with a voltage source).  
+* Run the simulation and measure the contamination and propagation delays for both the rising and falling output transitions.  
+* You will need to zoom in on the transitions in order to make an accurate measurement.  
+* Combine as described above to produce estimates for tc and tp.
+ 
+<div class="yellowbox"><div class="custom_box">**Record** down the contamination tcd and propagation tpd delays for both the rising and falling output transitions.  You will need this information for Checkoff 5. Please zoom in at least 4-5 times before doing this to get a clearer picture of the signals.  </div></div><br>
+
+### Task F: Measuring tpd and tcd in 100°C
+
+We mentioned several times in lecture the desire to have our circuits operate reliably over a wide range of environmental conditions. 
+> For instance, that’s why we spend big bucks on that RGB-lighted cooling system on our gaming desktops. 
+ 
+We can have JSim simulate our test circuit at a different temperature by adding a `.temp` control statement to the netlist.  Normally JSim simulates the circuit at room temperature (25°C), but we can simulate the circuit at, say, 100°C by adding the following to our netlist:
+
+```cpp
+.temp 100
+```
+
+For many consumer products, designs are tested in the range of 0°C to 100°C. Repeat your measurements of Task E at 100°C and report your findings. Recompute your estimates for tC and tP indicating which measurement(s) determined your final choice for the two delays.
+
+<div class="yellowbox"><div class="custom_box">**Record** down your findings.  You will need this information for Checkoff 6 and 7. Please zoom in at least 4-5 times before doing this to get a clearer picture of the signals. </div></div><br>
+
+Based on your experiment, if a 2019 Intel Core i9 processor is rated to run correctly at 2.3 GHz at 100°C, how many % more can you clock it and still have it run correctly at room temperature (assuming tpd is the parameter that determines “correct” computer behavior)?  
+> This is why you can usually get away with **overclocking** your CPU—it’s been rated for operation under much more severe environmental conditions than you’re probably running it at!
+
+## CMOS Logic Gate Design
+
+As the final part of this lab, your mission is to study and test a CMOS circuit that implements the function `F(A,B,C) = C + A·B` using NFETs and PFETs. The truth table for F is shown below:
+
+
+A |  B |  C | F(A,B,C)
+---------|----------|---------|---------
+0 | 0 | 0 | 0
+0 | 0 | 1 | 1
+0 | 1 | 0 | 0
+0 | 1 | 1 | 1
+1 | 0 | 0 | 0
+1 | 0 | 1 | 1
+1 | 1 | 0 | 1
+1 | 1 | 1 | 1
+
+[Study this given answer](https://drive.google.com/file/d/1-GakraQKIzP7ML9fEyYMLSd4PPgvKiSY/view?usp=sharing):
+* Save it inside 50002 folder, 
+* Open it via jsim and run it on jsim using the **FAST TRANSIENT ANALYSIS** button:
+* You will need to understand the output plot, and the meaning of each line of instruction in the answer to be able to excel in the Lab Quiz. 
+
+Please change the two header lines in the answer with appropriate full path if the relative paths given don’t work:
+
+```cpp
+.include "nominal.jsim"
+.include "lab1checkoff.jsim"
+```
+`nominal.jsim` and `lab1checkoff.jsim` contains the necessary circuitry to generate the appropriate input waveforms to test your circuit.  It includes a `.tran` statement to run the simulation for the appropriate length of time and a few .plot statements which will display the input and output waveforms for your circuit.
+
+**The solution contains no more than 8 MOSFETs.**  Remember that only NFETs should be used in **pulldown** circuits and only PFETs should be in **pullup** circuits. Using six MOSFETs, we implement the complement of F as one large CMOS (complementary MOS) gate and then use the remaining two MOSFETs to **invert** the output of your large gate. 
+
+> Refer to the lecture on CMOS Technology to understand how you can construct the circuit using complementary MOSFETs. 

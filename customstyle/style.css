@@ -44,11 +44,11 @@
   display: block;
   padding: 10px;
   color: black;
+  line-height: 1.8;
 }
 
 .yellowbox {
-  background-color: #fffacd;
-  border: 1px solid #ffff66;
+  background-color: #fff7aa;
   display: block;
   padding: 10px;
   line-height: 1.8;
