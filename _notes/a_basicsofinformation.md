@@ -39,7 +39,9 @@ Our computers are electronic devices that can only store informations in terms o
 
 How do we represent integers (basic numbers) in binary? Suppose we have binary number:
 
+```cpp
     0 0 1 1 0 1 
+```
 
 The above means the integer value:
 $$0 \times 2^5 + 0 \times 2^4 + 1 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0 = 13$$ in decimal (base 10). 
