@@ -1,5 +1,5 @@
 # SITE CONFIGURATION
-baseurl: "/website_dark"
+baseurl: "/50002"
 url: "https://natalieagus.github.io"
 
 # THEME-SPECIFIC CONFIGURATION
@@ -32,7 +32,14 @@ collections:
   fpga:
     output: true
     permalink: /fpga/
+  lab:
+    output: true
+    permalink: /lab/
 
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
 # BUILD SETTINGS
 sass:
   style: compressed

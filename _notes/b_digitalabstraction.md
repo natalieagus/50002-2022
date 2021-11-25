@@ -3,7 +3,7 @@ layout: academic
 permalink: /notes/digitalabstraction
 title: Week 1 Part 2 - Digital Abstraction
 description: A short knowledge on how to convert continuous voltage into discrete boolean values reliably
-tags: [information, digital, staticdiscipline]
+tags: [information, voltage, staticdiscipline]
 ---
 
 

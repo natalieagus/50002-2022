@@ -3,7 +3,7 @@ layout: academic
 permalink: /problemset/problemset1
 title: Problem Set 1
 description:  Week 1 practice questions containg topics from Basics of Information and The Digital Abstraction
-tags: [information, binary, digital, staticdiscipline]
+tags: [information, binary, voltage, staticdiscipline]
 ---
 
 

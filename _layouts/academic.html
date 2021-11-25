@@ -102,6 +102,20 @@ layout: default
 
   }
 </script>
+<script>
+  contentAnswers = document.getElementsByClassName("custom_box")
+  var i;
+
+  for (i = 0; i < contentAnswers.length; i++){
+    stringval = contentAnswers[i].innerHTML
+    console.log(stringval)
+    stringval = stringval.replace(/\*{1,2}(.*?)\*{1,2}/g, '<strong>$1</strong>')
+    stringval = stringval.replace(/`(.*?)`/g, '<code>$1</code>');
+    console.log(stringval)
+    contentAnswers[i].innerHTML = stringval
+
+  }
+</script>
 
 <script>
   var coll = document.getElementsByClassName("collapsible");
