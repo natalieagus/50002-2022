@@ -26,7 +26,7 @@ For task A-F, you will need to follow the class and type the code from scratch. 
 
 
 ## Related Class Materials
-The lecture notes on Digital Abstraction and CMOS Technology are closely related to this lab.
+The lecture notes on [Digital Abstraction](https://natalieagus.github.io/50002/notes/digitalabstraction) and [CMOS Technology](https://natalieagus.github.io/50002/notes/cmostechnology) are closely related to this lab.
 
 **Task A and Task B:** Studying the effect of MOSFET “ON” and MOSFET “OFF”. 
 <br>Related Notes: **CMOS Technology**
@@ -101,7 +101,7 @@ The JSim netlist format is quite similar to that used by [SPICE](https://en.wiki
 
 
 ## Part 1: Characterising MOSFETs (45 mins)
-Make some measurements of an  NFET by hooking it up to a couple of voltage sources to generate different values for VGS and VDS. Our end goal is to obtain the VTC plot of the NFET. Recall that we learn this in the Digital Abstraction chapter in our lecture. 
+Make some measurements of an  NFET by hooking it up to a couple of voltage sources to generate different values for VGS and VDS. Our end goal is to obtain the VTC plot of the NFET. Recall that we learn this in the [Digital Abstraction](https://natalieagus.github.io/50002/notes/digitalabstraction) chapter in our lecture. 
 
 The setup to characterise our NFET is as follows:
 ![setupnfet](/50002/assets/contentimage/lab1/4.png)
@@ -278,7 +278,7 @@ We’ll need to keep the PN junctions in the source and drain diffusions **rever
 
 ### Task C: Optimising Noise Margins 
 To **maximize noise margins** we want to have the **transition** in the voltage transfer characteristic (VTC) of the `nand2` gate **centered halfway** between ground and the power supply voltage (3.3V) 
-> Why? Ask yourself, and review the lecture on digital abstraction.  
+> Why? Ask yourself, and review the lecture on [digital abstraction](https://natalieagus.github.io/50002/notes/digitalabstraction).  
  
 To determine the VTC for `nand2`, we’ll perform a `dc` analysis to plot the gate’s output voltage as a function of the input voltage using the following additional netlist statements:
 
@@ -327,7 +327,7 @@ Recall that <span style="background-color:yellow; color: black">**the contaminat
 * The period of output remaining at valid `0` (before rising to valid `1` eventually) after input that was previously at valid `1` has turned invalid 
 * The period of output remaining at valid `0` (before rising to valid `1` eventually) after input that was previously at valid `0` has turned invalid 
   
-> Note that *output remaining at valid `1`* means to maintain output voltage value above Voh, while *input at valid `1`* means to receive input voltage valyue above Vih. The same applies for valid `0` on both input and output. Revise the lecture on Digital Abstraction if you're still confused about this concept of valid `0` and `1`. 
+> Note that *output remaining at valid `1`* means to maintain output voltage value above Voh, while *input at valid `1`* means to receive input voltage valyue above Vih. The same applies for valid `0` on both input and output. Revise the lecture on [Digital Abstraction](https://natalieagus.github.io/50002/notes/digitalabstraction) if you're still confused about this concept of valid `0` and `1`. 
 
 The first two cases are called tc **fall**, while the latter two cases are called tc **rise**. The name rise or fall depends on whether the **output** is about to fall or rise. 
 
@@ -395,7 +395,7 @@ Following standard practice, we’ll choose the logic thresholds as follows:
 > Vih  = 80% of power supply voltage = 2.6V
 > Voh = 90% of power supply voltage = 3V
 
-<div class="redbox"><div class="custom_box">Review the lecture on CMOS Technology to refresh your understanding on propagation delay and contamination delay. This is **VERY** important especially for Week 3 materials.  </div></div><br>
+<div class="redbox"><div class="custom_box">Review the lecture on [CMOS Technology ](https://natalieagus.github.io/50002/notes/cmostechnology)to refresh your understanding on propagation delay and contamination delay. This is **VERY** important especially for Week 3 materials.  </div></div><br>
 
 #### Generating test signal
 The final thing that we have to prepare to plot a VTC is to generate a test signal. You can use a voltage source with either a pulse or piecewise linear waveform to generate test signals for your circuit.  Here’s how to enter them in your netlist:
@@ -439,7 +439,7 @@ Voh voh 0 3.0v
 
 ### Task F: Measuring tpd and tcd in 100°C
 
-We mentioned several times in lecture the desire to have our circuits operate reliably over a wide range of environmental conditions. 
+We always want our computer and electronic circuits operate reliably over a wide range of environmental conditions. It is not a secret that CPUs get real hot doing intense work. 
 > For instance, that’s why we spend big bucks on that RGB-lighted cooling system on our gaming desktops. 
  
 We can have JSim simulate our test circuit at a different temperature by adding a `.temp` control statement to the netlist.  Normally JSim simulates the circuit at room temperature (25°C), but we can simulate the circuit at, say, 100°C by adding the following to our netlist:
@@ -486,4 +486,4 @@ Please change the two header lines in the answer with appropriate full path if t
 
 **The solution contains no more than 8 MOSFETs.**  Remember that only NFETs should be used in **pulldown** circuits and only PFETs should be in **pullup** circuits. Using six MOSFETs, we implement the complement of F as one large CMOS (complementary MOS) gate and then use the remaining two MOSFETs to **invert** the output of your large gate. 
 
-> Refer to the lecture on CMOS Technology to understand how you can construct the circuit using complementary MOSFETs. 
+> Refer to the lecture on [CMOS Technology](https://natalieagus.github.io/50002/notes/cmostechnology) to understand how you can construct the circuit using complementary MOSFETs. 
