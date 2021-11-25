@@ -3,7 +3,7 @@ layout: academic
 permalink: /lab/lab1
 title: Lab 1 - CMOS
 description: Lab 1 handout covering topics from Digital Abstraction and CMOS Technology
-tags: [lab, cmos, voltage]
+tags: [lab, cmos, voltage, information, voltage, staticdiscipline, mosfet]
 ---
 
 * TOC
