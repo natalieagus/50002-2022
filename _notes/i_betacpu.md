@@ -17,7 +17,7 @@ Singapore University of Technology and Design
 
 
 # Building the $$\beta$$ CPU
-
+[You can find the lecture video here.](https://youtu.be/4T9MR8BSzt0) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 
@@ -674,6 +674,14 @@ In $$\beta$$ ISA, each instruction requires only 1 clock cycle to complete (atom
 Typically, one will choose a particular program (with fixed number of instructions) for benchmarking purposes, and **the same benchmark program** is run on different CPUs with potentially different Clock Rate and $$CPI$$. 
 
 The higher the $$MIPS$$, the faster it takes to run the benchmark program. Therefore we can say that a CPU with the highest $$MIPS$$ has the best performance.
+
+## Summary
+You may want to watch the post lecture videos here:
+* [Part 1: Beta Datapath](https://youtu.be/IXiSoP_0Kvc)
+* [Part 2: Beta Datapath Analysis - this is difficult!](https://youtu.be/4MmUEeAKmxc)
+
+In this notes we have covered extensively how to create the $$\beta$$ CPU datapath given its ISA (blueprint). We can run some instructions written in machine language (`0`s and `1`s), but obviously it is not yet user friendly at all. Not to mention that this CPU alone *does not support reusable instructions* (we know them as **functions**). The next lecture introduces us to assemblers and compilers, which are softwares created to help us utilise the $$\beta$$ CPU better so that we are focused on *programming* it and spending more time thinking about designing our program, and less time *writing* the program. 
+
 
 
 

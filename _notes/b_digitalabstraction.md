@@ -18,6 +18,7 @@ Singapore University of Technology and Design
 
 
 # Digital Abstraction
+[You can find the lecture video here. ](https://youtu.be/xkVIr8jrtX0) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 
@@ -187,6 +188,8 @@ If you can satisfy the condition highlighted above, then it means that the devic
 	> In other words, if both characteristics above aren't satisfied in the VTC curve, then it is not the VTC of a combinational logic device.
 
 ## Summary
+[You may want to watch the post lecture videos here.](https://youtu.be/3OoeuqWDhns)
+
 In this chapter, we have learned about the digital abstraction, that is how can we set some **contracts** (via setting the four voltage specifications) such that we can establish digital values out of real-valued voltages. 
 
 In the next chapter, we will learn about the **MOSFET** (transistor), that is one of the smallest component (building block) that makes up a digital device, and how we can use them to form a proper combinational logic elements we call **gates**. These **gates** can be  used to form an even larger **combinational circuits** such as the **adder**, **shifter**, etc, and an even larger one such as the **Arithmetic Logic Unit** (you will build them in Lab 2 and 3). 

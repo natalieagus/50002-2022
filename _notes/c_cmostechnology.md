@@ -17,7 +17,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # The CMOS Technology
-
+[You can find the lecture video here. ](https://youtu.be/JqgZcV_1IU4)You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
   
 ## Overview
 Recall that the ideal behaviors and characteristics of a **combinational logic device** are:
@@ -331,7 +331,8 @@ Given the $$t_{pd}$$ and $$t_{cd}$$ for the NAND gate: $$t_{pd} = 4 ns$$, $$t_{c
 - The overall $$t_{cd}$$ of the circuit is $$2 ns$$ (the path in blue)
 
  
- ## Summary
+## Summary
+[You may want to watch the post lecture videos here.](https://youtu.be/cJxBlO5NMGs)
 
 We begin the chapter by understanding how a MOSFET can be used as the most basic building block (element) in digital circuits. There are two types of FETs, namely NFET and PFET, that can be "activated" (switched on) or "deactivated" (switched off) using proper voltages supplied at its gate. 
 

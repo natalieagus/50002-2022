@@ -16,7 +16,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Memory Hierarchy
-
+[You can find the lecture video here.](https://youtu.be/m5_u3sQ9bXo) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 
@@ -335,6 +335,8 @@ The `Content` field contains a copy of all bits of data at `Mem[A]`.
 
 
 ## Summary
+[You may want to watch the post lecture videos here. ](https://youtu.be/bC_zOLltLbY)
+
 In this chapter, we are given a glimpse of various memory technology: from slowest to fastest, cheapest to the most expensive. 
 
 We use a hierarchy of memory technology in our computer system to give it an *illusion* that it is running at a high (SRAM level) speed at the size and cost of a Disk. The idea is to use a small, but fast (and expensive) device made of SRAMs to **cache** most recently and frequently used information, and refer to the physical memory or disk as rarely as possible. 

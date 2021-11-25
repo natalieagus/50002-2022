@@ -16,7 +16,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Cache Design Issues
-
+[You can find the lecture video here.](https://youtu.be/2OARjqLK4io) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 
@@ -587,6 +587,7 @@ On CPU WRITE/STORE (new_content) request to address A:
 ```
 
 ## Summary
+[You may want to watch the post lecture videos here. ](https://youtu.be/33N7Y9Iydb0)
 
 The four cache design issues discussed in this chapter are: associativity, replacement policies, write policies, and block size. There is no *golden cache design*  that suits all kinds of situations. The performance of a cache depends on its use case. 
 

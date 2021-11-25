@@ -17,6 +17,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Finite State Machine
+[You can find the lecture video here.](https://youtu.be/efLcdpqlAyI) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 
@@ -334,6 +335,7 @@ Having less states will result in less bits to represent the states in the machi
   
 
 ## FSM Limitations and Summary
+[You may want to watch the post lecture videos here.](https://youtu.be/XJQaAG9xLoI)
 
 In this chapter, we have learned that we can build an FSM to compute many types of functions, such as implementing the *digital lock*. 
 

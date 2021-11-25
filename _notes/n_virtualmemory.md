@@ -15,6 +15,9 @@ Information Systems Technology and Design
 <br>
 Singapore University of Technology and Design
 
+# Virtual Memory
+[You can find the lecture video here.](https://youtu.be/19wS4GC6mbQ) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
+ 
 ## Overview
 
 The physical memory can contain all kinds of information, and is typically segmented as shown below to run a single process: 
@@ -448,6 +451,7 @@ Page must be fetched from the swap space and copied over to the Physical Memory.
 
 
 ## Summary 
+[You may want to watch the post lecture videos here. ](https://youtu.be/oe_WHpAmgqM)
 
 <span style="background-color:yellow; color: black"> *Virtual Memory* is a **memory management technique** that provides an **abstraction** of the storage resources so that programs can be written as if they have **full access** to the physical memory without having to consider where other programs reside </span>. 
 

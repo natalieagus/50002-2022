@@ -16,6 +16,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Stack and Procedures 
+[You can find the lecture video here.](https://youtu.be/u4TETujaNuk) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
 
 ## Overview
  
@@ -783,6 +784,7 @@ Java and Python will *babysit* and protect us from these mistakes, as there's la
 
 
 ## Summary 
+You may want to watch the post lecture videos here. 
 
 The calling and callee sequence is designed such that we have a fixed convention for **linking procedures**. The data structure needed for procedure linkage is a **stack**, and it can simply be implemented using macroinstructions: `PUSH` and `POP` on some unused memory block, which address is stored in register `R29: SP`. 
 

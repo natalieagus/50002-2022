@@ -17,6 +17,7 @@ Singapore University of Technology and Design
 
 
 # Assemblers and Compilers 
+[You can find the lecture video here.](https://youtu.be/Hhq3RhZcngQ) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 The goal of this chapter is to help us understand how to improve the programmability of the $$\beta$$ (or any ISA in general). The $$\beta$$ machine language is encoded into 32-bit instructions each. 
@@ -280,6 +281,8 @@ r : LONG(1)
 ```
 
 ## Summary
+[You may want to watch the post lecture videos here:](https://youtu.be/ppYTQsHXVZU)
+
 
 There are a lot of ways to translate higher level language into a lower level language. The examples given above are not necessarily the *most optimised* way, for example, we can ask ourselves:
 * Is it possible to reduce the number of instructions? 

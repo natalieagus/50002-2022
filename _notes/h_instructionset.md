@@ -16,11 +16,8 @@ Information Systems Technology and Design
 <br>
 Singapore University of Technology and Design
 
-
-
-
-
 # Designing an Instruction Set
+[You can find the lecture video here.](https://youtu.be/h1KGzAbJH4Q) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 To create a programmable control system suitable for *general* purposes (like the Universal Turing Machine), we need to define a set of instructions for that system, such that it is able to support a rich repertoire of operations. 
@@ -386,6 +383,10 @@ The $$\beta$$ CPU hardware is therefore designed so that it can ***implement*** 
 
 
 ## Summary
+You may want to watch the post lecture videos here:
+* [Part 1: Instruction Set](https://youtu.be/NLdUPdHBsxo)
+* [Part 2: Beta Primer](https://youtu.be/KTxbjm-Qm0c)
+
 In the beginning of this chapter we were given the programmable Machine $$M$$, that is capable of computing the simple factorial function. We then proceeded by arguing that Machine $$M$$ is not enough to be used for a *general* purpose machine, that is to be used as an implementation of a Universal Turing Machine.
 
 What we need to do to create a general-purpose computer is to:

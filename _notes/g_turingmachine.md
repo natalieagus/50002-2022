@@ -1,7 +1,7 @@
 ---
 layout: academic
 permalink: /notes/turingmachine
-title: Week 4 Part 1 - Turing Machine
+title: Week 4 Part 1 - Turing Machine and Programmability
 description: A more powerful machine than the Finite State Machine
 tags: [turing, combinational, sequential]
 ---
@@ -17,8 +17,8 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 
-# Turing Machine
-
+# Turing Machine and Programmability
+[You can find the lecture video here.](https://youtu.be/cmfDBAiogA0) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
   
 ## Overview
 
@@ -298,7 +298,8 @@ Well, technically, our computers have *a very long tape* (i.e: its memory), wher
 
   
 
-## Summary: The Computer Science Revolution
+## The Computer Science Revolution
+
 
 Imagine the hassle and inconvenience if we need to build a different physical machine $$T_M$$ each time we need to compute a new function $$f_M$$. 
 
@@ -316,7 +317,8 @@ In order to be efficient, we need to replace each of these hardwares with a *cod
 
 Until this point, we have learned how Turing machine works, and  its advantage over  FSM. Our final goal is to realise a **Universal Turing machine**, that is a machine that is **programmable** so that it can be used for a **general purpose**.
 
-## Programmability 
+## Summary: Programmability 
+[You may want to watch the post lecture videos here. ](https://youtu.be/p0plIDiBEj0)
 
 The concept of a universal Turing Machine is an *ideal abstraction*, since we can never create a machine with infinitely long tape. However, physically creating something that is "infinite" is not possible. 
 

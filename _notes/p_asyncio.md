@@ -16,7 +16,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Asynchronous Handling of I/O Devices
-
+[You can find the lecture video here.](https://youtu.be/gVntBILoDvg) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
   
 ## Overview
 
@@ -337,6 +337,8 @@ The total Interrupt load of these devices on the CPU is 73%. The remaining fract
 
  
 ## Summary
+[You may want to watch the post lecture videos here. ](https://youtu.be/8ZzGgrGK3PY)
+> We used to have another chapter on process synchronisation using Semaphores, but it is taken out of our syllabus now. [You can still watch its brief video here](https://youtu.be/iQcPXj-wsGs). We will learn more about these next term in Computer System Engineering (CSE 50.005) instead.
 
 In this chapter, we have learned that there are two parts of *device interface*:
 1. **Device side:** via asynchronous interrupt requests.

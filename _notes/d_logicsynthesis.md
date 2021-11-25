@@ -17,6 +17,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Logic Synthesis
+[You can find the lecture video here.](https://youtu.be/yXBAy432vT8) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 The purpose of creating combinational devices is to **synthesise logic**, meaning that we create a device that is able to give a certain combination of output given a certain combination input. In other words, a device that adheres to a truth table, i.e: its *functional specification.* 
@@ -442,7 +443,9 @@ The properties of ROM are as follows:
 	> For example, the Full Adder has 3 inputs (A, B, $$C_{in}$$), and 2 outputs (S and $$C_{out}$$). Hence the size of the ROM is $$2^3 * 2 = 16$$.
 
 
-## Conclusion
+## Summary
+[You may want to watch the post lecture videos here.](https://youtu.be/oo58e54SHjs)
+
 Synthesizing combinational logic is not a simple task. There are many ways to realise a functionality, i.e: the **logic** *(that the device should implement)* represented by the truth table or boolean expression. We can use universal gates (only NANDS, or only NORS), a combination of gates (INV, AND, and OR), or many other ways (multiplexers, ROMs, etc). 
 
 Of course "*hardcoding*" a truth table using ROM and Multiplexers are convenient, because we do not need to think about simplifyfing the boolean expression of our truth table (which can get really difficult and complicated when the truth table is large, i.e: complicated functionality). However it comes at a cost: the **cost of the materials** to build the ROM / Multiplexers, and at the **cost of space** (we need use a lot of logic gates to build these). 

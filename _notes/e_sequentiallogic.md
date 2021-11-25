@@ -17,6 +17,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Sequential Logic and Synchronization
+[You can find the lecture video here.](https://youtu.be/HlizelEp4Yc) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 
@@ -368,6 +369,11 @@ Note that this comes at the cost of <i>responsiveness</i> of the device.
 </div>
  
 ## Summary
+You may want to watch the post lecture videos here:
+* [Part 1: D-Latch](https://youtu.be/TdwV30ORXJY)
+* [Part 2: Timing Specifications](https://youtu.be/_qTTgelFAGY)
+* [Part 3: D-Flip Flop or Registers](https://youtu.be/X6kxFjAHkSw)
+* [Part 4: Synchronisation](https://youtu.be/eK4JCv1oADo)
 
 As stated above, a **sequential** logic device has a *general* structure as shown below:
 

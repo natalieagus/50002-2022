@@ -16,6 +16,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Virtual Machine
+[You can find the lecture video here.](https://youtu.be/4pizOgCT11k) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 Suppose we have 10 processes running in our computer right now: Web Browser, Spotify, Telegram, etc (in fact, the number of running processes at any given time in a typical computer is more than 10). There has to be some kind of **manager** program that oversees the execution of these processes because we only have limited amount of resources: CPU cores, RAM size, cache size, etc. This **manager** program is called the Operating System. Specifically, the part of the OS that is responsible for process management is the **operating system kernel**.
@@ -305,7 +306,7 @@ The function  `getchar` contains several instructions that perform a **superviso
   
 
 ## Summary
-
+[You may want to watch the post lecture videos here. ](https://youtu.be/uG1HEKdJpxY)
  
 In summary, we have learned how the presence of OS Kernel and hardware support provide an abstraction for each running process, thus allowing them to run in an isolated manner; on their own virtual machine.  
 

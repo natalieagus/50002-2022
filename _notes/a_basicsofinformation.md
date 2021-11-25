@@ -18,7 +18,9 @@ Singapore University of Technology and Design
 
 # Basics of Information 
 
-## Overview
+[You can find the lecture video here. ](https://youtu.be/IicB30kA3pY) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
+
+## [Overview](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=0s)
 
 In this course, we are going to learn how to build the **general-purpose digital device** that we call *computer* these days from the **bottom up**. 
 > We will start with understanding how we can encode information in terms of **voltages**, and then how to utilize transistors to synthesize logic. We can use them to create a bigger -- more complex programmable system, and eventually with a properly designed instruction set, we can understand how a general purpose programmable machine is made. 
@@ -31,7 +33,7 @@ In this chapter, we will begin our journey by learning how we can **represent** 
 We can quantify information in electronic devices in terms of *bits* (binary digits, consisted of simply `1`s and `0`s). Strings of bits can represent *integer* values. Therefore we can use them in a way so that our devices can perform (mathematical) ***computation*** using this form of quantified information. 
 
 
-## Binary Number System 
+## [Binary Number System ](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=388s)
 
 Our computers are electronic devices that can only store informations in terms of electrical signals: high signal and low signal. Therefore we need to work using the binary (base 2) number system and not the decimal number system that we are more familiar with. 
 
@@ -44,7 +46,7 @@ $$0 \times 2^5 + 0 \times 2^4 + 1 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1 \
 
 > Binary to Decimal conversion is really simple, but takes time to get used to. 
 
-## Hex and Octal Number System
+## [Hex and Octal Number System](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=615s)
 What if encoding in binary is too long on paper or text editor? We can use other number systems: encode in **octal** (base 8) or **hex** (base 16) to shorten its representation, so that it's more "human friendly" to write.
 
 See the table below to find out the direct conversion between binary, octal, hex, and decimal. 
@@ -59,7 +61,7 @@ See the table below to find out the direct conversion between binary, octal, hex
 * Numbers encoded in oct will have the suffix $$_8$$.
 
 
-The examples below should provide a straightforward hints on how to convert between the number systems. 
+The examples below should provide a straightforward hints on [how to convert between the number systems](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=780s). 
 
 **Example 1:**
 
@@ -83,7 +85,7 @@ The examples below should provide a straightforward hints on how to convert betw
 
 
 
-## 2's Complement
+## [2's Complement](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=1113s)
 
 2's Complement is the way most computers or electronic machines choose to represent *signed* integers. Given a string of bits, we can compute its negative representation using 2's Complement. 
 
@@ -107,7 +109,7 @@ To compute the 2's Complement representation of $$5$$ and represent a negative v
 
 The 2's Complement is an operation that can be applied to either numbers: the positive or the negative, and it will yield its counterpart. 
 
-### Bonus: Decimal Encoding
+### [Bonus: Decimal Encoding](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=1380s)
 
 How to encode decimal in binary? We extend our prior knowledge. Suppose we have **signed** binary number:
 
@@ -118,7 +120,7 @@ How to encode decimal in binary? We extend our prior knowledge. Suppose we have 
 The above means
 $$-1 \times 2^3 + 1 \times 2^0 + 1 \times 2^{-3} + 1 \times 2^{-4}$$.
 
-## Encoding 
+## [Encoding ](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=1398s)
  
 Encoding is the process of assigning *representations* to information. Strings of bits can mean some value of integers, but we can also assign a fixed repesentation to them. 
 
@@ -137,7 +139,7 @@ More precisely, it is called the **fixed length encoding**, that is used in prac
 We can create electronic devices that are able to *map* (decode) a given encoded information, perform computations based on the received information, and encode back the output so that the results can be interpreted by us (users) or other devices. 
 
 
-## Information and uncertainty
+## [Information and uncertainty](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=1761s)
 
 
 The amount of information held by an **event** is **inversely proportional to** the probability $$p$$ of that event happening,
@@ -160,13 +162,13 @@ I(X) =  \log_2 \frac{1}{p_i} \text{ bits},\end{aligned}$$
 
 where  $$I(X)$$ is the amount of information received in bits learning that the choice was $$x_i$$.   
 
-> Example:   Let $$N = 8$$, and all 8 events are *equally probable.* The number of bits needed to encode all 8 events are: 
+> [Example:](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=1900s)   Let $$N = 8$$, and all 8 events are *equally probable.* The number of bits needed to encode all 8 events are: 
 > 
 > $$\begin{aligned} I(X) &= \log_2 \frac{1}{1/8} = 3 \text{ bits}. \end{aligned}$$ 
 > 
 > We need to receive 3 bits of information to learn that one event $$x_i$$ out of the 8 events happens. In this case, it can be `000, 001, 010, 011, 100, 101, 110,` and `111`. 
 
-
+### [Narrowing Down Choices](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=1930s)
 With $$N$$ *equally probable choices,* if it is narrowed down to $$M$$ choices (where $$N>M$$), then we can say that we are given
 
 $$\begin{aligned}
@@ -182,7 +184,8 @@ I_{8\rightarrow 3}(X) = \log_2 \left( \frac{8}{3} \right) = 1.42 \text{ bits of 
  
 
 
-## Summary
+## [Summary](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=2094s)
+[You may want to watch the post lecture videos here.](https://youtu.be/UPIoYYLG718) 
 
 This chapter quickly summarises how we can represent integers using different number systems, especially the binary number system that is especially useful for our computers since they can only store information in terms electrical voltages (representing simply strings of `1`s and `0`s). 
 
