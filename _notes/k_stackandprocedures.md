@@ -784,7 +784,9 @@ Java and Python will *babysit* and protect us from these mistakes, as there's la
 
 
 ## Summary 
-You may want to watch the post lecture videos here. 
+You may want to watch the post lecture videos here:
+* [Part 1: Stack and Procedures ](https://youtu.be/sj7A-lpTgaI)
+* [Part 2: Common Mistakes in Stack and Procedures](https://youtu.be/QGR9n9TqYc0)
 
 The calling and callee sequence is designed such that we have a fixed convention for **linking procedures**. The data structure needed for procedure linkage is a **stack**, and it can simply be implemented using macroinstructions: `PUSH` and `POP` on some unused memory block, which address is stored in register `R29: SP`. 
 
