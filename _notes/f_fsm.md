@@ -94,11 +94,6 @@ $$
 *Note: the output column in the figure above contains the output that depends on the *current* state only (also known as the Moore Machine, see next section).* 
 
 
-
-
-
-  
-
 ## Moore and Mealy Machine
 
   
@@ -184,9 +179,13 @@ The boolean equation for the FSM  (Moore) truth table above is therefore:
 
 $$
 \begin{aligned}
-S_{0_{i+1}} &= \overline{S_{0_i}} \cdot {S_{1_i}} \cdot \text{in} + S_{0_i} \cdot \overline{{S_{1_i}}} \cdot \text{in}\\
-S_{1_{i+1}} &= \overline{S_{0_i}} \cdot \overline{{S_{1_i}}} \cdot \overline{\text{in}} + \overline{S_{0_i}} \cdot {S_{1_i}} \cdot \overline{\text{in}} + S_{0_i} \cdot \overline{{S_{1_i}}} \cdot \overline{\text{in}} + S_{0_i} \cdot \overline{{S_{1_i}}} \cdot \text{in}  + S_{0_i} \cdot {S_{1_i}} \cdot \overline{\text{in}}\\
-Out &= S_{0_i}  \cdot S_{1_i} \cdot \overline{\text{in}}  + S_{0_i} \cdot S_{1_i} \cdot \text{in}  
+S_{0_{i+1}} = & \overline{S_{0_i}} \cdot {S_{1_i}} \cdot \text{in} + S_{0_i} \cdot \overline{{S_{1_i}}} \cdot \text{in}\\
+S_{1_{i+1}} = & \overline{S_{0_i}} \cdot \overline{{S_{1_i}}} \cdot \overline{\text{in}} + \\
+& \overline{S_{0_i}} \cdot {S_{1_i}} \cdot \overline{\text{in}} + \\
+& S_{0_i} \cdot \overline{{S_{1_i}}} \cdot \overline{\text{in}} + \\
+& S_{0_i} \cdot \overline{{S_{1_i}}} \cdot \text{in}  + \\
+& S_{0_i} \cdot {S_{1_i}} \cdot \overline{\text{in}}\\
+Out = & S_{0_i}  \cdot S_{1_i} \cdot \overline{\text{in}}  + S_{0_i} \cdot S_{1_i} \cdot \text{in}  
 \end{aligned}
 $$
 {% endraw %}
@@ -213,9 +212,11 @@ $$
 
 $$
 \begin{aligned}
-S_{0_{i+1}} &= \overline{S_{0_{i}}} \cdot S_{1_{i}} \cdot In\\
-S_{1_{i+1}} &= \overline{S_{0_{i}}} \cdot \overline{S_{1_{i}}} \cdot \overline{In} + \overline{S_{0_{i}}} \cdot S_{1_{i}} \cdot \overline{In} + S_{0_{i}} \cdot \overline{S_{1_{i}}} \cdot \overline{In}\\
-Out &= S_{0_{i}} \cdot \overline{S_{1_{i}}} \cdot In
+S_{0_{i+1}} = & \overline{S_{0_{i}}} \cdot S_{1_{i}} \cdot In\\
+S_{1_{i+1}} = & \overline{S_{0_{i}}} \cdot \overline{S_{1_{i}}} \cdot \overline{In} + \\
+& \overline{S_{0_{i}}} \cdot S_{1_{i}} \cdot \overline{In} + \\
+& S_{0_{i}} \cdot \overline{S_{1_{i}}} \cdot \overline{In}\\
+Out = & S_{0_{i}} \cdot \overline{S_{1_{i}}} \cdot In
 \end{aligned}
 $$
 
