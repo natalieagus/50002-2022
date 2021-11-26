@@ -1,3 +1,25 @@
+.center_fifty {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 50%;
+}
+
+.center_seventyfive {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  height: 75%;
+}
+
+.center_full {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .blueborder {
   border-style: solid;
   border-color: #287ec7;
@@ -151,11 +173,15 @@
   font-family: "Helvetica Neue";
 }
 
-/* ::-webkit-scrollbar {
-  width: 0; 
-  background: transparent; 
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
 }
-*/
+
+::-webkit-scrollbar-thumb {
+  background: rgb(184, 184, 184);
+  border-radius: 10px;
+}
 
 .stackedit__left__inner {
   overflow-y: scroll;

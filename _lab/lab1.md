@@ -3,7 +3,7 @@ layout: academic
 permalink: /lab/lab1
 title: Lab 1 - CMOS
 description: Lab 1 handout covering topics from Digital Abstraction, CMOS Technology, and Logic Synthesis
-tags: [lab, cmos, voltage, information, booleanalgebra, staticdiscipline, mosfet]
+tags: [lab, cmos, voltage, information, voltage, staticdiscipline, mosfet]
 ---
 
 * TOC
@@ -30,29 +30,29 @@ The lecture notes on [Digital Abstraction](https://natalieagus.github.io/50002/n
 
 **Task A and Task B:** Studying the effect of MOSFET “ON” and MOSFET “OFF”. 
 <br>Related Notes: **CMOS Technology**
-  * Types of MOSFETs
-  * Switching PFET and NFET ON and OFF
+  * [Types of MOSFETs](https://natalieagus.github.io/50002/notes/cmostechnology#types-of-mosfets)
+  * [Switching PFET and NFET ON and OFF](https://natalieagus.github.io/50002/notes/cmostechnology#switching-nfets-and-pfets-onoff)
   * Realise that producing a logic ‘1’ is not always perfect, 
   * Highly depends on the MOSFET’s conductivity 
   * An “OFF” MOSFET isn’t always 100% off, there exist leaky current
 
 **Task C and Task D:** finding optimal VTC 
 <br>Related Notes: **Digital Abstraction**
-  * VTC Section
-  * Voltage Specifications and Noise Margin 
+  * [VTC Section](https://natalieagus.github.io/50002/notes/digitalabstraction#voltage-transfer-characteristic-function-vtc)
+  * [Voltage Specifications and Noise Margin ](https://natalieagus.github.io/50002/notes/digitalabstraction#voltage-specifications-and-noise-margin)
   * Realise that we can optimise the noise margin by optimising the MOSFET material 
   * Understand why static discipline is important, and how we can analyse VTC to choose the best MOSFET design
 
 **Task E and Task F:** tcd and tpd 
 <br>Related Notes: **CMOS Technology**
-* Timing Specifications of Combinational Logic Devices
+* [Timing Specifications of Combinational Logic Devices](https://natalieagus.github.io/50002/notes/cmostechnology#timing-specifications-of-combinational-logic-devices)
 * Actually measure tpd and tcd from raw plots (input and output timing of a given gate or circuitry) to understand *by heart*  **why** we need these timing specifications to obey static discipline
 * This is on the contrary to classroom exercises where we give you the tpd and tcd of each gate and simply do the math to compute the tpd and tcd of a given circuit
 
 **Task G:** logic synthesis and CMOS circuit
 <br>Related Notes: **Logic Synthesis**
-* Translating between truth table and boolean equation 
-* Creating CMOS circuit from the given boolean equation, consisting of pull-up and pull-down parts then inverting the entire output
+* [Translating between truth table and boolean equation ](https://natalieagus.github.io/50002/notes/logicsynthesis#straightforward-logic-synthesis)
+* [Creating CMOS circuit from the given boolean equation](https://natalieagus.github.io/50002/notes/logicsynthesis#logic-synthesization-with-cmos), consisting of pull-up and pull-down parts then inverting the overall output.
 
 ## Introduction to JSim 
 *(you really should’ve read this intro section before coming to class)*

@@ -98,7 +98,7 @@ See the figure below and its corresponding explanation to understand better how 
 <img src="https://dl.dropboxusercontent.com/s/px5ev6j9ae22ceg/pnfet.png?raw=1"  width="130%" height = "130%">	  
 
 
-###  How NFET operates:
+###  How NFET operates
 
 <img src="https://dl.dropboxusercontent.com/s/7oevad7tcpr2ob4/nfet_t.png?raw=1"  width="50%" height = "50%">	  
 
@@ -119,7 +119,7 @@ See the figure below and its corresponding explanation to understand better how 
 4.  It is \"OFF\" when $$V_{GS}$$ is **low**, as it encourages depletion region to form further.
 
 
-###  How PFET operates:
+###  How PFET operates
 
 <img src="https://dl.dropboxusercontent.com/s/u7nuy6cayaik0q7/pfet_t.png?raw=1"  width="50%" height = "50%">	  
 
