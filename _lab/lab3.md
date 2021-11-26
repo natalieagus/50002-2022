@@ -25,7 +25,7 @@ Download the materials required for this lab [here](https://drive.google.com/ope
 ## Related Class Materials
 The lecture notes on [Logic Synthesis](https://natalieagus.github.io/50002/notes/logicsynthesis) and [Designing an Instruction Set](https://natalieagus.github.io/50002/notes/instructionset) are closely related to this lab. 
 
-**Task A:** Design the ALU (Part 1-4) and **Task B:** Studying a Multiplier Design
+**Task A:** Design the ALU Components (Part 1-4) and **Task B:** Studying a Multiplier Design
 <br>Related sections in the notes: **[Logic Synthesis](https://natalieagus.github.io/50002/notes/logicsynthesis)**	
 * [N-input gates](https://natalieagus.github.io/50002/notes/logicsynthesis#n-input-gates) (all kinds of gates to produce the logic of each component in the ALU)
 * [Special combinational logic devices](https://natalieagus.github.io/50002/notes/logicsynthesis#special-combinational-logic-devices) (multiplexer with 1 or 2 selectors, and combining multiplexers together to form an even bigger one)
@@ -180,4 +180,228 @@ There are many gates that are available in the standard cell library. We can use
 
 It is often possible to do all three at once but in some portions of the circuit some sort of *design tradeoff *will need to be made.  When designing your circuitry you should **choose** which of these three factors is most **important** to you and optimize your design (use the correct gates) accordingly. You will have to make such design choices in your 2D project. 
 
+## Task A: Design the ALU Components
+The arithmetic logic unit is the **heart** of a **CPU**; it is responsible for all sorts of **logic computations**. The basic family of operations that a general-purpose ALU should have include: 
+* **Addition/subtraction** for basic arithmetic computation
+* **Comparison** for branching purposes 
+* **Boolean** unit for boolean computation, like XOR, bit masking, etc
+* **Shifter** unit for division or multiplication by 2, or chopping data apart
+* **Multiplier** unit for multiplication 
 
+In this lab, we will attempt to create a simple ALU circuit. It is one of the components inside our Beta CPU. We will eventually utilise our work here to build an entire Beta CPU circuit in the next lab (Lab 5). 
+
+
+<div class="redbox"><div class="custom_box">**Important Note:**
+
+$$
+ALUFN \neq OPCODE
+$$
+
+The ALUFN signals used to **control** the operation of the ALU circuitry use an encoding chosen to make the design of the ALU circuitry as simple as possible. This encoding is ***not*** the same as the one used to encode the 6-bit OPCODE field of Beta instructions. In Lab 5, you will build some logic (actually a ROM) that will translate the opcode field of an instruction into the appropriate ALUFN control bits. </div></div><br>
+
+### Part 1: Adder / Subtractor
+Design an **adder/subtractor** unit that operates on 32-bit two’s complement (**SIGNED**) inputs (`A[31:0]`, `B[31:0]`) and generates a 32-bit output (`S[31:0]`) + 3-bit *other* output signal (`Z, V, N`).  
+
+It will be useful to generate three other output signals to be used by the comparison logic in Part B: 
+* `Z` which is true when the S outputs are all zero
+* `V` which is true when the addition operation overflows (i.e., the result is too large to be represented in 32 bits), and 
+* `N` which is true when the S is negative (i.e., S31 = 1). 
+
+
+The following schematic is a big picture for how to go about the design:
+> We will be using the “little-endian” bit numbering convention where bit 31 is the most-significant bit and bit 0 is the least-significant bit.
+
+<img src="/50002/assets/contentimage/lab3/3.png"  class="center_seventyfive"/>
+
+* The `ALUFN0` input signal selects whether the operation is an `ADD` or `SUBTRACT`.  
+  * `ALUFN0` will be set to `0` for an `ADD (S = A + B)` and `1` for a `SUBTRACT (S = A – B)`; 
+  * To do a `SUBTRACT`, the circuit first computes the two’s complement negation of the “B” operand by inverting “B” and then adding one (which can be done by forcing the carry-in of the 32-bit add to be 1).  
+* `A[31:0]` and `B[31:0]` are the 32-bit two’s complement (SIGNED) **input** operands; 
+* `S[31:0]` is the 32-bit **output**; 
+* `Z/V/N` are the three **other output** code bits described above. 
+
+> Start by implementing the 32-bit add using a ripple-carry architecture. You’ll have to construct the 32-input NOR gate required to compute Z using a tree of smaller fan-in gates (the parts library only has gates with up to 4 inputs).
+
+#### Computing Overflow
+**Overflow** can never occur when the two operands to the addition have different signs; if the two operands have the same sign, then overflow can be detected if the sign of the result differs from the **sign** of the operands: 
+
+$$\begin{align*}
+V = &XA_{31} \cdot XB_{31} \cdot \overline{S_{31}} + \overline{XA_{31}} \cdot \overline{XB_{31}} \cdot S_{31}
+\end{align*}$$
+
+> Think about why is this so? Start by having a small example, let's say a 4-bit RCA. If we have `A: 0111`, and `B: 0001`, adding both values will result in a **positive overflow**. The true answer to this should be `01000` (signed, means the decimal 8). However since the 4-bit RCA is signed, we have our output as just `1000`, and this means decimal -8 in a signed 4-bit output. Now think about other possible overflow cases (negative overflow, etc).
+
+
+#### Detailed Adder/Subtractor Schematic
+Here’s the detailed schematic of the adder. Please label the nodes yourself before coding them in jsim so that you don’t make typos and end up in a debugging nightmare. 
+
+<img src="/50002/assets/contentimage/lab3/4.png"  class="center_seventyfive"/>
+
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`, and include `lab3adder.jsim` header to test your adder32 unit only. You can comment out `lab3checkoff_10.jsim` for the time being. 
+</div></div><br>
+
+<img src="/50002/assets/contentimage/lab3/5.png"  class="center_seventyfive"/>
+
+
+To use the test jig `lab3adder.jsim`:
+1. Ensure your design file contains a definition for an `adder32` subcircuit as shown above
+2. Do a **GATE**-level simulation because now we use stdcell library instead of building our own gates using transistor 
+3. A waveform window showing the adder32 inputs and outputs should appear as such:
+
+<img src="/50002/assets/contentimage/lab3/6.png"  class="center_seventyfive"/>
+
+4. Click the checkoff button (the **green tick** at the upper right window of JSim).
+  * JSim will check your circuit’s results against a list of expected values and report any discrepancies it finds. 
+  * Using this test jig file, nothing will be sent to the on-line server – it’s provided to help test your design as you go.
+
+### Part 2: Compare Unit
+Design a 32-bit compare unit that generates one of two constants (`0` or `1`) depending on the `ALUFN` control signals (used to select the comparison to be performed) and the `Z`, `V`, and `N` outputs of the adder/subtractor unit.  
+
+<span style="background-color:yellow; color: black">Clearly the high order 31 bits of the output are **always zero** (use that connection to `connect0` in JSim to zero `cmp[31:1]`).  The least significant bit of the output is determined by the answer to the **comparison** being performed.
+</span>
+
+<img src="/50002/assets/contentimage/lab3/7.png"  class="center_seventyfive"/>
+
+* `ALUFN[2:1]` are used to control the **compare unit** 
+* Recall that we control the adder/subtractor unit using `ALUFN0` so we cannot use `ALUFN0` to control this compare unit too
+
+**Performance note:** 
+* The `Z`, `V` and `N` inputs to this circuit can only be calculated by the adder/subtractor unit **after** the 32-bit add is **complete**.  
+* This means they arrive quite late (takes **tpd** of adder to compute valid `ZVN` signals) and then require further processing in this module, which in turn makes valid `cmp0` shows up after **tpd** of **both** adder and compare units.  
+* You can speed things up considerably by thinking about the *relative* timing of `Z`, `V` and `N` and then designing your logic to minimize delay paths involving late-arriving signals.
+
+#### Detailed Compare Unit Schematic
+Here’s the detailed schematic of the compare unit:
+
+<img src="/50002/assets/contentimage/lab3/8.png"  class="center_fifty"/>
+
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We have created a test jig to test your compare unit: `lab3compare.jsim`. Use it to test that your compare unit works properly.  </div></div><br>
+
+
+### Part 3: Boolean Unit
+
+Design a **32-bit Boolean unit** for the Beta’s logic operations.  One implementation of a 32-bit boolean unit uses a **32 copies of a 4-to-1 multiplexer** where `ALUFN0`, `ALUFN1`, `ALUFN2`, and `ALUFN3` **hardcode** the operation to be performed, and `Ai` and `Bi` are hooked to the multiplexer **`SELECT`** inputs.  This implementation can produce any of the 16 2-input Boolean functions; but we will only be using 4 of the possibilities: `AND`, `OR`, `XOR`, and `A`. 
+
+Here's the general schematic of the Boolean Unit:
+> Note the ORDER of the multiplexer **control** signals and its corresponding **output**. See [stdcell documentation](https://drive.google.com/file/d/1ArkRewfiBqJGmVqzkiGzFxbS0fZ-2eWw/view?usp=sharing) on the 4-to-1 mux if you’re unsure how these are obtained. 
+
+<img src="/50002/assets/contentimage/lab3/9.png"  class="center_seventyfive"/>
+
+The following table shows the encodings for the `ALUFN[3:0]` control signals used by the test jig.  If you choose a different implementation you should also include logic to **convert** the supplied control signals into signals appropriate for your design.
+
+<img src="/50002/assets/contentimage/lab3/10.png"  class="center_fifty"/>
+
+#### Detailed Boolean Unit Schematic
+
+Here’s the detailed schematic of the Boolean unit:
+
+<img src="/50002/assets/contentimage/lab3/11.png"  class="center_seventyfive"/>
+
+In total, you should utilise 32 4-to-1 multiplexers to build the boolean unit. <span style="background-color:yellow; color: black">**Please use JSim iterator explained above for this!**</span>
+
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We’ve created a test jig to test your boolean unit: `lab3boolean.jsim`. Use it to test that your boolean unit works properly. </div></div><br>
+
+
+### Part D: Shifter
+Design a **32-bit shifter** that implements `SRA`, `SHR` and `SHL` instructions.  
+* The `A[31:0]` input supplies the data to be shifted  
+* The **low-order** 5 bits of the `B[4:0]`  are used as the **shift count** (i.e., from 0 to 31 bits of shift)
+* We do not use the high 27 bits of the `B` input (meaning that `B[31:5]` is **ignored** in this unit)
+
+> For example, if `A: 0x0000 00F0` and we would like to **shift** A to the left by FOUR bits, the `B` input should be `0x0000 0004` 
+
+The desired operation will be encoded on `ALUFN[1:0]` as follows:
+
+<img src="/50002/assets/contentimage/lab3/12.png"  class="center_seventyfive"/>
+
+With this encoding, `ALUFN0` is `0` for a **left shift** (SHL) and `1` for a **right shift** (SHR) and `ALUFN1` controls the **sign extension** logic on **right shift**.   
+* For `SHL` and `SHR`, 0’s are shifted into the vacated bit positions.  
+* For `SRA` (“shift right arithmetic”), the vacated bit positions are all filled with A31, the sign bit of the original data so that the result will be the same as dividing the original data by the appropriate power of 2.
+
+Here’s the condensed schematic of the left shifter.  In total, you should use **32x5 = 160** 2-to-1 multiplexers. 
+
+<img src="/50002/assets/contentimage/lab3/13.png"  class="center_seventyfive"/>
+
+#### Detailed Shifter Unit Schematic
+The simplest implementation is to build THREE shifters: one for shifting **left**, one for shifting **right**, and one for shifting **right arithmetic**. Then, we  use a 4-way 32-bit multiplexer to select the appropriate answer as the unit’s output.  
+
+It’s easy to build a shifter after noticing that a **multi-bit shift** can be **accomplished** by **cascading** shifts by various powers of 2.  
+* For example, a 13-bit shift can be implemented by a shift of 8, followed by a shift of 4, followed by a shift of 1. 
+* So the shifter is just a cascade of multiplexers each controlled by one bit of the shift count.  
+
+Here’s the detailed schematic of the **left shifter**. 
+
+> That’s really a lot of muxes. Please use the JSim **ITERATOR** for this!
+
+<img src="/50002/assets/contentimage/lab3/14.png"  class="center_seventyfive"/>
+
+Here’s the detailed schematic of the **right shifter**. 
+
+<img src="/50002/assets/contentimage/lab3/15.png"  class="center_seventyfive"/>
+
+Here’s the detailed schematic of the **right arithmetic shifter**. 
+
+<img src="/50002/assets/contentimage/lab3/16.png"  class="center_seventyfive"/>
+
+Finally, we can combine all three shifters together to form the total shifter output:
+
+<img src="/50002/assets/contentimage/lab3/17.png"  class="center_seventyfive"/>
+
+> Another approach that **adds** latency but **saves** gates is to use the *left shift logic* for **both** left and right shifts, but for right shifts, **reverse** the bits of the `A` input first on the way in and **reverse** the bits of the output on the way out.
+
+
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We have created a test jig to test your shift unit: `lab3shifter.jsim`. Use it to test that your shifter unit works properly.  </div></div><br>
+
+## Task B: Studying the Multiplier
+The goal of this section is to study a combinational multiplier that accepts 32-bit operands (`A`, `B`) and produces a 32-bit output.  **Multiplying two 32-bit numbers produces a 64-bit product;** the result we’re looking for is **just the low-order 32-bits of the 64-bit product.**
+
+Here is a detailed bit-level description of how a **4-bit** by **4-bit** unsigned multiplication works.  This diagram assumes **we only want the low-order 4 bits** of the 8-bit product.
+
+<img src="/50002/assets/contentimage/lab3/18.png"  class="center_seventyfive"/>
+
+This diagram can be **extended** in a straightforward way to 32-bit by 32-bit multiplication.  
+> Remember again that since our machine is only 32-bit, that means we only can store the low-order 32-bits of the result, you don’t need to include the circuitry that generates the rest of the 64-bit product.
+
+As you can see from the diagram above, forming the *partial products* is easy.  Multiplication of two bits can be implemented using an `AND` gate.  The hard **and VERY TEDIOUS part** is adding up all the partial products **(there will be 32 partial products in your circuit)**.  O
+* One can use full adders (FAs) hooked up in a ripple-carry configuration to add each partial product to the accumulated sum of the previous partial products (see the diagram below) 
+* The circuit closely follows the diagram above but omits an FA module if two of its inputs are `0`
+
+<img src="/50002/assets/contentimage/lab3/19.png"  class="center_seventyfive"/>
+
+### Multiplier Analysis
+The circuit above works with both **unsigned** operands and **signed** two’s complement operands.  <span style="background-color:yellow; color: black">This may seem strange – don’t we have to worry about the most significant bit (MSB) of the operands?</span>  With unsigned operands the MSB has a weight of $$2^{MSB}$$ (assuming the bits are numbered 0 to MSB) but with signed operands the MSB has a weight of $$-2^{MSB}$$.  Doesn’t our circuitry need to take that into account?
+
+<span style="background-color:yellow; color: black">It does, but when we are only saving the lower half of the product, the differences don’t appear. </span>  
+
+The multiplicand (`A` in the figure above) can be **either** unsigned or two’s complement (signed), and the FA circuits will perform correctly in either case.  
+* When the multiplier (`B` in the figure above) is signed, we should **subtract** the final partial product instead of adding it.  
+* But **subtraction** is the **same as adding the negative**, and the negative of a two’s complement number can be computed by taking its complement and adding 1.  
+* When we work this through we see that the **low-order bit of the partial product is the same whether positive or negated**.  
+* And the low-order bit is **ALL** that we need when saving only the lower half of the product  
+* If we were building a multiplier that computed the full product, we’d see many differences between a multiplier that handles unsigned operands and one that handles two’s complement operands, but these differences only affect how the high half of the product is computed.
+
+<div class="yellowbox"><div class="custom_box">
+We’ve provided a test file `lab3multiply.jsim `to help you **study** the schematic and output of the multiplier. 
+</div></div>
+
+> This test file includes test cases for:
+  * all combinations of $$(0, 1, -1)*(0,1,-1)$$, 
+  * $$2i*1$$ for $$i = 0, 1, …, 31$$ (positive)
+  * $$-1*2i$$ for $$i = 0, 1, …, 31$$ (negative)
+  * $$(3 << i) * 3$$ for $$i = 0, 1, …, 31 $$
+
+<div class="greenbox"><div class="custom_box">**Design Note:** Combinational multipliers implemented as described above are pretty slow!  There are many design tricks we can use to speed things up – see the appendix on “Computer Arithmetic” in any of the editions of **Computer Architecture: A Quantitative Approach** by John Hennessy and David Patterson (Morgan Kauffmann publishers). </div></div><br>
+
+## Task C: Combine all units and make the ALU
+
+Combine the outputs of the finished **adder**, **multiplier** (given), **compare**, **boolean** and **shift** units to produce a single `ALU` output: `ALU[31:0]`.  The simplest approach is to use a 4-way 32-bit multiplexer as shown in the schematic below:
+
+<img src="/50002/assets/contentimage/lab3/20.png"  class="center_seventyfive"/>
+
+Two additional control signals (`ALUFN[5:4]`) have been introduced to select which unit will supply the value for the ALU output.  The encodings for `ALUFN[5:0]` used by the test jig `lab3checkoff_10.jsim` are shown in the following table:
+
+<img src="/50002/assets/contentimage/lab3/21.png"  class="center_fifty"/>
+
+Note that the `Z`, `V`, and `N` signals from the adder/subtractor unit are **INCLUDED** in the terminal list for the alu subcircuit (<span style="background-color:yellow; color: black">counted as ALU’s output</span>). **You should also have these signals as the ALU output for your 1D Project**. While these signals are NOT needed when using the ALU as part of the Beta, they are included here to make it easier for the test jig to pinpoint problems with your circuit.
+
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. When you’ve completed your design, you can use `lab3checkoff_10.jsim` to test your ALU implementation including the multiplier. </div></div><br> 
