@@ -423,17 +423,22 @@ Finally, we will try to show the result `sc.out_result` on an external LED inste
 
 Create a new **constraint** file (at the osconstraint folder) and name it `custom` (or any other name that you want, as long as the extension is `.acf`) .
 
-<span style="background-color:yellow"> Important: You are recommended to just have one constraint file. If you need the default I/O terminals on Alchitry Io, then copy over the contents of the other two acf files, <code>io.acf</code> and <code>alchitry.acf</code> and paste it to <code>custom.acf</code>, and delete the former two so you just simply have <code>custom.acf</code>.  Delete ALL other <code>.acf</code> afterwards. </span>
+<span style="background-color:yellow"> **Important:** You are recommended to just have ONE constraint file. If you need the default I/O terminals on Alchitry Io, then copy over the contents of the other two acf files, <code>io.acf</code> and <code>alchitry.acf</code> and paste it to <code>custom.acf</code>, and delete the former two so you just simply have <code>custom.acf</code>.  Delete ALL other <code>.acf</code> afterwards. </span>
 
-<div class="redborder"> At this point if you build, chances are you will be met some error as such:
-<pre><code>ERROR: [DRC NSTD-1] 
+### I/O Error
+
+```cpp
+ERROR: [DRC NSTD-1] 
 Unspecified I/O Standard: N out of 57 logical ports use I/O standard (IOSTANDARD) value 'DEFAULT', instead of a user assigned specific value.
 This may cause I/O contention or incompatibility with the board power or connectivity affecting performance, ...
 ...
 ERROR: [DRC UCIO-1]: Unconstrained Logical Port: N out of 57 logical ports have no user assigned specific location constraint (LOC).
 To correct this violation, specify all pin locations. 
 This design will fail to generate a bitstream unless all logical ports have a user specified site LOC constraint defined.
-</code></pre>
+```
+
+<div class="redborder"> At this point if you build, chances are you will be met some error as above. 
+
 This can be fixed if we specify <strong>all</strong> pins on Alchitry Br (recommended), but that will be quite troublesome. You can however choose to ignore them:
 <ul>
 <li> Create a new file under "Constraints" (right click >> New File) with name 
@@ -454,7 +459,7 @@ You can then define **output** pins in `custom.acf` in the following format,
 pin <pin name> <Br terminal pin name>
 ```
 
-<div classname="redbox"> Warning: Ensure that your custom pins do not use any other pins that's already been used on your IO Shield, or other custom pins. Each declaration must be <strong> unique </strong>.</div>
+<span style="background-color:yellow; color: black">**Warning**: Ensure that your custom pins do not use any other pins that's already been used on your IO Shield, or other custom pins. Each declaration must be **unique**.</span>
 
 For example, if you'd like to use the Br pins `C49, C48, C2` as an **output** port to display the 3-bit `results`, you can define them as such in `custom.acf`:
 ```cpp
@@ -506,14 +511,15 @@ You are recommended to read further on (if they're applicable to your project of
 	<span style="background-color:yellow"><strong>RAM component</strong> is <strong>especially useful</strong> if you need to store a **large** amount of data </span>, e.g data to be rendered out to large (32x32 or 64x32, etc) LED matrices. It is convenient to use the `dff` for small data storages, but you will run out of logic units real fast if you were to create thousands of dffs (not to mention the bizzare amount of time needed to compile the code). 
 
 4. How RGB LED Matrix works. Some <a href="https://learn.adafruit.com/fpga-rgb-matrix/overview" target="_blank">online tutorials</a> can be a good starting point. You need to have some pretty good understanding about sending clocked serial data though. We have some sample RGB Matrix writer  <a href="https://github.com/natalieagus/SampleAlchitryProjects/tree/master/MatrixLEDTest" target="_blank">here</a> (64x32 compatible, simply adjust the parameter if you have other dimensions, double check the clock and addressing, this follows strictly [adaFruit matrix LED](https://learn.adafruit.com/32x16-32x32-rgb-led-matrix/new-wiring)).  You can use it with some simple RAM modules (2 units of 64x16 cells, each cell containing 3 bits, each unit to drive one-half of the matrix). You can instantiate a simple_ram module like this:
-	```cpp
-	ADDRESS_SIZE = 4 : ADDRESS_SIZE > 0, //width of the address field (ABCD signals for matrix_led)
-    MATRIX_WIDTH = 64 : MATRIX_WIDTH > 0 //number of LEDs per row in the matrix
-    
-	const RAMSIZE = $pow(2,ADDRESS_SIZE) * MATRIX_WIDTH;
-	simple_ram ram_top(#SIZE(3), #DEPTH(RAMSIZE));
-	simple_ram ram_bottom(#SIZE(3), #DEPTH(RAMSIZE))
-	```
+
+```cpp
+ADDRESS_SIZE = 4 : ADDRESS_SIZE > 0, //width of the address field (ABCD signals for matrix_led)
+  MATRIX_WIDTH = 64 : MATRIX_WIDTH > 0 //number of LEDs per row in the matrix
+  
+const RAMSIZE = $pow(2,ADDRESS_SIZE) * MATRIX_WIDTH;
+simple_ram ram_top(#SIZE(3), #DEPTH(RAMSIZE));
+simple_ram ram_bottom(#SIZE(3), #DEPTH(RAMSIZE))
+```
 
 
 Once you're comfortable with some basic FPGA coding, you can begin designing the datapath for your game and implement the modules required. You may refer to <a href="https://natalieagus.github.io/50002/1D_programmable_machine.html" target="_blank">this tutorial</a> for clues on how to begin if needed. 
