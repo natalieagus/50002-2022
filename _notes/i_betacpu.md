@@ -39,9 +39,7 @@ We will go through the workings of each instruction and understand how the given
 ## Instruction Cycles
 ### Instruction Fetch
 
-The first thing a CPU must do is to figure out:
-* What is the *address* of the instruction to execute next and 
-* Fetch (read) them from the Memory Unit  
+The first thing a CPU must do is to **compute** the *address* (`ia[31:0]`) of the instruction to execute next, and then **fetch** (read) them (`id[31:0]`) from the Physical Memory Unit  (RAM). 
 
 Instructions are produced by a compiler and are specific to the CPU's ISA. The control unit will know what control signals to produce and which signals need to be *routed* where for each type of instruction.
 
@@ -50,12 +48,12 @@ Instructions are produced by a compiler and are specific to the CPU's ISA. The c
 > The CPU **always** maintains an internal register called the Program Counter (PC) that holds the memory location of the next instruction to be executed. 
 >
 
-Once the CPU knows the address of the first instruction to be executed, it can fetch it from the Memory Unit and execute it. The next steps are easy. 
+Once the CPU knows the address of the very first instruction to be executed, it can fetch that first instruction from the Memory Unit and execute it. Figuring out the addresses of the subsequent instructions is easy:
 * The first instruction will then tell the CPU what to do next, where is the second instruction, and so on.  
 * The second instruction will also tell the CPU what to do next, where is the third instruction, and so on. 
 * This is repeated until the CPU met a `HALT()` instruction.
 
->As of now, you always assume that the content of the PC register is always initially zero (32-bit of zeroes), and that the first line of your program instruction is always put at memory address zero. 
+>As of now, you always assume that the content of the PC register is always initially zero (32-bit of zeroes), and that the first line of your program instruction is always put at memory address zero (`0x00000000`). 
 
 
 ###  Instruction Decoding
@@ -74,13 +72,13 @@ The $$\beta$$ CPU  is comprised of the following standard parts that typically m
 
   
 
-### Program Counter
+### Program Counter and Physical Memory Unit
 
  
 The PC is a 32-bit register (i.e: a set of **32** 1-bit registers). Its job is to store the address of the **current** instruction that is executed. 
 >For now, we can safely assume that the initial content of the PC REG is always zero. 
 
-The datapath of the components involving the PC is shown in the figure below:
+The datapath of the components involving the PC and the Physical Memory is shown in the figure below:
 
 <img src="/50002/assets/contentimage/beta/pc.png"  class="center_full"/>
 
@@ -92,7 +90,8 @@ Two important things happened **simultaneously** at every clock cycle:
 	*  If `PCSEL!=0` and `RESET=0`, then the value in the PC REG will be equivalent to either of the inputs to the PCSEL mux (depending on what `PCSEL` value is). 
 
 If `RESET=1` then the value of the PC REG in the next cycle will be equivalent to `RESET`. We will learn what `RESET` is in the later weeks -- but in short, `Reset = 0x00000000` all for $$\beta$$ instructions.  If `RESET=1`, the value in PC REG will will be set back to `0x00000000` in the next clock cycle instead of increased by 4. 
-  
+
+> The memory unit is neatly segmented into **instruction** memory and **data** memory for the sake of **learning** and **simplicity**. In reality, this might not always be the case. Your operating system will do the memory management for you and decide where in the physical memory each process should reside and run. 
 
 ### Register Files
 
@@ -199,8 +198,8 @@ The instructions that fall under `OP` category are: `ADD, SUB, MUL, DIV, AND, OR
 
 
 The register transfer language for this instruction is: 
-`PC` $$\leftarrow$$ `PC+4`
-`Reg[Rc]` $$\leftarrow$$ `Reg[Ra]` `(OP)`   `Reg[Rb]` 
+`PC` $$\leftarrow$$ `PC+4`<br>
+`Reg[Rc]` $$\leftarrow$$ `Reg[Ra]` `(OP)`  `Reg[Rb]` <br>
 - The corresponding assembly instruction format runnable in BSIM is `OP(Ra, Rb, Rc)`
 
 
@@ -248,8 +247,8 @@ The instructions that fall under `OPC` category are: `ADDC, SUBC, MULC, DIVC, AN
 <img src="https://dl.dropboxusercontent.com/s/wcirw4bgwhh2xbg/opc_insdfhi9j45vnuw7n0/opc.png?raw=1"  width="60%" height = "60%">
 
 The register transfer language for this instruction is: 
-`PC` $$\leftarrow$$ `PC+4`
-`Reg[Rc]` $$\leftarrow$$ `Reg[Ra]` `(OP)`   `SEXT(C)` 
+`PC` $$\leftarrow$$ `PC+4`<br>
+`Reg[Rc]` $$\leftarrow$$ `Reg[Ra]` `(OP)`   `SEXT(C)` <br>
 
 >Again, don't forget to read $$\beta$$ documentation to understand each functionalities. 
 - The corresponding assembly instruction format runnable in BSIM  is `OPC(Ra, c, Rc)`
@@ -290,9 +289,9 @@ The general format of the `LD` instruction is:
 <img src="https://dl.dropboxusercontent.com/s/bicusis1a1cx707/ld_ins.png?raw=1"  width="60%" height = "60%">
 
 The register transfer language for this instruction is: 
-`PC` $$\leftarrow$$ `PC+4`
-`EA` $$\leftarrow$$ `Reg[Ra] + SEXT(C)`
-`Reg[Rc]` $$\leftarrow$$ `Mem[EA]` 
+`PC` $$\leftarrow$$ `PC+4`<br>
+`EA` $$\leftarrow$$ `Reg[Ra] + SEXT(C)`<br>
+`Reg[Rc]` $$\leftarrow$$ `Mem[EA]` <br>
 
 -  The LD instruction allows the CPU to **load** one word (32-bit) of data from the Memory Unit and store it to `Rc`
 
@@ -336,9 +335,9 @@ The general format of the `LDR` instruction is:
 <img src="https://dl.dropboxusercontent.com/s/5kj00vwcw0ghlfp/ldr_inst.png?raw=1"  width="60%" height = "60%">
 
 The register transfer language for this instruction is: 
-`PC` $$\leftarrow$$ `PC+4`
-`EA` $$\leftarrow$$ `PC+4*SEXT(C)`
-`Reg[Rc]` $$\leftarrow$$ `Mem[EA]` 
+`PC` $$\leftarrow$$ `PC+4`<br>
+`EA` $$\leftarrow$$ `PC+4*SEXT(C)`<br>
+`Reg[Rc]` $$\leftarrow$$ `Mem[EA]` <br>
 
 *  The `LDR` instruction computes `EA` **relative** to the current address pointed by `PC`. 
 * The corresponding assembly instruction format runnable in BSIM is `LDR(label, Rc)`, where `c` is **auto** computed as `(address_of_label - address_of_current_ins)/4-1`
@@ -383,9 +382,9 @@ The general format of the `ST` instruction is:
 <img src="https://dl.dropboxusercontent.com/s/is3q37kvo167325/st_ins.png?raw=1"  width="60%" height = "60%">
 
 The register transfer language for this instruction is: 
-`PC` $$\leftarrow$$ `PC+4`
-`EA` $$\leftarrow$$ `Reg[Ra]+SEXT(c)`
-`Mem[EA]`  $$\leftarrow$$   `Reg[Rc]`
+`PC` $$\leftarrow$$ `PC+4`<br>
+`EA` $$\leftarrow$$ `Reg[Ra]+SEXT(c)`<br>
+`Mem[EA]`  $$\leftarrow$$   `Reg[Rc]`<br>
 
 -  The ST instruction **stores**  data present in `Rc` to the Memory Unit. 
 
@@ -464,10 +463,10 @@ The general format of the `BEQ` instruction is:
 <img src="https://dl.dropboxusercontent.com/s/hla3dyi15xjxocf/beq_inst.png?raw=1"  width="80%" height = "80%">
 
 The register transfer language for this instruction is: 
-`PC` $$\leftarrow$$ `PC+4`
-`Reg[Rc]` $$\leftarrow$$ `PC`
-`EA` $$\leftarrow$$ `PC + 4*SEXT(C)`
-`if (Reg[Ra] == 0)` then `PC` $$\leftarrow$$ `EA`
+`PC` $$\leftarrow$$ `PC+4`<br>
+`Reg[Rc]` $$\leftarrow$$ `PC`<br>
+`EA` $$\leftarrow$$ `PC + 4*SEXT(C)`<br>
+`if (Reg[Ra] == 0)` then `PC` $$\leftarrow$$ `EA`<br>
 
 * The **address** of the instruction following the `BEQ` instruction is written to `Rc`. 
 * If the contents of  `Ra` are zero, the `PC` is loaded with the target address `EA`;
@@ -516,10 +515,10 @@ The general format of the `BNE` instruction is:
 <img src="https://dl.dropboxusercontent.com/s/wrqpdsusx3g7lkd/bne_ins.png?raw=1"  width="80%" height = "80%">
 
 The register transfer language for this instruction is: 
-`PC` $$\leftarrow$$ `PC+4`
-`Reg[Rc]` $$\leftarrow$$ `PC`
-`EA` $$\leftarrow$$ `PC + 4*SEXT(C)`
-`if (Reg[Ra] != 0)` then `PC` $$\leftarrow$$ `EA`
+`PC` $$\leftarrow$$ `PC+4`<br>
+`Reg[Rc]` $$\leftarrow$$ `PC`<br>
+`EA` $$\leftarrow$$ `PC + 4*SEXT(C)`<br>
+`if (Reg[Ra] != 0)` then `PC` $$\leftarrow$$ `EA`<br>
 * The corresponding assembly instruction format runnable in BSIM is `BNE(Ra, label, Rc)`* where `c` is **auto** computed as `(address_of_label - address_of_current_ins)/4-1`
 
 
@@ -558,10 +557,10 @@ The general format of the `JMP` instruction is:
 <img src="https://dl.dropboxusercontent.com/s/94bul2ifo7a3afj/jmp_inst.png?raw=1"  width="80%" height = "80%">
 
 The register transfer language for this instruction is: 
-`PC` $$\leftarrow$$ `PC+4`
-`Reg[Rc]` $$\leftarrow$$ `PC`
-`EA` $$\leftarrow$$ `Reg[Ra] & 0xFFFFFFFC` (masked)
-`PC`$$\leftarrow$$ `EA`
+`PC` $$\leftarrow$$ `PC+4`<br>
+`Reg[Rc]` $$\leftarrow$$ `PC`<br>
+`EA` $$\leftarrow$$ `Reg[Ra] & 0xFFFFFFFC` (masked)<br>
+`PC`$$\leftarrow$$ `EA`<br>
 
 * The **address** of the instruction following the `JMP` instruction is written to `Rc`, then  `PC` is loaded with the contents of  `Ra`.
 * The low two bits of `Ra` are **masked** to ensure that the target address is aligned on a 4-byte boundary.
