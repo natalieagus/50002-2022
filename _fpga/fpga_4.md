@@ -225,7 +225,7 @@ You can find the complete implementation of `alu.luc` <a href="https://github.co
 ## The Regfile Unit
 The `REGFILE` unit has 32 `32-bit` registers, where each register is 5-bit addressable. We have 2 combinational read ports and 1 sequential write port. Also, our special register `R31` should always return `32b0` when read, and writing to `R31` should not change its value (it remains zero). The schematic for the `REGFILE` is:
 
-<img src="https://dl.dropboxusercontent.com/s/yi9exbpy2vhgz14/regfile_inside.png?raw=1" width="70%" height="70%">
+<img src="/50002/assets/contentimage/beta/regfile_detailed.png"  class="center_full"/>
 
 We can easily create a module for this unit using `dff`. Create a script called `regfile.luc` with the same I/O terminals: 
 ```cpp
@@ -268,7 +268,8 @@ The complete implementation of `regfile.luc` can be found <a href="https://githu
 
 ## The Control Unit
 Now our job is to create the control unit module. Here's the schematic of the `CU`:
-<img src="https://dl.dropboxusercontent.com/s/p73ywj1ju4fu3ed/Cu.png?raw=1" width="50%" height="50%">
+
+<img src="/50002/assets/contentimage/beta/cu.png"  class="center_full"/>
 
 The small 1-bit register's job is to sample an **asynchronous interrupt signal.** We can use a 1-bit `dff` for this:
 ```cpp
@@ -329,7 +330,7 @@ The complete implementation of `control_unit.luc` can be found <a href="https://
 ## Assembling the Beta
 Now that we have all the three major components: the alu, the control unit, and the regfile, we can assemble the rest of the parts together to form a complete $$\beta$$ CPU.  Its complete schematic is shown below:
 
-<img src="https://dl.dropboxusercontent.com/s/7vn4p9ucsydqu9e/beta.png?raw=1" width="70%" height="70%">
+<img src="/50002/assets/contentimage/beta/beta.png"  class="center_full"/>
 
 Create a new script `beta_cpu.luc` with the following I/O terminals:
 ```cpp

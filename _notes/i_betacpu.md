@@ -63,7 +63,7 @@ Once the CPU knows the address of the first instruction to be executed, it can f
 When the CPU has an instruction, it needs to figure out (decode) specifically what type of instruction it is. Each instruction will have a certain set of bits called the `OPCODE` that tells the CPU how to interpret it. In the $$\beta$$ ISA, the `OPCODE` can be found in the 6 most significant bits of the 32-bits instruction. The `OPCODE` is given as an input to the Control Unit, it will compute the appropriate control signals to program the datapath. 
 
 This decoding step depends on how complex the ISA is. An ISA like RISC (e.g: the $$\beta$$ ISA) has a smaller number of instructions (a few dozens) while x86 has thousands. The most common family of instructions are:
-* **Memory**: anything regarding loading and storing of data between the REGFILE (CPU internal storage) and the Memory Unit. No other computation is performed.
+* **Memory Access**: anything regarding loading and storing of data between the REGFILE (CPU internal storage) and the Memory Unit. No other computation is performed.
 * **Arithmetic**: anything that requires computation using the ALU, and inputs are taken from the REGFILE.  
 * **Branch instructions**: anything pertaining to changing the value of PC Register to load instructions in different Memory Address, (*conditional*) based on a content of a specific register in the REGFILE. 
 
@@ -82,16 +82,16 @@ The PC is a 32-bit register (i.e: a set of **32** 1-bit registers). Its job is t
 
 The datapath of the components involving the PC is shown in the figure below:
 
-<img src="https://dl.dropboxusercontent.com/s/mx1cjmc3ugmcdc8/pcreg.png?raw=1"  width="80%" height = "80%">
+<img src="/50002/assets/contentimage/beta/pc.png"  class="center_full"/>
 
 Two important things happened **simultaneously** at every clock cycle:
-* *As highlighted in red,* the output of the PC is connected to the `IA` port (the input address port) of the Memory Unit (RAM), hence the Memory Unit will produce the content of that address through the `Ins` port. 
+* The output of the PC Register is connected to the `ia` port (the input address port) of the Memory Unit (RAM or **Physical Memory**), hence the Memory Unit will produce the content of that address through the `Ins` port. 
 
-* *As highlighted in green*, the output of the PC REG will also be added by 4. 
+* The output of the PC REG will also be added by 4. 
 	* If `PCSEL=0` and `RESET=0`,  this value (old PC + 4) will enter the PC REG in the next clock cycle. This will cause the PC to supply the address of the **subsequent instruction word** in the next clock cycle. 
 	*  If `PCSEL!=0` and `RESET=0`, then the value in the PC REG will be equivalent to either of the inputs to the PCSEL mux (depending on what `PCSEL` value is). 
 
-If `RESET=1` then the value of the PC REG in the next cycle will be equivalent to `Reset`. We will learn what `Reset` is in the later weeks -- but in short, `Reset = 0x0000 0000` for $$\beta$$ ISA.  Else if `RESET=0`, the value in PC REG will always be increased by 4 at each clock cycle. 
+If `RESET=1` then the value of the PC REG in the next cycle will be equivalent to `RESET`. We will learn what `RESET` is in the later weeks -- but in short, `Reset = 0x00000000` all for $$\beta$$ instructions.  If `RESET=1`, the value in PC REG will will be set back to `0x00000000` in the next clock cycle instead of increased by 4. 
   
 
 ### Register Files
@@ -102,7 +102,7 @@ The REGFILE in $$\beta$$ ISA is the CPU's internal storage unit that is comprise
 
 The figure below shows the anatomy of $$\beta$$ REGFILE component:
 
-<img src="https://dl.dropboxusercontent.com/s/03v5c3gy4ucoga6/regfiles.png?raw=1"  width="80%" height = "80%">
+<img src="/50002/assets/contentimage/beta/regfile.png"  class="center_full"/>
 
 It has two **combinational** read ports: `RD1` and `RD2`, and one **clocked / sequential** write port: `WD`. 
 
@@ -115,7 +115,7 @@ We can also **write** data supplied at the `WD` port to any of the registers in 
 * The address of the register to write into is determined by the 5-bit input supplied at the `WA` port. 
 
 #### The Write Enable Signal
-Recall that a register / D Flip-Flop "captures" a new input at each CLK rise, and is able to maintain that **stable** value for the period of the CLK. 
+Recall that a register / D Flip-Flop "captures" a NEW input at each CLK rise, and is able to maintain that **stable** value for the period of the CLK. 
 
 
 However, in practice, we might not want our register to "capture" new input all the time, but only on certain moments. Therefore, there exist a `WE` signal such that:
@@ -129,7 +129,7 @@ To understand how the `WE` signal works more clearly, we need to dive deeper int
 
 <div class="orangebox"><code>R31</code>'s <strong>content</strong> is <strong> always </strong> <code>0x00000000</code>, regardless of what values are written to it. Therefore it is not a regular register like the other 30 registers in the REGFILE. It is simply giving out <code>0x00000000</code> as output when <code>RA1</code> or <code>RA2</code> is <code>11111</code>, which is illustrated as the 0 on the rightmost part of each read muxes.</div><br>
 
-<img src="https://dl.dropboxusercontent.com/s/yi9exbpy2vhgz14/regfile_inside.png?raw=1"  width="80%" height = "80%">
+<img src="/50002/assets/contentimage/beta/regfile_detailed.png"  class="center_full"/>
 
 The `WE` signal is fed into a 1-to-32 demultiplexer unit. The `WA` signal is the selector of this demux. As a result, only 1 out of the 32 outputs of the demux will follow exactly the value of `WE`. 
 
@@ -161,7 +161,7 @@ At each CLK cycle, the PC will supply a new 32-bit address to the Memory Unit, a
 
 The CU will then decode the input combination consisted of `OPCODE`, `z`, `RESET`, and `IRQ`, and produce various control signals as shown in the figure below. In practice, this unit can be made using a ROM.
 
-<img src="https://dl.dropboxusercontent.com/s/p73ywj1ju4fu3ed/Cu.png?raw=1"  width="50%" height = "50%">
+<img src="/50002/assets/contentimage/beta/cu.png"  class="center_full"/>
 
 Note that the `ALUFN` is 6 bits long, `PCSEL` is 3 bits long, `WDSEL` is 2 bits long, `RA2SEL`, `BSEL` `ASEL`, `WASEL`, `WR`, and `WERF` (`WE` to REGFILE) are all 1 bit long. The total number of output bits of the CU is therefore *at least* 17 bits long 
 
@@ -208,9 +208,9 @@ The register transfer language for this instruction is:
 
 The figure below shows the datapath for all `OP` instructions:
 
-<img src="https://dl.dropboxusercontent.com/s/xidshs27kjyzyc6/op.png?raw=1"  width="80%" height = "80%">
+<img src="/50002/assets/contentimage/beta/op.png"  class="center_full"/>
 
-The highlighted lines show how the signals should flow in order for the $$\beta$$ to support `OP` instructions. 
+The highlighted lines in **pink** show how the signals should flow in order for the $$\beta$$ to support `OP` instructions. 
 
  The control signals therefore must be set to: 
 
@@ -223,7 +223,7 @@ The highlighted lines show how the signals should flow in order for the $$\beta$
 
 -  `WDSEL = 01`
 
--  `MWR = 0`
+-  `WR = 0`
 
 -  `RA2SEL = 0`
 
@@ -256,7 +256,7 @@ The register transfer language for this instruction is:
 
 The figure below shows the datapath for all `OPC` instructions:
 
-<img src="https://dl.dropboxusercontent.com/s/dfhi9j45vnuw7n0/opc.png?raw=1"  width="80%" height = "80%">
+<img src="/50002/assets/contentimage/beta/opc.png"  class="center_full"/>
 
 The control signals for `OPC` instructions are almost identical to `OP` operations, except that we need to have  `BSEL = 1`. 
 
@@ -301,7 +301,7 @@ The register transfer language for this instruction is:
 
 The figure below shows the datapath for  `LD`:
 
-<img src="https://dl.dropboxusercontent.com/s/479io11h24i9yl3/ld.png?raw=1"  width="80%" height = "80%">
+<img src="/50002/assets/contentimage/beta/ld.png"  class="center_full"/>
 
 The control signals therefore must be set to: 
 
@@ -313,7 +313,7 @@ The control signals therefore must be set to:
 
 -  `WDSEL = 10`
 
--  `MWR = 0`
+-  `WR = 0`
 
 -  `RA2SEL = --`
 
@@ -346,7 +346,7 @@ The register transfer language for this instruction is:
 
 The figure below shows the datapath for `LDR`:
 
-<img src="https://dl.dropboxusercontent.com/s/cuqicqkpj12a6u5/ldr.png?raw=1"  width="80%" height = "80%">
+<img src="/50002/assets/contentimage/beta/ldr.png"  class="center_full"/>
 
 The control signals therefore must be set to: 
 
@@ -359,7 +359,7 @@ The control signals therefore must be set to:
 
 -  `WDSEL = 10`
 
--  `MWR = 0`
+-  `WR = 0`
 
 -  `RA2SEL = --`
 
@@ -395,7 +395,7 @@ The register transfer language for this instruction is:
 
 The figure below shows the datapath for  `ST`: 
 
-<img src="https://dl.dropboxusercontent.com/s/bbvysz2jvud00s1/st.png?raw=1"  width="80%" height = "80%">
+<img src="/50002/assets/contentimage/beta/st.png"  class="center_full"/>
 
   
 The control signals therefore must be set to: 
@@ -407,7 +407,7 @@ The control signals therefore must be set to:
 
 -  `WDSEL = --`
 
--  `MWR = 1`
+-  `WR = 1`
 
 -  `RA2SEL = 1`
 
@@ -478,7 +478,8 @@ The register transfer language for this instruction is:
 
 
 The figure below shows the datapath for the `BEQ`: 
-<img src="https://dl.dropboxusercontent.com/s/sp2ee8dny2n2qzs/bne.png?raw=1"  width="80%" height = "80%">
+
+<img src="/50002/assets/contentimage/beta/beq.png"  class="center_full"/>
 
   
 
@@ -494,7 +495,7 @@ The control signals therefore must be set to:
 
 -  `WDSEL = 00`
 
--  `MWR = 0`
+-  `WR = 0`
 
 -  `RA2SEL = --`
 
@@ -523,7 +524,8 @@ The register transfer language for this instruction is:
 
 
 The figure below shows the datapath for the `BNE`: 
-<img src="https://dl.dropboxusercontent.com/s/xgapxsuqjnjl4rv/beq.png?raw=1"  width="80%" height = "80%">
+
+<img src="/50002/assets/contentimage/beta/bne.png"  class="center_full"/>
 
 
 The control signals therefore must be set to: 
@@ -536,7 +538,7 @@ The control signals therefore must be set to:
 
 -  `WDSEL = 00`
 
--  `MWR = 0`
+-  `WR = 0`
 
 -  `RA2SEL = --`
 
@@ -566,7 +568,8 @@ The register transfer language for this instruction is:
 * The corresponding assembly instruction format runnable in BSIM is `JMP(Ra, Rc)`.
 
 The figure below shows the datapath for the `JMP`: 
-<img src="https://dl.dropboxusercontent.com/s/gsylkuouphx85ea/jmp.png?raw=1"  width="80%" height = "80%">
+
+<img src="/50002/assets/contentimage/beta/jmp.png"  class="center_full"/>
 
 
 The control signals therefore must be set to: 
@@ -579,7 +582,7 @@ The control signals therefore must be set to:
 
 -  `WDSEL = 00`
 
--  `MWR = 0`
+-  `WR = 0`
 
 -  `RA2SEL = --`
 
@@ -626,11 +629,15 @@ $$\beta$$ exceptions come in three flavors: traps, faults, and interrupts.
 	- If `IRQ != 1`, the CPU will continue with normal execution. 
 	- If `IRQ == 1`, the CPU will *pause* the current execution and handle the interrupt request first (and eventually *resume* back the paused execution *after the interrupt handling is done*). 
  
-The datapath that handles **trap/fault** (due to Illegal `OPCODE`)  is shown on the left, and the datapath that handles **interrupt** is shown on the right: 
+The datapath that handles **trap/fault** (due to Illegal `OPCODE`) is as follows:
 
-<img src="https://dl.dropboxusercontent.com/s/hfyi0bx54tptiyr/illopirq.png?raw=1"  width="100%" height = "100%">
+<img src="/50002/assets/contentimage/beta/illop.png"  class="center_full"/>
 
-> There's only one difference between the two, the datapath at the PCSEL mux. 
+The datapath that handles interrupt (due to asynchronous `IRQ` signal) is as follows:
+
+<img src="/50002/assets/contentimage/beta/irq.png"  class="center_full"/>
+
+> There's only one difference between the two: the datapath at the PCSEL mux. 
   
 The PCSEL multiplexer's fourth and fifth input are called `ILLOP` and `XAdr`. These refers to the address of the **instruction branching** to the **`interrupt handling`** code, in the events that trap, fault, or interrupt occurs.  In $$\beta$$ ISA,
 -  `ILLOP` is set at `0x80000004`
@@ -646,7 +653,7 @@ The control signals in the events of these exceptions therefore must be set to:
 
 -  `WDSEL = 00`
 
--  `MWR = 0`
+-  `WR = 0`
 
 -  `RA2SEL = --`
 
@@ -659,6 +666,12 @@ The control signals in the events of these exceptions therefore must be set to:
 -  `WASEL = 1`
 
 Note that since `WASEL = 1` and `WDSEL = 00` and `WERF = 1`,, then `PC+4` (supposed next instruction's address) is **stored** at `Reg[XP]` (register 28, or `11100` in binary) so that we may resume the execution once the exception has been handled. 
+
+
+## CPU Reset
+Finally, the $$\beta$$ processor accept external `RESET` signal that can reset the value of the `PC`. The signal `RESET` must be `1` for several clock cycles in order to ensure that the values affected by `RESET` propagates throughout the entire circuit. During the period where `RESET = 1`, we need to make sure that `WR` is `0` so that we do not accidentally overwrite the content of the physical memory.
+
+<img src="/50002/assets/contentimage/beta/reset.png"  class="center_full"/>
 
 ## CPU Benchmarking
 

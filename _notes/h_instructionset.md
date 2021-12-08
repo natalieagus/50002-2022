@@ -369,7 +369,7 @@ The full anatomy of the (general-purpose) $$\beta$$ datapath is shown in the Fig
 
 <span style="background-color:yellow">  The details of the $$\beta$$ datapath will be explained in the next chapter, so that you have a complete understanding on how the datapath allows the working of each of the 32 instruction sets. </span>
 
-<img src="https://dl.dropboxusercontent.com/s/7vn4p9ucsydqu9e/beta.png?raw=1"  width="100%" height = "100%">
+<img src="/50002/assets/contentimage/beta/beta.png"  class="center_full"/>
 
 As of right now, we just need to understand the *big idea* of  the $$\beta$$ ISA , and how the $$\beta$$ CPU realises it: 
 1. The **PC (program counter)** is a part of the CPU that in theory, fetch one instruction (set to be 32-bit in length) from the Memory Unit per clock cycle. 
