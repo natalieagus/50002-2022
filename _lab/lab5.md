@@ -95,7 +95,7 @@ If the Beta wants to **store** (write) data to the memory, it needs to supply tw
 
 ## PC Unit
 ### PCSEL Multiplexers
-The 32-bit 5-to-1 multiplexer (mux) selects the value to be loaded into the PC at the next rising edge of the clock depending on the `PCSEL` control signal. We use a two-input 32-bit mux that selects `0x00000000` when the RESET signal is asserted, and the output of the PCSEL mux when RESET is not asserted. We will use the RESET signal to force the PC to zero during the first clock period of the simulation.
+The 32-bit 5-to-1 multiplexer (mux) selects the value to be loaded into the PC at the next rising edge of the clock depending on the `PCSEL` control signal. We do not have a 5-to-1 mux in the stdcell library, so we can make use of a `mux4` and a `mux2`. We use a two-input 32-bit mux that selects `0x00000000` when the RESET signal is asserted, and the output of the PCSEL mux when RESET is not asserted. We will use the RESET signal to force the PC to zero during the first clock period of the simulation.
 
 Since the parts library doesn’t have any 5-input multiplexers, you will have to construct the logic that selects the next PC using other components and adjust the control logic accordingly.  Remember to add a way to set the PC to zero on `reset`.  `XAdr` and `ILLOP` in the Beta diagram in our lecture notes represents constant addresses used when the Beta services an interrupt (triggered by IRQ) or executes an instruction with an illegal or unimplemented opcode.  For this assignment assume that XAdr=8 and ILLOP=4 and we will make sure the first three locations of main memory contain BR instructions that branch to code which handle reset, illegal instruction traps and interrupts respectively. In other words, the first three locations of main memory contain:
 
@@ -127,12 +127,18 @@ The high-order bit of the PC is dedicated as the **“Supervisor”** bit (see s
     1 | 0 | 0
     1 | 1 | 1
 
-
+### PC Unit Schematic
 Here is the suggested PC Unit schematic that you can implement. Note the input and output nodes. This will come in very useful when creating the modules for your `jsim subckt`. 
 
 <img src="/50002/assets/contentimage/lab5/pcunit.png"  class="center_full"/>
 
 The branch-offset adder adds PC+4 to the 16-bit offset encoded in the instruction `id[15:0]`. The offset is sign-extended to 32-bits and multiplied by 4 in preparation for the addition.  Both the sign extension and shift operations can be done with appropriate wiring—no gates required!
+
+
+### Test file
+Write your answer inside `pc.jsim` file. 
+
+
 
 ## REGFILE Unit
 
@@ -156,6 +162,7 @@ Youu will need a mux controlled by `RA2SEL` to select the **correct** address fo
 ### Z Logic
 Z logic can be added to the output of the RA1/RD1 port of the register file.  This port is also wired directly to the `JT` inputs of the `PCSEL` multiplexer (remember we **force** the low-order two bits to zero and to add supervisor bit logic to bit 31 in PCSEL Unit).
 
+### REGFILE Unit Schematic
 Here is the suggested REGFILE Unit schematic that you can implement. 
 
 <img src="/50002/assets/contentimage/lab5/regfileunit.png"  class="center_full"/>
@@ -202,6 +209,7 @@ When `IRQ` signal is 1 and the Beta is in “user mode” (PC31 is zero), an **i
 
 Note that you’ll also want to add logic to **reset** the Beta; at the very least when **reset** is asserted you’ll need to force the PC to `0x80000000` and ensure that `WR` is 0 (to prevent your initialized main memory from being overwritten).
 
+### CONTROL Unit Schematic
 Here is the suggested **CONTROL** Unit schematic that you can implement. 
 
 <img src="/50002/assets/contentimage/lab5/controlunit.png"  class="center_full"/>
@@ -218,6 +226,7 @@ Also, **Bit 31** of the branch-offset input to the ASEL mux should be set to `0`
 ### WDSEL Mux
 **Bit 31** of the PC+4 input to the **WDSEL** mux should connect to the highest bit of the PC Reg output, `ia31`, saving the current value of the supervisor whenever the value of the PC is saved by a branch instruction or trap.
 
+### ALU+WDSEL Unit Schematic
 Here is the suggested **ALU + WDSEL** Unit schematic that you can implement. 
 
 <img src="/50002/assets/contentimage/lab5/aluwdselunit.png"  class="center_full"/>
@@ -409,3 +418,9 @@ The following options can be used to specify the electrical and timing parameter
 The size of a memory is determined by the sum of the sizes of the various memory building blocks shown in the following table:
 
 <img src="/50002/assets/contentimage/lab5/2.png"  class="center_seventyfive"/>
+
+## Appendix 3: Standard Cells
+
+For your convenience, we provide to you the specs for `stdcell.jsim` components:
+
+<img src="/50002/assets/contentimage/lab5/stdcelllib.png"  class="center_full"/>
