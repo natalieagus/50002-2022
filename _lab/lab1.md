@@ -19,11 +19,10 @@ Modified by: Kenny Choo, Natalie Agus, Oka Kurniawan (2021)
 # Lab 1: CMOS
 
 ## Starter Code
-Please download the code for Task G [here](https://drive.google.com/open?id=1-9Br3ltPENepJLff9DazDgSD2s6M54k3&authuser=nn88blue%40gmail.com&usp=drive_fs). 
-For task A-F, you will need to follow the class and type the code from scratch. You can obtain the necessary courseware materials (`jsim` and other supporting files) from our **course handout**. 
+The following files inside your `/50002/` folder are what you're going to open and modify or study for this lab, then submit (unless otherwise stated):
+- `lab1_taskG.jsim` (for study only, no submission of this file is required)
 
-> Find its link on edimension and bookmark it if you haven't already!
-
+You need to head to edimension to answer a bunch of questionnaire there for this lab. **No file submission is required. **
 
 ## Related Class Materials
 The lecture notes on [Digital Abstraction](https://natalieagus.github.io/50002/notes/digitalabstraction) and [CMOS Technology](https://natalieagus.github.io/50002/notes/cmostechnology) are closely related to this lab.
@@ -478,8 +477,11 @@ A |  B |  C | F(A,B,C)
 
 [Study this given answer](https://drive.google.com/file/d/1-GakraQKIzP7ML9fEyYMLSd4PPgvKiSY/view?usp=sharing):
 * Save it inside 50002 folder, 
-* Open it via jsim and run it on jsim using the **FAST TRANSIENT ANALYSIS** button:
-* You will need to understand the output plot, and the meaning of each line of instruction in the answer to be able to excel in the Lab Quiz. 
+* Open it via jsim and run it on jsim using the **FAST TRANSIENT ANALYSIS** button
+* You will need to **understand** the output plot, and the meaning of each line of instruction in the answer to be able to excel in the Lab Quiz. 
+* Click on the green tick button on the right hand corner of the plot window. A message as such should appear, which means that all values produced by your circuit is as expected:
+
+<img src="/50002/assets/contentimage/lab1/6.png"  class="center_seventyfive"/>
 
 Please change the two header lines in the answer with appropriate full path if the relative paths given don’t work:
 

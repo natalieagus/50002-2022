@@ -20,7 +20,9 @@ Modified by: Kenny Choo, Natalie Agus, Oka Kurniawan (2021)
 # Lab 3: Arithmetic Logic Unit
 
 ## Starter Code
-Download the materials required for this lab [here](https://drive.google.com/open?id=102xUAuturtlEo0a8Cms6wI8YGAgy4EMo&authuser=nn88blue%40gmail.com&usp=drive_fs). 
+The following files inside your `/50002/` folder are what you're going to open and modify or study for this lab, then submit (unless otherwise stated):
+- `lab3_submit.jsim` 
+- `lab3_mult.jsim` (for study only, no submission of this file is required)
 
 ## Related Class Materials
 The lecture notes on [Logic Synthesis](https://natalieagus.github.io/50002/notes/logicsynthesis) and [Designing an Instruction Set](https://natalieagus.github.io/50002/notes/instructionset) are closely related to this lab. 
@@ -237,22 +239,24 @@ Here’s the detailed schematic of the adder. Please label the nodes yourself be
 
 <img src="/50002/assets/contentimage/lab3/4.png"  class="center_seventyfive"/>
 
-<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`, and include `lab3adder.jsim` header to test your adder32 unit only. You can comment out `lab3checkoff_10.jsim` for the time being. 
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`, and include `lab3adder.jsim` header to test your adder32 unit only. You can comment out `lab3checkoff.jsim` for the time being. 
 </div></div><br>
 
 <img src="/50002/assets/contentimage/lab3/5.png"  class="center_seventyfive"/>
 
 
-To use the test jig `lab3adder.jsim`:
-1. Ensure your design file contains a definition for an `adder32` subcircuit as shown above
+To use the test jig `lab3_testadder.jsim`:
+1. Uncomment the `lab3_testadder.jsim` file in the header and comment the rest as such: 
+  <img src="/50002/assets/contentimage/lab3/28.png"  class="center_fifty"/>
 2. Do a **GATE**-level simulation because now we use stdcell library instead of building our own gates using transistor 
 3. A waveform window showing the adder32 inputs and outputs should appear as such:
 
 <img src="/50002/assets/contentimage/lab3/6.png"  class="center_seventyfive"/>
 
-4. Click the checkoff button (the **green tick** at the upper right window of JSim).
+Click the checkoff button (the **green tick** at the upper right window of JSim).
   * JSim will check your circuit’s results against a list of expected values and report any discrepancies it finds. 
-  * Using this test jig file, nothing will be sent to the on-line server – it’s provided to help test your design as you go.
+  * Use it to debug your component if any error is found.
+
 
 ### Part 2: Compare Unit
 Design a 32-bit compare unit that generates one of two constants (`0` or `1`) depending on the `ALUFN` control signals (used to select the comparison to be performed) and the `Z`, `V`, and `N` outputs of the adder/subtractor unit.  
@@ -275,8 +279,11 @@ Here’s the detailed schematic of the compare unit:
 
 <img src="/50002/assets/contentimage/lab3/8.png"  class="center_fifty"/>
 
-<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We have created a test jig to test your compare unit: `lab3compare.jsim`. Use it to test that your compare unit works properly.  </div></div><br>
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We have created a test jig to test your compare unit: `lab3_testcompare.jsim`. Remember to comment the rest of the test jigs, and only use the compare test jig to test this unit. </div></div><br>
 
+<img src="/50002/assets/contentimage/lab3/29.png"  class="center_fifty"/>
+
+<img src="/50002/assets/contentimage/lab3/24.png"  class="center_seventyfive"/>
 
 ### Part 3: Boolean Unit
 
@@ -299,8 +306,11 @@ Here’s the detailed schematic of the Boolean unit:
 
 In total, you should utilise 32 4-to-1 multiplexers to build the boolean unit. <span style="background-color:yellow; color: black">**Please use JSim iterator explained above for this!**</span>
 
-<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We’ve created a test jig to test your boolean unit: `lab3boolean.jsim`. Use it to test that your boolean unit works properly. </div></div><br>
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We’ve created a test jig to test your boolean unit: `lab3_testboolean.jsim`. Use it to test that your boolean unit works properly. </div></div><br>
 
+<img src="/50002/assets/contentimage/lab3/30.png"  class="center_fifty"/>
+
+<img src="/50002/assets/contentimage/lab3/25.png"  class="center_seventyfive"/>
 
 ### Part D: Shifter
 Design a **32-bit shifter** that implements `SRA`, `SHR` and `SHL` instructions.  
@@ -350,10 +360,16 @@ Finally, we can combine all three shifters together to form the total shifter ou
 > Another approach that **adds** latency but **saves** gates is to use the *left shift logic* for **both** left and right shifts, but for right shifts, **reverse** the bits of the `A` input first on the way in and **reverse** the bits of the output on the way out.
 
 
-<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We have created a test jig to test your shift unit: `lab3shifter.jsim`. Use it to test that your shifter unit works properly.  </div></div><br>
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We have created a test jig to test your shift unit: `lab3_testshifter.jsim`. Use it to test that your shifter unit works properly.  </div></div><br>
+
+<img src="/50002/assets/contentimage/lab3/31.png"  class="center_fifty"/>
+
+<img src="/50002/assets/contentimage/lab3/26.png"  class="center_seventyfive"/>
 
 ## Task B: Studying the Multiplier
-The goal of this section is to study a combinational multiplier that accepts 32-bit operands (`A`, `B`) and produces a 32-bit output.  **Multiplying two 32-bit numbers produces a 64-bit product;** the result we’re looking for is **just the low-order 32-bits of the 64-bit product.**
+Open `lab3_mult.jsim` and realise that this file contains the circuitry for a **multiplier unit**. 
+
+The goal of this section is to study this particular combinational multiplier that accepts 32-bit operands (`A`, `B`) and produces a 32-bit output.  **Multiplying two 32-bit numbers produces a 64-bit product;** the result we’re looking for is **just the low-order 32-bits of the 64-bit product.**
 
 Here is a detailed bit-level description of how a **4-bit** by **4-bit** unsigned multiplication works.  This diagram assumes **we only want the low-order 4 bits** of the 8-bit product.
 
@@ -366,9 +382,12 @@ As you can see from the diagram above, forming the *partial products* is easy.  
 * One can use full adders (FAs) hooked up in a ripple-carry configuration to add each partial product to the accumulated sum of the previous partial products (see the diagram below) 
 * The circuit closely follows the diagram above but omits an FA module if two of its inputs are `0`
 
+
 <img src="/50002/assets/contentimage/lab3/19.png"  class="center_seventyfive"/>
 
 ### Multiplier Analysis
+
+
 The circuit above works with both **unsigned** operands and **signed** two’s complement operands.  <span style="background-color:yellow; color: black">This may seem strange – don’t we have to worry about the most significant bit (MSB) of the operands?</span>  With unsigned operands the MSB has a weight of $$2^{MSB}$$ (assuming the bits are numbered 0 to MSB) but with signed operands the MSB has a weight of $$-2^{MSB}$$.  Doesn’t our circuitry need to take that into account?
 
 <span style="background-color:yellow; color: black">It does, but when we are only saving the lower half of the product, the differences don’t appear. </span>  
@@ -398,10 +417,22 @@ Combine the outputs of the finished **adder**, **multiplier** (given), **compare
 
 <img src="/50002/assets/contentimage/lab3/20.png"  class="center_seventyfive"/>
 
-Two additional control signals (`ALUFN[5:4]`) have been introduced to select which unit will supply the value for the ALU output.  The encodings for `ALUFN[5:0]` used by the test jig `lab3checkoff_10.jsim` are shown in the following table:
+Two additional control signals (`ALUFN[5:4]`) have been introduced to select which unit will supply the value for the ALU output.  The encodings for `ALUFN[5:0]` used by the test jig `lab3checkoff.jsim` are shown in the following table:
 
 <img src="/50002/assets/contentimage/lab3/21.png"  class="center_fifty"/>
 
 Note that the `Z`, `V`, and `N` signals from the adder/subtractor unit are **INCLUDED** in the terminal list for the alu subcircuit (<span style="background-color:yellow; color: black">counted as ALU’s output</span>). **You should also have these signals as the ALU output for your 1D Project**. While these signals are NOT needed when using the ALU as part of the Beta, they are included here to make it easier for the test jig to pinpoint problems with your circuit.
 
-<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. When you’ve completed your design, you can use `lab3checkoff_10.jsim` to test your ALU implementation including the multiplier. </div></div><br> 
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. When you’ve completed your design, you can use `lab3checkoff.jsim` to test your ALU implementation including the multiplier. </div></div><br> 
+
+<img src="/50002/assets/contentimage/lab3/32.png"  class="center_fifty"/>
+
+<img src="/50002/assets/contentimage/lab3/27.png"  class="center_seventyfive"/>
+
+When you run the gate-level simulation, you should see the following plot pops up:
+<img src="/50002/assets/contentimage/lab3/23.png"  class="center_seventyfive"/>
+
+You can use it to debug your alu by finding the opcode that causes the error once you tried to verify (click the tick sign).
+
+If all expected values are correct, you should see the following window pops up after you click the tick sign:
+<img src="/50002/assets/contentimage/lab3/22.png"  class="center_seventyfive"/>

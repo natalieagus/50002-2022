@@ -19,7 +19,9 @@ Modified by: Kenny Choo, Natalie Agus, Oka Kurniawan (2021)
 # Lab 2: Adder
 
 ## Starter Code
-Download the materials required for this lab [here](https://drive.google.com/open?id=1-lqSVY0M4dX0sx9QxBjomTLBOhz_Cm7u&authuser=nn88blue%40gmail.com&usp=drive_fs). 
+The following files inside your `/50002/` folder are what you're going to open and modify or study for this lab, then submit (unless otherwise stated):
+- `lab2_submit.jsim` 
+- `lab2_debug.jsim` (for debugging only, no submission required)
 
 
 ## Related Class Materials
@@ -120,6 +122,15 @@ For example, to completely test all possible input combinations for a 2-input ga
 * Since each clock period is *double* the previous one, we will be able to create **all** 8 input combinations: `000, 001, …, 111` using these three clocks. 
 * Then we plug in `A`, `B`, and `Ci` signals to FA, getting its output: `S`, and `Co`. 
 * Afterwards, we plot them (line 11-15). 
+
+Once you are somewhat confident that your circuit works properly, go to `lab2_submit.jsim` and click the Fast Transient Analysis button. A window as such should pop up:
+
+<img src="/50002/assets/contentimage/lab2/12.png"  class="center_full"/>
+This plot represents all signals produced by `s[5:0]` given various `a` and `b` values as time progresses (time is the x-axis). You can **zoom** in to see the plots better. 
+
+Click on the top right hand corner green tick button to check if all values are as expected. If everything works correctly, this window should pop up:
+
+<img src="/50002/assets/contentimage/lab2/13.png"  class="center_seventyfive"/>
 
 
 ## Appendix: Interpreting analogue signal levels using JSim
