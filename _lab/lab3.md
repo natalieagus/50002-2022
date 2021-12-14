@@ -109,17 +109,33 @@ will connect all twelve nodes (`A5, A4, ..., A0, B5, B4, ..., B0`) **TOGETHER**.
 .connect A0 B0
 ```
 
+## Bus unit
 The above can be **tedious** to type. To fix this, can define a two-terminal device that uses    internally, and then use the usual **iteration** rules (see next section) to make many instances of the device with one `X` (device) statement:
 
 ```cpp
-* declare knex subcircuit
-.subckt knex a b
+* declare bus subcircuit
+.subckt bus a b
 .connect a b
 .ends
 
-* use knex subcircuit to connect A and B buses element-wise
-X1 A[5:0] B[5:0] knex
+* use bus subcircuit to connect A and B buses element-wise
+X1 A[5:0] B[5:0] bus
 ```
+
+To make it convenient for your, there exist the `bus` unit inside `stdcell.jsim` that will come in handy to duplicate certain nodes for you with a different name. It is defined as such:
+
+```cpp
+.subckt bus a b  
+.connect a b
+.ends
+```
+
+Therefore if you want to duplicate node `a[31:0]` into node `b[31:0]`, simply state (position of `a` and `b` can be interchangeable, it does not matter):
+```cpp
+Xbusab a[31:0] b[31:0] bus 
+```
+Then you can utilise node `b[31:0]` afterwards. 
+
 
 ### JSim Iterators
 

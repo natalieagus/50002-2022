@@ -61,11 +61,12 @@ Please download the materials here. There are 7 files in total titled:
 
 ## Introduction
 The goal of this lab is to build a fully functional Beta Processor. It is a huge device, and to make it more bearable we shall modularise it into four major components:
-* **PC** Unit: containing the PC register and all necessary components to support the ISA
-* **REGFILE** Unit: containing 32 32-bit registers, WASEL, and RA2SEL mux, plus circuitry to compute Z,
-* **ALU+WDSEL** Unit: containing the ALU and WDSEL, ASEL, BSEL muxes, and
-* **CONTROL** Unit: containing the ROM and necessary components to produce all Beta control signals given an `OPCODE`
-
+* (Task A) **PC** Unit: containing the PC register and all necessary components to support the ISA
+* (Task B) **REGFILE** Unit: containing 32 32-bit registers, WASEL, and RA2SEL mux, plus circuitry to compute Z
+* (Task C) **CONTROL** Unit: containing the ROM and necessary components to produce all Beta control signals given an `OPCODE`
+* **ALU+WDSEL** Unit: containing the ALU and WDSEL, ASEL, BSEL muxes (given to you)
+* (Task D) Assemble the entire Beta CPU using all subcomponents above
+ 
 <img src="/50002/assets/contentimage/lab5/beta_lab.png"  class="center_full"/><br>
 
 The signals indicated in <span  style="background-color:red; color:white">red</span> refers to external **`INPUT`** to our Beta, supplied by the **Memory Unit** defined in our checkoff file:`lab5checkoff.jsim`. The signals indicated in <span style="background-color:yellow; color: black">yellow</span>  refers to our Beta's **`OUTPUT`** to the **Memory Unit** defined in `lab5checkoff.jsim`.  
