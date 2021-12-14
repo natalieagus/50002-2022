@@ -120,7 +120,7 @@ If the Beta wants to **store** (write) data to the memory, it needs to supply tw
 
 <div class="orangebox"><div class="custom_box">**WARNING**: for this lab, the signal `wr`  should **ALWAYS** have a **valid** logic value (either 1 or 0) at the **RISING** edge of `CLK` otherwise the contents of the memory will be erased. If signal `wr` is 1, the data  `mwd[31:0]` will be written into memory at the **end** of the current cycle. Otherwise, the data at` mwd[31:0]` will be **ignored**.  </div></div><br>
 
-## PC Unit
+## Task A: PC Unit
 ### PC Unit Schematic
 Here is the suggested PC Unit schematic that you can implement. Note the input and output nodes. This will come in very useful when creating the modules for your `jsim subckt`. 
 
@@ -264,7 +264,7 @@ Study the output to ensure that you have the intended signals. You can click on 
 
 <span style="background-color:yellow; color: black">**IMPORTANT:** comment back the header and the test instructions after you are done. The file `lab5_pc.jsim` should only contain the definition of your pc unit subcircuit only. We will import it later inside `lab5_beta.jsim`.</span>
 
-## REGFILE Unit
+## Task C: REGFILE Unit
 ### REGFILE Unit Schematic
 Here is the suggested REGFILE Unit schematic that you can implement. 
 
@@ -346,7 +346,7 @@ If everything works as expected, you should see the following message when you c
 
 <span style="background-color:yellow; color: black">**IMPORTANT:** comment back the header and the test instructions after you are done. The file `lab5_regfile.jsim` should only contain the definition of your pc unit subcircuit only. We will import it later inside `lab5_beta.jsim`.</span>
 
-## CONTROL Unit
+## Task B: CONTROL Unit
 ### CONTROL Unit Schematic
 Here is the suggested **CONTROL** Unit schematic that you can implement. 
 
@@ -442,10 +442,10 @@ The following window should show up when everything in the control unit works as
 
 
 ## ALU + WDSEL Unit
-This unit is fairly straightforward to implement. In fact, it is so easy and we just implement it for you inside `lab5_aluwdsel.jsim`. We reuse ALU implementation from Lab 3, which we have given to you inside `lab5_alu.jsim`. 
+This unit is fairly straightforward to implement. **In fact, it is so easy and we just implement it for you** inside `lab5_aluwdsel.jsim`. We reuse ALU implementation from Lab 3, which we have given to you inside `lab5_alu.jsim`. 
 
 ### ALU+WDSEL Unit Schematic
-Here is the suggested **ALU + WDSEL** Unit schematic that you can implement. 
+Here is the suggested **ALU + WDSEL** Unit schematic that we implement: 
 
 <img src="/50002/assets/contentimage/lab5/aluwdselunit.png"  class="center_full"/>
 
@@ -466,10 +466,10 @@ Also, **Bit 31** of the branch-offset input to the ASEL mux should be set to `0`
 ### WDSEL Mux
 **Bit 31** of the PC+4 input to the **WDSEL** mux should connect to the highest bit of the PC Reg output, `ia31`, saving the current value of the supervisor whenever the value of the PC is saved by a branch instruction or trap.
 
+> Please study the circuitry inside `lab5_aluwdsel.jsim` before proceeding to the next section.
 
-
-## Test the Completed Beta
-When you have completed your design, you can use lab5checkoff.jsim to test your circuit and complete the checkoff. Open `lab5_beta.jsim` and notice that it should have these .include statements:
+## Task D: Assemble Completed Beta
+Open `lab5_beta.jsim` and notice that it should have these .include statements:
 
 ```cpp
 .include "nominal.jsim"
@@ -501,7 +501,7 @@ and the following subcircuit definition:
 .ends
 ```
 
-Write your answer in the space given. The answer in this file should literally just contain **FOUR LINES**, each line to initialize each unit. The input and output of each unit declared in its `.subckt` definition is designed nicely such that they fit as-is. Refer to the block-diagram under the Introduction section if you forgot the interface for each subcircuit. 
+<div class="yellowbox"><div class="custom_box">Write your answer in the space given. The answer in this file should literally just contain **FOUR LINES**, each line to initialize each unit. The input and output of each unit declared in its `.subckt` definition is designed nicely such that they fit as-is. Refer to the block-diagram under the Introduction section if you forgot the interface for each subcircuit.  </div></div><br>
 
 The complete schematic of the Beta is (you might want to open this image in another tab):
 
@@ -521,8 +521,7 @@ Note the addition of the IRQ (interrupt request) input. Your design will be test
 	wr		output		memory write enable (from control logic)
 	mwd[31:0]	outputs	        memory write data (from register file)
 ```
-
-Lab5checkoff.jsim uses the following netlist to create the test circuitry:
+When you have completed your design, you can use `lab5checkoff.jsim` to test your circuit and complete the checkoff. `lab5checkoff.jsim` uses the following netlist to create the test circuitry, and checks out your design by attempting to run a **test** program and **verifying** that your Beta outputs the correct value on its outputs every cycle.
 
 ```cpp
 // create an instance of the Beta to be tested
@@ -561,9 +560,9 @@ Virq irq 0 pwl(0ns 0v, 1001ns 0v,
 +)
 ```
 
-`Lab5checkoff.jsim` checks out your design by attempting to run a test program and verifying that your Beta outputs the correct value on its outputs every cycle. The source for the test program can be found at `lab5.uasm.`
+> The source for the test program can be found at `lab5.uasm.` You don't need to read this if you don't wish to. 
 
-The checkoff program attempts to exercise all the features of the Beta architecture. If this program completes successfully, it enters a two-instruction loop at locations 0x3C4 and 0x3C8.  It reaches 0x3C4 for the first time on cycle `277`.
+The checkoff program attempts to exercise all the features of the Beta architecture. If this program completes successfully, it enters a two-instruction loop at locations `0x3C4` and `0x3C8`.  It reaches `0x3C4` for the first time on cycle `277`.
 
 `Lab5checkoff.jsim` will **VERIFY** that the instruction address (`ia[31:0]`), memory address (`ma[31:0]`),  memory write data (`mwd[31:0]`) and the memory control signals (`moe`, `wr`) have the correct values each cycle.  
 
@@ -596,9 +595,6 @@ Since the tests are run with a clock period of **100ns**, this tells us that we 
 > Typically the worst-case execution time comes from either CMPxx or LD instructions (why?).
 
 Using this technique, investigate where the **critical** path(s) are in your Beta design and work to make them as short as possible.  To get the **fastest** possible cycle time you’ll probably need to implement some of your control signals (e.g., `RA2SEL`) using logic gates rather than a ROM.  Given that we might have to make **three memory accesses** in a **single** cycle (instruction fetch + register file access + data memory access = 10ns total assuming a 1024-location main memory), we won’t be able to do better than **100Mhz** clock rates unless we **pipeline** our implementation.
-
-
-
 
 
 
