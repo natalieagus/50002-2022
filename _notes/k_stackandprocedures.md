@@ -200,7 +200,7 @@ And also the following macros for easier stack management:
 	* `DEALLOCATE(k) : SUBC(SP, 4*k, SP)`
 >  They're both used to *move* `SP` to a reserved location for the start of the stack.  
 
-###  Example of stack usage:
+###  Example of stack usage
 
 <span style="background-color:yellow; color: black">  **Allocating the stack**</span>
 Assuming the initial content of `SP` is `0`, then in order for `SP` to point to the address `0x010C` shown in the figure above, we can write:

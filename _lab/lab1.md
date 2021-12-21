@@ -19,8 +19,9 @@ Modified by: Kenny Choo, Natalie Agus, Oka Kurniawan (2021)
 # Lab 1: CMOS
 
 ## Starter Code
+## Starter Code
 The following files inside your `/50002/` folder are what you're going to open and modify or study for this lab, then submit (unless otherwise stated):
-- `lab1_taskG.jsim` (for study only, no submission of this file is required)
+- `lab1_submit.jsim` 
 
 You need to head to edimension to answer a bunch of questionnaire there for this lab. **No file submission is required. **
 
@@ -459,9 +460,9 @@ For many consumer products, designs are tested in the range of 0°C to 100°C. R
 Based on your experiment, if a 2019 Intel Core i9 processor is rated to run correctly at 2.3 GHz at 100°C, how many % more can you clock it and still have it run correctly at room temperature (assuming tpd is the parameter that determines “correct” computer behavior)?  
 > This is why you can usually get away with **overclocking** your CPU—it’s been rated for operation under much more severe environmental conditions than you’re probably running it at!
 
-## CMOS Logic Gate Design
+## Task G: CMOS Logic Gate Design
 
-As the final part of this lab, your mission is to study and test a CMOS circuit that implements the function `F(A,B,C) = C + A·B` using NFETs and PFETs. The truth table for F is shown below:
+As the final part of this lab, your mission is to create and test a CMOS circuitry that implements the function `F(A,B,C) = C + A·B` using NFETs and PFETs. The truth table for F is shown below:
 
 
 A |  B |  C | F(A,B,C)
@@ -475,22 +476,26 @@ A |  B |  C | F(A,B,C)
 1 | 1 | 0 | 1
 1 | 1 | 1 | 1
 
-[Study this given answer](https://drive.google.com/file/d/1-GakraQKIzP7ML9fEyYMLSd4PPgvKiSY/view?usp=sharing):
-* Save it inside 50002 folder, 
-* Open it via jsim and run it on jsim using the **FAST TRANSIENT ANALYSIS** button
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided under inside `lab1_submit.jsim`.</div></div><br>
+
+<img src="/50002/assets/contentimage/lab1/7.png"  class="center_seventyfive"/>
+
+* Open `lab1_submit.jsim` and write your answer there:
+  * There should be three parts for your answer
+    * The pullup circuitry
+    * The pulldown circuitry
+    * The inverter at the drain of not F CMOS circuitry to produce back F 
+* Run it on jsim using the **FAST TRANSIENT ANALYSIS** button: 
+<img src="/50002/assets/contentimage/lab1/8.png"  class="center_seventyfive"/>
+
 * You will need to **understand** the output plot, and the meaning of each line of instruction in the answer to be able to excel in the Lab Quiz. 
 * Click on the green tick button on the right hand corner of the plot window. A message as such should appear, which means that all values produced by your circuit is as expected:
 
 <img src="/50002/assets/contentimage/lab1/6.png"  class="center_seventyfive"/>
 
-Please change the two header lines in the answer with appropriate full path if the relative paths given don’t work:
 
-```cpp
-.include "nominal.jsim"
-.include "lab1checkoff.jsim"
-```
 `nominal.jsim` and `lab1checkoff.jsim` contains the necessary circuitry to generate the appropriate input waveforms to test your circuit.  It includes a `.tran` statement to run the simulation for the appropriate length of time and a few .plot statements which will display the input and output waveforms for your circuit.
 
-**The solution contains no more than 8 MOSFETs.**  Remember that only NFETs should be used in **pulldown** circuits and only PFETs should be in **pullup** circuits. Using six MOSFETs, we implement the complement of F as one large CMOS (complementary MOS) gate and then use the remaining two MOSFETs to **invert** the output of your large gate. 
+**The solution should contain NO more than 8 MOSFETs.**  Remember that only NFETs should be used in **pulldown** circuits and only PFETs should be in **pullup** circuits. Using six MOSFETs, we implement the complement of F as one large CMOS (complementary MOS) gate and then use the remaining two MOSFETs to **invert** the output of your large gate. 
 
 > Refer to the lecture on [CMOS Technology](https://natalieagus.github.io/50002/notes/cmostechnology) to understand how you can construct the circuit using complementary MOSFETs. 
