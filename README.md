@@ -1,4 +1,4 @@
-# website_dark
+# Course website for 50002
 
 When adding new collection:
 1. Create folder with _[name], and populate with .md

@@ -476,17 +476,20 @@ A |  B |  C | F(A,B,C)
 1 | 1 | 0 | 1
 1 | 1 | 1 | 1
 
+<br>
+
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided under inside `lab1_submit.jsim`.</div></div><br>
 
-<img src="/50002/assets/contentimage/lab1/7.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab1/7.png"  class="center_fifty"/>
 
 * Open `lab1_submit.jsim` and write your answer there:
-  * There should be three parts for your answer
+  * There should be three parts to your answer
     * The pullup circuitry
     * The pulldown circuitry
     * The inverter at the drain of not F CMOS circuitry to produce back F 
 * Run it on jsim using the **FAST TRANSIENT ANALYSIS** button: 
 <img src="/50002/assets/contentimage/lab1/8.png"  class="center_seventyfive"/>
+<br>
 
 * You will need to **understand** the output plot, and the meaning of each line of instruction in the answer to be able to excel in the Lab Quiz. 
 * Click on the green tick button on the right hand corner of the plot window. A message as such should appear, which means that all values produced by your circuit is as expected:
