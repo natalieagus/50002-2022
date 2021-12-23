@@ -152,7 +152,7 @@ Equivalently, it is **proportional to** the *uncertainty* of that event happenin
 
 > More precisely, to the logarithm of the *uncertainty* of the event happening. However since log is an increasing function,  the  sense of *proportionality* remains the same. 
 
-<span style="background-color:yellow">In laymen terms: *If an event is bound to happen, then the fact that the event happens does not give any kind of information*</span>
+<span style="background-color:yellow; color: black">In laymen terms: *If an event is bound to happen, then the fact that the event happens does not give any kind of information*</span>
 
 For discrete events $$(x_1, x_2, ... , x_N)$$ with probability of occurence of $$(p_1, p_2, ..., p_N)$$, the basic measure of information for all of these events is the ***bit***. 
 
@@ -204,7 +204,7 @@ The prior knowledge of whether a device support signed or unsigned bits must be 
 
 
 ## Post Conclusion
-<span style="background-color:yellow">Finally, you might be wondering why are we *counting the number of bits* required to encode some amount of information, and why do we bother with encoding information in terms of bits at all</span>. As said in the introduction, the **goal** of this course is to learn how to build a general-purpose digital device (computers).
+<span style="background-color:yellow; color: black">Finally, you might be wondering why are we *counting the number of bits* required to encode some amount of information, and why do we bother with encoding information in terms of bits at all</span>. As said in the introduction, the **goal** of this course is to learn how to build a general-purpose digital device (computers).
 
 * We begin the first half of our learning journey by trying to **create** a digital device (not for general purpose yet) that's for a **specific purpose,** for example: 
 	* a *simple* device that can perform 1-bit addition  *(Mini Hardware Project)*, 
