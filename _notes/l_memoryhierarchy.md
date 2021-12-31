@@ -16,7 +16,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Memory Hierarchy
-[You can find the lecture video here.](https://youtu.be/m5_u3sQ9bXo) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
+[You can find the lecture video here.](https://youtu.be/m5_u3sQ9bXo) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 

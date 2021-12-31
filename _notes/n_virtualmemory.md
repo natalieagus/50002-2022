@@ -16,7 +16,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Virtual Memory
-[You can find the lecture video here.](https://youtu.be/19wS4GC6mbQ) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
+[You can find the lecture video here.](https://youtu.be/19wS4GC6mbQ) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
  
 ## Overview
 

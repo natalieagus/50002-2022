@@ -17,7 +17,7 @@ Singapore University of Technology and Design
 
 
 # Assemblers and Compilers 
-[You can find the lecture video here.](https://youtu.be/Hhq3RhZcngQ) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
+[You can find the lecture video here.](https://youtu.be/Hhq3RhZcngQ) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 The goal of this chapter is to help us understand how to improve the programmability of the $$\beta$$ (or any ISA in general). The $$\beta$$ machine language is encoded into 32-bit instructions each. 
@@ -78,39 +78,41 @@ A UASM source file contains, in symbolic text, **values of successive bytes to b
 
 * **Symbols**, defined by the `=` sign allows us to "rename"  basic values (like defining variables):
 
-	```cpp
-	x = 0x1000
-	y = 0x1004
+```cpp
+x = 0x1000
+y = 0x1004
 
-	R0 = 0 
-	R1 = 1
-	```
+R0 = 0 
+R1 = 1
+```
 
 * **Special variable** `.` (period): means *next* byte address to be filled:
   
-	```cpp
-	. = 0x100
-	ADDC(R0, 3, R1) | means to load this instruction at address 0x100
-	```
+```cpp
+. = 0x100
+ADDC(R0, 3, R1) | means to load this instruction at address 0x100
+```
 
 * **Labels** $$\rightarrow$$ symbols that represent memory addresses. Defined using `:` syntax:
   
-	```cpp
-	. = 0x108
-	ADDC(R31, 3, R1)
-	begin_loop : SUBC(R1, 3, R1)  | begin_loop is a label the address of SUBC instruction 
-	BEQ(R1, begin_loop, R31)
-	``` 
+```cpp
+. = 0x108
+ADDC(R31, 3, R1)
 
-	> `ADDC` is loaded at (byte) address `0x108`. Since `ADDC`'s length is 4 bytes, `SUBC` is loaded at the subsequent address : `0x10C`.
+| begin_loop is a label the address of SUBC instruction 
+begin_loop : SUBC(R1, 3, R1)  
+BEQ(R1, begin_loop, R31)
+``` 
+
+> `ADDC` is loaded at (byte) address `0x108`. Since `ADDC`'s length is 4 bytes, `SUBC` is loaded at the subsequent address : `0x10C`.
 
 * **Macroinstructions**: parameterized abbreviations, or shorthand. 
 	* These two macros, `WORD` and `LONG` allows us to assemble input `x` that is more than 256 into longer streams of bytes **(little endian)** 
   
-	```cpp
-	.macro WORD(x) x%256 (x/256)%256 
-	.macro LONG(x) WORD(x) WORD(x >> 16)
-	```
+```cpp
+.macro WORD(x) x%256 (x/256)%256 
+.macro LONG(x) WORD(x) WORD(x >> 16)
+```
 
 > For example, writing: `LONG(0xDEADBEEF)` has the same effect as writing: `0xEF 0xBE 0xAD 0xDE`. The latter is so much harder to read. It will both result as the following in memory: `DE AD BE EF`.
 
@@ -127,6 +129,7 @@ With a slight improvement from macro `LONG`, we can write them as:
 `LONG(0b11000000000011111000000000000000)`
 
 Better yet, we can define a macro called `betaopc` and `ADDC` that relies on the former: 
+
 ```cpp
 .macro betaopc(OP,RA,CC,RC) {
 	.align 4

@@ -17,7 +17,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Logic Synthesis
-[You can find the lecture video here.](https://youtu.be/yXBAy432vT8) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
+[You can find the lecture video here.](https://youtu.be/yXBAy432vT8) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 The purpose of creating combinational devices is to **synthesise logic**, meaning that we create a device that is able to give a certain combination of output given a certain combination input. In other words, a device that adheres to a truth table, i.e: its *functional specification.* 
@@ -148,9 +148,9 @@ $$\begin{aligned}
 Below are more laws that are built based on some of the rules above and each other. We do not have to prove each law in this course, but if you're interested, you can look for other references such as [here](https://www.electronics-tutorials.ws/boolean/bool_6.html).
 
 $$\begin{aligned}
-\text{Commutative law: } & a+b = b+a, \\ &ab = ba\\\\
-\text{Associative law: } & (a+b)+c = a+(b+c),\\ & (ab)c = a(bc)\\\\
-\text{Distributive law: } & a(b+c) = ab+ac, \text{ --- OR distributive},\\ & a+bc = (a+b)(a+c) \text{ --- AND distributive}
+\text{Commutative: } & a+b = b+a, \\ &ab = ba\\\\
+\text{Associative: } & (a+b)+c = a+(b+c),\\ & (ab)c = a(bc)\\\\
+\text{Distributive: } & a(b+c) = ab+ac, ,\\ & a+bc = (a+b)(a+c)
 \end{aligned}$$
 
 The two laws below are useful to perform boolean minimisation because we might end up with less number of terms while keeping the same logic:
@@ -168,7 +168,8 @@ Note that the boolean algebra properties above also applies for the inverted for
 
 There's a lot of boolean theorems that are derived from the above, for example:
 
-$$\text{Consensus Theorem: } ab + \bar{a}c + bc =  ab + \bar{a}c$$
+$$\text{Consensus Theorem} \\
+ab + \bar{a}c + bc =  ab + \bar{a}c$$
 
 Proof:
 
@@ -200,8 +201,8 @@ When given a boolean expression, we need to be creative and utilize all properti
 
 $$\begin{aligned}
 Y &= \overline{C} \text{ }\overline{B} A + \overline{C} B A + CB\overline{A} + CBA\\
-&= \overline{C} \text{ } \overline{B} A + \overline{C} BA + CB \text{ (reduce the last two terms)}\\
-&= \overline{C} A + CB \text{ (reduce the ist two terms)}
+&= \overline{C} \text{ } \overline{B} A + \overline{C} BA + CB \\
+&= \overline{C} A + CB 
 \end{aligned}$$
 
 ### Karnaugh Map for Boolean Minimisation
@@ -369,7 +370,7 @@ The Decoder (also known as "demux") is a special combinational logic device that
 
 The schematic of a 2-select inputs decoder: $$S_0$$ and $$S_1$$ is (we omit the "IN") because it is usually just VDD:
 
-<img src="https://dl.dropboxusercontent.com/s/8uagnvsipvppgby/decoderinside.png?raw=1"    width="50%" height = "570%">
+<img src="https://dl.dropboxusercontent.com/s/8uagnvsipvppgby/decoderinside.png?raw=1"    width="100%" height = "100%">
 
 > Take some time to trace out the selector values to the output and draw out a truth table for the decoder. 
 

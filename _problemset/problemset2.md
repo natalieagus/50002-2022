@@ -355,8 +355,11 @@ https://dl.dropboxusercontent.com/s/6romn7t1g594ddz/pfetup.png?raw=1"  width="50
 
 Simplify the following boolean expression:
 
-$$\begin{aligned} Y &= AB \bar{C} \bar{D} + AB \bar{C}D + \bar{A} \bar{B}CD + \bar{A}BCD \\
-&+ ABCD + A\bar{B}CD + \bar{A}\bar{B}C \bar{D} + ABC \bar{D} + A\bar{B}C \bar{D}\end{aligned}$$
+$$\begin{aligned} Y = &AB \bar{C} \bar{D} + AB \bar{C}D + \\
+						& \bar{A} \bar{B}CD + \bar{A}BCD + \\
+						& ABCD + A\bar{B}CD + \bar{A}\bar{B}C \bar{D} + \\
+						& ABC \bar{D} + A\bar{B}C \bar{D}
+\end{aligned}$$
 
 
 

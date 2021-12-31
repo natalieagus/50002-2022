@@ -17,7 +17,7 @@ Singapore University of Technology and Design
 
 
 # Building the $$\beta$$ CPU
-[You can find the lecture video here.](https://youtu.be/4T9MR8BSzt0) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
+[You can find the lecture video here.](https://youtu.be/4T9MR8BSzt0) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 

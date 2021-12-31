@@ -16,7 +16,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Cache Design Issues
-[You can find the lecture video here.](https://youtu.be/2OARjqLK4io) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
+[You can find the lecture video here.](https://youtu.be/2OARjqLK4io) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 

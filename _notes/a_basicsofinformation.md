@@ -18,7 +18,7 @@ Singapore University of Technology and Design
 
 # Basics of Information 
 
-[You can find the lecture video here. ](https://youtu.be/IicB30kA3pY) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
+[You can find the lecture video here. ](https://youtu.be/IicB30kA3pY) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
 ## [Overview](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=0s)
 
@@ -173,7 +173,7 @@ where  $$I(X)$$ is the amount of information received in bits learning that the 
 With $$N$$ *equally probable choices,* if it is narrowed down to $$M$$ choices (where $$N>M$$), then we can say that we are given
 
 $$\begin{aligned}
-I_{N\rightarrow M}(X) = \log_2 \left( \frac{N}{M} \right) \text{ bits of information}\end{aligned}$$
+I_{N\rightarrow M}(X) = \log_2 \left( \frac{N}{M} \right) \text{ bits}\end{aligned}$$
  
 
 >Following from the example above, if our pool of possible events are narrowed down to 3 from 8, then intuitively we only need *2 bits* (instead of 3) to encode 3 different events, e.g: `00, 01,` and `10`. Therefore  we know we are given *at least* `1` bit of information.
@@ -181,7 +181,7 @@ I_{N\rightarrow M}(X) = \log_2 \left( \frac{N}{M} \right) \text{ bits of informa
 > With the formula above, `N=8`, `M=3`, therefore: 
 > 
 > $$\begin{aligned}
-I_{8\rightarrow 3}(X) = \log_2 \left( \frac{8}{3} \right) = 1.42 \text{ bits of information}\end{aligned}$$
+I_{8\rightarrow 3}(X) = \log_2 \left( \frac{8}{3} \right) = 1.42 \text{ bits}\end{aligned}$$
  
 
 

@@ -17,7 +17,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # The CMOS Technology
-[You can find the lecture video here. ](https://youtu.be/JqgZcV_1IU4)You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
+[You can find the lecture video here. ](https://youtu.be/JqgZcV_1IU4)You can also **click** on each header to bring you to the section of the video covering the subtopic. 
   
 ## Overview
 Recall that the ideal behaviors and characteristics of a **combinational logic device** are:

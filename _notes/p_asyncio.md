@@ -16,7 +16,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Asynchronous Handling of I/O Devices
-[You can find the lecture video here.](https://youtu.be/gVntBILoDvg) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
+[You can find the lecture video here.](https://youtu.be/gVntBILoDvg) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
   
 ## Overview
 
@@ -92,6 +92,7 @@ JMP(R0) | jump to the appropriate handler
 `SVCtbl` is a label for specific Kernel subroutines, such as writing output or fetching input from each devices. 
 
 > `UUO` is a macro that directs the PC to each subroutine: `HaltH`, `WrMsgH`. You can read `lab8.uasm` to for more details. 
+
 ```
 SVCTbl: UUO(HaltH) | SVC(0): User-mode HALT instruction
 UUO(WrMsgH) | SVC(1): Write message

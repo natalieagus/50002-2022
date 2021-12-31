@@ -376,7 +376,8 @@ We're interested in whether this device can serve as a legal combinational devic
   
 
 $$\begin{aligned}
-\text{If } V_{IN} \leq V_{IL} \text{ then } V_{OUT} \geq V_{OH}, \text{ and if } V_{IN} \geq V_{IH} \text{ then } V_{OUT} \leq V_{OL}
+\text{If } V_{IN} &\leq V_{IL} \text{ then } V_{OUT} \geq V_{OH}, \\
+\text{ and if } V_{IN} & \geq V_{IH} \text{ then } V_{OUT} \leq V_{OL}
 \end{aligned}$$
 
   

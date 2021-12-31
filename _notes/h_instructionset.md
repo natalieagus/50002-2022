@@ -17,7 +17,7 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Designing an Instruction Set
-[You can find the lecture video here.](https://youtu.be/h1KGzAbJH4Q) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
+[You can find the lecture video here.](https://youtu.be/h1KGzAbJH4Q) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 To create a programmable control system suitable for *general* purposes (like the Universal Turing Machine), we need to define a set of instructions for that system, such that it is able to support a rich repertoire of operations. 

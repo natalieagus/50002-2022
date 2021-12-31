@@ -18,7 +18,7 @@ Singapore University of Technology and Design
 
 
 # Digital Abstraction
-[You can find the lecture video here. ](https://youtu.be/xkVIr8jrtX0) You can also **click** on each heading to bring you to the section of the video covering the subtopic. 
+[You can find the lecture video here. ](https://youtu.be/xkVIr8jrtX0) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
 ## Overview
 
