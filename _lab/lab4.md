@@ -132,7 +132,7 @@ Your job is to fill up each blanks between `BEGIN ANSWER` and `END ANSWER`
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided under `5-to-1 PCSEL mux` section inside `lab4_pc.jsim`. Read on to find out how to fill it up.</div></div><br>
 
-<img src="/50002/assets/contentimage/lab4/3.png"  class="center_fifty"/>
+<img src="/50002/assets/contentimage/lab4/3.png"  class=" center_full"/>
 
 The 32-bit 5-to-1 PC multiplexer (mux) selects the value to be loaded into the PC at the next rising edge of the clock depending on the `PCSEL` control signal. 
 
@@ -188,7 +188,7 @@ Xmux_unit0 control_signal 0 0 output_signal0 mux2
 ### RESET Multiplexer
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided under `RESET mux` and `PC Register` sections inside `lab4_pc.jsim`. Read on to find out how to fill it up.</div></div><br>
 
-<img src="/50002/assets/contentimage/lab4/4.png"  class="center_fifty"/>
+<img src="/50002/assets/contentimage/lab4/4.png"  class=" center_full"/>
 
 Remember we need to add a way to set the PC to zero on `reset`.  We use a two-input 32-bit mux that selects `0x00000000` when the RESET signal is asserted, and the output of the PCSEL mux when RESET is not asserted. We will use the RESET signal to force the PC to zero during the first clock period of the simulation.
 
@@ -211,7 +211,7 @@ The branch-offset adder **adds** PC+4 to the 16-bit offset encoded in the instru
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided under `shift add unit` inside `lab4_pc.jsim`.</div></div><br>
 
-<img src="/50002/assets/contentimage/lab4/6.png"  class="center_fifty"/>
+<img src="/50002/assets/contentimage/lab4/6.png"  class=" center_full"/>
 
 ### Supervisor Bit
 The high-order bit of the PC is dedicated as the **“Supervisor”** bit (see section 6.3 of the **Beta Documentation**). The `LDR` instruction **ignore** this bit, treating it as if it were *zero*. The `JMP` instruction is allowed to clear the Supervisor bit or leave it unchanged, but cannot set it, and **no other instructions may have any effect on it**. <span style="background-color:yellow; color: black">Only `reset`, `exceptions` and `interrupts` cause the Supervisor bit to become **set**.</span> This has the following implications for your Beta design:
@@ -221,7 +221,7 @@ The high-order bit of the PC is dedicated as the **“Supervisor”** bit (see s
 2. **Bit 31** of the `PC+4` and **branch-offset** inputs to the **PCSEL** mux should be connected to the highest bit of the PC Reg output, `ia31`; i.e., the value of the supervisor bit doesn’t change when executing most instructions. 
     * Please ensure your answer in shift-and-add section takes this into account. 
     * We gave a sample implementation under add-4 unit:
-    <img src="/50002/assets/contentimage/lab4/7.png"  class="center_seventyfive"/>
+    <img src="/50002/assets/contentimage/lab4/7.png"  class=" center_full"/>
 
 3. You’ll have to add logic to **bit 31 **of the `JT` input to the **PCSEL** mux to ensure that JMP instruction can only **clear** or **leave the supervisor bit unchanged**. Here’s a table showing the new value of the supervisor bit after a `JMP` as function of JT31 and the current value of the supervisor bit (PC31): <br>
 
@@ -233,7 +233,7 @@ The high-order bit of the PC is dedicated as the **“Supervisor”** bit (see s
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided under `JMP mux` inside `lab4_pc.jsim`.</div></div><br>
 
-<img src="/50002/assets/contentimage/lab4/8.png"  class="center_fifty"/>
+<img src="/50002/assets/contentimage/lab4/8.png"  class=" center_full"/>
 
 
 ### Testing 
@@ -251,7 +251,7 @@ You should see the plot window pops up as such:
 
 Study the output to ensure that you have the intended signals. You can click on the tick button, and if there's no error you shall see the following verification window for the pc unit: 
 
-<img src="/50002/assets/contentimage/lab4/20.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab4/20.png"  class=" center_full"/>
 
 <div class="redbox"><div class="custom_box">It is VERY IMPORTANT to test all **datapath** before proceeding to the next section, that is to fix all bugs pertaining to your pc unit if any.</div></div><br>
 
@@ -279,7 +279,7 @@ We have provided the address for `Reg XP` for you, that is the 5-bit constant `3
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided under `RA2SEL mux` and `WASEL mux` sections inside `lab4_regfile.jsim`.</div></div><br>
 
-<img src="/50002/assets/contentimage/lab4/10.png"  class="center_fifty"/>
+<img src="/50002/assets/contentimage/lab4/10.png"  class=" center_full"/>
 
 
 
@@ -300,7 +300,7 @@ Note that the memory component **doesn’t know** that location `31` of the regi
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided under `Regfile memory` section inside `lab4_regfile.jsim`.</div></div><br>
 
-<img src="/50002/assets/contentimage/lab4/11.png"  class="center_fifty"/>
+<img src="/50002/assets/contentimage/lab4/11.png"  class=" center_full"/>
 
 > Recall that the RA1/RD1 port output producing `ra[31:0]` is also wired directly to the `JT` inputs of the `PCSEL` multiplexer (remember we already  **force** the low-order two bits to zero and to add supervisor bit logic to bit 31 in the PCSEL Unit, so we do not have to do it here anymore).
 
@@ -309,7 +309,7 @@ Z logic can be added to the output of the RA1/RD1 port of the register file memo
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided under `Z computation` section inside `lab4_regfile.jsim`.</div></div><br>
 
-<img src="/50002/assets/contentimage/lab4/12.png"  class="center_fifty"/>
+<img src="/50002/assets/contentimage/lab4/12.png"  class=" center_full"/>
 
 ### mwd[31:0] Output
 Finally, connect the output of the `RD2` port fo the register file memory above to produce `mwd[31:0]`. You can use the `bus` connection provided inside `stdcell` as explained above. For instance, if the output of the `RD2` port of your regfile memory is called `rb[31:0]`, we can create `mwd[31:0]` as such:
@@ -319,7 +319,7 @@ Xmwdout mwd[31:0] rb[31:0] bus
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided under `mwd[31:0] output` section inside `lab4_regfile.jsim`.</div></div><br>
 
-<img src="/50002/assets/contentimage/lab4/13.png"  class="center_fifty"/>
+<img src="/50002/assets/contentimage/lab4/13.png"  class=" center_full"/>
 
 
 ### Testing 
@@ -335,7 +335,7 @@ You can uncomment the headers inside `lab4_regfile.jsim` and run the gate-level 
 
 If everything works as expected, you should see the following message when you click the green tick:
 
-<img src="/50002/assets/contentimage/lab4/24.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab4/24.png"  class=" center_full"/>
 
 <span style="background-color:yellow; color: black">**IMPORTANT:** comment back the header and the test instructions after you are done. The file `lab4_regfile.jsim` should only contain the definition of your pc unit subcircuit only. We will import it later inside `lab4_beta.jsim`.</span>
 
@@ -394,7 +394,7 @@ If you are using a ROM-based implementation, you can make `Z` an additional addr
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided under `Branch check` section inside `lab4_control.jsim`.</div></div><br>
 
-<img src="/50002/assets/contentimage/lab4/15.png"  class="center_fifty"/>
+<img src="/50002/assets/contentimage/lab4/15.png"  class=" center_full"/>
 
 Please follow the schematic slowly and ensure that you understand that the branch-check unit implements the logic shown in the table above. 
 
@@ -414,7 +414,7 @@ Note that you’ll also want to add logic to **reset** the Beta; at the very lea
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided under `IRQ handling` section inside `lab4_control.jsim`.</div></div><br>
 
-<img src="/50002/assets/contentimage/lab4/16.png"  class="center_fifty"/>
+<img src="/50002/assets/contentimage/lab4/16.png"  class=" center_full"/>
 
 ### Testing 
 Similarly, you can uncomment the headers and the given test signals inside `lab4_control.jsim` and run the test jig to make sure that the datapath works properly. 
@@ -429,7 +429,7 @@ Similarly, you can uncomment the headers and the given test signals inside `lab4
 
 The following window should show up when everything in the control unit works as expected:
 
-<img src="/50002/assets/contentimage/lab4/22.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab4/22.png"  class=" center_full"/>
 
 <span style="background-color:yellow; color: black">**IMPORTANT:** comment back the header and the test instructions after you are done. The file `lab4_control.jsim` should only contain the definition of your pc unit subcircuit only. We will import it later inside `lab4_beta.jsim`.</span>
 
@@ -561,10 +561,10 @@ The checkoff program attempts to exercise all the features of the Beta architect
 
 You should see a window popped up as such after running the simulation. 
 Click the green tick on the upper right corner to see if you get all supposed output. 
-<img src="/50002/assets/contentimage/lab4/18.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab4/18.png"  class=" center_full"/>
 
 If all expected values are correct, you should see the following window pops up after you click the tick sign:
-<img src="/50002/assets/contentimage/lab4/19.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab4/19.png"  class=" center_full"/>
 
 <span style="background-color:yellow; color: black">**IMPORTANT**: Ensure that you comment out any custom test circuit in the other `lab4_[component].jsim` files and comment out all header includes. Else you will be met with **duplicate device name** error if you attempt to import the same module twice in two different .jsim files.</span>
 
@@ -681,7 +681,7 @@ The following options can be used to specify the electrical and timing parameter
 
 * `tpd`=seconds: the propagation delay in seconds.  This is how long it takes for changes in the address or output enable terminals to be reflected in the values driven by the data terminals.  Default value is determined from the number of locations:
 
-    <img src="/50002/assets/contentimage/lab4/1.png"  class="center_seventyfive"/><br>
+    <img src="/50002/assets/contentimage/lab4/1.png"  class=" center_full"/><br>
 
 * `tr`=seconds_per_farad: the output rise time in seconds per farad of output load.  Default value is 1000, i.e., 1 ns/pf.
 

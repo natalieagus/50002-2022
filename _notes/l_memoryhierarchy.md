@@ -21,7 +21,7 @@ Singapore University of Technology and Design
 ## Overview
 
   
-<img src="https://dl.dropboxusercontent.com/s/88up5y3aitc893l/p1.png?raw=1"    width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/88up5y3aitc893l/p1.png?raw=1"     >
 
   
 
@@ -69,7 +69,7 @@ An SRAM cell can be made up of **6-transistors** as shown in the figure below.
 
 > Its commonly called a 6T-SRAM cell
 
-<img src="https://dl.dropboxusercontent.com/s/u1acx3abx3102pn/read_sram.png?raw=1"    width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/u1acx3abx3102pn/read_sram.png?raw=1"     >
 
 Each cell stores **one** bit. The *loop* formed by two inverters can ***store*** a single bit for **as long as they are powered**. 
 
@@ -81,7 +81,7 @@ There are two other things to note: the *word line* and the *two complementary b
 **To read:** 
 * Supply high voltage to the *word line*. This will connect the source and the drain of both NFETs. 
 * In turn, current flows to the bit line on the right and its complement on the left. 
-* <mark> The sense amp at the end of both bit-lines will compute the difference and amplify the small voltages to a normal 1-bit logic level. </mark> 
+* <span style="background-color:yellow; color: black">The sense amp at the end of both bit-lines will compute the difference and amplify the small voltages to a normal 1-bit logic level.</span>
 
 > For example, if the sense amp computes a `+ve`difference between $$V_{\text{bit}} - V_{\overline{\text{bit}}}$$, then it corresponds to logic `1` and vice versa. 
 
@@ -93,7 +93,7 @@ There are two other things to note: the *word line* and the *two complementary b
 * Then, drive a **strong** high voltage or low voltage **through the bit line and its complement** as shown. 
 > In this example, the value of the cell is written to be `0`. 
 
-<img src="https://dl.dropboxusercontent.com/s/kf6fk970dffm00z/write_sram.png?raw=1"    width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/kf6fk970dffm00z/write_sram.png?raw=1"     >
 
 
 ### Dynamic Random-Access Memory
@@ -101,7 +101,7 @@ There are two other things to note: the *word line* and the *two complementary b
  A single DRAM cell is capable of storing 1-bit of data by using just *single NFET* and a *single capacitor* **when powered**:
  > This is often called as 1T-DRAM. DRAM is also a volatile memory device. 
  
-<img src="https://dl.dropboxusercontent.com/s/4wovmxsgb7896vd/dram.png?raw=1"    width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/4wovmxsgb7896vd/dram.png?raw=1"     >
 
 **To read:**
 * Supply high voltage to the word line, and this will switch the NFET `on`.
@@ -134,7 +134,7 @@ put together on a shaft, and they make up a *cylinder*. The cylinders are able t
 
 Each round disk can be separated into concentric circles sections (*track*), and each track can be further separated into *sectors* as shown below. Each sector contains a fixed number of bits.
 
-<img src="https://dl.dropboxusercontent.com/s/x32k130rfu8h7fm/disk.png?raw=1"    width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/x32k130rfu8h7fm/disk.png?raw=1"     >
 
 A disk is able to retain its information even after they're not directly plugged to power supply anymore. 
 
@@ -176,7 +176,7 @@ Billions of these SRAM or DRAM cells are assembled together to form a large memo
 
 To decode an address, we can split the address into higher `N` address bits (selecting one of the rows) and lower `M` address bits (selecting a group of the columns), then read the information out of the bitlines as shown in the figure: 
 
-<img src="https://dl.dropboxusercontent.com/s/kc5atqtnyuo5dg7/decoding.png?raw=1"    width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/kc5atqtnyuo5dg7/decoding.png?raw=1"     >
 
 
 We often read hundreds of bits in parallel, for example, one *"row"* might contains hundreds of bit lines, and the lower `M` address bits will select which of group of 32 bits (or 64 bits, depending on the ISA) we want to read. 
@@ -194,7 +194,7 @@ Since what we want is a large, fast, and cheap memory -- that is to perform with
 
 As illustrated in the figure below, our computer is consisted not only of CPU and RAM, but also cache and disk. 
 
-<img src="https://dl.dropboxusercontent.com/s/9v2wj0zf64zbclo/memhierarchy.png?raw=1"    width="90%" height = "90%">
+<img src="https://dl.dropboxusercontent.com/s/9v2wj0zf64zbclo/memhierarchy.png?raw=1"     >
   
 It is possible to give the user an illusion that they're running at SRAM speed at all times due to the **locality of reference.** 
 
@@ -264,7 +264,7 @@ There are two flavours in cache design: the fully associative (FA) cache and the
 ### Fully Associative Cache 
 
 The FA cache has the following generic structure:
-<img src="https://dl.dropboxusercontent.com/s/yoj1kl3kg3do86c/facache.png?raw=1"    width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/yoj1kl3kg3do86c/facache.png?raw=1"     >
 
 `TAG` and `DATA` are made of SRAM cells:
 * `TAG` contains  **all bits** of address `A`.
@@ -272,7 +272,7 @@ The FA cache has the following generic structure:
 	> It will be 32 bits of data and 32 bits of address for $$\beta$$ CPU. 
 
 Note the presence of a device called the **tri-state buffer:**
-<img src="https://dl.dropboxusercontent.com/s/hu22kodm6etknl5/tsbuffer.png?raw=1"    width="50%" height = "50%">
+<img src="https://dl.dropboxusercontent.com/s/hu22kodm6etknl5/tsbuffer.png?raw=1"     >
 
 It has the following truth-table:<br>
 $$\begin{matrix}
@@ -305,7 +305,7 @@ FA cache is the **gold standard** on how well a cache should perform
 ### Direct Mapped Cache (DM)
 
 The DM cache has the following generic structure:
-<img src="https://dl.dropboxusercontent.com/s/eu74l2gi23380mp/dmcache.png?raw=1"    width="80%" height = "80%">
+<img src="https://dl.dropboxusercontent.com/s/eu74l2gi23380mp/dmcache.png?raw=1"      >
   
 
 Characteristics of DM caches (in comparison to FA cache):

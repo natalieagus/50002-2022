@@ -42,11 +42,11 @@ The lecture notes on [Virtual Machine](https://natalieagus.github.io/50002/notes
 ## Introduction: The Tiny OS
 `lab6_submit.uasm` is a program that implements a minimal Kernel supporting a simple **timesharing** system. Use BSim to load this file, assemble, and then run `lab6_submit.uasm`. The following prompt should appear in the console pane of the BSim Display Window:
 
-<img src="/50002/assets/contentimage/lab6/1.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab6/1.png"  class=" center_full"/>
 
 As you type, each character is echoed to the console and when you hit **return** the whole sentence is translated into Pig Latin and written to the console:
 
-<img src="/50002/assets/contentimage/lab6/2.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab6/2.png"  class=" center_full"/>
 
 The hex number `0x000711BC` written out in the screenshot above as part of the prompt is a **count** of the **number of times** one of the user-mode processes (**Process 2**) has been **scheduled** while you typed in the sentence or leave the program idling.
 
@@ -435,7 +435,7 @@ Recall that **only user-mode programs** can be **interrupted**. Interrupts signa
 
 The original `lab6_submit.uasm` prints out “Illegal interrupt” and then halts if a mouse interrupt is received:
 
-<img src="/50002/assets/contentimage/lab6/3.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab6/3.png"  class=" center_full"/>
 
 **Change** this behavior by:
 1. Adding an interrupt handler that **stores** the click information in a new kernel memory location and then,
@@ -459,7 +459,7 @@ Insert a `.breakpoint` instruction right before the `JMP(XP)` at the end of your
 
 If things are working correctly the simulation should **stop** at the breakpoint and you can **examine** the kernel memory location where the mouse info was stored to verify that it is correct. In the sample below, we name the memory location as `Mouse_State`, and the value in the red box signifies the coordinates of the mouse click made in the console pane. 
 
-<img src="/50002/assets/contentimage/lab6/4.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab6/4.png"  class=" center_full"/>
 
 Continuing execution (click the “Run” button in the toolbar at the top of the window) should return to the interrupted program. **When you’re done remember to remove the breakpoint.**
 
@@ -498,19 +498,19 @@ SVC_UUO:
 ### Testing Your Implementation
 Once your `Mouse()` implementation is complete, add a `Mouse()` instruction **just after P2Start**.  If things are working correctly, this user-mode process should now **hang** and `Count3` should **not** be incremented even if you type in several sentences (i.e., the prompt should always be “00000000>”).  
 
-<img src="/50002/assets/contentimage/lab6/5.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab6/5.png"  class=" center_full"/>
 
 * Now click the mouse once over the console pane and then type more sentences  
 * The prompt should read `00000001>`
 
-<img src="/50002/assets/contentimage/lab6/6.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab6/6.png"  class=" center_full"/>
 
 When you are done, remember to **remove** the `Mouse()` instruction you added.
 
 ## Task C: Add fourth user-mode process P3 that reports mouse clicks
 In this task, we would have to **modify** the **kernel** to add support for a **fourth user-mode process**. Add user-mode code for the new process that calls `Mouse()` and then prints out a message of the form:
 
-<img src="/50002/assets/contentimage/lab6/7.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab6/7.png"  class=" center_full"/>
 
 Each click message **should** appear on its own line (i.e., it should be preceded and followed by a newline character). You can use `WrMsg()` and `HexPrt()` to send the message; see the code for **Process 0 **for an example of how this is done. Write the instruction for P3 below P2:
 
@@ -558,7 +558,7 @@ Using **semaphores**, **coordinate** the operation of the user-mode processes so
 ### Testing your implementation
 Start typing in a **sentence**, then **click** the mouse. The click message should be printed **after** the translation and the following prompt has been printed.
 
-<img src="/50002/assets/contentimage/lab6/8.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab6/8.png"  class=" center_full"/>
 
 ### Hints
 

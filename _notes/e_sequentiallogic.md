@@ -37,7 +37,7 @@ We can connect memory device(s) together with combinational logic device(s) to f
 A sequential logic device has a *general* structure as shown below:
 
 
-<img src="https://dl.dropboxusercontent.com/s/7crg33w0e7yg2hn/Q1.png?raw=1"  alt="F1"  width="80%" height = "80%">
+<img src="https://dl.dropboxusercontent.com/s/7crg33w0e7yg2hn/Q1.png?raw=1"      >
 
   
 In the next few sections we will learn how to create this memory device labeled as **Registers** above (or more specifically, it is called *D Flip-Flop*). 
@@ -47,13 +47,13 @@ In the next few sections we will learn how to create this memory device labeled 
   
 A D Flip-Flop (memory device) is made using another device called a D-latch.  A D-latch can be created using a multiplexer with a **feedback** **loop**,
 
-<img src="https://dl.dropboxusercontent.com/s/612f6bsfepegsbb/Q2.png?raw=1"  alt="Fig2"  width="30%" height = "30%">
+<img src="https://dl.dropboxusercontent.com/s/612f6bsfepegsbb/Q2.png?raw=1" >
 
 >Note: this is **not** the only way to make a D-latch. A simple Google search will present you with some other alternatives.  We just use a multiplexer here to explain the idea easily. 
 
 How it works:
-- In practice, G is clock (CLK) signal. It will periodically **switch** between '1's and '0's (valid high voltage and valid low voltage) as shown in the image below:
-<img src="https://dl.dropboxusercontent.com/s/1s4wmuj1bsfpmfp/Q3.png?raw=1"  alt="Fig5"  width="70%" height = "70%">
+- In practice, G is clock (CLK) signal. It will periodically **switch** between `1`s and  `0`s (valid high voltage and valid low voltage) as shown in the image below:
+<img src="https://dl.dropboxusercontent.com/s/1s4wmuj1bsfpmfp/Q3.png?raw=1" >
 
 - Q is the output of the latch, and D is the (external) input that's placed at the second input port the latch. 
 - Q is fed back as Q', the first input port of the latch. 
@@ -74,16 +74,16 @@ How we intend to use the device:
 
 The figure below illustrates an example of 4-bit input and corresponding 4-bit output. Each of the device drawn as a rectangle (with the ">" symbol at its lower left corner) is called a **Flip-Flop** (see later section).  They are made up of D-latches. 
 
-<img src="https://dl.dropboxusercontent.com/s/ruxrkxm1r6kog88/s1.png?raw=1"  alt="Fig3"  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/ruxrkxm1r6kog88/s1.png?raw=1"  3"   >
 
   
- <span style="background-color:yellow">  **Note**: From this point onwards, '1' simply means valid high voltage, and '0' means valid low voltage </span>. 
+  <span style="background-color:yellow; color: black">  **Note**: From this point onwards, `1` simply means valid high voltage, and  `0` means valid low voltage </span>. 
  
 There are **two** problems that arises from using this simple D-latch in our electronic devices without any contract / rules:
 
 1. **Storage of invalid information:** If G changes from `1` to `0` at the ***exact*** moment when D just turned **invalid** from previously being valid, then we might end up storing that  **invalid value of D** when the latch enters memory mode.
 
-2. **Invalid/unstable output due to transition in input:** If the *existing* stable input value in D is flipped, e.g: is changed from '1' to '0' or vice versa,  the value at D will be invalid (*momentarily*) during this *transition*. The voltage value at D can also be invalid (unstable, unreliable) due to any disturbance. 
+2. **Invalid/unstable output due to transition in input:** If the *existing* stable input value in D is flipped, e.g: is changed from `1` to  `0` or vice versa,  the value at D will be invalid (*momentarily*) during this *transition*. The voltage value at D can also be invalid (unstable, unreliable) due to any disturbance. 
 
 	This will affect the output at Q if G is 1, because it will pass **all** input from D to the output wire Q, regardless of whether it is a valid or stable input or not (during transition or any disturbance). We end up with potentially unstable/invalid output **half the time.** 
 
@@ -110,10 +110,10 @@ The dynamic discipline states that there are **two timing** **requirements for t
 
 1. $$T_{hold}$$ =  *approximately* $$t_{pd}$$   of the components that make up the D-latch.
 
-$$T_{setup}$$ is defined as  the minimum amount of time that the voltage on wire D needs to be valid/stable **BEFORE** the **clock edge changes from '1' to '0'** (turning from write mode to memory mode).
+$$T_{setup}$$ is defined as  the minimum amount of time that the voltage on wire D needs to be valid/stable **BEFORE** the **clock edge changes from `1` to  `0`** (turning from write mode to memory mode).
 
 
-$$T_{hold}$$ is defined as the minimum amount of time that the voltage on wire D needs to be valid/stable **AFTER** the **clock edge reaches a valid '0' from a previous '1'**.
+$$T_{hold}$$ is defined as the minimum amount of time that the voltage on wire D needs to be valid/stable **AFTER** the **clock edge reaches a valid  `0` from a previous `1`**.
 
 As explained in the previous notes,  $$t_{pd}$$ is the propagation delay of the combinational logic devices (components) that make up a D-latch, e.g: a multiplexer, which has a $$t_{pd}$$ value. The multiplexer can be made using a handful NAND gates. To clarify, this $$t_{pd}$$ is the propagation delay of that multiplexer or  components (combinational logic devices) that are used to make up a D-latch.
 
@@ -129,7 +129,7 @@ As explained in the previous notes,  $$t_{pd}$$ is the propagation delay of the 
 
 To address the second problem : the presence of **unstable/invalid output during transition of input**, we need to create another device called the *Edge-Triggered D Flip Flop* (or shortened as Flip-Flop) by putting two D-Latches in series as shown:
 
-<img src="https://dl.dropboxusercontent.com/s/gtqq3c7i9d6vz3c/Q1.png?raw=1"  alt="Fig6"  width="80%" height = "80%">
+<img src="https://dl.dropboxusercontent.com/s/gtqq3c7i9d6vz3c/Q1.png?raw=1"  6"    >
 
 At first, each of the two rectangles are the symbol of a regular D-latch. Putting them in series (and ***inverting*** the CLK signal fed to the first latch) results in a Flip-Flop (the rectangular symbol on the right). The difference is that in a Flip-Flop, the CLK input port is represented by the > symbol at its lower left corner. 
 
@@ -168,7 +168,7 @@ We can decribe the structure of a Flip-Flop as follows:
 
 The explanation above is illustrated in terms of **waveforms** below. Take some time to study the waveforms and convince yourselves that they make sense. Note that "Q" here means the overall output of the Flip-Flop, which is signal produced by the Q port of the slave latch. 
 
-<img src="https://dl.dropboxusercontent.com/s/lsovnj1u8s9d95i/ffwaveform.png?raw=1"  width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/lsovnj1u8s9d95i/ffwaveform.png?raw=1"   >
 
  
 Notice two further behaviors in the Flip-Flop:
@@ -180,7 +180,7 @@ Notice two further behaviors in the Flip-Flop:
 
 	> It is as if we are able to ***capture*** the instantaneous value of D at each CLK-rise edge, and **reflect**/produce it at Q for that **entire period** of the CLK. 
 
-	You can also make the slave latch to be the one that receives the inverted CLK signal, and the value at Q reflects the input at D at each **falling edge** of the CLK. <span style="background-color:yellow">  Note: The name "edge-triggered" comes from the fact that the **output at port Q**  of the slave **changes** only when the CLK edge changes (in our case, at every rising *edge*). </span>
+	You can also make the slave latch to be the one that receives the inverted CLK signal, and the value at Q reflects the input at D at each **falling edge** of the CLK.  <span style="background-color:yellow; color: black">  Note: The name "edge-triggered" comes from the fact that the **output at port Q**  of the slave **changes** only when the CLK edge changes (in our case, at every rising *edge*). </span>
 
 
   
@@ -192,9 +192,9 @@ Notice two further behaviors in the Flip-Flop:
 In the previous chapter, we learned about the definition $$t_{CD}$$ and $$t_{PD}$$ for combinational logic (CL) devices, and how to compute these values. For **sequential logic (SL) devices**, i.e: circuits with Flip-Flops and CLs combined, these timings mean as follows:
   
 
-1. $$t_{CD}$$ of a Flip-Flop (or sequential logic devices) is the time taken for an **invalid** CLK input (**not input to the sequential logic circuit**),  <span style="background-color:yellow"> as a result of *transition* from '0' to '1'</span>, to produce an **invalid** *final* output of the SL (Sequential Logic) device. 
+1. $$t_{CD}$$ of a Flip-Flop (or sequential logic devices) is the time taken for an **invalid** CLK input (**not input to the sequential logic circuit**),   <span style="background-color:yellow; color: black"> as a result of *transition* from  `0` to `1`</span>, to produce an **invalid** *final* output of the SL (Sequential Logic) device. 
 
-1. $$t_{PD}$$ of a Flip-Flop (or sequential logic devices) is the time taken for **valid '1'** CLK input (**again, not input to the sequential logic circuit**), to produce a **valid** *final* output of the SL device. 
+1. $$t_{PD}$$ of a Flip-Flop (or sequential logic devices) is the time taken for **valid `1`** CLK input (**again, not input to the sequential logic circuit**), to produce a **valid** *final* output of the SL device. 
 
 
   
@@ -212,7 +212,7 @@ To summarise:
 
   
 
-Recall that we learned the *dynamic discipline* that has to be obeyed to ensure that we do not end up storing invalid input signals. In the flip-flop configuration, we **connect** two D-latches together. <span style="background-color:yellow"> Hence the dynamic discipline for the slave latch has to be obeyed by the master latch because the *output* of the master latch is the *input* to the slave latch</span>. 
+Recall that we learned the *dynamic discipline* that has to be obeyed to ensure that we do not end up storing invalid input signals. In the flip-flop configuration, we **connect** two D-latches together.  <span style="background-color:yellow; color: black"> Hence the dynamic discipline for the slave latch has to be obeyed by the master latch because the *output* of the master latch is the *input* to the slave latch</span>. 
 
 To obey the dynamic discipline, there exist this **timing constraint** for the Flip-Flop configuration:
 
@@ -246,14 +246,14 @@ Reasons:
 
 **The *dynamic discipline* has to always be obeyed at any part of the sequential logic circuit/device.** 
 
-Due to this, we have **two** timing constraints called **$$t_1$$ and $$t_2$$** that should **always** apply for <span style="background-color:yellow">  **any** path between two (one upstream and one downstream) connecting Flip-Flops </span> (regardless of how many CLs are there in the middle of the two Flip-Flops) in a SL circuit. 
+Due to this, we have **two** timing constraints called **$$t_1$$ and $$t_2$$** that should **always** apply for  <span style="background-color:yellow; color: black">  **any** path between two (one upstream and one downstream) connecting Flip-Flops </span> (regardless of how many CLs are there in the middle of the two Flip-Flops) in a SL circuit. 
 
 Take into example a very simple combination as shown in the figure below, consisted of two Flip-Flops and one CL device in between. Let's name the Flip-Flop on the left the "upstream" Flip-Flop and the Flip-Flop on the right the "downstream" Flip-Flop: 
 
-<img src="https://dl.dropboxusercontent.com/s/2e6c8of9d5ipw0t/Q11.png?raw=1"  alt="Fig6"  width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/2e6c8of9d5ipw0t/Q11.png?raw=1" >
 
 If we were to plot the timing diagram of the CLK, output of R1 ($$Q_{R1}$$), and the output of the CL (CL out), we have the following:
-<img src="https://dl.dropboxusercontent.com/s/dxcun9lssktr6rn/Q12.png?raw=1"  alt="Figure4"  width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/dxcun9lssktr6rn/Q12.png?raw=1"  >
 
 
 From the diagram above, we can define two timing constraints for this particular scenario:
@@ -295,7 +295,7 @@ In any sequential logic circuit we use a **single synchronous clock**, meaning t
 
 In practice, it is **not possible** for any arbitrary input to always be synchronised with the clock, i.e: to obey the $$t_S$$ and $$t_H$$ requirements (of the external input facing 'upstream' DFF) at all times. Recall that dynamic discipline is crucial for any sequential logic circuit to work properly. We are now going to discuss what happens if **dynamic discipline is violated**.
 
-<img src="https://dl.dropboxusercontent.com/s/ucujrzj5imp4xxy/metas.png?raw=1"  alt="Figure10"  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/ucujrzj5imp4xxy/metas.png?raw=1" >
 
 
 Look at the figure above. Let D be the "user" input to the Flip-Flop and OUT be the output "Q" of the Flip-Flop. When one of the timing constraints ($$t_{H}$$ in this case) imposed by the dynamic discipline is violated, we may end up storing the invalid values during read/memory mode. This event of storing invalid value is called the **metastable state**. 
@@ -309,18 +309,18 @@ Look at the figure above. Let D be the "user" input to the Flip-Flop and OUT be 
 Due to the existence of a feedback loop in the D-latch as shown,
 
 
-<img src="https://dl.dropboxusercontent.com/s/8jiw0mlsq8xvzsv/dff.png?raw=1"  alt="Figure4"  width="40%" height = "40%">
+<img src="https://dl.dropboxusercontent.com/s/8jiw0mlsq8xvzsv/dff.png?raw=1"  >
 
 ..it has a unique property where there exist a point in its voltage characteristics function whereby **Vin = Vout**. 
 
 We can measure and plot $$V_{in}$$ (Q') versus $$V_{out}$$ (Q) in the D-latch, and come up with a VTC plot as follows:
 
-<img src="https://dl.dropboxusercontent.com/s/t4ji250oufvdsun/metastable.png?raw=1"  alt="Figure4"  width="80%" height = "80%">
+<img src="https://dl.dropboxusercontent.com/s/t4ji250oufvdsun/metastable.png?raw=1"   >
 
 
 The red line signifies the feedback constraint, where we have **Q** at $$V_{out}$$ to be equivalent to **Q'** as $$V_{in}$$. **This is the effect of connecting the output of the multiplexer to itself, on the first input port**. 
 
-The green line signifies the VTC of a "closed latch" state, i.e: when the selector bit of the multiplexer receives a '0' as shown in the diagram above. 
+The green line signifies the VTC of a "closed latch" state, i.e: when the selector bit of the multiplexer receives a  `0` as shown in the diagram above. 
 
 Notice that in the closed latch state, the D-latch passes the value from $$V_{in}$$ (Q') as the output at $$V_{out}$$ (Q), and thus we have a shape that resembles that of a buffer. 
 
@@ -346,7 +346,7 @@ Therefore, without the presence of noise or external disturbances, if $$V_in$$ i
 
 The state whereby your SL device is unable to settle to a stable / valid value for unknown period of time is called the metastable state. Obviously we **do not** want this because the output of the device is invalid during this unknown time frame, and therefore rendered *useless*. 
 
-<span style="background-color:yellow"> In summary, **properties** of metastable state are illustrated below:</span>
+ <span style="background-color:yellow; color: black"> In summary, **properties** of metastable state are illustrated below:</span>
 - It corresponds to an **invalid** logic level -- the switching threshold of a device
 
 - It is an **unstable** equilibrium, a small noise/pertubation may cause it to *accelerate* towards either ends: a stable `0` or `1`... *eventually* (but it might not too).
@@ -363,8 +363,8 @@ Since there is **no lower bound** on $$\|V_{out} - V_m\|$$, then there is **no u
 **In other words, we cannot completely avoid the metastable state**. 
 > If an SL device enters the metastable state, it *might* eventually settle to a valid zero... or a valid one, but there is no guarantee when this will happen. It may take a second,  or it may take forever to settle. 
 
-<div class="blueborder"> The only thing we can do is to <strong>minimize</strong> the metastable state's probability from happening. We can do that by introducing more <strong>delays</strong> between the first 'upstream' Flip-Flop and the CL devices downstream in the hopes that the signal will somehow settle towards either end before reaching the CL, as illustrated here:<br>
-<img src="https://dl.dropboxusercontent.com/s/g5sbabtn9ywwkod/series.png?raw=1"  alt="Figure12"  width="90%" height = "90%"><br>
+<div class="yellowbox"> The only thing we can do is to <strong>minimize</strong> the metastable state's probability from happening. We can do that by introducing more <strong>delays</strong> between the first 'upstream' Flip-Flop and the CL devices downstream in the hopes that the signal will somehow settle towards either end before reaching the CL, as illustrated here:<br>
+<img src="https://dl.dropboxusercontent.com/s/g5sbabtn9ywwkod/series.png?raw=1"><br>
 Note that this comes at the cost of <i>responsiveness</i> of the device. 
 </div>
  
@@ -377,7 +377,7 @@ You may want to watch the post lecture videos here:
 
 As stated above, a **sequential** logic device has a *general* structure as shown below:
 
-<img src="https://dl.dropboxusercontent.com/s/7crg33w0e7yg2hn/Q1.png?raw=1"  alt="F1"  width="80%" height = "80%">
+<img src="https://dl.dropboxusercontent.com/s/7crg33w0e7yg2hn/Q1.png?raw=1"      >
 
 During each clock period, it should be able to compute the next value (next state), and output value. The output at any point in time, is always affected by the current state, which is the state computed in the previous clock period / time step. Hence the name **sequential logic** comes from the fact that it is a type of **logic** circuit whose output depends **not only on the present** value of its input signals but on the *sequence of past inputs, (the input history) as well.*
 

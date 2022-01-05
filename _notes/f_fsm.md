@@ -25,7 +25,7 @@ The main aim for this chapter is to **understand** how we can utilise the topics
 
 We frequently use FSMs in our daily lives:  traffic lights, vending machine, heating system, elevator, electronic locks (security systems), railroad systems, turnstile, alarm clock, and many more. We can create an FSM by implementing the functionality of the state machine using combinational logic devices, and assemble them with memory devices to form a complete (sequential logic) FSM circuitry. The FSM comes in two flavours: Moore and Mealy, which schematic is as shown: 
 
-<img src="https://dl.dropboxusercontent.com/s/y157lzv1g0lmwpl/Q2.png?raw=1"  width="80%" height = "80%">
+<img src="https://dl.dropboxusercontent.com/s/y157lzv1g0lmwpl/Q2.png?raw=1"    >
 
 We will learn in detail how each of them works in the later sections. 
 
@@ -56,7 +56,7 @@ We can represent a state machine in two forms: ****state transition diagram or t
 
 Suppose we have a simple digital lock machine, that will open only if we give the password: `0110`. The following state diagram illustrates how that lock works:
  
-  <img src="https://dl.dropboxusercontent.com/s/peuby3etfi3twvx/Q2%202.png?raw=1"  width="100%" height = "100%">
+  <img src="https://dl.dropboxusercontent.com/s/peuby3etfi3twvx/Q2%202.png?raw=1"   >
 
 That **S_X** in bold represents the *initial* state. The **arrows** are the possible *transitions* between states. The little numbers beside the arrows are the kind of *input* required for state transition to happen. The word $$U$$ inside each state circle is the *output* of each state. If it is unlocked, $$U=1$$, otherwise $$U=0$$ for a locked output 
 * When input `0110` is entered in that *exact* sequence, you'll land at `S_3` -- and the lock will be **unlocked**. 
@@ -88,7 +88,7 @@ S_i &  In & S_{i+1} & Out\\
 $$
 
 
-<span style="background-color:yellow">  **Important**: $$s$$ state bits allow us to encode up to  $$2^s$$ different states. </span>
+ <span style="background-color:yellow; color: black">  **Important**: $$s$$ state bits allow us to encode up to  $$2^s$$ different states. </span>
 
 
 *Note: the output column in the figure above contains the output that depends on the *current* state only (also known as the Moore Machine, see next section).* 
@@ -109,12 +109,13 @@ We can implement the same features (of a machine) using either Moore or Mealy co
 
 The state diagram for a Moore implementation of this lock and a Mealy implementation of this lock is as shown: 
 
-<img src="https://dl.dropboxusercontent.com/s/yirju0klzdsbj9y/Q3.png?raw=1"  width="100%" height = "100%">
+<img src="https://dl.dropboxusercontent.com/s/yirju0klzdsbj9y/Q3.png?raw=1"   >
 
 
 We have 4 states for the Moore machine, so we can encode the states as `00, 01, 10,` and `11` for states `S_0, S_1, S2,` and `S_3` respectively. 
 
 The truth table for the Moore Machine above is (combinations that don't apply to the FSM is omitted):
+
 $$
 \begin{matrix}
 S_i &  In & S_{i+1} & Out\\
@@ -133,6 +134,7 @@ $$
 
 
 For the Mealy machine, we have **less** states and we can simply encode the states as `00, 01,` and `10` for `S_0, S_1`, and `S2` respectively. The truth table for the Mealy Machine above is:
+
 $$
 \begin{matrix}
 S_i &  In & S_{i+1} & Out\\
@@ -226,11 +228,11 @@ Now that we have the boolean equations for each machine ready, we can simply con
 
 One possible schematic for the Moore version of the lock is :
 
-<img src="https://dl.dropboxusercontent.com/s/6trfvoracwgajwl/moore_1.png?raw=1"  width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/6trfvoracwgajwl/moore_1.png?raw=1"   >
 
  One possible schematic for the Mealy version of the lock is:
  
- <img src="https://dl.dropboxusercontent.com/s/bu45lxkolwzbj8n/meally_1.png?raw=1"  width="70%" height = "70%">
+ <img src="https://dl.dropboxusercontent.com/s/bu45lxkolwzbj8n/meally_1.png?raw=1"   >
  
 > Both diagrams above are obtained after minimising the boolean expression. There are other ways to construct them machine, such as using only NAND gates, only NOR gates, only multiplexers, or ROMs. Try it yourself as practice.
 
@@ -276,7 +278,7 @@ The goal of this section is that, after establishing the abstraction (specs) of 
 The truth table will look something like this for any *arbitrary* FSM with  $$i$$ input bits, $$s$$ state bits, and $$o$$ output bits:
  
 
-<img src="https://dl.dropboxusercontent.com/s/bmm0uh4uzk6mrwe/Q1.png?raw=1"  width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/bmm0uh4uzk6mrwe/Q1.png?raw=1"   >
 
 In short, we need **to create a combinational logic device** that conforms to the FSM's truth table. We have learned several ways to create such devices:
 
@@ -292,7 +294,7 @@ In short, we need **to create a combinational logic device** that conforms to th
 
 Given $$i$$ input bits, $$s$$ state bits, and $$o$$ output bits we have a total combination of $$2^{i+s}$$ input-state combinations, and each input-state pair has $$o$$ bits as an output.  
 
-> <span style="background-color:yellow">  Hence, the number of possible FSMs that can be captured with $$i$$ input bits, $$o$$ output bits, and $$s$$ state bits is $$2^{(o+s)2^{i+s}}$$ FSMs *(Note: some FSMs in these many possible FSMs may be equivalent)*. </span>
+>  <span style="background-color:yellow; color: black">  Hence, the number of possible FSMs that can be captured with $$i$$ input bits, $$o$$ output bits, and $$s$$ state bits is $$2^{(o+s)2^{i+s}}$$ FSMs *(Note: some FSMs in these many possible FSMs may be equivalent)*. </span>
 
 *Why is this so?*
 -  We have $$2^{i+s}$$ input-state combinations if we have $$i$$ input bits and $$s$$ states -- *to define a particular FSM, we need to decide what is the value of next state and its corresponding output for each state-input combination.* 
@@ -306,7 +308,7 @@ Given $$i$$ input bits, $$s$$ state bits, and $$o$$ output bits we have a total 
 
   
 
-<img src="https://dl.dropboxusercontent.com/s/pspqvc7b00homaa/fsms.png?raw=1"  width="100%" height = "100%">
+<img src="https://dl.dropboxusercontent.com/s/pspqvc7b00homaa/fsms.png?raw=1"   >
   
 
 The reason we want to **enumerate** number of possible FSMs given $$s$$ state bits, $$i$$ input bits, and $$o$$ output bits is because if we are going to make a *hardware* for this FSM using some generic components such as the multiplexer, ROMs, or other memory unit, we want to know *how many different FSMs* can we program onto this particular hardware size which we probably mass-produce.
@@ -315,11 +317,11 @@ The reason we want to **enumerate** number of possible FSMs given $$s$$ state bi
 ## FSM Equivalence and Reduction
 FSM A and FSM B shown below have the same functionality, however FSM A has double the amount of states than FSM B. In other words, we could have reduced FSM A by merging **equivalent** states. 
   
-<img src="https://dl.dropboxusercontent.com/s/4frikzlus8gcmeo/Q4.png?raw=1"  e4"  width="80%" height = "80%">
+<img src="https://dl.dropboxusercontent.com/s/4frikzlus8gcmeo/Q4.png?raw=1"  e4"    >
 
 To reduce the number of states in an FSM, we need to find pairs of **equivalent** states and merge them. 
 
-<span style="background-color:yellow">  Two states $$S_i$$ and $$S_j$$ are equivalent iff:  <span style="background-color:yellow">   for  an  arbitrary input  sequence applied  at  both  states,  the  **same**  **output sequence**  results </span>. 
+ <span style="background-color:yellow; color: black">  Two states $$S_i$$ and $$S_j$$ are equivalent iff:   <span style="background-color:yellow; color: black">   for  an  arbitrary input  sequence applied  at  both  states,  the  **same**  **output sequence**  results </span>. 
 
 In FSM A, we can deduce that $$S_3$$ and $$S_2$$ are **identical**:
 1. In both states, the output is `1`

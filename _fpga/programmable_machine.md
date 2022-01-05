@@ -30,10 +30,10 @@ When you brainstorm for a game, try to keep two very **important** things in min
 	* **Some upgrade:** You can buy bigger buttons, LEDs or 7 segments, and buy **transistors** (simple, cheap BJT ones) to be used as **amplifiers** using external power source if the voltage from the Au is not strong enough. 
 	* **More upgrade:** You can buy LED strips (e.g: WS2812B), and **read the specifications**: typically the type of serial data and clock cycles required to set the lights. 
 	* **Even more upgrade:** You can buy LED matrix. There are TWO types: a simple up to 8x8 dot matrix,
-<img src="https://dl.dropboxusercontent.com/s/9fq8jdfe4n5h0zp/dot.png?raw=1"  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/9fq8jdfe4n5h0zp/dot.png?raw=1"   >
 <br>
 Or, a **bigger** matrix that receives serial data,<br>
-<img src="https://dl.dropboxusercontent.com/s/8nfp3inp8yi1t4v/bigmatrix.png?raw=1"  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/8nfp3inp8yi1t4v/bigmatrix.png?raw=1"   >
 <br>
 
 	For the small matrix, you can use easy registers / dff to manage the data. For the big matrix, **you need to use some kind of RAM module** (you can use simple RAM default component in Alchitry) to store your data for the matrix to display at all times. 
@@ -95,7 +95,7 @@ We also need some registers to act as temporary storage value. Therefore the sim
 * **0x9** to **0xF** : Temp Regs
 
 One possible REGFILE schematic for your custom game datapath is as such:
-<img src="https://dl.dropboxusercontent.com/s/u0tl14d2lcda584/regfile.png?raw=1"  width="90%" height = "90%">
+<img src="https://dl.dropboxusercontent.com/s/u0tl14d2lcda584/regfile.png?raw=1"   >
 
 > It is very important to plan the schematic first BEFORE actually coding it on your FPGA. This speeds up your development time and save you from the pain of debugging. 
 
@@ -141,7 +141,7 @@ A super simple support datapath should have some kind of `ASEL` mux, `BSEL` mux,
 * `WDSEL`: to decide what's fed into the `DATA IN` port of the REGFILE (what's written into `Reg[Rc]` if any).
 
 The figure below illustrates that:
-<img src="https://dl.dropboxusercontent.com/s/p9puma2xbs23an8/alusupport.png?raw=1"  width="90%" height = "90%">
+<img src="https://dl.dropboxusercontent.com/s/p9puma2xbs23an8/alusupport.png?raw=1"   >
 
 Obviously the control signals required are (coloured in the figure above):
 * `ASEL` selector
@@ -191,7 +191,7 @@ The number of states depends on how complicated your game is. However you can be
 	* `DECREASE TIMER`	event (blue)
 	* `COMPUTE WINNER` event (purple)
 
-<img src="https://dl.dropboxusercontent.com/s/gf992dyc1xu235b/FSM.png?raw=1"  width="100%" height = "100%">
+<img src="https://dl.dropboxusercontent.com/s/gf992dyc1xu235b/FSM.png?raw=1"   >
 
 `BUTTON PRESS` **event** is invoked when the control unit **receives button press signal** from either player:
 * When any player press a button, we want to check if the player's current button press is lesser than 3. If yes, increment the button count, and increment the player's score based on the current collectible number in the counter, and then reset the counter. 
@@ -228,7 +228,7 @@ Coding an FSM in Lucid is very easy. You only need to import the `fsm` module an
 ## The Complete Datapath
 The complete datapath for the sample Counter game should look like this. In fact, this **basic structure** can be adapted to implement any simple game. 
 
-<img src="https://dl.dropboxusercontent.com/s/tyjxwe2ygu51rnr/datapath.png?raw=1"  width="90%" height = "90%">
+<img src="https://dl.dropboxusercontent.com/s/tyjxwe2ygu51rnr/datapath.png?raw=1"   >
 
 The complete code that describes the datapath along with the connection to the control logic can be found [here](https://github.com/natalieagus/SampleAlchitryProjects/blob/master/CounterGame/source/game_miniBeta.luc). 
 
@@ -240,7 +240,7 @@ The black boxes signifies connection to **external input/output devices.** Inter
 3. Create a combinational logic module that randomly produce a value of `1` (denoted as `VARIABLE INCREMENTER`). You can see the code [here](https://github.com/natalieagus/SampleAlchitryProjects/blob/master/CounterGame/source/variable_counter.luc).
 
 Notice the bootstrapped REGFILE output : all 16-bits `Rb_data` straight to the FSM. This is like the `Z` unit in $$\beta$$, used for **branching** after a comparison check in the previous state.  You can also use this to branch and *perform next check* in **1 cycle**. The relevant state illustration and its sample lucid code is:<br>
-<img src="https://dl.dropboxusercontent.com/s/wh5rs5dakly3jtv/bcheck.png?raw=1"  width="40%" height = "40%">
+<img src="https://dl.dropboxusercontent.com/s/wh5rs5dakly3jtv/bcheck.png?raw=1"   >
 
 
 ```cpp

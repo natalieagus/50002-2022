@@ -24,7 +24,7 @@ The physical memory can contain all kinds of information, and is typically segme
 
 > A **program** and a **process** are terms that are  very closely related. Formally, we refer to a **program** as a group of instructions made carry out a specified task whereas a process simply means *a program that is currently run* or *a program in execution*. We can open and run the same program `N` times simultaneously, forming `N` distinct processes (e.g: opening multiple instances of text editors). 
 
-<img src="https://dl.dropboxusercontent.com/s/m1vg38rki9m5z1i/memimage.png?raw=1"  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/m1vg38rki9m5z1i/memimage.png?raw=1"   >
 
 In the lower address (address `0` onwards), we typically have executable instructions loaded there (PC starts from `0`). 
 
@@ -70,7 +70,7 @@ In virtual memory, we use a part of the disk as an *extension* to the physical m
 
 <span style="background-color:yellow; color: black"> A **page** is a fixed-size block of data that forms   *contiguous* physical memory addresses, </span> as illustrated in the figure below:
 
-<img src="https://dl.dropboxusercontent.com/s/janbxcdijndlhc4/page.png?raw=1"  width="80%" height = "80%">
+<img src="https://dl.dropboxusercontent.com/s/janbxcdijndlhc4/page.png?raw=1"    >
   
 > It is very *useful* and *efficient* to transfer data in *pages* (instead of word by word) between the physical memory and disk due to **locality of reference.**
 
@@ -129,7 +129,7 @@ Therefore, the addresses requested by the `PC`  are actually *virtual addresses*
 
 Each `VA` has to be then mapped to a `PA`, so that the system may return the requested data to the CPU (upon instruction fetch, or `LD`), or complete the execution of `ST` related instructions. This mapping is done via the **memory management unit** (MMU). 
 
-<img src="https://dl.dropboxusercontent.com/s/s5mgxqim69a98o6/cpummu.png?raw=1"  width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/s5mgxqim69a98o6/cpummu.png?raw=1"   >
 
 > An MMU is a small hardware unit where  all *memory references* from the CPU  is *passed through itself,* and its primary function is to translate of `VA` to `PA`. Refer to the next section on MMU for further information 
 
@@ -139,7 +139,7 @@ This arrangement allows for each program to have the ***same* set of `VA`,** e.g
 
 The figure below illustrates this scenario:
 
-<img src="https://dl.dropboxusercontent.com/s/1h5q5heph7vp3yy/detailVM.png?raw=1"  width="60%" height = "80%">
+<img src="https://dl.dropboxusercontent.com/s/1h5q5heph7vp3yy/detailVM.png?raw=1">
 
 > In the example above, there are two currently running programs: process `1` and process `2`, each running in its own VM. The actuall *content* of each VM may reside on physical memory, or disk swap space. <span style="background-color:yellow; color: black"> 
 
@@ -160,7 +160,7 @@ The OS Kernel maintains a ***Pagetable*** (sometimes it is called *pagemap* too)
 
 The MMU utilizes the *Pagetable* to translate every memory reference requests from the CPU to an actual, physical address as illustrated below:
 
-<img src="https://dl.dropboxusercontent.com/s/rek05rsjagk2m43/mmuusage.png?raw=1"  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/rek05rsjagk2m43/mmuusage.png?raw=1"   >
 
 * The *Pagetable* is stores mapping of the higher $$v$ bits of virtual address (called the **`VPN`** - Virtual Page Number) to a corresponding **`PPN`** (physical page number).  
 
@@ -237,7 +237,7 @@ The solution to this issue to build a small SRAM-based memory device to *cache* 
 
 The TLB is a small, FA-design cache to store a copy some recently used Pagetable entries, as shown in the figure below:
 
-<img src="https://dl.dropboxusercontent.com/s/g0ydenuirecwtwo/mmutlb.png?raw=1"  width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/g0ydenuirecwtwo/mmutlb.png?raw=1"   >
 
 > We also use a hierarchy of memory devices here, just like what we learned in the previous chapter where we *cache* a few of the most recently used contents and its address: `A, Mem[A]` in another faster (but smaller) SRAM-based memory device to reduce the frequency of access to the slower (but larger) DRAM-based Physical Memory device. 
 
@@ -306,7 +306,7 @@ Finally when the program terminates, the OS Kernel  and frees up all the space i
 
 
 ### An example
-<img src="https://dl.dropboxusercontent.com/s/r8nia46u4gdw6gk/vmexample.png?raw=1"  width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/r8nia46u4gdw6gk/vmexample.png?raw=1"   >
 
 The figure above shows a snapshot of the physical memory state at some point in time. There exist a pagetable with 16 entries and 8 pages of data labeled as `A` to `H` in the physical memory. LRU replacement policy with write back policy is used. **Lower** LRU means that the data is **more recently used.** 
 
@@ -357,7 +357,7 @@ After page `D` write is done, the OS Kernel can copy page `I` over from the swap
 The state of the physical memory after **both** instructions are executed in sequence is:
 > `I'` is just a symbol of an updated page `I` after a `ST` instruction is completed
 
-<img src="https://dl.dropboxusercontent.com/s/mis63e6z0nm0n3b/vmexample-after.png?raw=1"  width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/mis63e6z0nm0n3b/vmexample-after.png?raw=1"   >
 
 The new changes are written in blue. 
 
@@ -395,7 +395,7 @@ The context number can be appended to the requested `VPN` to find its correct `P
 * In the case of `MISS`, the Pagetable Pointer is updated to point to the *beginning* of the pagetable section for context `C`, and the index based on `VPN` finds the corresponding entry.  
 
 
-<img src="https://dl.dropboxusercontent.com/s/ckevn475pf7ar4s/mmuusagecontext.png?raw=1"  width="90%" height = "90%">
+<img src="https://dl.dropboxusercontent.com/s/ckevn475pf7ar4s/mmuusagecontext.png?raw=1"   >
 
 
 
@@ -413,7 +413,7 @@ Recall that a *cache* is used to store copies of memory addresses and its conten
 
 There are two possible options on where to assemble the cache hardware, ****before**** or ****after**** the MMU, each having its pros and cons. 
 
-  <img src="https://dl.dropboxusercontent.com/s/j7l3t20a9cmt2ez/cacheMMU.png?raw=1"  width="70%" height = "70%">
+  <img src="https://dl.dropboxusercontent.com/s/j7l3t20a9cmt2ez/cacheMMU.png?raw=1"   >
 
 Note that if cache is placed before the MMU, then the cache stores `VA` (instead of PA) in its `TAG` field. 
 
@@ -425,7 +425,7 @@ Observe that if cache line selection is based on `PO` (unmapped, identical on bo
  
 Therefore we can arrange the components as such:
 
- <img src="https://dl.dropboxusercontent.com/s/mdgucv6qubun01l/cachemmu2.png?raw=1"  width="90%" height = "90%">
+ <img src="https://dl.dropboxusercontent.com/s/mdgucv6qubun01l/cachemmu2.png?raw=1"   >
 
 Each cache line in the DW/NWSA used in the design above stores a *single word*  **(not pages)** in the `Content` field and its physical address in the `TAG` field.
 

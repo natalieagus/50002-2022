@@ -52,7 +52,7 @@ In the Figure below, we illustrate `N` processes that are present in the system:
 
 > These processes are **isolated** from one another, meaning that `Pi` cannot access (or corrupt) the memory space of other process  `Pj` because each of them run on a separate virtual memory. 
 
-<img src="https://dl.dropboxusercontent.com/s/fvo6fllqrwwg2qr/context.png?raw=1"   width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/fvo6fllqrwwg2qr/context.png?raw=1"    >
 
 
 Writing an Operating System Kernel is not a trivial task as one has to take into consideration a plethora of *issues* (security, performance, memory management, scheduling, etc). However with its presence, it makes *easier to write all other programs*. **It provides a layer of abstraction, allowing each program to run on a  *virtual machine***, devoid of any knowledge about any other processes.
@@ -83,7 +83,7 @@ This is a **major benefit**: programs can be easily written as if they have *abs
 
 The main idea of OS multiplexing is illustrated below using two processes `P1` and `P2`, sharing a single system:
 
-<img src="https://dl.dropboxusercontent.com/s/p5r7q2uit6vbdkz/process.png?raw=1"   width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/p5r7q2uit6vbdkz/process.png?raw=1"    >
   
 The `ARROW` illustrates the timeline of execution:
 * At first, the CPU runs some task from `P1`. 
@@ -120,7 +120,7 @@ To allow for proper multiplexing, four things must be supported ****in the hardw
 
 Recall the **asynchronous interrupt** datapath as shown in the figure below: 
 
-<img src="https://dl.dropboxusercontent.com/s/hzzbg7lqy626zon/IRQ.png?raw=1"   width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/hzzbg7lqy626zon/IRQ.png?raw=1"    >
 
 One of the inputs that is received by the Control Unit is `IRQ` (1-bit).  In the event of *interrupt*, the `IRQ` value will be `1`. 
 
@@ -150,7 +150,7 @@ The asynchronous interrupt handler is located at `XAddr`, which is usually pre-d
 The first few instructions of the interrupt handler saves current process states (`R0` to `R30` contents, PC state, stack, and others) in **process table**. 
 
 > **Process table:** a Kernel data structure that stores all the states of running processes in the machine. It lives in the Kernel memory space. The kernel keeps track on which process is currently scheduled to run in the CPU. 
-<img src="https://dl.dropboxusercontent.com/s/ypgac0w1uotc471/proctable.png?raw=1"   width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/ypgac0w1uotc471/proctable.png?raw=1"    >
 
 Then, the handler will figure out which specific **service routine** needs to be called to *service* the interrupt, e.g: scheduler, or I/O routines. 
 
@@ -278,7 +278,7 @@ Therefore, user processes may utilise **traps** to synchronously interrupt thems
 > There are many types of Kernel services, one of them includes read/write access from/to the I/O devices. They are typically *indexed*, and the process needs to leave the index of the needed system call in `Reg[R0]` before trapping itself to the Kernel Program. We will learn about Kernel services next term. 
 
 The datapath in the event of *illegal operation* is:
-<img src="https://dl.dropboxusercontent.com/s/w963kj8ugebu9xr/illop.png?raw=1"   width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/w963kj8ugebu9xr/illop.png?raw=1"    >
 
 During this event, 
 * Control unit sets `PCSEL = 011`, and saves `PC+4` into `Reg[XP]`

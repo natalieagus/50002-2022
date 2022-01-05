@@ -33,16 +33,16 @@ In this document, we will begin by understanding what does it mean to simply cre
 ## An Example of a Basic Programmable Control System
 Suppose we have a simple sequential logic circuit called Machine $$M$$ as shown below. It receives **one** $$N$$ bit *input*, and produces **two** output: $$N$$ bit `output1` and  1 bit `output2`.   Formally, we call this "circuit" a datapath. A **datapath** is a collection of functional units made up of combinational devices, registers, and buses. 
 
-<img src="https://dl.dropboxusercontent.com/s/yt5vj66b71tfkmn/A.png?raw=1"  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/yt5vj66b71tfkmn/A.png?raw=1"   >
 
 > Note that since the machine receives $$N$$ bit inputs, it means that there are $$N$$ **units** of each 2-to-1 multiplexers *in parallel*, as shown:
-> <br><img src="https://dl.dropboxusercontent.com/s/js10ymfd5shqxbp/mux_n.png?raw=1" width="50%" height="50%"><br>
+> <br><img src="https://dl.dropboxusercontent.com/s/js10ymfd5shqxbp/mux_n.png?raw=1"  ><br>
 > The registers also are actually N 1-bit registers:
-> <br><img src="https://dl.dropboxusercontent.com/s/spox2rzjii4b735/regsN.png?raw=1" width="50%" height="50%"><br>
+> <br><img src="https://dl.dropboxusercontent.com/s/spox2rzjii4b735/regsN.png?raw=1"  ><br>
 > In diagrams, they are only drawn once, but you can differentiate between a single wire (that carries 1-bit of information) with a bunch of wires that carry $$>1$$ bits of information by the "/" symbol. 
 
 In this example, Machine $$M$$ also has four control signals, symbolised as $$\text{A}_{\text{SEL}}$$, $$\text{B}_{\text{SEL}}$$, $$\text{A}_{\text{LE}}$$, and $$\text{B}_{\text{LE}}$$. These four control signals are dictated by a **control FSM unit** shown below, meaning that these four signals will vary accordingly at each time step, hence changing the *behaviour* of the circuit above when we need it: 
-<br><img src="https://dl.dropboxusercontent.com/s/zshb59hefekv1nr/cfsm.png?raw=1"  width="40%" height = "40%">
+<br><img src="https://dl.dropboxusercontent.com/s/zshb59hefekv1nr/cfsm.png?raw=1"   >
 
 Other notable components of $$M$$:
 * A decrement unit symbolised as `-1`
@@ -53,7 +53,7 @@ In other words, we **can control the processing of inputs at each time-step** (c
 
 If we can load another Control FSM unit that also produces these four signals but in different sequences, then we allow machine $$M$$ to be *programmable*. The complete circuit after plugging in a Control FSM unit is as shown: 
 
-<img src="https://dl.dropboxusercontent.com/s/k9m89zfzb7aqopj/B.png?raw=1"  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/k9m89zfzb7aqopj/B.png?raw=1"   >
 
 For example, let's say we have Control FSM unit type $$A$$ that has the following functional specifications (its starting state is $$S_0$$):
 
@@ -107,7 +107,7 @@ Now it is clear that what we need to do to create a general-purpose computer is 
  
  Many architecture approaches to a general-purpose computing device have been explored (see [others here](https://konstantin.solnushkin.org/teaching_reports/intro_to_hpc/2007/harvard_architecture.pdf)), but the Von Neumann Model is one where most modern and practical computers are based on. 
  
-<img src="https://dl.dropboxusercontent.com/s/rjotczxs894klvg/vnm.png?raw=1"  width="50%" height = "50%">
+<img src="https://dl.dropboxusercontent.com/s/rjotczxs894klvg/vnm.png?raw=1"   >
 
 The generic anatomy of a Von Neumann architecture is shown above. The four *main* components of the model are:
 
@@ -124,7 +124,7 @@ The generic anatomy of a Von Neumann architecture is shown above. The four *main
 A basic anatomy of the CPU is shown below, consisted of four major components: the Data Path, Internal Storage called REGFILE, consisted of many Registers (e.g: D Flip-Flops), the Arithmetic Logic Unit (ALU), and a Control Unit (FSM). 
 
 
-<img src="https://dl.dropboxusercontent.com/s/w5dt2ixcx1p6g7q/cpu.png?raw=1"  width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/w5dt2ixcx1p6g7q/cpu.png?raw=1"   >
 
 The CPU is essentially "brain" of the computing device, and it is be able to:
 1. Load a series of instructions (from the Memory Unit),
@@ -151,7 +151,7 @@ The CPU is essentially "brain" of the computing device, and it is be able to:
 The CPU is able to *read* **and** *write* bits of data to and from a memory unit connected to it -- an expandable **storage device** (we know it as RAM in practice). 
 >As the name suggests, this device does NOT execute anything, it simply **retains** (store) information. 
 
-<span style="background-color:yellow">  The "*data*" that is stored in this expandable resource pool  is not just simply **inputs**, i.e: images, videos, documents, etc,  but **also instructions** that make up a *program*. This is where your instruction resides when it is *about* to be **executed** by the CPU. </span>
+ <span style="background-color:yellow; color: black">  The "*data*" that is stored in this expandable resource pool  is not just simply **inputs**, i.e: images, videos, documents, etc,  but **also instructions** that make up a *program*. This is where your instruction resides when it is *about* to be **executed** by the CPU. </span>
 
 Since the memory unit can **store** a huge amount of data (in Gigabytes), the CPU must be able to *read* just a particular $$N$$ bits of relevant data from the memory unit. It is able to do this by giving an **address** as an input to the memory unit. The memory unit **receives this address** and output the data stored at the given address. To *write* onto the memory unit, the CPU must provide two inputs: the **address** where this $$N$$ bits of data should be stored, and the data itself. 
 
@@ -162,11 +162,11 @@ We will learn more about the anatomy of the memory unit, but for now we can thin
 >If we rent such unit, we are typically given an *address* -- some kind of index to identify the unit that is ours. The $$N$$-bit data is the "object" that we put in a storage unit (addressable segment), and the *memory address* is the identifier of the storage unit location where the data is held.
 
 
-<img src="https://dl.dropboxusercontent.com/s/42f2xrubviwc5oj/ramaddr.png?raw=1"  width="100%" height = "100%">
+<img src="https://dl.dropboxusercontent.com/s/42f2xrubviwc5oj/ramaddr.png?raw=1"   >
 
 
 
-<span style="background-color:yellow">  **Important** </span>: below are the list of  **conventions** that explain why we illustrate the memory unit as above. 
+ <span style="background-color:yellow; color: black">  **Important** </span>: below are the list of  **conventions** that explain why we illustrate the memory unit as above. 
  
 *  We illustrate the memory unit to have four segments per row. *This is only for illustration purposes,* so that we can read them on paper more easily. In practice, it doesn't matter how you physically arrange the segments. 
 
@@ -248,10 +248,10 @@ The $$\beta$$ is a **general-purpose** 32-bit architecture. All registers are 32
 * The REGFILE registers (internal storage in CPU): contains 32 registers in total (**and each register is 32 bits wide**), *addressable* with 5 bits to identify `R0` to `R31` respectively. 
 	* All registers except `R31` can be read or written with new values.
 	* For `R31`: when read, it is always 0; when written, the new value is discarded.
-	* <span style="background-color:yellow">  Notation:  In **register transfer language**, the content of register with address `A` is often denoted as : `Reg[A]`. The symbol `Rx` refers to the address of a particular register `x` in the REGFILE. The symbol `Reg[Rx]` refers to the **content** of that register. </span>
+	*  <span style="background-color:yellow; color: black">  Notation:  In **register transfer language**, the content of register with address `A` is often denoted as : `Reg[A]`. The symbol `Rx` refers to the address of a particular register `x` in the REGFILE. The symbol `Reg[Rx]` refers to the **content** of that register. </span>
 
 Its machine model is summarised in the figure below:
-<img src="https://dl.dropboxusercontent.com/s/v7j3tlf46f4k75c/beta_cpu_simp.png?raw=1"  width="100%" height = "100%">
+<img src="https://dl.dropboxusercontent.com/s/v7j3tlf46f4k75c/beta_cpu_simp.png?raw=1"   >
 
 
 Note that :
@@ -268,13 +268,13 @@ There are **only two types** of instruction encoding: Without Literal (Type 1) a
 
 The figure below shows the two types of $$\beta$$ instruction encoding:
 
- <img src="https://dl.dropboxusercontent.com/s/6sij3diwmtxs7q3/S4.png?raw=1"  width="100%" height = "100%">
+ <img src="https://dl.dropboxusercontent.com/s/6sij3diwmtxs7q3/S4.png?raw=1"   >
 
 The 32-bit instruction `I` is segmented to various sections:
 
 1.  The `OPCODE =I[31:26]` is 6 bits long. The `OPCODE` signifies different types of operation. They are summarised in the table below:
 
-<img src="https://dl.dropboxusercontent.com/s/jq9rcou91vbu6ka/instr.png?raw=1"  width="100%" height = "100%">
+<img src="https://dl.dropboxusercontent.com/s/jq9rcou91vbu6ka/instr.png?raw=1"   >
 
 2.  For Type 1 instruction (without literal), we have these three segments: `Rc = I[25:21]`, `Ra = I[20:16]`, and `Rb = I[15:11]`, each 5 bits in length, to signify the target *address* of the registers in the REGFILE.  *The last 11 bits are unused.*
 	- `Rc`  is the destination register to write output to. 
@@ -315,7 +315,7 @@ The 32-bit instruction `I` is segmented to various sections:
 		- `Mem[EA]` $$\leftarrow$$ `Reg[Rc]`
 		> `EA` means effective address. `Mem[EA]` refers to the content of the Memory Unit at address EA. Again `c` is sign extended to form 32 bits: `0x00000008`.
 
-<span style="background-color:yellow">  It is imperative that you read the beta documentation up until page 12, to understand all 32 basic instructions of the $$\beta$$ machine individually **before proceeding** to the next chapter. </span> In the next few weeks, we will take this knowledge to the next level as you learn how to hand assemble C-language into this low-level machine language. 
+ <span style="background-color:yellow; color: black">  It is imperative that you read the beta documentation up until page 12, to understand all 32 basic instructions of the $$\beta$$ machine individually **before proceeding** to the next chapter. </span> In the next few weeks, we will take this knowledge to the next level as you learn how to hand assemble C-language into this low-level machine language. 
 
 
 
@@ -367,14 +367,14 @@ The $$\beta$$ CPU falls under the family of RISC (reduced instruction set comput
 
 The full anatomy of the (general-purpose) $$\beta$$ datapath is shown in the Figure below. Remember that this is an **implementation** of the $$\beta$$ instruction set architecture (i.e: its abstraction).  This circuitry is therefore able to execute any $$\beta$$ instruction as intended within a clock cycle. 
 
-<span style="background-color:yellow">  The details of the $$\beta$$ datapath will be explained in the next chapter, so that you have a complete understanding on how the datapath allows the working of each of the 32 instruction sets. </span>
+ <span style="background-color:yellow; color: black">  The details of the $$\beta$$ datapath will be explained in the next chapter, so that you have a complete understanding on how the datapath allows the working of each of the 32 instruction sets. </span>
 
 <img src="/50002/assets/contentimage/beta/beta.png"  class="center_full"/>
 
 As of right now, we just need to understand the *big idea* of  the $$\beta$$ ISA , and how the $$\beta$$ CPU realises it: 
 1. The **PC (program counter)** is a part of the CPU that in theory, fetch one instruction (set to be 32-bit in length) from the Memory Unit per clock cycle. 
 2. The **`OPCODE`** part of the instruction is processed by the Control Logic unit, and appropriate control signals are produced.
-3. <span style="background-color:yellow">  The *combination* of these **control signals** reprogram the datapath so that we can reuse it to execute different types of instruction. </span>
+3.  <span style="background-color:yellow; color: black">  The *combination* of these **control signals** reprogram the datapath so that we can reuse it to execute different types of instruction. </span>
 4. The other parts of the instruction: `Rb`,  `Ra`, `Rc` or `c`,  tells us which registers in the REGFILE to use for this instruction. 
 5. Step 1-4 are repeated for *each* clock cycle, and each instruction is **atomic**.
 
@@ -437,7 +437,7 @@ ans: LONG(0)
 Of course then the final step is to convert this into machine language and load it to the Memory Unit, and allow the PC of the $$\beta$$ machine to execute the first line of instruction (ADDC) . 
 
 > You can actually do this! Open `bsim.jar`, paste the assembly code above and run it. 
-<img src="https://dl.dropboxusercontent.com/s/oo514c8yuq48ies/bsimsample.png?raw=1"  width="80%" height = "80%">
+<img src="https://dl.dropboxusercontent.com/s/oo514c8yuq48ies/bsimsample.png?raw=1"    >
 
 When the machine halts, we should have the answered stored somewhere in the memory unit, thus effectively enabling $$\beta$$ machine to emulate the ability of Machine $$M$$ without changing its datapath. 
 

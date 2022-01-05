@@ -177,7 +177,7 @@ You always add item via `PUSH` operation to the top of the stack, and can only r
 
 We **reserve** an arbitrary block of location in our Memory Unit to be space for the stack. Illustrated below is a block of memory unit from address `0x010C` to `0x0128` reserved as our stack: 
 
-<img src="https://dl.dropboxusercontent.com/s/zwaa983jxrmq78n/stack_empty.png?raw=1"  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/zwaa983jxrmq78n/stack_empty.png?raw=1"   >
 
 We have conventions as mentioned:
 * `R29 (SP)` contains the address of the *top* of the stack (available location to write to). 
@@ -232,7 +232,7 @@ PUSH(R3)
 
 Upon execution of these series of instruction, the state of the stack is: 
 
-<img src="https://dl.dropboxusercontent.com/s/h6ra945bysxu8tb/stack_3.png?raw=1"  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/h6ra945bysxu8tb/stack_3.png?raw=1"   >
 
 > Notice that the "top" of the stack is at the *bottom*, and that the stack grows *downwards* by convention. 
 
@@ -249,7 +249,7 @@ The **new** state of the registers are now written in red. **The stack stays the
 
 We can now say that **the stack contains the old value of the registers** `R1, R2, R3`, as shown: 
  
-<img src="https://dl.dropboxusercontent.com/s/4v4l61monn1ktwy/stack_new.png?raw=1"  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/4v4l61monn1ktwy/stack_new.png?raw=1"   >
 
 
 <span style="background-color:yellow; color: black"> **Removing items from the stack** </span>
@@ -265,7 +265,7 @@ The state of the stack and the registers is therefore as shown. Notice how `POP`
 
 > The remnants of data that was pushed to the stack actually stays in memory, but its rendered *irrelevant* because it can be overwritten again by other instructions (hence space is seen as *freed*). In fact, there's no such thing as **erasing** contents in the memory unit unless we explicitly write a bunch of zeroes to make it disappear. We simply always *overwrite* them. 
 
-<img src="https://dl.dropboxusercontent.com/s/u5r91wv4dbfmxv4/stack_popped.png?raw=1"  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/u5r91wv4dbfmxv4/stack_popped.png?raw=1"   >
 
 <span style="background-color:yellow; color: black"> **Resetting the stack** </span>
 Finally, we reset a stack by simply changing the value `SP`. For example, we can return the state of `SP` to `0` as it was before **Step 1**. 
@@ -508,7 +508,7 @@ Run the program in `bsim` **step by step**. At each instruction, pay attention o
 
 At the end of the program, you should see that you have each answer in the memory address `0x01B0` and `0x01B4`:
 
-<img src="https://dl.dropboxusercontent.com/s/g7l4l0tkcyl08jj/mem_Res.png?raw=1"  width="30%" height = "30%">
+<img src="https://dl.dropboxusercontent.com/s/g7l4l0tkcyl08jj/mem_Res.png?raw=1" >
 
 
 ## An example with recursion
@@ -592,7 +592,7 @@ In this example, calling `fact(3)` will cause `fact(2)`, and `fact(1)`  to be ca
 
 The state of the stack frame *right* before `fact(3)` branching, *right* before `fact(2)` branching, *right* before `fact(1)` branching, and *right* before `fact(1)`calls its `exit_sequence` is as follows:
 
-<img src="https://dl.dropboxusercontent.com/s/mu8aq0id2y1pir5/stack_states.png?raw=1"  width="100%" height = "100%">
+<img src="https://dl.dropboxusercontent.com/s/mu8aq0id2y1pir5/stack_states.png?raw=1"   >
 
 Notice several things:
 * The stack size for each callee frame is constant. 
@@ -640,7 +640,7 @@ MOVE(SP, BP)
 ```
 
 It will obtain the following addresses:
-<img src="https://dl.dropboxusercontent.com/s/ae8mgejz3jgyavo/instr_eg.png?raw=1"  width="50%" height = "50%">
+<img src="https://dl.dropboxusercontent.com/s/ae8mgejz3jgyavo/instr_eg.png?raw=1"   >
 > This screenshot is taken from `bsim` just before we branch to `fact` for the first time with argument `3`. That is why the `PC` is pointing to address `0x0010`. 
 
 
@@ -655,7 +655,7 @@ There's one subtle point to realise: when the `PC` is currently pointing to an a
 
 Take for example this particular execution state in the  $$\beta$$ CPU:
 
-<img src="https://dl.dropboxusercontent.com/s/raqf5k421kfi2i7/pc_state.png?raw=1"  width="100%" height = "100%">
+<img src="https://dl.dropboxusercontent.com/s/raqf5k421kfi2i7/pc_state.png?raw=1"   >
 
 * The current content of register `PC` is `0x004`, that is where instruction: `ADDC(R31, 3, R1)` resides.
 
@@ -666,7 +666,7 @@ Take for example this particular execution state in the  $$\beta$$ CPU:
 
 * Only at the next cycle,`Reg[R1]` finally stores the new value `3`. The figure below shows the state of the $$\beta$$ CPU at the following cycle:
 
-<img src="https://dl.dropboxusercontent.com/s/qzf1rxs5rshfzeo/pc_state_2.png?raw=1"  width="100%" height = "100%">
+<img src="https://dl.dropboxusercontent.com/s/qzf1rxs5rshfzeo/pc_state_2.png?raw=1"   >
 
 Therefore, what we *actually mean* when we say that the `PC` always point to the `next` instruction executed is precisely that the **result** will only be synchronized in the **next** cycle (but computation is done in the current cycle). 
 

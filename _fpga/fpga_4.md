@@ -62,8 +62,8 @@ out = memory_unit.read_data;
 
 * Number of bits for `.raddr` / `waddr` is $$\log_2$$(`DEPTH`). 
 * **Important** documentation: 
-	* <span style="background-color:yellow">`.read_data` always produces the output from `.raddr` supplied in the previous clock cycle. </span> The documentation says that if you supplied address `A` at `t=0`, then at `t=1` (next clock cycle), `Mem[A]` is produced at `.read_data` port. 
-	* <span style="background-color:yellow"> If you perform **read and write** to the **same location** at the **same clock cycle** e.g: at`t=0`, the result of the data written will be observed only **two clock cycles later** at `t=2`. *At `t=1`, the old data is still produced at the read port.* 
+	*  <span style="background-color:yellow; color: black">`.read_data` always produces the output from `.raddr` supplied in the previous clock cycle. </span> The documentation says that if you supplied address `A` at `t=0`, then at `t=1` (next clock cycle), `Mem[A]` is produced at `.read_data` port. 
+	*  <span style="background-color:yellow; color: black"> If you perform **read and write** to the **same location** at the **same clock cycle** e.g: at`t=0`, the result of the data written will be observed only **two clock cycles later** at `t=2`. *At `t=1`, the old data is still produced at the read port.* 
 
 You can familiarise yourself first with how the memory unit works using an `fsm`. 
 * Perform some writes onto the memory unit, and then
@@ -105,7 +105,7 @@ io_led[1] = ram.out[7:0];
 Now that we understand how the `simple_ram` module works, lets create a module that corresponds to this memory unit in the $$\beta$$ schematic shown our notes:
 > Note: there's two read ports, and one write port.
 
-<img src="https://dl.dropboxusercontent.com/s/4v5wpc0sw7xlbml/memunit.png?raw=1" width="70%" height="70%">
+<img src="https://dl.dropboxusercontent.com/s/4v5wpc0sw7xlbml/memunit.png?raw=1"  >
 
 
 Create a new script  `memoryunit.luc` and define the terminals as follows. The names are self explanatory. 
@@ -410,7 +410,7 @@ if (slowclk){
 }
 ```
 
-<span style="background-color:yellow"> Some details: </span> **remember that we need to wait for 1 `clk` cycle** *after*  we supply the `ram` with some read address `ia` for it to produce the correct output (which is the current *instruction* stored at `Mem[ia]`). 
+ <span style="background-color:yellow; color: black"> Some details: </span> **remember that we need to wait for 1 `clk` cycle** *after*  we supply the `ram` with some read address `ia` for it to produce the correct output (which is the current *instruction* stored at `Mem[ia]`). 
 
 * The `control_unit`'s output depends on the `6-bit` opcode embedded in the *instruction*. 
 
@@ -535,7 +535,7 @@ The easiest way to observe the output of `beta` and determining whether it wors 
 
 Instruction loading should happen pretty fast that we won't even notice it. The first instruction to be executed is `ADDC(R31, 7, R1)`, hence the output that you should see is as follows:
 <br>
-<img src="https://dl.dropboxusercontent.com/s/d4jc6s59uvkpinc/instr_pc0.png?raw=1" width="50%" height="50%"><br>
+<img src="https://dl.dropboxusercontent.com/s/d4jc6s59uvkpinc/instr_pc0.png?raw=1"  ><br>
 
 * `PC` register is at `0x0`
 * `ALU` output is `0x7`
@@ -543,7 +543,7 @@ Instruction loading should happen pretty fast that we won't even notice it. The 
 
 One second later, you should see this output due to instruction `CMPEQ(R1, R1, R2)`:
 <br>
-<img src="https://dl.dropboxusercontent.com/s/fi6d5htp5drqakh/instr_pc1.png?raw=1" width="50%" height="50%"><br>
+<img src="https://dl.dropboxusercontent.com/s/fi6d5htp5drqakh/instr_pc1.png?raw=1"  ><br>
 
 * `PC` register is at `0x4`
 * `ALU` output is `0x1` because comparing the same register contents should always result in a `1`
@@ -551,7 +551,7 @@ One second later, you should see this output due to instruction `CMPEQ(R1, R1, R
 
 The third instruction `ST(R1, 32)` should result in this output:
 <br>
-<img src="https://dl.dropboxusercontent.com/s/reihm5lswrjhabw/instr_pc2.png?raw=1" width="50%" height="50%"><br>
+<img src="https://dl.dropboxusercontent.com/s/reihm5lswrjhabw/instr_pc2.png?raw=1"  ><br>
 
 * `PC` register is at `0x8`
 * `ALU` output is `0x20` because that's the address that we're storing to (`32` in decimal)
@@ -560,7 +560,7 @@ The third instruction `ST(R1, 32)` should result in this output:
 
 Let's test whether the value `0x7` was properly stored to the `data_memory` by loading it in the next cycle with this instruction: `LD(R31, 32, R3)`. The output that we should see is:
 <br>
-<img src="https://dl.dropboxusercontent.com/s/cvyt1m24xk814ge/instr_pc3.png?raw=1" width="50%" height="50%"><br>
+<img src="https://dl.dropboxusercontent.com/s/cvyt1m24xk814ge/instr_pc3.png?raw=1"  ><br>
 
 * `PC` register is at `0xC`
 * `ALU` output is `0x20` because that's the address that we're loading from (`32` in decimal)
@@ -568,7 +568,7 @@ Let's test whether the value `0x7` was properly stored to the `data_memory` by l
 
 
 And then perform a branch based on the content of `R3`: `BNE(R3, 0, R1)`. This should result in a branch if the load was successful, as `Reg[R3]` will be nonzero. The output you should see is:
-<br><img src="https://dl.dropboxusercontent.com/s/0it220j8pjxd82d/instr_pc4.png?raw=1" width="50%" height="50%"><br>
+<br><img src="https://dl.dropboxusercontent.com/s/0it220j8pjxd82d/instr_pc4.png?raw=1"  ><br>
 
 * `PC` register is at `0x10`
 * `asel` is set to `1` during `BNE` (actually it doesnt matter what `asel` is) and this routes `PC+4+4*SXT(c)` to `ALU`'s output. The effective "target" address if `BNE` is successful is `0` and therefore `ALU` output that shows `0` above is *correct*

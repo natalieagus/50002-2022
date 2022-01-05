@@ -52,7 +52,7 @@ The Kernel (the core of an OS) is **a set of instructions** that lives in the "*
 
 Kernel serves as an *intermediary* between any I/O devices (hardware) and user processes. It provides a level of abstraction such that programs can be written and run as if it has access to the entire machine to itself. 
 
-<img src="https://dl.dropboxusercontent.com/s/5p53t1w1towhslg/osview.png?raw=1"  width="80%" height = "80%">
+<img src="https://dl.dropboxusercontent.com/s/5p53t1w1towhslg/osview.png?raw=1"    >
 
 
   
@@ -151,7 +151,7 @@ Most modern system is **interrupt-driven**. That is, devices may request for *in
 
 ## Real-Time I/O Handling
 
- <img src="https://dl.dropboxusercontent.com/s/npup101nnubwohm/rth.png?raw=1"   width="60%" height = "60%">
+ <img src="https://dl.dropboxusercontent.com/s/npup101nnubwohm/rth.png?raw=1"    >
 
 When I/O interrupt requests are made by devices, they may not be immediately serviced by the Kernel. The figure above illustrates a general timeline from when a particular **interrupt request** is first made to the moment it is serviced.
 
@@ -185,7 +185,7 @@ There are two different policies that can be adopted to handle I/O interrupts:
 The **priority level** for each interrupt handler can be illustrated using the  higher `p` bits of PC -- meaning that the *location* of the handler in memory *matters*; it defines the handler's priority level.  
 > Some hardware tweaks on the CPU is needed to support this feature, but we don't have to dwell too deep into that at this point. 
 
-<img src="https://dl.dropboxusercontent.com/s/7w7oy1jyaa5trnq/pc.png?raw=1"   width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/7w7oy1jyaa5trnq/pc.png?raw=1"    >
 
 * The value `p` depends on how many priority levels you want the machine to have, e.g: 3 bits for 8 levels.
 
@@ -304,14 +304,14 @@ The interrupt requests from these devices are recurring with certain frequency. 
 
 We can draw the timeline of these interrupts as follows:
 
-<img src="https://dl.dropboxusercontent.com/s/vn644mg6ifqnqd1/irqstimeline.png?raw=1"   width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/vn644mg6ifqnqd1/irqstimeline.png?raw=1"    >
 
 
 Since the *disk* has the highest priority, it will be serviced first. Once finished, the *printer* will be serviced. 
 
 After both *disk* and *printer* are serviced, the *keyboard* is serviced at `t=0.9`. However, it will be interrupted by the printer at `t=1`. Therefore, the keyboard service time is spread out due to interrupts from printer and disks: 
 
-<img src="https://dl.dropboxusercontent.com/s/5wodlj3hwpx9ltm/interruptsvc.png?raw=1"   width="100%" height = "100%">
+<img src="https://dl.dropboxusercontent.com/s/5wodlj3hwpx9ltm/interruptsvc.png?raw=1"    >
 
 *  The keyboard service time is spread out (red region) due to interrupts from printer and disks
 

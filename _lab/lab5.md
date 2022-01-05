@@ -196,19 +196,19 @@ StackBase:
 
 Using BSim, assemble your subroutine using the assemble tool. 
 
-<img src="/50002/assets/contentimage/lab5/1.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab5/1.png"  class=" center_full"/>
 
 If the assembly completes without errors, BSim will bring up the display window and you can execute the test jig (which will call your subroutine) using the **run**  or **single-step**  tools:
 
-<img src="/50002/assets/contentimage/lab5/2.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab5/2.png"  class=" center_full"/>
 
 The test jig will try 32 different test values and type out any error messages on the tty console at the bottom of the display window.  Successful execution will result in the following printout at the BSim console:
 
-<img src="/50002/assets/contentimage/lab5/3.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab5/3.png"  class=" center_full"/>
 
 Unlike in JSim, **DO NOT** press the green tick. The **success** checkoff message is sufficient to know that your program works fine for submission. If there exist an error, such message will be printed out:
 
-<img src="/50002/assets/contentimage/lab5/4.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab5/4.png"  class=" center_full"/>
 
 It will give you a clue that the bug probably exist at the compoutation of **bulls**, and you can trace your code by adding `.breakpoint` so that the execution will pause at that line:
 
@@ -220,7 +220,7 @@ It will give you a clue that the bug probably exist at the compoutation of **bul
 
 ...and you can **inspect** each register content and stack content slowly by running each instructions afterwards **step by step**:
 
-<img src="/50002/assets/contentimage/lab5/5.png"  class="center_seventyfive"/>
+<img src="/50002/assets/contentimage/lab5/5.png"  class=" center_full"/>
 
 ## Implementation and Debug Notes
 

@@ -55,7 +55,7 @@ See the table below to find out the direct conversion between binary, octal, hex
 
 > After some practice, it should be easy to naturally guess the decimal value of any 4-bit number without computing them from scratch. 
 
-<img src="https://dl.dropboxusercontent.com/s/ariqv8mky94edtm/table.png?dl=0"  width="50%"  height="50%" />
+<img src="/50002/assets/contentimage/week1notes/table.png"   />
 
 *Note:* 
 * We typically use the prefix `0x`  to indicate that a number system is encoded in hex and not decimal. 
@@ -134,7 +134,7 @@ More precisely, it is called the **fixed length encoding**, that is used in prac
 Example of encoding is character encoding so that the string of bits can be displayed to us properly: 
 * **Number Encoding** : 4-bits to represent each number 1 to 10: 
 * **7-bit** ASCII encoding for english characters
-<img src="https://dl.dropboxusercontent.com/s/0xizcif6yux3uyi/ascii.jpg?raw=1"  width="80%" height = "80%">
+<img src="https://dl.dropboxusercontent.com/s/0xizcif6yux3uyi/ascii.jpg?raw=1"    >
 * **16-bit** Unicode (UTF-16) encoding: for other language alphabets that are fixed, e.g: Russian, Korean
 
 We can create electronic devices that are able to *map* (decode) a given encoded information, perform computations based on the received information, and encode back the output so that the results can be interpreted by us (users) or other devices. 

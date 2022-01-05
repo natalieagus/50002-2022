@@ -29,7 +29,7 @@ Each topic's questions are grouped into **three** categories: basic, intermediat
 ## Combinational Logic Timing (Basic)
 
 Consider the following combinational logic device.
-<img src="https://dl.dropboxusercontent.com/s/hsjn3h2yy149dxx/Q10.png?raw=1" width="70%" height="70%">
+<img src="https://dl.dropboxusercontent.com/s/hsjn3h2yy149dxx/Q10.png?raw=1"  >
 
  Each logic gate has the same:
  - Propagation delay,  tpd= 2ns, 
@@ -47,7 +47,7 @@ Overall  **tcd** = 1ns, **tcd** ​= 1ns  (counting the shortest path from XOR g
 
 **Draw** the truth table for the following CMOS circuitry:
 
-<img src="https://dl.dropboxusercontent.com/s/crosfbfiqf1iueg/Q11.png?raw=1"  width="30%" height="30%">
+<img src="https://dl.dropboxusercontent.com/s/crosfbfiqf1iueg/Q11.png?raw=1" >
 
 
 
@@ -64,17 +64,17 @@ $$
 Use only NAND gates to redraw the circuit below. Use as few NAND gates as possible.
 
   
-<img src="https://dl.dropboxusercontent.com/s/ri0c3l74ormsqwa/Q7.png?raw=1"  width="50%" height = "50%">
+<img src="https://dl.dropboxusercontent.com/s/ri0c3l74ormsqwa/Q7.png?raw=1"   >
 
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 If you directly convert with just NAND gates then you'll get:  
 <br>
-<img src="https://dl.dropboxusercontent.com/s/ekfful2ybo9n5je/Q8.png?raw=1" width="50%" height = "50%"> 
+<img src="https://dl.dropboxusercontent.com/s/ekfful2ybo9n5je/Q8.png?raw=1"  > 
 <br>
 You can minimise them first by minimising the boolean expression:  $$AC + \bar{A}C + B\bar{C} = C+B\bar{C} = C + B = \overline{\bar{C}\bar{B}}$$ Then we can easily draw this: <br>
- <img src="https://dl.dropboxusercontent.com/s/43ecrhtx84m2kpa/Q8new.png?raw=1" width="50%" height="50%"></p></div><br>
+ <img src="https://dl.dropboxusercontent.com/s/43ecrhtx84m2kpa/Q8new.png?raw=1"  ></p></div><br>
 
 
 
@@ -83,13 +83,13 @@ You can minimise them first by minimising the boolean expression:  $$AC + \bar{A
 ## Full Adder Timing Analysis (Intermediate)
 
 Refer to the FA circuitry below:
-<img src="https://dl.dropboxusercontent.com/s/nqfbozivm2mdrvf/Q12.png?raw=1" width="50%" height = "50%">
+<img src="https://dl.dropboxusercontent.com/s/nqfbozivm2mdrvf/Q12.png?raw=1"  >
 
 Answer the following questions:
 1. **Compute** the  **tpd​**  and  **tcd** of the full adder above.
 2.  If we were to put several of these FAs to form an 8-bit ripple-carry adder as shown, **compute** the **tpd** and **tcd**  of an 8-bit ripple-carry adder made of 8 of these FA circuits. 
 
-	<img src="https://dl.dropboxusercontent.com/s/y30lar5nypnbh52/Q13.png?raw=1" width="70%" height = "70%">
+	<img src="https://dl.dropboxusercontent.com/s/y30lar5nypnbh52/Q13.png?raw=1"  >
 
 	<br>
 	*Hint: In the figure,  C0​  is assumed to be **grounded** for this particular **instance**, so this sample device can only add two numbers and not subtract them.*
@@ -124,7 +124,7 @@ In this problem, we ask you to think carefully about why these rules work - in p
 
 Consider the following 2-input acyclic circuit whose two components, A and B, are each combinational devices. 
 
-<img src="https://dl.dropboxusercontent.com/s/divqzx422azog4h/Q1.png?raw=1"  width="70%" height = "70%">
+<img src="https://dl.dropboxusercontent.com/s/divqzx422azog4h/Q1.png?raw=1"   >
 
 
 The propagation delay for each device is specified in nanoseconds. 
@@ -175,7 +175,7 @@ x & y & z \\
 
 ## CMOS Circuit Boolean Expression (Basic)
 
-<img src="https://dl.dropboxusercontent.com/s/x1surj7fotwv45a/Q9.png?raw=1"  width="50%" height = "50%">
+<img src="https://dl.dropboxusercontent.com/s/x1surj7fotwv45a/Q9.png?raw=1"   >
 
 1. **Draw** the truth table of the CMOS circuit above. 
 2. What is the **boolean** expression for the CMOS circuit shown?
@@ -200,7 +200,7 @@ A & B & C & D & F \\ \hline 0 & 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 1 & 1 \\ 0 & 0 & 1 
 ## Combinational Circuit's Functional Specs (Basic)
 Consider the following circuit that implements the 2-input function $$H(A,B)$$:
 
-<img src="  https://dl.dropboxusercontent.com/s/2vy52yuzs24xfc4/Q2new.png?raw=1"  width="50%" height = "50%">
+<img src="  https://dl.dropboxusercontent.com/s/2vy52yuzs24xfc4/Q2new.png?raw=1"   >
 
 1. Write down the **truth table** for $$H$$.
 
@@ -285,7 +285,7 @@ Choose all the correct Boolean expression of this circuit:
 
 What is the the **sum-of-products** for the following ROM (Read Only Memory)?
 
-<img src="  https://dl.dropboxusercontent.com/s/7kymm3qcwldfd9q/rom.png?raw=1"  width="50%" height = "50%">
+<img src="  https://dl.dropboxusercontent.com/s/7kymm3qcwldfd9q/rom.png?raw=1"   >
 
   
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
@@ -299,7 +299,7 @@ This expression can be computed easily after you create a truth table first out 
 ##  Implementing Half-Adder using ROM (Basic)
 
   
-<img src="https://dl.dropboxusercontent.com/s/m643xvogmyh405r/farom.png?raw=1"  width="60%" height = "60%">
+<img src="https://dl.dropboxusercontent.com/s/m643xvogmyh405r/farom.png?raw=1"   >
 
 
 Take a look at the figure above. **Which** of the above ROM represents the functionality of a **half adder**?
@@ -323,7 +323,7 @@ Hence this make **Y** to be the **SUM** output and **Z** to be the **CARRY** out
 
 The following diagram shows a schematic for the pulldown circuitry for a particular CMOS gate:
 
-<img src="  https://dl.dropboxusercontent.com/s/40jd3vijlsjq12v/Q1%202.png?raw=1"  width="60%" height = "60%">
+<img src="  https://dl.dropboxusercontent.com/s/40jd3vijlsjq12v/Q1%202.png?raw=1"   >
 
 1. What is the correct schematic for the **pullup** circuitry?
 
@@ -340,7 +340,7 @@ $$\overline{(A+B) C + D} = (\overline{A} \text{ }\overline{B} + \overline{C}) \o
 <i>Note: We don't need to add inverter in the inputs. Convince yourself that this is true by tracing some input combinations to the output terminal.</i>
 <br>
 <img src="
-https://dl.dropboxusercontent.com/s/6romn7t1g594ddz/pfetup.png?raw=1"  width="50%" height = "50%">
+https://dl.dropboxusercontent.com/s/6romn7t1g594ddz/pfetup.png?raw=1"   >
 </li><br>
 <li>From the pulldown diagram, it seems like the output is 0 if D is 1, or A and C is 1, or B and C is 1. Therefore, the output for the gate is the <strong>inverse</strong> of the expression of the pulldown circuitry, which is the output of the pullup circuitry above: $$\overline{(A+B) C + D} = (\overline{A} \text{ }\overline{B} + \overline{C}) \overline{D}$$
 </li><br>
@@ -386,7 +386,7 @@ Y &= AB \bar{C} \bar{D} + AB \bar{C}D + \bar{A} \bar{B}CD + \bar{A}BCD + ABCD \\
 
 Anna Logue, a circuit designer who missed several early 6.004 lectures, is struggling to design her first CMOS logic gate. She has implemented the following circuit:
 
-<img src="https://dl.dropboxusercontent.com/s/4a5ipod927ton7h/Q2.png?raw=1"  width="50%" height = "50%">
+<img src="https://dl.dropboxusercontent.com/s/4a5ipod927ton7h/Q2.png?raw=1"   >
 
 
 Anna has fabricated 100 test chips containing this circuit, and has a simple testing circuit which allows her to try out her proposed gate statically for various combinations of the A and B inputs. 
@@ -420,7 +420,7 @@ She has burned out 97 of her chips, and needs your help before destroying the re
 
 A certain function F has the following truth table:
 
-<img src="https://dl.dropboxusercontent.com/s/klra9666sk8rcuz/Q3.png?raw=1"  width="50%" height = "50%">
+<img src="https://dl.dropboxusercontent.com/s/klra9666sk8rcuz/Q3.png?raw=1"   >
 
 
 Answer the following questions based on the truth table:
@@ -438,17 +438,17 @@ Answer the following questions based on the truth table:
 <ol type="1">
 <li>Sum-of-products expressionf or F is: $$\overline{A}\text{ }\overline{B}\text{ }\overline{C} + \overline{A}BC + A \overline{B}\text{ }\overline{C} + A \overline{B}C + ABC$$</li><br>
 <li> <strong>The minimal sum of products is:</strong> $$\overline{B}A + \overline{B} \text{ } \overline{C} + BC$$. You can draw a combinational circuit of this by adding an input to a  big OR gate for every '+', INV (where necessary for negated input) with AND gate for every *pair* of input in the minimal sum of products:<br>
-<img src="https://dl.dropboxusercontent.com/s/39en3zjm86f3h6l/sumofpdt.png?raw=1"  width="50%" height = "50%">
+<img src="https://dl.dropboxusercontent.com/s/39en3zjm86f3h6l/sumofpdt.png?raw=1"   >
 <br>To turn AND and ORs into just NANDs, we can do this in two steps. First, turn the AND into NAND and add an inverter:<br>
-<img src="https://dl.dropboxusercontent.com/s/o52diqfidgb7dul/sumofpdt1.png?raw=1"  width="50%" height = "50%">
+<img src="https://dl.dropboxusercontent.com/s/o52diqfidgb7dul/sumofpdt1.png?raw=1"   >
 <br>
 Then apply DeMorgan law:<br>
-<img src="https://dl.dropboxusercontent.com/s/yzjpvf2xbn3car5/sumofpdt2.png?raw=1"  width="50%" height = "50%">
+<img src="https://dl.dropboxusercontent.com/s/yzjpvf2xbn3car5/sumofpdt2.png?raw=1"   >
 </li><br>
 <li> If we use A and B as the <strong>select</strong> inputs for the MUX, then the four data inputs of the MUX should be tied to one of "0" (ground), "1" (VDD), "C" or "NOT C". The following is one of the correct schematics that implement this function (there are other acceptable answers as well). Note that by changing the connections on the data inputs to the mux, we could implement any function of A, B and C.
-<br><img src="https://dl.dropboxusercontent.com/s/0yykalujmctihu4/mux_stuff.png?raw=1"  width="50%" height = "50%">
+<br><img src="https://dl.dropboxusercontent.com/s/0yykalujmctihu4/mux_stuff.png?raw=1"   >
 </li><br>
-<li>We can just write *sum of produc*t for rows that results the '0's in the table above, and then reduce the expression into: $$\overline{F} = B \overline{C} + \overline{A} \text{ } \overline{B} C$$</li></ol></p></div><br>
+<li>We can just write *sum of produc*t for rows that results the `0`s in the table above, and then reduce the expression into: $$\overline{F} = B \overline{C} + \overline{A} \text{ } \overline{B} C$$</li></ol></p></div><br>
 
 
 
@@ -487,7 +487,7 @@ The Xilinx 4000 series field-programmable gate array (FPGA) can be programmed to
 The heart of the FPGA architecture is a *configurable logic block (CLB)* which has a c**ombinational logic subsection** with the following circuit diagram:
 
 
-<img src="https://dl.dropboxusercontent.com/s/kyx7a79owajbxde/Q5.png?raw=1"  width="100%" height = "100%">
+<img src="https://dl.dropboxusercontent.com/s/kyx7a79owajbxde/Q5.png?raw=1"   >
 
 
 There are **two 4-input function generators** and **one 3-input function generator**, each capable of implementing an **arbitrary** Boolean function of its inputs.
