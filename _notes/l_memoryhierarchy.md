@@ -21,7 +21,7 @@ Singapore University of Technology and Design
 ## [Overview](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=0s)
 
   
-<img src="https://dl.dropboxusercontent.com/s/88up5y3aitc893l/p1.png?raw=1"     >
+<img src="https://dl.dropboxusercontent.com/s/88up5y3aitc893l/p1.png?raw=1"  style="width: 70%;"    >
 
   
 
@@ -69,7 +69,7 @@ An SRAM cell can be made up of **6-transistors** as shown in the figure below.
 
 > Its commonly called a 6T-SRAM cell
 
-<img src="https://dl.dropboxusercontent.com/s/u1acx3abx3102pn/read_sram.png?raw=1"     >
+<img src="https://dl.dropboxusercontent.com/s/u1acx3abx3102pn/read_sram.png?raw=1"   style="width: 70%;"   >
 
 Each cell stores **one** bit. The *loop* formed by two inverters can ***store*** a single bit for **as long as they are powered**. 
 
@@ -93,7 +93,7 @@ There are two other things to note: the *word line* and the *two complementary b
 * Then, drive a **strong** high voltage or low voltage **through the bit line and its complement** as shown. 
 > In this example, the value of the cell is written to be `0`. 
 
-<img src="https://dl.dropboxusercontent.com/s/kf6fk970dffm00z/write_sram.png?raw=1"     >
+<img src="https://dl.dropboxusercontent.com/s/kf6fk970dffm00z/write_sram.png?raw=1"  style="width: 70%;"   >
 
 
 ### [Dynamic Random-Access Memory (DRAM)](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=844s)
@@ -101,7 +101,7 @@ There are two other things to note: the *word line* and the *two complementary b
  A single DRAM cell is capable of storing 1-bit of data by using just *single NFET* and a *single capacitor* **when powered**:
  > This is often called as 1T-DRAM. DRAM is also a volatile memory device. 
  
-<img src="https://dl.dropboxusercontent.com/s/4wovmxsgb7896vd/dram.png?raw=1"     >
+<img src="https://dl.dropboxusercontent.com/s/4wovmxsgb7896vd/dram.png?raw=1"   style="width: 70%;"   >
 
 **To read:**
 * Supply high voltage to the word line, and this will switch the NFET `on`.
@@ -134,7 +134,7 @@ put together on a shaft, and they make up a *cylinder*. The cylinders are able t
 
 Each round disk can be separated into concentric circles sections (*track*), and each track can be further separated into *sectors* as shown below. Each sector contains a fixed number of bits.
 
-<img src="https://dl.dropboxusercontent.com/s/x32k130rfu8h7fm/disk.png?raw=1"     >
+<img src="https://dl.dropboxusercontent.com/s/x32k130rfu8h7fm/disk.png?raw=1"   style="width: 70%;"   >
 
 A disk is able to retain its information even after they're not directly plugged to power supply anymore. 
 
@@ -264,7 +264,7 @@ There are two flavours in cache design: the fully associative (FA) cache and the
 ### [Fully Associative Cache (FA)](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=2417s)
 
 The FA cache has the following generic structure:
-<img src="https://dl.dropboxusercontent.com/s/yoj1kl3kg3do86c/facache.png?raw=1"     >
+<img src="https://dl.dropboxusercontent.com/s/yoj1kl3kg3do86c/facache.png?raw=1"  style="width: 80%;"    >
 
 `TAG` and `DATA` are made of SRAM cells:
 * `TAG` contains  **all bits** of address `A`.
@@ -272,9 +272,11 @@ The FA cache has the following generic structure:
 	> It will be 32 bits of data and 32 bits of address for $$\beta$$ CPU. 
 
 Note the presence of a device called the **tri-state buffer:**
-<img src="https://dl.dropboxusercontent.com/s/hu22kodm6etknl5/tsbuffer.png?raw=1"     >
+
+<img src="https://dl.dropboxusercontent.com/s/hu22kodm6etknl5/tsbuffer.png?raw=1"  style="width: 60%;"    >
 
 It has the following truth-table:<br>
+
 $$\begin{matrix}
 A & X & Y \\
 \hline
@@ -305,6 +307,7 @@ FA cache is the **gold standard** on how well a cache should perform
 ### [Direct Mapped Cache (DM)](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=2821s)
 
 The DM cache has the following generic structure:
+
 <img src="https://dl.dropboxusercontent.com/s/eu74l2gi23380mp/dmcache.png?raw=1"      >
   
 
