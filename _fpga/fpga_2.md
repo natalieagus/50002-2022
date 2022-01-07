@@ -28,7 +28,7 @@ The Alchitry Au board comes with **100MHz** on-board clock. When used properly, 
 
 ## Sequential Logic Module
 
-<br><img src="https://dl.dropboxusercontent.com/s/7ynz6v0w3u95zud/counter.png?raw=1"   ><br>
+<br><img src="https://dl.dropboxusercontent.com/s/7ynz6v0w3u95zud/counter.png?raw=1" style="width: 70%;"  ><br>
 
 Above is a sample schematic of a simple sequential logic module. Assuming the D Flip-Flop `R1` is triggered at each positive clock edge, then:
 * The combinational logic unit applies some function $$f$$ to its input `QR1`.
@@ -41,7 +41,7 @@ Above is a sample schematic of a simple sequential logic module. Assuming the D 
 
 To make things simple, let's use the **8-bit ripple-carry adder** unit that we made in *Part 1*, to **increment the value of `INIT` by the constant `2` at each clock cycle**:
 
-<br><img src="https://dl.dropboxusercontent.com/s/50qvdip2wuq1njg/seqadder.png?raw=1"   ><br>
+<br><img src="https://dl.dropboxusercontent.com/s/50qvdip2wuq1njg/seqadder.png?raw=1" style="width: 70%;"  ><br>
 
 * The output `cout` is grounded because we don't need it.
 * The system has 8-bit `CL out` as output. There's no external input to the system. 
@@ -53,7 +53,7 @@ We already have the 8-bit ripple-carry adder module ready, but not the D Flip-Fl
 
 Create a new module and name it `seq_plus_two.luc`. This time round, we accept input `clk` and `rst` signal as per the default `.luc` script. These two signals are fed by the hardware, where `clk` is typically the onboard clock, and `rst` signal is `1` when the `reset` button on Alchitry Au (not Alchitry Io!) is pressed. 
 
-<br><img src="https://dl.dropboxusercontent.com/s/c8bx99dmnu1zsku/au.png?raw=1"   >
+<br><img src="https://dl.dropboxusercontent.com/s/c8bx99dmnu1zsku/au.png?raw=1"  style="width: 70%;" >
 
 To use a `dff` properly, you need to define:
 1. The `clk` signal, 
@@ -109,7 +109,7 @@ Why? Its not because that `seq_plus_two.luc` is buggy, but its because the `clk`
 
 We cannot change the on-board clock speed, but we can  **slow down**   the `clk` signal fed to `seqplustwo`. However, we can utilize this in-built **component** called **counter**. Right-click on `Components` on the left and add the counter component. 
 
-<br><img src="https://dl.dropboxusercontent.com/s/mcv80rkkcglrozm/countercomp.png?raw=1"   >
+<br><img src="https://dl.dropboxusercontent.com/s/mcv80rkkcglrozm/countercomp.png?raw=1" style="width: 70%;"  >
 
 You should see a new script called `counter.luc` added under `Components` afterwards. This unit is a synchronous logic unit that receives the following input parameters:
 * `#SIZE(n)` : defining how many bits is its output
@@ -162,10 +162,10 @@ So the value `out` will be the following at each clock cycle:
 ... *you get the idea.*
 
 We can supply these `y` values using an FSM, having the following simple transition diagram and starting state `S0`:
-<img src="https://dl.dropboxusercontent.com/s/erkav0dr0jsht2b/fsmdiag.png?raw=1"   ><br><br>
+<img src="https://dl.dropboxusercontent.com/s/erkav0dr0jsht2b/fsmdiag.png?raw=1"  style="width: 60%;" ><br><br>
 
 The schematic of the updated sequential logic device (its no longer a plus 2 only now) is: 
-<img src="https://dl.dropboxusercontent.com/s/dwc8fl78ibykw22/fsmeg.png?raw=1"  ><br>
+<img src="https://dl.dropboxusercontent.com/s/dwc8fl78ibykw22/fsmeg.png?raw=1"  style="width: 60%;"><br>
 
 We now have that additional FSM unit that controls the value of `y` instead of just feeding it with the constant `2` like we did previously. 
 

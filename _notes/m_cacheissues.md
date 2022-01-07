@@ -229,7 +229,7 @@ There's no one superior replacement policy. One replacement policy can be better
 We can further improve cache performance by **increasing the capacity of each cache line**. We can **fetch  `B` words of data at a time**, and this is especially useful if there's high locality of reference.  The figure below illustrates a cache line with `B=4`:
   
 
-<img src="https://dl.dropboxusercontent.com/s/ceamhyfon0dsofw/blocksize.png?raw=1"     >
+<img src="https://dl.dropboxusercontent.com/s/ceamhyfon0dsofw/blocksize.png?raw=1"   style="width: 90%;"  >
 
 <span style="background-color:yellow; color: black"> The number of data **words** in each cache line is called the **block size** and is always a power of two. </span> 
 
@@ -284,7 +284,7 @@ This policy might require slightly complex hardware to implement as opposed to t
 
 The cache device may need to store not just `Tag`-`Content` per cache line, but also some "helper bits" that are used to perform some write or replacement policy, and the overall caching algorithm.  
 
-###  `V`: **Valid Bit** 
+###  V: **Valid Bit** 
 
 The valid bit (either `1` or `0`) is used to indicate whether the particular cache line  contains *valid* and *important* values (valid copy of data from memory unit) and not an *invalid* or *empty* or *redundant* in value. 
 
@@ -298,7 +298,7 @@ This allows for a faster `HIT` computation in the event of cache `MISS`.
 
 **The cost**: just 1 extra storage bit per cache line. For cache lines with block size larger than 1, there's still only one `V` bit per cache line (so the entire `b` block of words are either *present* or *not present*). 
 
-### `D`: Dirty Bit
+### D: Dirty Bit
 
   
 The dirty bit (`1` or `0`) is used to indicate whether we need to update the memory unit to reflect the new updated version in the cache. 
@@ -306,7 +306,7 @@ The dirty bit (`1` or `0`) is used to indicate whether we need to update the mem
 The dirty bit is set to `1` **iff** the cache line is updated (CPU writes new values to cache) but this new value **hasn't been stored** to the physical memory. In other words, the copy in the physical memory is *outdated*. 
   
 
-### `LRU`: Least Recently Used Bits
+### LRU: Least Recently Used Bits
 
 The LRU bit is present in each cache line for FA and NWSA cache only regardless of the block size.  DM cache does not have a replacement policy. For a cache of size `N`, we need `N log N` bits per cache. 
 
@@ -332,7 +332,8 @@ Given a memory unit of fixed size `M`, can use 2 bits less if we were to use wor
 
 
 For DM/NWSA cache with `B` blocks and **word addressing**, we need to divide the original requested address into the same **three segments**, but we don't have the default `00` in the lowest 2 bits of the address (as when byte addressing is used) anymore: 
-<img src="https://dl.dropboxusercontent.com/s/2dsjsjurxtndevq/wordbyte.png?raw=1"    >
+
+<img src="https://dl.dropboxusercontent.com/s/2dsjsjurxtndevq/wordbyte.png?raw=1" style="width: 70%;"   >
 
 * Lowest`b`-bits to index each word in a cache line block. 
 * `K`-bits to index each cache line or set. 

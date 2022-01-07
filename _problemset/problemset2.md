@@ -29,7 +29,7 @@ Each topic's questions are grouped into **three** categories: basic, intermediat
 ## Combinational Logic Timing (Basic)
 
 Consider the following combinational logic device.
-<img src="https://dl.dropboxusercontent.com/s/hsjn3h2yy149dxx/Q10.png?raw=1"  >
+<img src="https://dl.dropboxusercontent.com/s/hsjn3h2yy149dxx/Q10.png?raw=1"    style="width: 70%;" >
 
  Each logic gate has the same:
  - Propagation delay,  tpd= 2ns, 
@@ -47,7 +47,7 @@ Overall  **tcd** = 1ns, **tcd** ​= 1ns  (counting the shortest path from XOR g
 
 **Draw** the truth table for the following CMOS circuitry:
 
-<img src="https://dl.dropboxusercontent.com/s/crosfbfiqf1iueg/Q11.png?raw=1" >
+<img src="https://dl.dropboxusercontent.com/s/crosfbfiqf1iueg/Q11.png?raw=1" style="width: 50%;">
 
 
 
@@ -64,17 +64,17 @@ $$
 Use only NAND gates to redraw the circuit below. Use as few NAND gates as possible.
 
   
-<img src="https://dl.dropboxusercontent.com/s/ri0c3l74ormsqwa/Q7.png?raw=1"   >
+<img src="https://dl.dropboxusercontent.com/s/ri0c3l74ormsqwa/Q7.png?raw=1" style="width: 70%;"  >
 
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 If you directly convert with just NAND gates then you'll get:  
 <br>
-<img src="https://dl.dropboxusercontent.com/s/ekfful2ybo9n5je/Q8.png?raw=1"  > 
+<img src="https://dl.dropboxusercontent.com/s/ekfful2ybo9n5je/Q8.png?raw=1"  style="width: 50%;" > 
 <br>
 You can minimise them first by minimising the boolean expression:  $$AC + \bar{A}C + B\bar{C} = C+B\bar{C} = C + B = \overline{\bar{C}\bar{B}}$$ Then we can easily draw this: <br>
- <img src="https://dl.dropboxusercontent.com/s/43ecrhtx84m2kpa/Q8new.png?raw=1"  ></p></div><br>
+ <img src="https://dl.dropboxusercontent.com/s/43ecrhtx84m2kpa/Q8new.png?raw=1" style="width: 50%;" ></p></div><br>
 
 
 
@@ -83,15 +83,14 @@ You can minimise them first by minimising the boolean expression:  $$AC + \bar{A
 ## Full Adder Timing Analysis (Intermediate)
 
 Refer to the FA circuitry below:
-<img src="https://dl.dropboxusercontent.com/s/nqfbozivm2mdrvf/Q12.png?raw=1"  >
+<img src="https://dl.dropboxusercontent.com/s/nqfbozivm2mdrvf/Q12.png?raw=1" style="width: 60%;" >
 
 Answer the following questions:
 1. **Compute** the  **tpd​**  and  **tcd** of the full adder above.
 2.  If we were to put several of these FAs to form an 8-bit ripple-carry adder as shown, **compute** the **tpd** and **tcd**  of an 8-bit ripple-carry adder made of 8 of these FA circuits. 
 
-	<img src="https://dl.dropboxusercontent.com/s/y30lar5nypnbh52/Q13.png?raw=1"  >
+	<img src="https://dl.dropboxusercontent.com/s/y30lar5nypnbh52/Q13.png?raw=1"  style="width: 70%;">
 
-	<br>
 	*Hint: In the figure,  C0​  is assumed to be **grounded** for this particular **instance**, so this sample device can only add two numbers and not subtract them.*
 
 	*However, is the computation of tpd​  and  **tcd** of an 8-bit ripple carry adder usage specific?* 
@@ -124,7 +123,7 @@ In this problem, we ask you to think carefully about why these rules work - in p
 
 Consider the following 2-input acyclic circuit whose two components, A and B, are each combinational devices. 
 
-<img src="https://dl.dropboxusercontent.com/s/divqzx422azog4h/Q1.png?raw=1"   >
+<img src="https://dl.dropboxusercontent.com/s/divqzx422azog4h/Q1.png?raw=1"  style="width: 70%;" >
 
 
 The propagation delay for each device is specified in nanoseconds. 
@@ -175,7 +174,7 @@ x & y & z \\
 
 ## CMOS Circuit Boolean Expression (Basic)
 
-<img src="https://dl.dropboxusercontent.com/s/x1surj7fotwv45a/Q9.png?raw=1"   >
+<img src="https://dl.dropboxusercontent.com/s/x1surj7fotwv45a/Q9.png?raw=1" style="width: 70%;"  >
 
 1. **Draw** the truth table of the CMOS circuit above. 
 2. What is the **boolean** expression for the CMOS circuit shown?
@@ -200,7 +199,7 @@ A & B & C & D & F \\ \hline 0 & 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 1 & 1 \\ 0 & 0 & 1 
 ## Combinational Circuit's Functional Specs (Basic)
 Consider the following circuit that implements the 2-input function $$H(A,B)$$:
 
-<img src="  https://dl.dropboxusercontent.com/s/2vy52yuzs24xfc4/Q2new.png?raw=1"   >
+<img src="  https://dl.dropboxusercontent.com/s/2vy52yuzs24xfc4/Q2new.png?raw=1" style="width: 70%;"  >
 
 1. Write down the **truth table** for $$H$$.
 
@@ -285,7 +284,7 @@ Choose all the correct Boolean expression of this circuit:
 
 What is the the **sum-of-products** for the following ROM (Read Only Memory)?
 
-<img src="  https://dl.dropboxusercontent.com/s/7kymm3qcwldfd9q/rom.png?raw=1"   >
+<img src="  https://dl.dropboxusercontent.com/s/7kymm3qcwldfd9q/rom.png?raw=1"  style="width: 50%;" >
 
   
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
@@ -323,7 +322,7 @@ Hence this make **Y** to be the **SUM** output and **Z** to be the **CARRY** out
 
 The following diagram shows a schematic for the pulldown circuitry for a particular CMOS gate:
 
-<img src="  https://dl.dropboxusercontent.com/s/40jd3vijlsjq12v/Q1%202.png?raw=1"   >
+<img src="  https://dl.dropboxusercontent.com/s/40jd3vijlsjq12v/Q1%202.png?raw=1" style="width: 70%;"  >
 
 1. What is the correct schematic for the **pullup** circuitry?
 
@@ -340,7 +339,7 @@ $$\overline{(A+B) C + D} = (\overline{A} \text{ }\overline{B} + \overline{C}) \o
 <i>Note: We don't need to add inverter in the inputs. Convince yourself that this is true by tracing some input combinations to the output terminal.</i>
 <br>
 <img src="
-https://dl.dropboxusercontent.com/s/6romn7t1g594ddz/pfetup.png?raw=1"   >
+https://dl.dropboxusercontent.com/s/6romn7t1g594ddz/pfetup.png?raw=1"  style="width: 70%;" >
 </li><br>
 <li>From the pulldown diagram, it seems like the output is 0 if D is 1, or A and C is 1, or B and C is 1. Therefore, the output for the gate is the <strong>inverse</strong> of the expression of the pulldown circuitry, which is the output of the pullup circuitry above: $$\overline{(A+B) C + D} = (\overline{A} \text{ }\overline{B} + \overline{C}) \overline{D}$$
 </li><br>
@@ -386,7 +385,7 @@ Y &= AB \bar{C} \bar{D} + AB \bar{C}D + \bar{A} \bar{B}CD + \bar{A}BCD + ABCD \\
 
 Anna Logue, a circuit designer who missed several early 6.004 lectures, is struggling to design her first CMOS logic gate. She has implemented the following circuit:
 
-<img src="https://dl.dropboxusercontent.com/s/4a5ipod927ton7h/Q2.png?raw=1"   >
+<img src="https://dl.dropboxusercontent.com/s/4a5ipod927ton7h/Q2.png?raw=1" style="width: 50%;"  >
 
 
 Anna has fabricated 100 test chips containing this circuit, and has a simple testing circuit which allows her to try out her proposed gate statically for various combinations of the A and B inputs. 
@@ -420,7 +419,7 @@ She has burned out 97 of her chips, and needs your help before destroying the re
 
 A certain function F has the following truth table:
 
-<img src="https://dl.dropboxusercontent.com/s/klra9666sk8rcuz/Q3.png?raw=1"   >
+<img src="https://dl.dropboxusercontent.com/s/klra9666sk8rcuz/Q3.png?raw=1" style="width: 40%;"  >
 
 
 Answer the following questions based on the truth table:

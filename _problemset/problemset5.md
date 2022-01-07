@@ -145,46 +145,46 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 
 3. Notta has noticed the following C code fragment appears frequently in the benchmarks:
 	
-	```cpp
-	int *_p; /_* Pointer to integer array *_/_
-	_int i,j; /_* integer variables *_/_
+```cpp
+int *_p; /_* Pointer to integer array *_/_
+_int i,j; /_* integer variables *_/_
 
-	_..._
+_..._
 
-	_j = p[i]; /_* access ith element of array */
-	```
+_j = p[i]; /_* access ith element of array */
+```
 
-	The pointer variable `p` contains the *address* of a **dynamically allocated** array of integers. The value of `p[i]` is stored at the address `Mem[p +4i]` where `p` and `i` are locations containing the values of the corresponding C variables. On a conventional Beta this code fragment is translated to the following instruction sequence:
+The pointer variable `p` contains the *address* of a **dynamically allocated** array of integers. The value of `p[i]` is stored at the address `Mem[p +4i]` where `p` and `i` are locations containing the values of the corresponding C variables. On a conventional Beta this code fragment is translated to the following instruction sequence:
 
-	```cpp
-	LD(...,R1)     /* R1 contains p, the array base address */
-	LD(...,R2)     /* R2 contains I, the array index */    ...
-	SHLC(R2,2,R0)  /* compute byte-addressed offset = 4*i */
-	ADD(R1,R0,R0)  /* address of indexed element */
-	LD(R0,0,R3)    /* fetch p[i] into R3 */
-	```
+```cpp
+LD(...,R1)     /* R1 contains p, the array base address */
+LD(...,R2)     /* R2 contains I, the array index */    ...
+SHLC(R2,2,R0)  /* compute byte-addressed offset = 4*i */
+ADD(R1,R0,R0)  /* address of indexed element */
+LD(R0,0,R3)    /* fetch p[i] into R3 */
+```
 
-	Notta proposes the addition of an `LDX` instruction that shortens the last three instructions to:
+Notta proposes the addition of an `LDX` instruction that shortens the last three instructions to:
 
-	```cpp
-	SHLC(R2,2,R0)  /* compute byte-addressed offset = 4*i */
-	LDX(R0,R1,R3)  /* fetch p[i] into R3 */
-	```
+```cpp
+SHLC(R2,2,R0)  /* compute byte-addressed offset = 4*i */
+LDX(R0,R1,R3)  /* fetch p[i] into R3 */
+```
 	
-	Give a ***register-transfer language description*** for the `LDX` instruction. 
+Give a ***register-transfer language description*** for the `LDX` instruction. 
 
-	<div cursor="pointer" class="collapsible">Show Answer</div>
-	<div class="content_answer">
-	<p>
+<div cursor="pointer" class="collapsible">Show Answer</div>
+<div class="content_answer">
+<p>
 
-	<div class="class=language-cpp highlighter-rouge">
-	<div class="highlight">
-	<pre class="highlight"><code>LDX( Ra, Rb, Rc ):
-		EA <- Reg[Ra] + Reg[Rb]
-		Reg[Rc] <- Mem[EA]
-		PC <- PC + 4</code></pre></div>
-	</div>
-    </p></div><br>
+<div class="class=language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>LDX( Ra, Rb, Rc ):
+	EA <- Reg[Ra] + Reg[Rb]
+	Reg[Rc] <- Mem[EA]
+	PC <- PC + 4</code></pre></div>
+</div>
+</p></div><br>
 
 4. Using a table like the one above specify the control signals for the LDX opcode.
 
@@ -197,27 +197,27 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 
 5. It occurs to Notta that adding an `STX` instruction would probably be useful too. Using this new instruction, `p[i] = j` might compile into the following instruction sequence:
 
-	```cpp
-	SHLC(R2,2,R0)  /* compute byte-addressed offset = 4*i */
-	STX(R3,R0,R1)  /* R3 contains j, R1 contains p */
-	```
+```cpp
+SHLC(R2,2,R0)  /* compute byte-addressed offset = 4*i */
+STX(R3,R0,R1)  /* R3 contains j, R1 contains p */
+```
 
-	Briefly describe what (hardware) **modifications** to the Beta datapath would be necessary to be able to execute `STX` in a **single cycle.**
+Briefly describe what (hardware) **modifications** to the Beta datapath would be necessary to be able to execute `STX` in a **single cycle.**
 
-	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	The register transfer language description of  <code>STX</code> would be:
-	<div class="class=language-cpp highlighter-rouge">
-	<div class="highlight">
-	<pre class="highlight"><code>STX(Rc, Rb, Ra)
-	EA <- Reg[Ra] + Reg[Rb]
-	Mem[EA] <- Reg[Rc]
-	PC <- PC + 4</code></pre></div>
-	</div>
+<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
+The register transfer language description of  <code>STX</code> would be:
+<div class="class=language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>STX(Rc, Rb, Ra)
+EA <- Reg[Ra] + Reg[Rb]
+Mem[EA] <- Reg[Rc]
+PC <- PC + 4</code></pre></div>
+</div>
 
-	It's evident that we need to perform <strong>3 register reads,</strong> but the Beta's register file has only <strong>2 read ports.</strong> Thus we need to add a <strong>third read port</strong> to the register file.
-	<br><br>
-	Incidentally, adding a third read port would eliminate the need for the <code>RA2SEL</code> mux because we <i>no longer need to choose between <code>Rb</code> and <code>Rc</code></i>, since each register field has its own read port.
-	</p></div><br>
+It's evident that we need to perform <strong>3 register reads,</strong> but the Beta's register file has only <strong>2 read ports.</strong> Thus we need to add a <strong>third read port</strong> to the register file.
+<br><br>
+Incidentally, adding a third read port would eliminate the need for the <code>RA2SEL</code> mux because we <i>no longer need to choose between <code>Rb</code> and <code>Rc</code></i>, since each register field has its own read port.
+</p></div><br>
 
 
 ## New Beta Instruction (Basic)
@@ -234,15 +234,15 @@ Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode fi
 	</p></div><br>
 
 2. Explain why the following instruction cannot be added to our Beta instruction set without further hardware modifications on the datapath:
-	```cpp
-	PUSH(Rc, 4, Ra):
-		Mem[Reg[Ra]] <-- Reg[Rc]
-		Reg[Ra] <-- Reg[Ra] + 4
-	```
+```cpp
+PUSH(Rc, 4, Ra):
+	Mem[Reg[Ra]] <-- Reg[Rc]
+	Reg[Ra] <-- Reg[Ra] + 4
+```
 
-	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	To implement this <code>PUSH</code>, somehow the <code>ALU</code> would have to produce <i>two</i> 32-bit values instead of the original one 32-bit output. The new two 32-bit values are: <code>Reg[Ra]</code> to be used as the memory address and <code>Reg[Ra]+4</code> to be written into the register file.
-	</p></div><br>
+<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
+To implement this <code>PUSH</code>, somehow the <code>ALU</code> would have to produce <i>two</i> 32-bit values instead of the original one 32-bit output. The new two 32-bit values are: <code>Reg[Ra]</code> to be used as the memory address and <code>Reg[Ra]+4</code> to be written into the register file.
+</p></div><br>
 
 
 ## Another New Beta Instruction (Basic)

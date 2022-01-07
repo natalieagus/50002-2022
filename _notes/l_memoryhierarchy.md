@@ -134,7 +134,7 @@ put together on a shaft, and they make up a *cylinder*. The cylinders are able t
 
 Each round disk can be separated into concentric circles sections (*track*), and each track can be further separated into *sectors* as shown below. Each sector contains a fixed number of bits.
 
-<img src="https://dl.dropboxusercontent.com/s/x32k130rfu8h7fm/disk.png?raw=1"   style="width: 70%;"   >
+<img src="https://dl.dropboxusercontent.com/s/x32k130rfu8h7fm/disk.png?raw=1"   style="width: 60%;"   >
 
 A disk is able to retain its information even after they're not directly plugged to power supply anymore. 
 

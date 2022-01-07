@@ -103,9 +103,9 @@ io_led[1] = ram.out[7:0];
 
 
 Now that we understand how the `simple_ram` module works, lets create a module that corresponds to this memory unit in the $$\beta$$ schematic shown our notes:
-> Note: there's two read ports, and one write port.
+> Note: there's two read ports (`id`, `mrd`), and one write port (`mwd`). Each port requires the corresponding address to write or read to.
 
-<img src="https://dl.dropboxusercontent.com/s/4v5wpc0sw7xlbml/memunit.png?raw=1"  >
+<img src="/50002/assets/contentimage/beta/memory.png"  class="center_full"/>
 
 
 Create a new script  `memoryunit.luc` and define the terminals as follows. The names are self explanatory. 

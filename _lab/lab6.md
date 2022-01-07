@@ -1,26 +1,28 @@
 ---
 layout: academic
 permalink: /lab/lab6
-title: Lab 6 - Tiny OS
-description: Lab 6 handout covering topics from Virtual Machine and Asynchronous IO Handling
+title: (Ungraded) Tiny OS
+description: Tiny OS Lab handout covering topics from Virtual Machine, Asynchronous IO Handling, Kernel, and OS Services
 tags: [lab, kernel, asynchronous, io, dualmode, interrupt, exception]
 ---
 
 * TOC
 {:toc}
 
-**50.002 Computation Structures**
+**50.005 Computer System Engineering**
 <br>
 Information Systems Technology and Design
 <br>
 Singapore University of Technology and Design
 <br>
-Modified by: Kenny Choo, Natalie Agus, Oka Kurniawan (2021)
-# Lab 6: Tiny OS
+*Materials Adapted from MIT 6.004*
+
+# Tiny OS
+This Lab will be used in 50.005 Computer System Engineering in Term 5 (Week 1-2) to gently bridge your knowledge from the last 3 weeks of 50.002 to the first 2 weeks of 50.005. You are free to read around if you'd like to get started early. 
 
 ## Starter Code
-The following files inside your `/50002/` folder are what you're going to open and modify or study for this lab, then submit (unless otherwise stated):
-- `lab6_submit.uasm` 
+Download the following file and place it inside your `/50002/` folder. This is what you're going to open and modify or study for this lab, then submit (unless otherwise stated):
+- [`tinyOS_submit.uasm` ](https://www.dropbox.com/s/t6zhpy30cx0o8fe/tinyOS_submit.uasm?dl=1)
 
 
 ## Related Class Materials
@@ -40,7 +42,7 @@ The lecture notes on [Virtual Machine](https://natalieagus.github.io/50002/notes
 
 
 ## Introduction: The Tiny OS
-`lab6_submit.uasm` is a program that implements a minimal Kernel supporting a simple **timesharing** system. Use BSim to load this file, assemble, and then run `lab6_submit.uasm`. The following prompt should appear in the console pane of the BSim Display Window:
+`tinyOS_submit.uasm` is a program that implements a minimal Kernel supporting a simple **timesharing** system. Use BSim to load this file, assemble, and then run `tinyOS_submit.uasm`. The following prompt should appear in the console pane of the BSim Display Window:
 
 <img src="/50002/assets/contentimage/lab6/1.png"  class=" center_full"/>
 
@@ -51,7 +53,7 @@ As you type, each character is echoed to the console and when you hit **return**
 The hex number `0x000711BC` written out in the screenshot above as part of the prompt is a **count** of the **number of times** one of the user-mode processes (**Process 2**) has been **scheduled** while you typed in the sentence or leave the program idling.
 
 ### Asynchronous Interrupts
-`lab6_submit.uasm` implements the following functionality to support Asynchronous Interrupts: 
+`tinyOS_submit.uasm` implements the following functionality to support Asynchronous Interrupts: 
 - Kernel-mode **vector interrupt routine** for handling input from the keyboard, clock, reset, and illegal instruction (trap).  
   
 ```cpp
@@ -82,10 +84,10 @@ I_Kbd:	ENTER_INTERRUPT()		| Adjust the PC!
 	JMP(xp)				| and return to the user.
 ```
 
-- The same logic applies for `I_Reset`, `I_Illop`, and `I_Clk`. You can inspect the relevant instructions under these labels in `lab6_submit.uasm`. 
+- The same logic applies for `I_Reset`, `I_Illop`, and `I_Clk`. You can inspect the relevant instructions under these labels in `tinyOS_submit.uasm`. 
 
 ### Synchronous Interrupts
-`lab6_submit.uasm` implements the a few functionalities to support Synchronous Interrupts (also known as *trap* or *supervisor call*). **Kernel-mode supervisor call** dispatching and a repertoire of call handlers that provide simple I/O services to user-mode programs include:
+`tinyOS_submit.uasm` implements the a few functionalities to support Synchronous Interrupts (also known as *trap* or *supervisor call*). **Kernel-mode supervisor call** dispatching and a repertoire of call handlers that provide simple I/O services to user-mode programs include:
 * `Halt()` – **stop** a user-mode process (equivalent to closing or killing the process)
 * `WrMsg()` – write a null-terminated `ASCII` string to the console.  The string immediately follows the `WrMsg()` instruction; execution resumes with the instruction following the string.  For example:
   
@@ -241,7 +243,7 @@ DoSwap:	LD(UserMState, r0)	| Restore r0, so we can do a
 ```
 
 ## User Programs
-`lab6_submit.uasm` also contains code for three programs each of which runs in a separate user-mode process.
+`tinyOS_submit.uasm` also contains code for three programs each of which runs in a separate user-mode process.
 
 ### Process 0
 **Process 0** prompts the user for new lines of input in `P0Read`.  It then reads lines from the keyboard in `P0RdCh` using the `GetKey()` supervisor call and sends them to **Process 1** in `P0PutC` using the `Send()` procedure.  
@@ -312,7 +314,7 @@ Send:	PUSH(r1)		| Save some regs...
     ...
 ```
 
-There are other auxiliaries created for the user programs, such as to convert char in r0 to upper case (`UCase`) and test if `R0` is a vowel; put boolean answer into `R1` (`VowelP`). You can read their instructions near the end of `P0` instructions in `lab6_submit.uasm`.
+There are other auxiliaries created for the user programs, such as to convert char in r0 to upper case (`UCase`) and test if `R0` is a vowel; put boolean answer into `R1` (`VowelP`). You can read their instructions near the end of `P0` instructions in `tinyOS_submit.uasm`.
 
 ### Process 1
 Process 1 **reads** lines of inputs from the bounded buffer (using the `Rcv()` procedure):
@@ -416,7 +418,7 @@ Note that as mentioned in the section above, the Beta in this lab implements a *
 0x80000010	mouse interrupt (must specify “.options tty” to enable)
 ```
 
-This means that the first five instructions in `lab6_submit.uasm` contains instructions to branch out to the respective handler
+This means that the first five instructions in `tinyOS_submit.uasm` contains instructions to branch out to the respective handler
 
 ```cpp
 . = VEC_RESET   | This is loaded at address 0x80000000
@@ -433,7 +435,7 @@ This means that the first five instructions in `lab6_submit.uasm` contains instr
 
 Recall that **only user-mode programs** can be **interrupted**. Interrupts signaled while the Beta is running in kernel-mode (e.g., handling another interrupt or servicing a supervisor call) **have no effect** until the processor returns to user-mode.
 
-The original `lab6_submit.uasm` prints out “Illegal interrupt” and then halts if a mouse interrupt is received:
+The original `tinyOS_submit.uasm` prints out “Illegal interrupt” and then halts if a mouse interrupt is received:
 
 <img src="/50002/assets/contentimage/lab6/3.png"  class=" center_full"/>
 
@@ -654,7 +656,7 @@ A semaphore is a **variable**  used to **control access** to a common resource b
 
 > In its simplest form, it can be thought of as a data structure that contains a guarded integer that represents the number of resources available for the pool of processes that require it. 
 
-The instructions in `lab6_submit.uasm` that implements Semaphore is as follows:
+The instructions in `tinyOS_submit.uasm` that implements Semaphore is as follows:
 
 ```cpp
 WaitH:	LD(r3,0,r0)		| Fetch semaphore value.

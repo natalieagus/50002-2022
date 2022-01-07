@@ -52,11 +52,11 @@ A FSM (Finite State Machine) is formally defined to have:
 
 ## [State Machine Diagram and the Truth Table](https://www.youtube.com/watch?v=efLcdpqlAyI&t=310s)
 
-We can represent a state machine in two forms: ****state transition diagram or truth table****.  
+We can represent a state machine in two forms: **state transition diagram or truth table**.  
 
 Suppose we have a simple digital lock machine, that will open only if we give the password: `0110`. The following state diagram illustrates how that lock works:
  
-  <img src="https://dl.dropboxusercontent.com/s/peuby3etfi3twvx/Q2%202.png?raw=1"   >
+  <img src="https://dl.dropboxusercontent.com/s/peuby3etfi3twvx/Q2%202.png?raw=1"  style="width: 80%;" >
 
 That **S_X** in bold represents the *initial* state. The **arrows** are the possible *transitions* between states. The little numbers beside the arrows are the kind of *input* required for state transition to happen. The word $$U$$ inside each state circle is the *output* of each state. If it is unlocked, $$U=1$$, otherwise $$U=0$$ for a locked output 
 * When input `0110` is entered in that *exact* sequence, you'll land at `S_3` -- and the lock will be **unlocked**. 
@@ -228,11 +228,11 @@ Now that we have the boolean equations for each machine ready, we can simply con
 
 One possible schematic for the Moore version of the lock is :
 
-<img src="https://dl.dropboxusercontent.com/s/6trfvoracwgajwl/moore_1.png?raw=1"   >
+<img src="https://dl.dropboxusercontent.com/s/6trfvoracwgajwl/moore_1.png?raw=1" style="width: 60%;"  >
 
  One possible schematic for the Mealy version of the lock is:
  
- <img src="https://dl.dropboxusercontent.com/s/bu45lxkolwzbj8n/meally_1.png?raw=1"   >
+ <img src="https://dl.dropboxusercontent.com/s/bu45lxkolwzbj8n/meally_1.png?raw=1" style="width: 60%;"  >
  
 > Both diagrams above are obtained after minimising the boolean expression. There are other ways to construct them machine, such as using only NAND gates, only NOR gates, only multiplexers, or ROMs. Try it yourself as practice.
 
@@ -278,7 +278,7 @@ The goal of this section is that, after establishing the abstraction (specs) of 
 The truth table will look something like this for any *arbitrary* FSM with  $$i$$ input bits, $$s$$ state bits, and $$o$$ output bits:
  
 
-<img src="https://dl.dropboxusercontent.com/s/bmm0uh4uzk6mrwe/Q1.png?raw=1"   >
+<img src="https://dl.dropboxusercontent.com/s/bmm0uh4uzk6mrwe/Q1.png?raw=1"  style="width: 60%;" >
 
 In short, we need **to create a combinational logic device** that conforms to the FSM's truth table. We have learned several ways to create such devices:
 
@@ -317,7 +317,7 @@ The reason we want to **enumerate** number of possible FSMs given $$s$$ state bi
 ## [FSM Equivalence and Reduction](https://www.youtube.com/watch?v=efLcdpqlAyI&t=1819s)
 FSM A and FSM B shown below have the same functionality, however FSM A has double the amount of states than FSM B. In other words, we could have reduced FSM A by merging **equivalent** states. 
   
-<img src="https://dl.dropboxusercontent.com/s/4frikzlus8gcmeo/Q4.png?raw=1"  e4"    >
+<img src="https://dl.dropboxusercontent.com/s/4frikzlus8gcmeo/Q4.png?raw=1" >
 
 To reduce the number of states in an FSM, we need to find pairs of **equivalent** states and merge them. 
 

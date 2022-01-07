@@ -185,7 +185,7 @@ There are two different policies that can be adopted to handle I/O interrupts:
 The **priority level** for each interrupt handler can be illustrated using the  higher `p` bits of PC -- meaning that the *location* of the handler in memory *matters*; it defines the handler's priority level.  
 > Some hardware tweaks on the CPU is needed to support this feature, but we don't have to dwell too deep into that at this point. 
 
-<img src="https://dl.dropboxusercontent.com/s/7w7oy1jyaa5trnq/pc.png?raw=1"    >
+<img src="https://dl.dropboxusercontent.com/s/7w7oy1jyaa5trnq/pc.png?raw=1"     style="width: 60%;"  >
 
 * The value `p` depends on how many priority levels you want the machine to have, e.g: 3 bits for 8 levels.
 
@@ -222,7 +222,8 @@ Each has the following specs for service time, average period, and deadline:
 | Keyboard | 0.8 |3 | 10
 | Disk | 0.5 |3 | 2
 | Printer | 0.4 |3 | 1
-<br>
+
+
 ### [Case 1: Without scheduling](https://www.youtube.com/watch?v=gVntBILoDvg&t=2505s)
 
   Without any scheduling measure, the worst case latency seen **by each device** is the total service time of the other devices, as the interrupt requests *can arrive in any order.*

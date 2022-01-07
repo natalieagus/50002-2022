@@ -30,10 +30,10 @@ When you brainstorm for a game, try to keep two very **important** things in min
 	* **Some upgrade:** You can buy bigger buttons, LEDs or 7 segments, and buy **transistors** (simple, cheap BJT ones) to be used as **amplifiers** using external power source if the voltage from the Au is not strong enough. 
 	* **More upgrade:** You can buy LED strips (e.g: WS2812B), and **read the specifications**: typically the type of serial data and clock cycles required to set the lights. 
 	* **Even more upgrade:** You can buy LED matrix. There are TWO types: a simple up to 8x8 dot matrix,
-<img src="https://dl.dropboxusercontent.com/s/9fq8jdfe4n5h0zp/dot.png?raw=1"   >
+<img src="https://dl.dropboxusercontent.com/s/9fq8jdfe4n5h0zp/dot.png?raw=1"  style="width: 40%;"  >
 <br>
 Or, a **bigger** matrix that receives serial data,<br>
-<img src="https://dl.dropboxusercontent.com/s/8nfp3inp8yi1t4v/bigmatrix.png?raw=1"   >
+<img src="https://dl.dropboxusercontent.com/s/8nfp3inp8yi1t4v/bigmatrix.png?raw=1" style="width: 40%;"   >
 <br>
 
 	For the small matrix, you can use easy registers / dff to manage the data. For the big matrix, **you need to use some kind of RAM module** (you can use simple RAM default component in Alchitry) to store your data for the matrix to display at all times. 
@@ -240,7 +240,7 @@ The black boxes signifies connection to **external input/output devices.** Inter
 3. Create a combinational logic module that randomly produce a value of `1` (denoted as `VARIABLE INCREMENTER`). You can see the code [here](https://github.com/natalieagus/SampleAlchitryProjects/blob/master/CounterGame/source/variable_counter.luc).
 
 Notice the bootstrapped REGFILE output : all 16-bits `Rb_data` straight to the FSM. This is like the `Z` unit in $$\beta$$, used for **branching** after a comparison check in the previous state.  You can also use this to branch and *perform next check* in **1 cycle**. The relevant state illustration and its sample lucid code is:<br>
-<img src="https://dl.dropboxusercontent.com/s/wh5rs5dakly3jtv/bcheck.png?raw=1"   >
+<img src="https://dl.dropboxusercontent.com/s/wh5rs5dakly3jtv/bcheck.png?raw=1" style="width: 40%;"   >
 
 
 ```cpp

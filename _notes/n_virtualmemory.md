@@ -24,7 +24,7 @@ The physical memory can contain all kinds of information, and is typically segme
 
 > A **program** and a **process** are terms that are  very closely related. Formally, we refer to a **program** as a group of instructions made carry out a specified task whereas a process simply means *a program that is currently run* or *a program in execution*. We can open and run the same program `N` times simultaneously, forming `N` distinct processes (e.g: opening multiple instances of text editors). 
 
-<img src="https://dl.dropboxusercontent.com/s/m1vg38rki9m5z1i/memimage.png?raw=1"   >
+<img src="https://dl.dropboxusercontent.com/s/m1vg38rki9m5z1i/memimage.png?raw=1" style="width: 70%;"  >
 
 In the lower address (address `0` onwards), we typically have executable instructions loaded there (PC starts from `0`). 
 
@@ -65,7 +65,7 @@ In virtual memory, we use a part of the disk as an *extension* to the physical m
 
 <span style="background-color:yellow; color: black"> A **page** is a fixed-size block of data that forms   *contiguous* physical memory addresses, </span> as illustrated in the figure below:
 
-<img src="https://dl.dropboxusercontent.com/s/janbxcdijndlhc4/page.png?raw=1"    >
+<img src="https://dl.dropboxusercontent.com/s/janbxcdijndlhc4/page.png?raw=1" style="width: 60%;"   >
   
 > It is very *useful* and *efficient* to transfer data in *pages* (instead of word by word) between the physical memory and disk due to **locality of reference.**
 
@@ -300,7 +300,7 @@ Finally when the program terminates, the OS Kernel  and frees up all the space i
 
 
 ### [An example](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=3106s)
-<img src="https://dl.dropboxusercontent.com/s/r8nia46u4gdw6gk/vmexample.png?raw=1"   >
+<img src="https://dl.dropboxusercontent.com/s/r8nia46u4gdw6gk/vmexample.png?raw=1" style="width: 70%;"  >
 
 The figure above shows a snapshot of the physical memory state at some point in time. There exist a pagetable with 16 entries and 8 pages of data labeled as `A` to `H` in the physical memory. LRU replacement policy with write back policy is used. **Lower** LRU means that the data is **more recently used.** 
 
@@ -351,7 +351,7 @@ After page `D` write is done, the OS Kernel can copy page `I` over from the swap
 The state of the physical memory after **both** instructions are executed in sequence is:
 > `I'` is just a symbol of an updated page `I` after a `ST` instruction is completed
 
-<img src="https://dl.dropboxusercontent.com/s/mis63e6z0nm0n3b/vmexample-after.png?raw=1"   >
+<img src="https://dl.dropboxusercontent.com/s/mis63e6z0nm0n3b/vmexample-after.png?raw=1" style="width: 70%;"  >
 
 The new changes are written in blue. 
 
@@ -407,7 +407,7 @@ Recall that a *cache* is used to store copies of memory addresses and its conten
 
 There are two possible options on where to assemble the cache hardware, ****before**** or ****after**** the MMU, each having its pros and cons. 
 
-  <img src="https://dl.dropboxusercontent.com/s/j7l3t20a9cmt2ez/cacheMMU.png?raw=1"   >
+  <img src="https://dl.dropboxusercontent.com/s/j7l3t20a9cmt2ez/cacheMMU.png?raw=1"  style="width: 70%;" >
 
 Note that if cache is placed before the MMU, then the cache stores `VA` (instead of PA) in its `TAG` field. 
 
@@ -419,7 +419,7 @@ Observe that if cache line selection is based on `PO` (unmapped, identical on bo
  
 Therefore we can arrange the components as such:
 
- <img src="https://dl.dropboxusercontent.com/s/mdgucv6qubun01l/cachemmu2.png?raw=1"   >
+ <img src="https://dl.dropboxusercontent.com/s/mdgucv6qubun01l/cachemmu2.png?raw=1"   style="width: 90%;">
 
 Each cache line in the DW/NWSA used in the design above stores a *single word*  **(not pages)** in the `Content` field and its physical address in the `TAG` field.
 

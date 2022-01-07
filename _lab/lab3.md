@@ -76,7 +76,7 @@ Inputs are still **specified in terms of voltages** (to maintain netlist compati
 * `Z`   the value of nodes that aren’t being driven by any gate output (e.g., the outputs of tristate drivers that aren’t enabled).  
 
 The following diagram shows how these values appear on the waveform display:
-<img src="/50002/assets/contentimage/lab3/2.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/2.png"  class=" center_seventy"/>
 
 ### .connect in JSim
 JSim has a control statement that lets you connect two or more nodes together so that they behave as a **single** electrical node:
@@ -229,7 +229,7 @@ It will be useful to generate three other output signals to be used by the compa
 The following schematic is a big picture for how to go about the design:
 > We will be using the “little-endian” bit numbering convention where bit 31 is the most-significant bit and bit 0 is the least-significant bit.
 
-<img src="/50002/assets/contentimage/lab3/3.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/3.png"  class=" center_seventy"/>
 
 * The `ALUFN0` input signal selects whether the operation is an `ADD` or `SUBTRACT`.  
   * `ALUFN0` will be set to `0` for an `ADD (S = A + B)` and `1` for a `SUBTRACT (S = A – B)`; 
@@ -253,17 +253,17 @@ V = &XA_{31} \cdot XB_{31} \cdot \overline{S_{31}} + \overline{XA_{31}} \cdot \o
 #### Detailed Adder/Subtractor Schematic
 Here’s the detailed schematic of the adder. Please label the nodes yourself before coding them in jsim so that you don’t make typos and end up in a debugging nightmare. 
 
-<img src="/50002/assets/contentimage/lab3/4.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/4.png"  class=" center_seventy"/>
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`, and include `lab3adder.jsim` header to test your adder32 unit only. You can comment out `lab3checkoff.jsim` for the time being. 
 </div></div><br>
 
-<img src="/50002/assets/contentimage/lab3/5.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/5.png"  class=" center_seventy"/>
 
 
 To use the test jig `lab3_testadder.jsim`:
 1. Uncomment the `lab3_testadder.jsim` file in the header and comment the rest as such: 
-  <img src="/50002/assets/contentimage/lab3/28.png"  class=" center_full"/>
+  <img src="/50002/assets/contentimage/lab3/28.png"  class=" center_fifty"/>
 2. Do a **GATE**-level simulation because now we use stdcell library instead of building our own gates using transistor 
 3. A waveform window showing the adder32 inputs and outputs should appear as such:
 
@@ -280,7 +280,7 @@ Design a 32-bit compare unit that generates one of two constants (`0` or `1`) de
 <span style="background-color:yellow; color: black">Clearly the high order 31 bits of the output are **always zero** (use that connection to `connect0` in JSim to zero `cmp[31:1]`).  The least significant bit of the output is determined by the answer to the **comparison** being performed.
 </span>
 
-<img src="/50002/assets/contentimage/lab3/7.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/7.png"  class=" center_seventy"/>
 
 * `ALUFN[2:1]` are used to control the **compare unit** 
 * Recall that we control the adder/subtractor unit using `ALUFN0` so we cannot use `ALUFN0` to control this compare unit too
@@ -293,13 +293,13 @@ Design a 32-bit compare unit that generates one of two constants (`0` or `1`) de
 #### Detailed Compare Unit Schematic
 Here’s the detailed schematic of the compare unit:
 
-<img src="/50002/assets/contentimage/lab3/8.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/8.png"  class=" center_fifty"/>
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We have created a test jig to test your compare unit: `lab3_testcompare.jsim`. Remember to comment the rest of the test jigs, and only use the compare test jig to test this unit. </div></div><br>
 
-<img src="/50002/assets/contentimage/lab3/29.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/29.png"  class=" center_fifty"/>
 
-<img src="/50002/assets/contentimage/lab3/24.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/24.png"  class=" center_seventy"/>
 
 ### Part 3: Boolean Unit
 
@@ -308,11 +308,11 @@ Design a **32-bit Boolean unit** for the Beta’s logic operations.  One impleme
 Here's the general schematic of the Boolean Unit:
 > Note the ORDER of the multiplexer **control** signals and its corresponding **output**. See [stdcell documentation](https://drive.google.com/file/d/1ArkRewfiBqJGmVqzkiGzFxbS0fZ-2eWw/view?usp=sharing) on the 4-to-1 mux if you’re unsure how these are obtained. 
 
-<img src="/50002/assets/contentimage/lab3/9.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/9.png"  class=" center_fifty"/>
 
 The following table shows the encodings for the `ALUFN[3:0]` control signals used by the test jig.  If you choose a different implementation you should also include logic to **convert** the supplied control signals into signals appropriate for your design.
 
-<img src="/50002/assets/contentimage/lab3/10.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/10.png"  class=" center_fifty"/>
 
 #### Detailed Boolean Unit Schematic
 
@@ -324,9 +324,9 @@ In total, you should utilise 32 4-to-1 multiplexers to build the boolean unit. <
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We’ve created a test jig to test your boolean unit: `lab3_testboolean.jsim`. Use it to test that your boolean unit works properly. </div></div><br>
 
-<img src="/50002/assets/contentimage/lab3/30.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/30.png"  class=" center_fifty"/>
 
-<img src="/50002/assets/contentimage/lab3/25.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/25.png"  class=" center_fifty"/>
 
 ### Part D: Shifter
 Design a **32-bit shifter** that implements `SRA`, `SHR` and `SHL` instructions.  
@@ -338,7 +338,7 @@ Design a **32-bit shifter** that implements `SRA`, `SHR` and `SHL` instructions.
 
 The desired operation will be encoded on `ALUFN[1:0]` as follows:
 
-<img src="/50002/assets/contentimage/lab3/12.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/12.png"  class=" center_fifty"/>
 
 With this encoding, `ALUFN0` is `0` for a **left shift** (SHL) and `1` for a **right shift** (SHR) and `ALUFN1` controls the **sign extension** logic on **right shift**.   
 * For `SHL` and `SHR`, 0’s are shifted into the vacated bit positions.  
@@ -371,16 +371,16 @@ Here’s the detailed schematic of the **right arithmetic shifter**.
 
 Finally, we can combine all three shifters together to form the total shifter output:
 
-<img src="/50002/assets/contentimage/lab3/17.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/17.png"  class=" center_seventy"/>
 
 > Another approach that **adds** latency but **saves** gates is to use the *left shift logic* for **both** left and right shifts, but for right shifts, **reverse** the bits of the `A` input first on the way in and **reverse** the bits of the output on the way out.
 
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We have created a test jig to test your shift unit: `lab3_testshifter.jsim`. Use it to test that your shifter unit works properly.  </div></div><br>
 
-<img src="/50002/assets/contentimage/lab3/31.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/31.png"  class=" center_fifty"/>
 
-<img src="/50002/assets/contentimage/lab3/26.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/26.png"  class=" center_fifty"/>
 
 ## Task B: Studying the Multiplier
 Open `lab3_mult.jsim` and realise that this file contains the circuitry for a **multiplier unit**. 
@@ -389,7 +389,7 @@ The goal of this section is to study this particular combinational multiplier th
 
 Here is a detailed bit-level description of how a **4-bit** by **4-bit** unsigned multiplication works.  This diagram assumes **we only want the low-order 4 bits** of the 8-bit product.
 
-<img src="/50002/assets/contentimage/lab3/18.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/18.png"  class=" center_fifty"/>
 
 This diagram can be **extended** in a straightforward way to 32-bit by 32-bit multiplication.  
 > Remember again that since our machine is only 32-bit, that means we only can store the low-order 32-bits of the result, you don’t need to include the circuitry that generates the rest of the 64-bit product.
@@ -399,7 +399,7 @@ As you can see from the diagram above, forming the *partial products* is easy.  
 * The circuit closely follows the diagram above but omits an FA module if two of its inputs are `0`
 
 
-<img src="/50002/assets/contentimage/lab3/19.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/19.png"  class=" center_seventy"/>
 
 ### Multiplier Analysis
 
@@ -435,15 +435,15 @@ Combine the outputs of the finished **adder**, **multiplier** (given), **compare
 
 Two additional control signals (`ALUFN[5:4]`) have been introduced to select which unit will supply the value for the ALU output.  The encodings for `ALUFN[5:0]` used by the test jig `lab3checkoff.jsim` are shown in the following table:
 
-<img src="/50002/assets/contentimage/lab3/21.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/21.png"  class=" center_fifty"/>
 
 Note that the `Z`, `V`, and `N` signals from the adder/subtractor unit are **INCLUDED** in the terminal list for the alu subcircuit (<span style="background-color:yellow; color: black">counted as ALU’s output</span>). **You should also have these signals as the ALU output for your 1D Project**. While these signals are NOT needed when using the ALU as part of the Beta, they are included here to make it easier for the test jig to pinpoint problems with your circuit.
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. When you’ve completed your design, you can use `lab3checkoff.jsim` to test your ALU implementation including the multiplier. </div></div><br> 
 
-<img src="/50002/assets/contentimage/lab3/32.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/32.png"  class=" center_fifty"/>
 
-<img src="/50002/assets/contentimage/lab3/27.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/27.png"  class=" center_fifty"/>
 
 When you run the gate-level simulation, you should see the following plot pops up:
 <img src="/50002/assets/contentimage/lab3/23.png"  class=" center_full"/>
@@ -451,4 +451,4 @@ When you run the gate-level simulation, you should see the following plot pops u
 You can use it to debug your alu by finding the opcode that causes the error once you tried to verify (click the tick sign).
 
 If all expected values are correct, you should see the following window pops up after you click the tick sign:
-<img src="/50002/assets/contentimage/lab3/22.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab3/22.png"  class=" center_seventy"/>

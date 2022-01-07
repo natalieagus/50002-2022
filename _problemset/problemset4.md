@@ -73,7 +73,7 @@ You are given a Turing machine (TM) with three states `(S0, S1, S2)` and a `HALT
 
 The tape is used to encode a binary number with three symbols, “0”, “1” and “\_”, where “\_” is used to signal the **beginning** and **end** of the number. For instance, the binary number “1011” is represented on the tape as `_,1,0,1,1,_` (*most significant bit on the left*).
 
-<img src="https://dl.dropboxusercontent.com/s/4s0rvpzhm6twih9/tmqns.png?raw=1"  >
+<img src="https://dl.dropboxusercontent.com/s/4s0rvpzhm6twih9/tmqns.png?raw=1" style="width: 70%;" >
 
 
 If the tape is in the initial configuration `_,1,0,1,1,_`:
@@ -103,7 +103,7 @@ The figure below shows a particular tape state *before* and *after* a Turing Mac
 
 Indicate **which of the following Turing Machine specification** [A], [B], [C], [D], [E] shown below is/are able to produce the "after" tape state *in exactly 12 cycles.
 
-<img src="https://dl.dropboxusercontent.com/s/isangqp3fexcao5/edgeDetectorTM.png?raw=1"  >
+<img src="https://dl.dropboxusercontent.com/s/isangqp3fexcao5/edgeDetectorTM.png?raw=1" style="width: 70%;" >
 
 * **Specification 1**: 
 	$$\begin{matrix}
@@ -222,30 +222,31 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 
 ## Memory Addressing (Basic)
 
-1. You are given that the 32-bit *word* at memory address `0` has a binary form of
-	```cpp
-	0000 0100 0000 0011 0000 0010 0000 0001
-	```
+1. You are given that the 32-bit *word* at memory address `0` has a binary form of:
 
-	What is the value of the *byte* stored in address `0, 1, 2` and `3`, respectively? What are the hexadecimal forms of the bytes?
+```cpp
+0000 0100 0000 0011 0000 0010 0000 0001
+```
 
-	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	1, 2, 3, and 4 are stored at address <code>0, 1, 2, 3</code> respectively.  The hex form is the word: <code>0x04 03 02 01</code>.
-	</p></div><br>
+What is the value of the *byte* stored in address `0, 1, 2` and `3`, respectively? What are the hexadecimal forms of the bytes?
+
+<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
+1, 2, 3, and 4 are stored at address <code>0, 1, 2, 3</code> respectively.  The hex form is the word: <code>0x04 03 02 01</code>.
+</p></div><br>
 
 
 2. How many bits of addresses are required at minimum to address the following chunk of data, assuming that they are **byte** addressable? 
 
-	```cpp
-	0000 0100 0000 0011 0000 0010 0000 0001
-	1111 1111 0000 0000 1111 1111 0000 0000
-	1010 1010 0011 1100 0101 0011 0011 0000 
-	0000 0011 0010 1100 0101 1100 1100 0001
-	0000 0000 0000 0000 0000 1100 1100 0001
-	```
+```cpp
+0000 0100 0000 0011 0000 0010 0000 0001
+1111 1111 0000 0000 1111 1111 0000 0000
+1010 1010 0011 1100 0101 0011 0011 0000 
+0000 0011 0010 1100 0101 1100 1100 0001
+0000 0000 0000 0000 0000 1100 1100 0001
+```
 	
 
-	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer"><p>
+<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer"><p>
 
-	There are 20 bytes in the data above. We need at least $$\lceil\log_2(20)\rceil$$ which results to at least <strong>5 bits for addressing.</strong>
-	</p></div>
+There are 20 bytes in the data above. We need at least $$\lceil\log_2(20)\rceil$$ which results to at least <strong>5 bits for addressing.</strong>
+</p></div>

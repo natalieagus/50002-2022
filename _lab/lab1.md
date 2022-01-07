@@ -410,7 +410,7 @@ Vid output 0 pulse(val1 val2 td tr tf pw per)
 
 This statement produces a periodic waveform with the following shape:
 
-![waveform](/50002/assets/contentimage/lab1/5.png)
+<img src="/50002/assets/contentimage/lab1/5.png"  class="center_seventy"/>
 
 ### Task E: Measuring tpd and tcd
 Replace the netlist fragment from Task C with the following test circuit that will let us measure various delays:
@@ -479,7 +479,7 @@ A |  B |  C | F(A,B,C)
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided under inside `lab1_submit.jsim`.</div></div><br>
 
-<img src="/50002/assets/contentimage/lab1/7.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab1/7.png"  class="center_fifty" style="width: 50%;"/>
 
 * Open `lab1_submit.jsim` and write your answer there:
   * There should be three parts to your answer
@@ -487,13 +487,13 @@ A |  B |  C | F(A,B,C)
     * The pulldown circuitry
     * The inverter at the drain of not F CMOS circuitry to produce back F 
 * Run it on jsim using the **FAST TRANSIENT ANALYSIS** button: 
-<img src="/50002/assets/contentimage/lab1/8.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab1/8.png"  class=" center_fifty"/>
 <br>
 
 * You will need to **understand** the output plot, and the meaning of each line of instruction in the answer to be able to excel in the Lab Quiz. 
 * Click on the green tick button on the right hand corner of the plot window. A message as such should appear, which means that all values produced by your circuit is as expected:
 
-<img src="/50002/assets/contentimage/lab1/6.png"  class=" center_full"/>
+<img src="/50002/assets/contentimage/lab1/6.png"  class=" center_fifty"/>
 
 
 `nominal.jsim` and `lab1checkoff.jsim` contains the necessary circuitry to generate the appropriate input waveforms to test your circuit.  It includes a `.tran` statement to run the simulation for the appropriate length of time and a few .plot statements which will display the input and output waveforms for your circuit.
