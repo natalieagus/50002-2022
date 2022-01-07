@@ -61,7 +61,9 @@ The most naive way to use voltage to encode information is to use ‘low’ volt
 
 Anything that is between the low and high threshold value is called the invalid zone, as shown in the figure below:
   
-<img src="https://dl.dropboxusercontent.com/s/6uo61vk9yze1aot/Volt.png?raw=1"      >
+<img src="https://dl.dropboxusercontent.com/s/6uo61vk9yze1aot/Volt.png?raw=1"  style="width: 90%;"    >
+
+> The values of operating voltage in practice is commonly set to be 0.3V for low voltage and 3.3V for high voltage. 
   
 ## [The Static Discipline](https://www.youtube.com/watch?v=xkVIr8jrtX0&t=634s)
 The static discipline is one of the **contracts** bound for all logical elements making up a digital system. The static discipline is stated as follows:
@@ -87,7 +89,7 @@ Consider two digital devices connected in series as shown in the figure below. T
 
 >*Why is this so?*
 
-<img src="https://dl.dropboxusercontent.com/s/9lejkhiqx50ga8y/p4.png?raw=1"     >
+<img src="https://dl.dropboxusercontent.com/s/9lejkhiqx50ga8y/p4.png?raw=1"    style="width: 80%;" >
 
 This explanation can be made clear with the following example. Suppose we supply 0.5V and Device 1 is able to produce also 0.5V, which means digital bit . 
 * However, the problem is that a *wire*, that connects two or more combinational devices together is susceptible to **noise**. 

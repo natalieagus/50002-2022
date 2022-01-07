@@ -89,7 +89,7 @@ Some terms we need to set straight before we proceed:
 
 The circuit symbol for NFET and PFET are shown as below. Note that the bulk of NFET is connected to `GND`, and the bulk of PFET is connected to `VDD`.
 
-<img src="https://dl.dropboxusercontent.com/s/qd1zhsulqjmknv2/pfetnfet.png?raw=1"      >
+<img src="https://dl.dropboxusercontent.com/s/qd1zhsulqjmknv2/pfetnfet.png?raw=1"  style="width: 70%;"    >
 
 ## Switching NFETs and PFETs ON/OFF
 
@@ -100,7 +100,7 @@ See the figure below and its corresponding explanation to understand better how 
 
 ###  [How NFET operates](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=819s)
 
-<img src="https://dl.dropboxusercontent.com/s/7oevad7tcpr2ob4/nfet_t.png?raw=1"   >	  
+<img src="https://dl.dropboxusercontent.com/s/7oevad7tcpr2ob4/nfet_t.png?raw=1" style="width: 70%;"  >	  
 
 1.  Connections:
 	- Bulk is connected to `GND` to keep the PN junction reverse biased, meaning that no current should flow or leak between source and bulk and between drain and bulk.
@@ -121,7 +121,7 @@ See the figure below and its corresponding explanation to understand better how 
 
 ###  [How PFET operates](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=960s)
 
-<img src="https://dl.dropboxusercontent.com/s/u7nuy6cayaik0q7/pfet_t.png?raw=1"   >	  
+<img src="https://dl.dropboxusercontent.com/s/u7nuy6cayaik0q7/pfet_t.png?raw=1"  style="width: 70%;" >	  
 
 1.  The PFET symbol is similar to NFET except that it has the by the  bubble $$\circ$$.
 2. Conversely, 
@@ -205,7 +205,7 @@ To form a fully **functional combinational logic device** that implements a part
 
 There are two parts of CMOS: **the pull-up circuit** and **the pull-down circuit**. Its *general schematic* is shown in the figure below:
 
- <img src="https://dl.dropboxusercontent.com/s/ywble3yr4bxj99z/cmos.png?raw=1"      >
+ <img src="https://dl.dropboxusercontent.com/s/ywble3yr4bxj99z/cmos.png?raw=1"   style="width: 80%;"   >F
 
 
 Contents of the pull-up circuit:
@@ -240,7 +240,7 @@ The main building blocks of the CMOS complements is summarized as below:
 
 For example, the following is a CMOS circuitry for a NAND gate: 
 
-<img src="https://dl.dropboxusercontent.com/s/pfkmo27rmgiklbo/nand.png?raw=1"      >
+<img src="https://dl.dropboxusercontent.com/s/pfkmo27rmgiklbo/nand.png?raw=1"    style="width: 70%;"  >
   
 
 There are two inputs to this circuit, called A and B. A low or high voltage representing bit `0` or bit `1` respectively can be supplied to both input terminals. From the diagram, A is connected to the PFET on the **left** and the NFET on the **top**. B is connected to the PFET on the **right** and the NFET on the **bottom**. 
