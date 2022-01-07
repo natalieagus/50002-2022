@@ -19,7 +19,7 @@ Singapore University of Technology and Design
 # Logic Synthesis
 [You can find the lecture video here.](https://youtu.be/yXBAy432vT8) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
-## Overview
+## [Overview](https://www.youtube.com/watch?v=yXBAy432vT8&t=0s)
 The purpose of creating combinational devices is to **synthesise logic**, meaning that we create a device that is able to give a certain combination of output given a certain combination input. In other words, a device that adheres to a truth table, i.e: its *functional specification.* 
 
 Any combinational device has to have a functional specification. Functional specifications are represented with **truth tables**. So for example, the following is the truth table of an NAND gate *(input: A and B, output: Y)*: 
@@ -49,7 +49,7 @@ $$
 So as you can see, "NAND" is just a short for "not-an-and". The output of a NAND gate is always `1` unless both A and B are `1`. The output of an AND gate is the opposite, that is it is always `0` unless both A ***and*** B are `1`.  
 
   
-## N-input Gates
+## [N-input Gates](https://www.youtube.com/watch?v=yXBAy432vT8&t=309s)
 
   
 
@@ -61,7 +61,7 @@ There are 16-possible 2-input gates, as shown in the image below. The AND gate a
   
 
 
-## Sum of Products
+## [Sum of Products](https://www.youtube.com/watch?v=yXBAy432vT8&t=585s)
 We can also have functional specifications in terms of **boolean expression**. To convert truth tables into boolean expressions, we take the following steps:
 
 1. Look **only for the rows with output= 1**. In the case of the NAND gate, we look at row 1, 2, and 3. 
@@ -80,7 +80,7 @@ Y = \overline{A} \text{ } \overline{B} + \overline{A}B + A\overline{B}
 
 *Sometimes in textbooks, it is called as canonical sum of products. They mean the same thing as just "sum of products".*
 
-## Universal Gates
+## [Universal Gates](https://www.youtube.com/watch?v=yXBAy432vT8&t=908s)
 
   
 
@@ -92,7 +92,7 @@ We can use just NANDs or just NORs gates to make AND, OR and INV gates:
 
 Therefore, NANDs and NORs are <ins>universal</ins> gates.
 
-## Straightforward Logic Synthesis
+## [Straightforward Logic Synthesis](https://www.youtube.com/watch?v=yXBAy432vT8&t=1248s)
 
 Recall that the goal of combinational devices is that they are created to adhere to a certain functional specification. We can make various logic gates and combine them to synthesize a more complex logic or truth table. However, there are basic logics that can be used to synthesize any kinds of other (more complex) logic. These are: INV (inverter), AND gate, and OR gate. 
 
@@ -132,7 +132,7 @@ Using these steps, we can come up with the *simplest* (not necessarily the most 
 
 Notice that if the expression contains many terms summed together, we need bigger OR gate at the output. This causes the size of our device to be bigger, and therefore more expensive. In the later sections, we learn how to ***reduce*** the boolean expression such that we have less number of terms, and thus are able to synthesize the logic more effectively. 
 
-## Boolean Algebra Properties
+## [Boolean Algebra Properties](https://www.youtube.com/watch?v=yXBAy432vT8&t=1492s)
 Another tool we need to master before being able to minimise or reduce boolean expression is boolean algebra properties. They are useful to manipulate boolean expressions so that we quations. A summary end up with simpler terms and reduce the terms, while still keeping the logic equivalent. 
 
 Here are the simpler boolean algebra properties that we must know before proceeding to a more complex ones:
@@ -184,7 +184,7 @@ $$
 
 What's important is to **pay attention** to the relationship between each variables. You can easily let $$\bar{a} = x$$ and find the formula applies as well for the inverted version. 
  
-### DeMorgan's Theorem
+### [DeMorgan's Theorem](https://www.youtube.com/watch?v=yXBAy432vT8&t=1507s)
 
 Finally, the DeMorgan's theorem is useful as a tool for us to manipulate boolean equations as it converts between OR to AND and vice versa using INV. The Theorem states:
   
@@ -195,7 +195,7 @@ $$\begin{aligned}
 \end{aligned}$$
 
 
-### Boolean Minimization Example
+### [Boolean Minimization Example](https://www.youtube.com/watch?v=yXBAy432vT8&t=1663s)
 
 When given a boolean expression, we need to be creative and utilize all properties of boolean algebra to minimise the expression. For example, we can use the *reduction* rule from the boolen algebra cheat-sheet above to perform boolean minimization:
 
@@ -205,7 +205,7 @@ Y &= \overline{C} \text{ }\overline{B} A + \overline{C} B A + CB\overline{A} + C
 &= \overline{C} A + CB 
 \end{aligned}$$
 
-### Karnaugh Map for Boolean Minimisation
+### [Karnaugh Map for Boolean Minimisation](https://www.youtube.com/watch?v=yXBAy432vT8&t=1953s)
 
 The Karnaugh Map offers an alternative method to perform boolean minimization. This is a method to easily perform boolean minimization, and **ultimately the end goal is to reduce the digital circuit to its minimum number of gates** (save cost and save space).
 
@@ -262,7 +262,7 @@ To convert this Map back into boolean expression, we need to look at each group 
 
 <div class="yellowbox"> Note that minimised boolean forms are not necessarily unique. The number of terms left in the final expression is unique but its possible to have a different form. </div>
 
-## Logic Synthesization with CMOS
+## [Logic Synthesization with CMOS](https://www.youtube.com/watch?v=yXBAy432vT8&t=2605s)
 We can create a combinational logic device easily given the *minimized* boolean expression, using any of the universal gates:
 * NANDs only
 * NORs only
@@ -314,7 +314,7 @@ Note that the CMOS recipes that we learn in this course also **does not guarante
 
 ## Special Combinational Logic Devices
 
-### The Multiplexer
+### [The Multiplexer](https://www.youtube.com/watch?v=yXBAy432vT8&t=3493s)
   
 
 The Multiplexer (shorted as "mux") is a special combinational logic device that is very commonly used in practice. It is implemented using basic logic gates (INV, AND, and OR, or NANDs). The mux is expensive to manufacture, but *universal*, meaning that it can **implement any boolean function because essentially it "hardcodes" the truth table**. 
@@ -359,7 +359,7 @@ The multiplexer can simply implement the truth table by mapping each type of out
 
 We can do the same thing for $$S$$, and both of them combined will function as a full adder. 
 
-### Decoder
+### [Decoder](https://www.youtube.com/watch?v=yXBAy432vT8&t=3938s)
 
 The Decoder (also known as "demux") is a special combinational logic device that is also very commonly used in practice. It can have $$k$$ select inputs, and $$2^k$$ possible output combinations. The schematic of a 1-select input decoder is:
 
@@ -410,7 +410,7 @@ Some properties about decoders:
 
     >In other words, only the selected output $$i$$ is HIGH ( `1`), and the rest of the $$2^k-1$$ data output is LOW (`0`).
 
-### Read-Only-Memories (ROM)
+### [Read-Only-Memories (ROM)](https://www.youtube.com/watch?v=yXBAy432vT8&t=4059s)
 
   
 
@@ -444,7 +444,7 @@ The properties of ROM are as follows:
 	> For example, the Full Adder has 3 inputs (A, B, $$C_{in}$$), and 2 outputs (S and $$C_{out}$$). Hence the size of the ROM is $$2^3 * 2 = 16$$.
 
 
-## Summary
+## [Summary](https://www.youtube.com/watch?v=yXBAy432vT8&t=4421s)
 [You may want to watch the post lecture videos here.](https://youtu.be/oo58e54SHjs)
 
 Synthesizing combinational logic is not a simple task. There are many ways to realise a functionality, i.e: the **logic** *(that the device should implement)* represented by the truth table or boolean expression. We can use universal gates (only NANDS, or only NORS), a combination of gates (INV, AND, and OR), or many other ways (multiplexers, ROMs, etc). 

@@ -18,9 +18,10 @@ Singapore University of Technology and Design
 # Cache Design Issues
 [You can find the lecture video here.](https://youtu.be/2OARjqLK4io) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
-## Overview
+## [Overview](https://www.youtube.com/watch?v=2OARjqLK4io&t=0s)
 
 Recall that  **cache** is a small and fast (and expensive, made of `SRAM`) memory unit assembled near the CPU core, which function is to reduce the **average** time and energy required for the CPU to access some requested data `Mem[A]` located in the Main Memory (RAM). 
+> You know them commercially as the L1, L2, or L3 caches. We simplify them in this course by just referring to them as a single *cache*.
 
 The cache contains  a **copy** of some recently or frequently used data `Mem[A]` and its address `A`. The hardware is assembled in such a way that the CPU will always look for that particular data in the cache first, and only look for the requested information in the Physical Memory if cache `MISS` occurs (and then the cache will be updated to contain this new information). 
 
@@ -31,7 +32,7 @@ Without the presence of cache device, the CPU has to frequently access the RAM. 
 In this chapter, we will learn various cache design issues such as its (hardware) **parameters**, i.e: *block size,* cache size, *associativity*, and **management**, i.e: *write* policy and *replacement* policy.
 
 
-## Cache Design Issues
+## [Cache Design Issues](https://www.youtube.com/watch?v=2OARjqLK4io&t=374s)
 The cache design issues are categorised as follows:
 1.  **Associativity** : we need to determine how many *different* cache lines can one address be stored to. <span style="background-color:yellow; color: black"> It implies **choice** </span>. Of course note that there can only be one copy of that address (tag) in the entire cache. 
 	* For DM cache, there is no choice on which cache line is used or looked up. **A 1-to-1 mapping** between each combination of the last $$k$$ bit of the query address `A` to the cache line (entry) is required. Hence, the DM cache has **no associativity**.
@@ -45,7 +46,7 @@ The cache design issues are categorised as follows:
 
 
 
-## Comparing FA and DM Cache
+## [Comparing FA and DM Cache](https://www.youtube.com/watch?v=2OARjqLK4io&t=519s)
 
   
 We compare the two designs via various metrics: 
@@ -85,7 +86,7 @@ In this section, we will learn a new cache design called the N-way set associati
 
   
 
-### N-Way Set Associative Cache
+### [N-Way Set Associative Cache](https://www.youtube.com/watch?v=2OARjqLK4io&t=740s)
 
 
 One solution is increase the associativity of a DM cache is to build an **`N`-way set associative cache** (NWSA cache). 
@@ -113,7 +114,7 @@ The figure below illustrates the structure of an NWSA cache:
 
   
 
-##  Replacement Policies
+##  [Replacement Policies](https://www.youtube.com/watch?v=2OARjqLK4io&t=1069s)
 
 Cache replacement policy is required in both FA cache and NWSA cache.  In the event of cache `MISS`, we need to **replace** the *old* cache line 	`TAG`-`Content` field with this *newly requested* one. 
 
@@ -123,7 +124,7 @@ There are three common cache replacement strategies. Usually they're implemented
 
 > Overhead: additional cost (time, energy, money) to maintain and implement.  
   
-### Least Recently Used (LRU)
+### [Least Recently Used (LRU)](https://www.youtube.com/watch?v=2OARjqLK4io&t=1132s)
 
 **The idea:** To always replace the least recently used item in the cache. 
 
@@ -167,7 +168,7 @@ At `t=5`, the entry `0x000C-Mem[0x000C]` is replaced because its the *least rece
 <span style="background-color:yellow; color: black"> The LRU bits is  updated at **every** cache **access**, regardless of whether there's a replacement or not. </span>
   
 
-### Least Recently Replaced (LRR)
+### [Least Recently Replaced (LRR)](https://www.youtube.com/watch?v=2OARjqLK4io&t=1580s)
 
   
 **The idea:** To always replace the **oldest** recently used item in the cache, *regardless of the last access time*.  
@@ -209,21 +210,21 @@ At `t=5`, the one that is replaced is `A=0x0004`, and the `LRR` pointer can be i
 
 
 
-### Random 
+### [Random](https://www.youtube.com/watch?v=2OARjqLK4io&t=1765s) 
 
  **The idea:** Very simple -- to replace a random cache line.  
 
 **Overhead computation:**
 * We simply need some logic unit to behave like a  random generator, and we use this to select the cache line to replace when the cache is full. 
 
-### Comparing Between Strategies
+### [Comparing Between Strategies](https://www.youtube.com/watch?v=2OARjqLK4io&t=1795s)
 There's no one superior replacement policy. One replacement policy can be better than the other *depending on our use case* i.e: pattern of addresses enquired. 
 
 > Refer to Problem Set for various examples 
 
 **LRU** conforms to locality of reference, and is excellent when `N` is small (since it is expensive to implement). **Random** method is good when `N` is large. **LRR** is good on specific pattern of usage where we don't frequently revisit oldest cached data. 
 
-## The Cache Block Size
+## [The Cache Block Size](https://www.youtube.com/watch?v=2OARjqLK4io&t=1860s)
 
 We can further improve cache performance by **increasing the capacity of each cache line**. We can **fetch  `B` words of data at a time**, and this is especially useful if there's high locality of reference.  The figure below illustrates a cache line with `B=4`:
   
@@ -244,7 +245,7 @@ There are tradeoffs in determining the block size of our cache, since we always 
 *  **Cons**: Risk of fetching **unused** words. With a larger block size, we have to fetch more words on a cache `MISS` and the `MISS` penalty grows linearly with increasing block size if there's low locality of reference.
 
 
-##  Write Policies
+##  [Write Policies](https://www.youtube.com/watch?v=2OARjqLK4io&t=2120s)
 
 When the CPU executes a `ST` instruction, it will first write the `TAG = Address`-`Content = new content` to the cache. We will then have to decide *when* to actually update the physical memory. 
 
@@ -255,13 +256,13 @@ To update the physical memory, the CPU must first fetch the data from the cache 
 There are three common cache write strategies. 
 
 
-### Write-through
+### [Write-through](https://www.youtube.com/watch?v=2OARjqLK4io&t=2174s)
 
 **The main idea:**  CPU writes are done in the cache first by setting `TAG = Address`, and `Content = new content` in an available cache line, and is also **immediately** written to the physical memory. 
 
 This policy **stalls** the CPU until write to memory is complete, but memory always holds the "truth", and is never oudated.
 
-### Write-back
+### [Write-back](https://www.youtube.com/watch?v=2OARjqLK4io&t=2243s)
   
 **The main idea:**: Similarly, CPU writes are done in the cache first by setting `TAG = Address`, and `Content = new content` in an available cache line, **but not immediately written to the main memory.** 
 
@@ -271,7 +272,7 @@ To support this policy, the cache needs to have a helper bit called the **dirty 
 
 > There is no best overall policy. Think about the pros and cons of each policy, and think about specific cases where one policy is superior than the other. 
 
-### Write-behind
+### [Write-behind](https://www.youtube.com/watch?v=2OARjqLK4io&t=2380s)
 
 **The main idea:**: CPU writes are also done in the cache first by setting `TAG = Address`, and `Content = new content` in an available cache line, and write to the physical memory is **immediate** but **buffered** or **pipelined**. 
 
@@ -279,7 +280,7 @@ CPU will not stall and will be executing next instructions while writes are *com
 
 This policy might require slightly complex hardware to implement as opposed to the other policies, e.g: the pipeline and the background, asynchronous write system. 
 
-## The Helper Bits
+## [The Helper Bits](https://www.youtube.com/watch?v=2OARjqLK4io&t=2439s)
 
 The cache device may need to store not just `Tag`-`Content` per cache line, but also some "helper bits" that are used to perform some write or replacement policy, and the overall caching algorithm.  
 
@@ -321,7 +322,7 @@ The helper bits can be illustrated in a diagram like below. Below we have a samp
 
 
 
-## Word Addressing
+## [Word Addressing Convention](https://www.youtube.com/watch?v=2OARjqLK4io&t=2730s)
 
 Previously, we learned that byte addressing is used by convention.
 
@@ -337,7 +338,7 @@ For DM/NWSA cache with `B` blocks and **word addressing**, we need to divide the
 * `K`-bits to index each cache line or set. 
 * Highest (remainder) `T`-bits of the original requested address to be stored in the `TAG` field.
 
-## Cache Benchmarking
+## [Cache Benchmarking](https://www.youtube.com/watch?v=2OARjqLK4io&t=2885s)
 We can  compute **average cache performance** by counting how many `HIT`s  (and `MISS`) are there given `N` queries in sequence, and dividing the number of `HIT` with `N`, given its hardware specification such as block size, replacement policy, and cache size. 
 
 If the query sequences repeat itself, we can compute the number of `HIT` and `MISS` from its **steady state**. 
@@ -474,7 +475,7 @@ That means out of the 18 address calls, we have 15 `MISS`. The miss rate of this
 
 
 
-## The Caching Algorithm
+## [The Caching Algorithm](https://www.youtube.com/watch?v=2OARjqLK4io&t=3070s)
 
 The caching algorithm computes what the cache must do in general when:
 * CPU sends a read or write request, 
@@ -586,7 +587,7 @@ On CPU WRITE/STORE (new_content) request to address A:
 			
 ```
 
-## Summary
+## [Summary](https://www.youtube.com/watch?v=2OARjqLK4io&t=3405s)
 [You may want to watch the post lecture videos here. ](https://youtu.be/33N7Y9Iydb0)
 
 The four cache design issues discussed in this chapter are: associativity, replacement policies, write policies, and block size. There is no *golden cache design*  that suits all kinds of situations. The performance of a cache depends on its use case. 

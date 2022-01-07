@@ -18,10 +18,10 @@ Singapore University of Technology and Design
 # Virtual Machine
 [You can find the lecture video here.](https://youtu.be/4pizOgCT11k) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
-## Overview
+## [Overview](https://www.youtube.com/watch?v=4pizOgCT11k&t=0s)
 Suppose we have 10 processes running in our computer right now: Web Browser, Spotify, Telegram, etc (in fact, the number of running processes at any given time in a typical computer is more than 10). There has to be some kind of **manager** program that oversees the execution of these processes because we only have limited amount of resources: CPU cores, RAM size, cache size, etc. This **manager** program is called the Operating System. Specifically, the part of the OS that is responsible for process management is the **operating system kernel**.
 
-### The Operating System Kernel
+### [The Operating System Kernel](https://www.youtube.com/watch?v=4pizOgCT11k&t=95s)
 The Operating System (OS) Kernel is a *special* program that is written to ***manage*** and **oversees** the execution of all other processes in system. It has the **highest privilege** in computer system, i.e: it can terminate any program, has access to all kinds of hardware resources (Physical Memory, I/O devices). 
 
 A few of its important role include *memory management*, *I/O handling*, and *process scheduling*. 
@@ -29,7 +29,7 @@ A few of its important role include *memory management*, *I/O handling*, and *pr
 > There are many other roles of the OS Kernel that is not discussed here. We will learn more about them next term. 
 
 
-### A Complete Process Context
+### [A Complete Process Context](https://www.youtube.com/watch?v=4pizOgCT11k&t=336s)
 In the previous chapter, we learned that each process has its own *VA to`PA`mapping* we call as part of a process **context**, hence allowing it to run on its own *virtual memory*.
 
 Assigning a separate context for each process has two crucial benefits:
@@ -58,9 +58,9 @@ In the Figure below, we illustrate `N` processes that are present in the system:
 Writing an Operating System Kernel is not a trivial task as one has to take into consideration a plethora of *issues* (security, performance, memory management, scheduling, etc). However with its presence, it makes *easier to write all other programs*. **It provides a layer of abstraction, allowing each program to run on a  *virtual machine***, devoid of any knowledge about any other processes.
 
 
-### Building a Virtual Machine 
+### [Building a Virtual Machine ](https://www.youtube.com/watch?v=4pizOgCT11k&t=710s)
 
-####  Kernel Mode and User Mode
+####  [Kernel Mode and User Mode](https://www.youtube.com/watch?v=4pizOgCT11k&t=798s)
 To support a safe *virtual machine* for each process, we need to establish the notion of **dual mode system**, that is a system that has a **Kernel Mode** (privileged mode) and a **User Mode** (non-privileged mode): 
 
 * The OS Kernel runs in *full privilege* mode called the **Kernel Mode**, and it oversees the execution of all processes in the computer system, handles real I/O devices, and emulate virtual I/O device for each process. 
@@ -76,7 +76,7 @@ This is a **major benefit**: programs can be easily written as if they have *abs
 
 
 
-## OS Multiplexing and Context Switching
+## [OS Multiplexing and Context Switching](https://www.youtube.com/watch?v=4pizOgCT11k&t=1080s)
 
   
 **Multiplexing** is a method of sharing the resources in a computer **system** for multiple running programs at the same time. The OS kernel handles the multiplexed execution of various running programs in a single CPU -- **switching between *contexts* so rapidly** -- so that for the users, the computer is seemingly able to run multiple processes in "*parallel*". 
@@ -101,7 +101,7 @@ The key technology that allows for OS Multiplexing is the **asynchronous hardwar
 > We will simply call asynchronous interrupt as just "interrupt" for simplicity. A synchronous interrupt is called as "*trap*" instead (see the later chapters). 
   
 
-## Hardware Support for OS Multiplexing 
+## [Hardware Support for OS Multiplexing ](https://www.youtube.com/watch?v=4pizOgCT11k&t=1285s)
 
 To allow for proper multiplexing, four things must be supported ****in the hardware level****:
 
@@ -143,7 +143,7 @@ If (IRQ==1 && PC31 == 0):
 	PC <- Xaddr
 ```
 
-### Asynchronous Interrupt Handler 
+### [Asynchronous Interrupt Handler ](https://www.youtube.com/watch?v=4pizOgCT11k&t=1664s)
 
 The asynchronous interrupt handler is located at `XAddr`, which is usually pre-determined memory address. In $$\beta$$ CPU, `XAddr` is set at `0x8000 0008`. 
 
@@ -165,7 +165,7 @@ Afterwards, the service routine returns back to this interrupt handler. The hand
 > In any case, `Reg[XP]-4`  contains the address of instruction that the CPU should execute when the interrupt handler returns. 
 
   
- ### Dual Mode Support
+ ### [Dual Mode Hardware Support](https://www.youtube.com/watch?v=4pizOgCT11k&t=1971s)
 
 Since the OS Kernel is a program that manages the execution of all other processes in the system, it is **crucial** to *restrict* access to the Kernel for **safety reasons**.
 
@@ -195,7 +195,7 @@ With this notion, it is easy to enforce restricted access to the kernel space:
 	* Reset (setting PC to `RESET: 0x8000 0000`)
 
 
-### Reentrancy
+### [Reentrancy](https://www.youtube.com/watch?v=4pizOgCT11k&t=2045s)
 
 When the CPU is in the kernel mode (`PC31 == 1`), i.e: handling an interrupt -- it is important to consider whether or not we should allow interrupts to occur. Handlers which are interruptible are called **re-entrant**.
 
@@ -258,7 +258,7 @@ JMP(XP)  || Resume execution
 
 
 
-## Trap
+## [Trap](https://www.youtube.com/watch?v=4pizOgCT11k&t=2120s)
 
 A trap, is type of **synchronous interrupt** caused by an *exceptional* condition when the CPU executes an instruction, such as illegal operations, division by zero, invalid memory access, system calls etc. 
 
@@ -305,7 +305,7 @@ The function  `getchar` contains several instructions that perform a **superviso
 
   
 
-## Summary
+## [Summary](https://www.youtube.com/watch?v=4pizOgCT11k&t=2495s)
 [You may want to watch the post lecture videos here. ](https://youtu.be/uG1HEKdJpxY)
  
 In summary, we have learned how the presence of OS Kernel and hardware support provide an abstraction for each running process, thus allowing them to run in an isolated manner; on their own virtual machine.  

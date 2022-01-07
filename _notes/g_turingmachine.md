@@ -20,7 +20,7 @@ Singapore University of Technology and Design
 # Turing Machine and Programmability
 [You can find the lecture video here.](https://youtu.be/cmfDBAiogA0) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
   
-## Overview
+## [Overview](https://www.youtube.com/watch?v=cmfDBAiogA0&t=0s)
 
 A Finite State Machine does not keep track of the number of states it *visited*, it is only aware of the current state *it is in*. Therefore it is unable to solve problems like detecting palindrome or checking balanced parenthesis. There is no way to tell whether you have visited a state for the first time, or for the $$n^{th}$$ time. 
 
@@ -28,7 +28,7 @@ A Finite State Machine does not keep track of the number of states it *visited*,
 > 
 The Turing Machine is a mathematical model of computation that defines an abstract **machine**: one that is able to implement any functionalities that FSM can implement, and it doesn't face this limitation that FSM has. 
 
-## Basics of Turing Machine
+## [Basics of Turing Machine](https://www.youtube.com/watch?v=cmfDBAiogA0&t=111s)
 
 A Turing Machine is often represented as an "arrow" and a series of input written on a "tape", as drawn in the figure below:
  
@@ -67,7 +67,7 @@ A Turing Machine is often represented as an "arrow" and a series of input writte
 
 
 
-## Example 1: Implementing an Increment Machine
+## Example 1: [Implementing an Increment Machine](https://www.youtube.com/watch?v=cmfDBAiogA0&t=274s)
 
 Consider a machine whose job is to add $$1$$ to any *arbitrary* length input and present that as the output. An FSM can do this as well if the number of bits of input is **finite**, but it will run into a problem if the input bit is *too* *large*. An example of a 3-bit counter FSM is:
 
@@ -95,7 +95,7 @@ With this sample input, the Turing Machine runs as follows:
 6. The final output is written on the tape, and we should have this output in the end when the machine halts:
 <img src="https://dl.dropboxusercontent.com/s/m58690zk66gzj9q/tmiend.png?raw=1"   >
 
-## Example 2: Implementing a Coin Counter Machine
+## Example 2: [Implementing a Coin Counter Machine](https://www.youtube.com/watch?v=cmfDBAiogA0&t=690s)
 
 Suppose now we want to implement a machine that can receive a series of 10c coins, and *then* a series of 20c coins (for simplicity, we can't key in 10c coins anymore once the first 20c coin is given). We can then press an END button in the end once we are done and the machine will:
 * `ACCEPT (1)` if the value of 10c coins inserted is equivalent to the value of 20C coins inserted, or
@@ -136,7 +136,7 @@ Once found, it halts and wrote the final value (`ACCEPT`):
 As practice, you can try the running the machine using another set of input that will result in a `REJECT`. 
 > Can you solve the problem with lesser states? Why or why not?
 
-## Turing Machine as a Function
+## [Turing Machine as a Function](https://www.youtube.com/watch?v=cmfDBAiogA0&t=1211s)
 
   
 Given a Turing Machine with a particular specification $$K$$ (symbolised as $$T_K$$), and a tape with particular input sequence $$x$$ (lets shorten it by calling it simply Tape $$x$$), we can define  $$T_K[x]$$ as running $$T_K$$ on tape $$x$$, 
@@ -148,7 +148,7 @@ Given a Turing Machine with a particular specification $$K$$ (symbolised as $$T_
 Now the question that we need to address is, what kind of functions can Turing Machine compute? Or more generally, *what* can be computed and what *type*(s) of machines can compute them? 
 
 
-### Church's Thesis and Computable Function
+### [Church's Thesis and Computable Function](https://www.youtube.com/watch?v=cmfDBAiogA0&t=1350s)
 
 The Church's Thesis states that: **Every discrete function computable by any *realisable* machine is computable by some Turing machine $$i$$**.
 
@@ -257,7 +257,7 @@ Now here is the contradiction:
 
 Therefore, specification $$M$$ does not exist and it is not realisable. And by extension, everything falls apart: specification $$H'$$ and $$H$$ do not exist either. This means that $$f_H(K,j)$$ **is not computable.** 
 
-### Universal Function
+### [Universal Function](https://www.youtube.com/watch?v=cmfDBAiogA0&t=2561s)
 
 The universal function is defined as:
 
@@ -298,7 +298,7 @@ Well, technically, our computers have *a very long tape* (i.e: its memory), wher
 
   
 
-## The Computer Science Revolution
+## [The Computer Science Revolution](https://www.youtube.com/watch?v=cmfDBAiogA0&t=2875s)
 
 
 Imagine the hassle and inconvenience if we need to build a different physical machine $$T_M$$ each time we need to compute a new function $$f_M$$. 
@@ -317,7 +317,7 @@ In order to be efficient, we need to replace each of these hardwares with a *cod
 
 Until this point, we have learned how Turing machine works, and  its advantage over  FSM. Our final goal is to realise a **Universal Turing machine**, that is a machine that is **programmable** so that it can be used for a **general purpose**.
 
-## Summary: Programmability 
+## [Summary: Programmability ](https://www.youtube.com/watch?v=cmfDBAiogA0&t=3197s)
 [You may want to watch the post lecture videos here. ](https://youtu.be/p0plIDiBEj0)
 
 The concept of a universal Turing Machine is an *ideal abstraction*, since we can never create a machine with infinitely long tape. However, physically creating something that is "infinite" is not possible. 

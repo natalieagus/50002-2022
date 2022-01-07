@@ -18,7 +18,7 @@ Singapore University of Technology and Design
 # Virtual Memory
 [You can find the lecture video here.](https://youtu.be/19wS4GC6mbQ) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
  
-## Overview
+## [Overview](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=0s)
 
 The physical memory can contain all kinds of information, and is typically segmented as shown below to run a single process: 
 
@@ -55,12 +55,7 @@ This motivates the idea of the **virtual memory**.
 In virtual memory, we use a part of the disk as an *extension* to the physical memory, and let the programs *work* in the virtual address space instead of the physical (actual) address space. This is  so that it possible for *many programs* to *seemingly* loaded onto the physical memory and run *at the same time*, even when their total size exceeds the physical memory capacity. 
 
 
-
-
-
-  
-
-## Memory Paging
+## [Memory Paging](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=730s)
 
 > An important concept to highlight before we dive into how virtual memory works is memory paging. 
 
@@ -98,8 +93,7 @@ A **page** is identified by two things:
 Common misunderstanding: *page size* has nothing to do with *block size* we learned in the previous chapter. 
   
 
-## Virtual Memory
-
+## [Virtual Memory](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=1110s)
 Before we begin, we need to remind ourselves that programs  are **loaded** to physical memory  **only when we open (run) them**, so that the CPU has *direct access to its instructions* for execution later on. 
 
 > The majority of your installed programs *that are not opened and not run stays on disk.*
@@ -119,7 +113,7 @@ This way we can say that each program has their own *memory*, that is the  **vir
 *Recap: **Virtual memory is a memory management technique that provides abstraction**, in the sense that it allows the system to give each process an illusion that it is running on its own memory space isolated from other processes.* 
 
 
-### Virtual Address
+### [Virtual Address](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=1288s)
 
 When we open a program, OS Kernel allocates **a dedicated virtual address space** for all of its instructions (and data required for execution) -- spanning from low address `0` up to some high address.  
 
@@ -152,7 +146,7 @@ The figure below illustrates this scenario:
 
   
 
-### Pagetable
+### [Pagetable](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=1715s)
 
 The OS Kernel maintains a ***Pagetable*** (sometimes it is called *pagemap* too) that keeps track of the translation between each `VA` of each program to its corresponding `PA`. 
 
@@ -193,7 +187,7 @@ There are three other columns, `D`, `R`, and `LRU` (if `LRU` is the chosen repla
 		> This information is used to decide which page in the physical memory can be *replaced* in the event that it is full and the CPU asks for a `VA` which actual *content* is not resident.  
 	* The number of LRU bits *needed per entry in the pagetable* is $$v$$ bits, since the number of entries in the pagetable is $$2^v$$.
 
-#### Pagetable Arithmetic
+#### [Pagetable Arithmetic](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=1990s)
 
 **Assuming we have byte addressing,** given a `VA` of `(v+p)` bits and a `PA` of `(m+p)` bits, we can deduce the following information:
 *  The size of VM is: $$2^{v+p}$$ bytes 
@@ -210,7 +204,7 @@ There are three other columns, `D`, `R`, and `LRU` (if `LRU` is the chosen repla
 
   
 
-#### Pagetable Location
+#### [Pagetable Location](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=2145s)
 
 The *Pagetable* is **stored in the Physical Memory** for practical reasons *because of its rather large size*. 
 
@@ -233,7 +227,7 @@ The solution to this issue to build a small SRAM-based memory device to *cache* 
 
   
 
-### TLB: Translation Lookaside Buffer
+### [TLB: Translation Lookaside Buffer](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=2350s)
 
 The TLB is a small, FA-design cache to store a copy some recently used Pagetable entries, as shown in the figure below:
 
@@ -241,7 +235,7 @@ The TLB is a small, FA-design cache to store a copy some recently used Pagetable
 
 > We also use a hierarchy of memory devices here, just like what we learned in the previous chapter where we *cache* a few of the most recently used contents and its address: `A, Mem[A]` in another faster (but smaller) SRAM-based memory device to reduce the frequency of access to the slower (but larger) DRAM-based Physical Memory device. 
 
-#### Super Locality of Reference with TLB
+#### [Super Locality of Reference with TLB](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=2400s)
 
 <span style="background-color:yellow; color: black"> We know that there is *locality of reference* in *memory address* reference patterns. Therefore there is **super locality** of *page number* reference patterns (hit-rate of the TLB $$>$ 99\% in practice). </span> 
 
@@ -250,7 +244,7 @@ Also, note that the LRU bits in the TLB *is not the same* as the LRU bits in the
 > The reason is that the number of `N` entries in the TLB is always the `N` most recently accessed pages *out of* $$2^{v}$$ possible entries in the pagetable, where `N` < $$2^v$$ in practice. 
   
 
-## Demand Paging
+## [Demand Paging](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=2495s)
 
 Demand paging is a method of virtual memory management. This section explains how *demand paging* works. 
 
@@ -282,7 +276,7 @@ The moment a request to open a program is made,  the OS Kernel:
 
 Therefore, **almost all of its `VA` initially corresponds to some address on disk.** 
 
-### Page-Fault Exception
+### [Page-Fault Exception](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=2852s)
 Upon execution of the first few lines of instruction of the program's entry point, the CPU will request to refer to some `VA`, and it will result in **page-fault** exception because almost all of its virtual addresses *aren't resident* in the physical memory yet at this point. 
 
 The OS Kernel will then handle this "*missing*" page and start copying them over to the physical memory from the swap space, hence turning these pages to be **resident** -- and has a `PPN` assigned to it. 
@@ -292,7 +286,7 @@ Many page faults will occur as the program begins its execution **until most of 
 
 <span style="background-color:yellow; color: black"> In other words, the OS  Kernel bring only necessary pages that are going to be executed onto the physical memory  as the program runs, thus the name: ****demand paging**** for this technique.</span>
 
-### Replacing Resident Pages
+### [Replacing Resident Pages](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=2978s)
  
 This process (of fetching new pages from swap space to the physical memory)  eventually fills up the latter. 
 
@@ -305,7 +299,7 @@ If these to-be-removed pages are *dirty*, a **write** onto the disk swap space i
 Finally when the program terminates, the OS Kernel  and frees up all the space initially allocated for this program's VM (both on physical memory and disk swap space). 
 
 
-### An example
+### [An example](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=3106s)
 <img src="https://dl.dropboxusercontent.com/s/r8nia46u4gdw6gk/vmexample.png?raw=1"   >
 
 The figure above shows a snapshot of the physical memory state at some point in time. There exist a pagetable with 16 entries and 8 pages of data labeled as `A` to `H` in the physical memory. LRU replacement policy with write back policy is used. **Lower** LRU means that the data is **more recently used.** 
@@ -363,7 +357,7 @@ The new changes are written in blue.
 
 > Enhance your understanding by adding TLB into the picture. If a TLB of size 2 (stores the 2 most recently used mapping) is used, what will its state be in the beginning? After **`LD(R31, 0x2C8, R0)`** is executed? Then after **`ST(R31, 0x600, R0)`** is executed next?  
 
-## Context Switch
+## [Context Switch](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=3411s)
 
 
 A single core CPU is capable of running **many** programs -- seemingly *at the same time.* 
@@ -407,7 +401,7 @@ This way **we do not have to "flush" the TLB whenever the CPU changes *context**
 
 
 
-## Using Caches with Virtual Memory
+## [Using Cache with Virtual Memory](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=3696s)
 
 Recall that a *cache* is used to store copies of memory addresses and its content: `A, Mem[A]`, so that access to the physical memory can be reduced on average. 
 
@@ -450,7 +444,7 @@ Page must be fetched from the swap space and copied over to the Physical Memory.
 >* *Is it possible* for cache `HIT` to occur but the requested page is **not resident**? Why or why not?  
 
 
-## Summary 
+## [Summary](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=4180s) 
 [You may want to watch the post lecture videos here. ](https://youtu.be/oe_WHpAmgqM)
 
 <span style="background-color:yellow; color: black"> *Virtual Memory* is a **memory management technique** that provides an **abstraction** of the storage resources so that programs can be written as if they have **full access** to the physical memory without having to consider where other programs reside </span>. 

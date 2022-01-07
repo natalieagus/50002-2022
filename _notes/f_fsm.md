@@ -19,7 +19,7 @@ Singapore University of Technology and Design
 # Finite State Machine
 [You can find the lecture video here.](https://youtu.be/efLcdpqlAyI) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
-## Overview
+## [Overview](https://www.youtube.com/watch?v=efLcdpqlAyI&t=0s)
 
 The main aim for this chapter is to **understand** how we can utilise the topics we have learned in the previous chapters: pertaining *combinational logic* devices and synchronous *sequential logic* devices to create a specific device called the *finite state machine* (FSM). The FSM is an abstract mathematical model of a sequential logic function.
 
@@ -31,7 +31,7 @@ We will learn in detail how each of them works in the later sections.
 
   
 
-## Abstraction of Finite State Machine
+## [Abstraction of Finite State Machine](https://www.youtube.com/watch?v=efLcdpqlAyI&t=163s)
 
 
 A FSM (Finite State Machine) is formally defined to have:
@@ -50,7 +50,7 @@ A FSM (Finite State Machine) is formally defined to have:
 
   
 
-## State Machine Diagram and the Truth Table
+## [State Machine Diagram and the Truth Table](https://www.youtube.com/watch?v=efLcdpqlAyI&t=310s)
 
 We can represent a state machine in two forms: ****state transition diagram or truth table****.  
 
@@ -94,7 +94,7 @@ $$
 *Note: the output column in the figure above contains the output that depends on the *current* state only (also known as the Moore Machine, see next section).* 
 
 
-## Moore and Mealy Machine
+## [Moore and Mealy Machine](https://www.youtube.com/watch?v=efLcdpqlAyI&t=615s)
 
   
 
@@ -152,7 +152,7 @@ $$
 **Conclusion:** Both tables have the same abstract functionality: which is a lock that unlocks once we key in the right password (`011`). We can implement this lock either as a Moore or a Mealy machine. 
 >*One apparent difference is that a Mealy machine takes less number of states to implement, and a Moore lock machine takes 1 cycle *slower* to **unlock** than a Mealy lock machine. We will compare the pros and cons on each machine further in the later section.* 
 
-## Building a State Machine
+## [Building a State Machine](https://www.youtube.com/watch?v=efLcdpqlAyI&t=987s)
 
 
 We can build an FSM using Flip-Flops or registers, and combinational logic units such as using ROMs, or multiplexers among others. At first, we can transform the Moore Machine truth table in the previous section, pasted here again for easier reference, into its boolean equation form:
@@ -237,7 +237,7 @@ One possible schematic for the Moore version of the lock is :
 > Both diagrams above are obtained after minimising the boolean expression. There are other ways to construct them machine, such as using only NAND gates, only NOR gates, only multiplexers, or ROMs. Try it yourself as practice.
 
 
-## Differences between Moore and Mealy Machine
+## [Differences between Moore and Mealy Machine](https://www.youtube.com/watch?v=efLcdpqlAyI&t=1552s)
 
   
 
@@ -268,7 +268,7 @@ One CLK period typically takes much longer than the $$t_{pd}$$ of that smaller C
 - Logically, $$t_{pd}$$ of the smaller CL should be smaller than the $$t_{pd}$$ of a bigger CL, supporting the statement above. 
 
 
-## Enumerating FSM 
+## [Enumerating FSM](https://www.youtube.com/watch?v=efLcdpqlAyI&t=2094s) 
 
   
 
@@ -314,7 +314,7 @@ Given $$i$$ input bits, $$s$$ state bits, and $$o$$ output bits we have a total 
 The reason we want to **enumerate** number of possible FSMs given $$s$$ state bits, $$i$$ input bits, and $$o$$ output bits is because if we are going to make a *hardware* for this FSM using some generic components such as the multiplexer, ROMs, or other memory unit, we want to know *how many different FSMs* can we program onto this particular hardware size which we probably mass-produce.
 
 
-## FSM Equivalence and Reduction
+## [FSM Equivalence and Reduction](https://www.youtube.com/watch?v=efLcdpqlAyI&t=1819s)
 FSM A and FSM B shown below have the same functionality, however FSM A has double the amount of states than FSM B. In other words, we could have reduced FSM A by merging **equivalent** states. 
   
 <img src="https://dl.dropboxusercontent.com/s/4frikzlus8gcmeo/Q4.png?raw=1"  e4"    >
@@ -337,7 +337,7 @@ Having less states will result in less bits to represent the states in the machi
 
   
 
-## FSM Limitations and Summary
+## [FSM Limitations and Summary](https://www.youtube.com/watch?v=efLcdpqlAyI&t=2375s)
 [You may want to watch the post lecture videos here.](https://youtu.be/XJQaAG9xLoI)
 
 In this chapter, we have learned that we can build an FSM to compute many types of functions, such as implementing the *digital lock*. 

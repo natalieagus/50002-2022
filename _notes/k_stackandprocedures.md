@@ -18,13 +18,13 @@ Singapore University of Technology and Design
 # Stack and Procedures 
 [You can find the lecture video here.](https://youtu.be/u4TETujaNuk) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
-## Overview
+## [Overview](https://www.youtube.com/watch?v=u4TETujaNuk&t=0s)
  
 In the previous chapter, we learned the basics of how to naively compile C-language into $$\beta$$ assembly language. $$\beta$$ UASM provides a layer of abstraction such that we don't need to bother ourselves with the details on how to load each and every bytes of instruction onto the memory unit, or keeping up with accounting matters such as physical memory addresses (we can replace these with *labels* instead). 
 
 In this chapter, we will learn about *function call procedures*, and why we need to understand another concept called the *stacks*. Both will allow us to have reusable code fragments that are *called* as needed.
 
-## Procedures and Functions
+## [Procedures and Functions](https://www.youtube.com/watch?v=u4TETujaNuk&t=66s)
 
 Consider the following declaration and implementation of function `fact`  below. It receives one argument `int n`, and returns an `int`. 
 ```cpp
@@ -126,7 +126,7 @@ We know that we need to execute `fact` twice, the first run with argument `4` an
 
 * Instruction (8) tells the CPU to enter the function again for the **second run**, thus executing (2) to (7) for another round, before finally stopping. 
 
-## Procedure Linkage and Stack
+## [Procedure Linkage and Stack](https://www.youtube.com/watch?v=u4TETujaNuk&t=549s)
 Referring to the `fact` example in the previous section, notice a few *accounting issues* that we need to address in order to have a scalable and memory efficient function calls. 
 
 Assuming we have a single CPU, and that the instructions are loaded to the Memory Unit from address `0` and onwards sequentially, 
@@ -145,7 +145,7 @@ In summary, the procedure linkage problems that we need to solve are:
 3. Procedures need to be able to use the CPU registers without worrying about overwriting their original content. 
 4. Procedures might need to call other procedures, including themselves (recursion) 
 
-### Procedure Linkage Convention
+### [Procedure Linkage Convention](https://www.youtube.com/watch?v=u4TETujaNuk&t=729s)
 These issues can be solved by establishing a kind of **procedure linkage convention**. We assume that  the following is always obeyed whenever we are executing instructions within a function:
 * Return value is always stored at `R0`
 * Arguments can be found in a dedicated space in the Memory Unit, called the **Stack**. The address of the *top* of the stack (first unused location) can always be found in `R29`. The address of the *base* of the stack can always be found in `R27`.
@@ -167,7 +167,7 @@ These issues can be solved by establishing a kind of **procedure linkage convent
 3. Leave the state of all *registers* in REGFILE except `R0` **unchanged** upon returning to the caller. 
 4. Leave *stack data* **unchanged**  upon returning to the caller. 
 
-### The "Stack" implementation
+### [The "Stack" implementation](https://www.youtube.com/watch?v=u4TETujaNuk&t=1159s)
 
 In general, a stack is a type of data structure where you can perform two essential operations: `PUSH` and `POP`.  Its principle is *last-in-first-out*. 
 
@@ -200,7 +200,7 @@ And also the following macros for easier stack management:
 	* `DEALLOCATE(k) : SUBC(SP, 4*k, SP)`
 >  They're both used to *move* `SP` to a reserved location for the start of the stack.  
 
-###  Example of stack usage
+###  [Example of stack usage](https://www.youtube.com/watch?v=u4TETujaNuk&t=1833s)
 
 <span style="background-color:yellow; color: black">  **Allocating the stack**</span>
 Assuming the initial content of `SP` is `0`, then in order for `SP` to point to the address `0x010C` shown in the figure above, we can write:
@@ -276,7 +276,7 @@ DEALLOCATE(67)
 > Try out these instructions in `bsim`, and observe the state of the stack and registers after executing each instruction as practice. 
 
 
-## Implementing Procedure Linkage Contract Using Stack
+## [Implementing Procedure Linkage Contract Using Stack](https://www.youtube.com/watch?v=u4TETujaNuk&t=1950s)
 
 Recall that:
 
@@ -511,7 +511,7 @@ At the end of the program, you should see that you have each answer in the memor
 <img src="https://dl.dropboxusercontent.com/s/g7l4l0tkcyl08jj/mem_Res.png?raw=1" >
 
 
-## An example with recursion
+## [An example with recursion](https://www.youtube.com/watch?v=u4TETujaNuk&t=3279s)
 We can also implement `fact` recursively: 
 ```cpp
 int fact(int n){
@@ -612,7 +612,7 @@ Notice several things:
 
 > Again, test your understanding and sharpen your skills by mentally running each instruction one by one from the top and be aware of the current instruction, stack state, PC state, and register states **at all times.** 
 
-##  Instruction Loading Address
+##  [Instruction Loading Address](https://www.youtube.com/watch?v=u4TETujaNuk&t=3758s)
 
 To figure out the address of each instruction, we can assume (if not given) that the address of the first instruction is at `0x0000`. 
 
@@ -783,7 +783,7 @@ Java and Python will *babysit* and protect us from these mistakes, as there's la
 
 
 
-## Summary 
+## [Summary](https://www.youtube.com/watch?v=u4TETujaNuk&t=4252s) 
 You may want to watch the post lecture videos here:
 * [Part 1: Stack and Procedures ](https://youtu.be/sj7A-lpTgaI)
 * [Part 2: Common Mistakes in Stack and Procedures](https://youtu.be/QGR9n9TqYc0)

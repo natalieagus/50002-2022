@@ -19,7 +19,7 @@ Singapore University of Technology and Design
 # Sequential Logic and Synchronization
 [You can find the lecture video here.](https://youtu.be/HlizelEp4Yc) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
-## Overview
+## [Overview](https://www.youtube.com/watch?v=HlizelEp4Yc&t=0s)
 
 
 So far we have learned the basics of **combinational logic device**, which is in essence a device that is capable to adhere to a given functional specification (truth table). One apparent feature of a combinational logic device is that its output always depends on the **current** input.  However, external input is *unreliable*, and there's no guarantee that the input will be available for at least $$t_{pd}$$--until the combinational device produces meaningful results. We need to find a way to **synchronize** the external input signal such that there's enough time for the entire circuit to finish its computation properly. 
@@ -42,7 +42,7 @@ A sequential logic device has a *general* structure as shown below:
   
 In the next few sections we will learn how to create this memory device labeled as **Registers** above (or more specifically, it is called *D Flip-Flop*). 
 
-## Storage Device: D-Latch
+## [Storage Device: D-Latch](https://www.youtube.com/watch?v=HlizelEp4Yc&t=309s)
 
   
 A D Flip-Flop (memory device) is made using another device called a D-latch.  A D-latch can be created using a multiplexer with a **feedback** **loop**,
@@ -99,7 +99,7 @@ We address these problems in the next two sections.
 
   
 
-## The Dynamic Discipline
+## [The Dynamic Discipline](https://www.youtube.com/watch?v=HlizelEp4Yc&t=1400s)
 
   
 
@@ -123,7 +123,7 @@ As explained in the previous notes,  $$t_{pd}$$ is the propagation delay of the 
 
 > For $$T_{hold}$$, you can figure this out by realising that CLK is an **input** to the D-latch system as well, and the device needs **some time** ($$1\times t_{pd}$$) to realise that it is in memory mode after CLK turns to a valid `0`. Throughout this brief period. of time, the input at D must be held valid/stable. 
 
-## Edge-Triggered D Flip-Flop 
+## [Edge-Triggered D Flip-Flop ](https://www.youtube.com/watch?v=HlizelEp4Yc&t=2066s)
 
   
 
@@ -187,7 +187,7 @@ Notice two further behaviors in the Flip-Flop:
   
 
 
-## $$t_{pd}$$ and $$t_{cd}$$ of Sequential Logic vs Combinational Logic Devices
+## [$$t_{pd}$$ and $$t_{cd}$$ of Sequential Logic vs Combinational Logic Devices](https://www.youtube.com/watch?v=HlizelEp4Yc&t=2974s)
 
 In the previous chapter, we learned about the definition $$t_{CD}$$ and $$t_{PD}$$ for combinational logic (CL) devices, and how to compute these values. For **sequential logic (SL) devices**, i.e: circuits with Flip-Flops and CLs combined, these timings mean as follows:
   
@@ -208,7 +208,7 @@ To summarise:
 - However, in SL, our "input" will be the **CLK** and not the "user" input, and in particular only are concerned with the **CLK transition from `0` to `1`**, where the D Flip-Flop "captures" a new input value. 
   
 
-## Flip-Flop Timing Constraint
+## [Flip-Flop Timing Constraint](https://www.youtube.com/watch?v=HlizelEp4Yc&t=3458s)
 
   
 
@@ -238,7 +238,7 @@ Reasons:
 
   
 
-## Sequential Logic Device Timing Constraint
+## [Sequential Logic Device Timing Constraint](https://www.youtube.com/watch?v=HlizelEp4Yc&t=2974s)
 
   
 
@@ -285,7 +285,7 @@ The propagation or contamination delays of a Flip-Flop is not considered a logic
 See [this document](https://dl.dropboxusercontent.com/s/gi4r2ea1tdv5x4d/Seq_Logic_Timing_Extras_2020.pdf?dl=1) to know more about timing computations for sequential logic device. 
 
 
-## Synchronization with Input
+## [Synchronization with Input](https://www.youtube.com/watch?v=HlizelEp4Yc&t=4980s)
 
   
 
@@ -302,8 +302,7 @@ Look at the figure above. Let D be the "user" input to the Flip-Flop and OUT be 
 
 
 
-## The Metastable State
-
+## [The Metastable State](https://www.youtube.com/watch?v=HlizelEp4Yc&t=5110s)
   
 
 Due to the existence of a feedback loop in the D-latch as shown,
@@ -368,7 +367,7 @@ Since there is **no lower bound** on $$\|V_{out} - V_m\|$$, then there is **no u
 Note that this comes at the cost of <i>responsiveness</i> of the device. 
 </div>
  
-## Summary
+## [Summary](https://www.youtube.com/watch?v=HlizelEp4Yc&t=5788s)
 You may want to watch the post lecture videos here:
 * [Part 1: D-Latch](https://youtu.be/TdwV30ORXJY)
 * [Part 2: Timing Specifications](https://youtu.be/_qTTgelFAGY)

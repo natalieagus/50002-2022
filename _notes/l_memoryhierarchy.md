@@ -18,7 +18,7 @@ Singapore University of Technology and Design
 # Memory Hierarchy
 [You can find the lecture video here.](https://youtu.be/m5_u3sQ9bXo) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
-## Overview
+## [Overview](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=0s)
 
   
 <img src="https://dl.dropboxusercontent.com/s/88up5y3aitc893l/p1.png?raw=1"     >
@@ -63,7 +63,7 @@ Our goal is to have **large** memory space at a **cheap** cost and **minimum** l
 
   
 
-### Static Random-Access Memory (SRAM)
+### [Static Random-Access Memory (SRAM)](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=411s) 
 
 An SRAM cell can be made up of **6-transistors** as shown in the figure below. 
 
@@ -96,7 +96,7 @@ There are two other things to note: the *word line* and the *two complementary b
 <img src="https://dl.dropboxusercontent.com/s/kf6fk970dffm00z/write_sram.png?raw=1"     >
 
 
-### Dynamic Random-Access Memory
+### [Dynamic Random-Access Memory (DRAM)](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=844s)
 
  A single DRAM cell is capable of storing 1-bit of data by using just *single NFET* and a *single capacitor* **when powered**:
  > This is often called as 1T-DRAM. DRAM is also a volatile memory device. 
@@ -127,7 +127,7 @@ These refresh cycles cause DRAM to be ***significantly slower*** than SRAM, alth
 We name the memory device that uses DRAM as its main technology as the **physical memory.**  
 
 
-###  Disk
+###  [Disk](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=1019s)
 
 A disk (also known as Hard Disk Drive) is an old-school *mechanical* data storage device. Data is typically  *written* onto a round, spinning aluminum that's been coated with **magnetic material** that we call a "disk". Several of these round platters are 
 put together on a shaft, and they make up a *cylinder*. The cylinders are able to *spin* at around 7000 revolutions per minute. 
@@ -169,7 +169,7 @@ Of course the charge  stored in the NAND flash can still fade over time if we ne
 
  Although not needed for our course syllabus, if you're curious you can read more about how HDD and SSD work [here](https://dl.dropboxusercontent.com/s/tlaek0wyljpr74s/Hard%20Drives%3A%20How%20Do%20They%20Work%3F%20%E2%80%93%20Techbytes.pdf?dl=1) to understand how each of the work and the pros and cons of each device. 
   
-##  Memory Addressing
+##  [Memory Addressing](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=1177s)
   
 
 Billions of these SRAM or DRAM cells are assembled together to form a large memory unit. Each *byte* (8 cells) has a *specific address*.
@@ -184,7 +184,7 @@ We often read hundreds of bits in parallel, for example, one *"row"* might conta
 
 
 
-## The Idea of Memory Hierarchy
+## [The Idea of Memory Hierarchy](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=1391s)
 
 Since what we want is a large, fast, and cheap memory -- that is to perform with SRAM speed at the cost of a disk --  we need to **use a hierarchy of memory technologies**  to form the external *Memory Unit*:  
 -  Keep the most often used data at a small **special device** made of SRAMs. We call this unit: **cache**. They're usually assembled very near to the processor *core*, and is considered part of the CPU.  
@@ -205,7 +205,7 @@ The locality of reference states that reference to memory location $$X$$ at time
 
 > In laymen terms: there exists the tendency of a CPU to access the *same set of memory locations* **repetitively** over a short period of time.
 
-Evidence that memory reference patterns exhibit *locality of reference*:
+Evidence that memory reference patterns exhibit [*locality of reference*](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=1540s):
 
 1.  Local stack frame grows *nearby* to one another.
 2.  Related program instructions are *near* one another
@@ -213,7 +213,7 @@ Evidence that memory reference patterns exhibit *locality of reference*:
 
 
 
-## The Cache Idea
+## [The Cache Idea](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=1800s)
 
  The **cache** is a small storage device assembled close to a processor core within a CPU.  It contains *temporary copies* of **selected memory addresses** `A` and **their content** `Mem[A]`. The CPU now will always look for the requested instruction or data on the cache first, before starting to look for it in the physical memory in the event of cache `MISS`. 
 
@@ -237,7 +237,7 @@ In the event that the content is also not found in the RAM, we look for the cont
 > Swap space is a a dedicated space on the disk that is set aside to serve as an (virtual) *extension* of the RAM. We will learn more about this in the next chapter. 
 
 
-The average time-taken ($$t_{\text{ave}}$$) to access a particular content in a system with a cache and a physical memory is: 
+[The average time-taken](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=2205s) ($$t_{\text{ave}}$$) to access a particular content in a system with a cache and a physical memory is: 
 
 $$\begin{aligned}
 t_{\text{ave}} &= \alpha t_c + (1-\alpha) (t_c + t_m) \\
@@ -261,7 +261,7 @@ The above steps are very simplified and incomplete. It does not address more det
 
 There are two flavours in cache design: the fully associative (FA) cache and the direct mapped  (DM) cache. Each design has its own benefits and drawbacks. 
 
-### Fully Associative Cache 
+### [Fully Associative Cache (FA)](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=2417s)
 
 The FA cache has the following generic structure:
 <img src="https://dl.dropboxusercontent.com/s/yoj1kl3kg3do86c/facache.png?raw=1"     >
@@ -302,13 +302,13 @@ Characteristics of FA caches:
 FA cache is the **gold standard** on how well a cache should perform
 
 
-### Direct Mapped Cache (DM)
+### [Direct Mapped Cache (DM)](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=2821s)
 
 The DM cache has the following generic structure:
 <img src="https://dl.dropboxusercontent.com/s/eu74l2gi23380mp/dmcache.png?raw=1"      >
   
 
-Characteristics of DM caches (in comparison to FA cache):
+Characteristics of DM caches (in [comparison](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=3052s) to FA cache):
 
 1. **Cheaper:** less SRAM is used as the `TAG` field **contains only the T-upper bits** of address `A`. 
 	* Also less of other hardwares: only 1 bit-wise comparator (to compare T-bits) needed. 
@@ -334,7 +334,7 @@ The `Content` field contains a copy of all bits of data at `Mem[A]`.
 
 
 
-## Summary
+## [Summary](https://www.youtube.com/watch?v=m5_u3sQ9bXo&t=3229s)
 [You may want to watch the post lecture videos here. ](https://youtu.be/bC_zOLltLbY)
 
 In this chapter, we are given a glimpse of various memory technology: from slowest to fastest, cheapest to the most expensive. 

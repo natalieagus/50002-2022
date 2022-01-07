@@ -19,7 +19,7 @@ Singapore University of Technology and Design
 # Assemblers and Compilers 
 [You can find the lecture video here.](https://youtu.be/Hhq3RhZcngQ) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
-## Overview
+## [Overview](https://www.youtube.com/watch?v=Hhq3RhZcngQ&t=49s)
 The goal of this chapter is to help us understand how to improve the programmability of the $$\beta$$ (or any ISA in general). The $$\beta$$ machine language is encoded into 32-bit instructions each. 
 
 For example, the 32-bit `ADD` instruction is:
@@ -35,7 +35,7 @@ We need to improve the programmability and usability of our machine by **providi
 We can do this by writing various **softwares** that allow us to abstract some details so that it is easier to fulfil our tasks. 
 
 
-## Software: Abstraction Strategy
+## [Software: Abstraction Strategy](https://www.youtube.com/watch?v=Hhq3RhZcngQ&t=449s)
 
 Abstraction is a fundamental concept in software engineering and computer science. It refers to process of removing physical, spatial, or temporal details to allow us to focus our attention on matters of **greater importance.** 
 
@@ -54,7 +54,7 @@ There are several **layers** to software abstraction, summarised below:
 	* **Applications:** hides local parameters, network location, security details, etc. 
 
 
-## Assembler 
+## [Assembler](https://www.youtube.com/watch?v=Hhq3RhZcngQ&t=749s) 
 
 An assembler is technically a program for writing programs. It also can be called as a *primitive compiler*. It provides:
 * A symbolic **language** (assembly language) for representing strings of bits. 
@@ -174,7 +174,7 @@ ADDC(R15, -32768, R0)
 ```
 
 
-## Interpreter and Compiler
+## [Interpreter and Compiler](https://www.youtube.com/watch?v=Hhq3RhZcngQ&t=1487s)
 
 We are naturally more accustomed  to higher level language. They're more readable, concise, and portable. 
 
@@ -204,7 +204,7 @@ Let's dive into simple examples to make this clearer.
 
 > To aid your learning, copy each snippet to `bsim` and observe the instruction execution step by step. 
 
-### Example 1: Basic Variable Declarations
+### [Example 1: Basic Variable Declarations](https://www.youtube.com/watch?v=Hhq3RhZcngQ&t=1730s)
 
 C Code: 
 ```cpp
@@ -225,7 +225,7 @@ HALT()
 x : LONG(20)	| label x points to where 20 is stored
 y : LONG(0)		| label y points to where 0 is stored
 ```
-### Example 2: Arrays 
+### [Example 2: Arrays ](https://www.youtube.com/watch?v=Hhq3RhZcngQ&t=1934s)
 
 C Code: 
 ```cpp
@@ -251,7 +251,7 @@ HALT()
 x : . 
 ```
 
-### Example 3: Conditionals and Loops
+### [Example 3: Conditionals and Loops](https://www.youtube.com/watch?v=Hhq3RhZcngQ&t=2206s)
 C Code: 
 ```cpp
 int n = 20;
@@ -283,7 +283,7 @@ n : LONG(20)
 r : LONG(1)
 ```
 
-## Summary
+## [Summary](https://www.youtube.com/watch?v=Hhq3RhZcngQ&t=2557s)
 [You may want to watch the post lecture videos here:](https://youtu.be/ppYTQsHXVZU)
 
 

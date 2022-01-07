@@ -19,7 +19,7 @@ Singapore University of Technology and Design
 # The CMOS Technology
 [You can find the lecture video here. ](https://youtu.be/JqgZcV_1IU4)You can also **click** on each header to bring you to the section of the video covering the subtopic. 
   
-## Overview
+## [Overview](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=0s)
 Recall that the ideal behaviors and characteristics of a **combinational logic device** are:
 
 1.  The device should be able to tolerate some amount of errors due to its *Noise Margins.* The Noise Margin exists if its VTC gain $$>1$$.
@@ -37,7 +37,7 @@ Recall that the ideal behaviors and characteristics of a **combinational logic d
 
 In this chapter, we are learning a particular component called the **MOSFET** that can be used as a building block for our combinational logic device. It has all the characteristics mentioned above.   
 
-## The MOSFET
+## [The MOSFET](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=180s)
 
 *Metal-oxide semiconductor field effect transistors* (MOSFET, or shortened as FETs) is the main material that is used to make our combinational device. The basic schematic of a transistor is shown in the figure below. 
 
@@ -65,7 +65,7 @@ Some basic recap before we move on:
 
   
 
-## Types of MOSFETs
+## [Types of MOSFETs](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=275s)
 
 If we connect these MOSFETs connected in a specific way, we can **create** a combinational logic device that represents our desired *truth table* or *functional **logic** specification* But before we learn how to create such devices, we need to learn two basic types of MOSFETs first. 
 
@@ -98,7 +98,7 @@ See the figure below and its corresponding explanation to understand better how 
 <img src="https://dl.dropboxusercontent.com/s/px5ev6j9ae22ceg/pnfet.png?raw=1"  >	  
 
 
-###  How NFET operates
+###  [How NFET operates](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=819s)
 
 <img src="https://dl.dropboxusercontent.com/s/7oevad7tcpr2ob4/nfet_t.png?raw=1"   >	  
 
@@ -119,7 +119,7 @@ See the figure below and its corresponding explanation to understand better how 
 4.  It is \"OFF\" when $$V_{GS}$$ is **low**, as it encourages depletion region to form further.
 
 
-###  How PFET operates
+###  [How PFET operates](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=960s)
 
 <img src="https://dl.dropboxusercontent.com/s/u7nuy6cayaik0q7/pfet_t.png?raw=1"   >	  
 
@@ -196,7 +196,7 @@ In PFETs, current flows from Source to Drain, because the majority of the charge
 
 The bulk of the PFET is connected to the `VDD` while the bulk of the NFET is connected to the `GND`. We do this to keep the PN junction in each FET to stay in the *reverse biased* state by default, until they're switched **on**.  A simple explanation on why we need to keep them in reverse biased state by default is so that it encourages the presence of the depletion region hence preventing major *current leaks* across the junction when the FET is **off**. You may watch [this](https://youtu.be/cJxBlO5NMGs?t=295) video that we made if you'd like to know more about reverse biasness (and other stuffs like the PN junction diode, and P/N type semiconductors), but these details are out of our syllabus. 
 
-## Complementary MOS circuitry
+## [Complementary MOS circuitry](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=1185s)
 
 ### The Pull-up and Pull-down Circuit in CMOS
 
@@ -223,7 +223,7 @@ Contents of the pull-down circuit:
 4.  **We call the pull-down circuit to be ON if there exists any direct path for *electrons* to flow from any source of the NFETs in the pull-up circuit to the logic output drain.** 
 
 
-## The CMOS Complements Recipe
+## [The CMOS Complements Recipe](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=1388s)
 
 Imagine if pull-up and pull-down circuit (as an overall) are both "ON". This means that there exists a direct open connection to `GND` from the `VDD` (the source of the pull-up to the source of the pull-down) resulting in **short-circuit**. 
 
@@ -271,7 +271,7 @@ Notice how there's parallel PFET in the pull-up, and series NFET in the pull-dow
 
 > As practice, you can try to trace what happens when `A=0, B=0`, and when `A=1,  B=0` and construct a truth table for this simple circuit. 
 
-## Logic Gates
+## [Logic Gates](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=1860s)
 
 
 Notice how the circuitry in the previous section is called **NAND**. The name comes from this particular **functional specification** (truth table) of the combinational logic circuit. 
@@ -286,7 +286,7 @@ The NAND gate is just one of many possible gates that we will encounter in this 
 
 Recall that combinational devices have timing specifications that tells us the upper bound required **propagation** time to compute the specified output given a set of valid and stable input values. 
 
-### Propagation Delay $$t_{pd}$$
+### [Propagation Delay $$t_{pd}$$](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=1900s)
 
 So far we haven't discussed about this term called *propagation delay*, which is *specification* that a combinational logic device must have.
 
@@ -303,7 +303,7 @@ The intuition behind why  t$$_{pd}$$ is calculated as the *maximum cumulative pr
 
   
 
-### Contamination delay $$t_{cd}$$
+### [Contamination delay $$t_{cd}$$](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=1950s)
 
 
 Another timing specification that is typically measured an indicated on a combinational logic device is the contamination delay.
@@ -319,7 +319,7 @@ The intuition behind why t$$_{cd}$$ is calculated as the minimum cumulative cont
 
 
 
-## Exercise
+## [Exercise](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=2087s)
 
 
 Complementary pull-up (made up of PFETs) and pull-down circuits (made up of NFETs) form a CMOS gate. With these gates, we can form a combinational logic circuit, example as shown:

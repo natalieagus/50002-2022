@@ -19,7 +19,7 @@ Singapore University of Technology and Design
 # Designing an Instruction Set
 [You can find the lecture video here.](https://youtu.be/h1KGzAbJH4Q) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
-## Overview
+## [Overview](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=0s)
 To create a programmable control system suitable for *general* purposes (like the Universal Turing Machine), we need to define a set of instructions for that system, such that it is able to support a rich repertoire of operations. 
 
 We can create a machine that is simply *programmable*, but it also has to support the following features for it to resemble the Universal Turing Machine:
@@ -30,7 +30,7 @@ We can create a machine that is simply *programmable*, but it also has to suppor
 In this document, we will begin by understanding what does it mean to simply create a (basic) *programmable* machine, and how the current general-purpose computer model is both programmable and possess these three features. 
  
 
-## An Example of a Basic Programmable Control System
+## [An Example of a Basic Programmable Control System](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=134s)
 Suppose we have a simple sequential logic circuit called Machine $$M$$ as shown below. It receives **one** $$N$$ bit *input*, and produces **two** output: $$N$$ bit `output1` and  1 bit `output2`.   Formally, we call this "circuit" a datapath. A **datapath** is a collection of functional units made up of combinational devices, registers, and buses. 
 
 <img src="https://dl.dropboxusercontent.com/s/yt5vj66b71tfkmn/A.png?raw=1"   >
@@ -102,7 +102,7 @@ Now it is clear that what we need to do to create a general-purpose computer is 
 
 
 
-## The Von Neumann Model
+## [The Von Neumann Model](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=1645s)
 
  
  Many architecture approaches to a general-purpose computing device have been explored (see [others here](https://konstantin.solnushkin.org/teaching_reports/intro_to_hpc/2007/harvard_architecture.pdf)), but the Von Neumann Model is one where most modern and practical computers are based on. 
@@ -117,7 +117,7 @@ The generic anatomy of a Von Neumann architecture is shown above. The four *main
 4. Data/Address **bus** that connects all components of the machine together. 
 
   
-### The Basic Anatomy of a Central Processing Unit
+### [The Basic Anatomy of a Central Processing Unit](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=1773s)
 
 **The CPU is a part of the computer that executes instructions. A series of these executable instructions is called a computer program**.  Before building a CPU, one usually design a *figurative blueprint* for how the CPU **operates** and how all the **internal systems interact with each other**. This blueprint is called the *Instruction Set Architecture*.  There many different types of ISAs a CPU can be built on. Some of the common ISA families are x86 (found in desktops and laptops) and ARM (found in embedded and mobile devices). 
 
@@ -147,12 +147,13 @@ The CPU is essentially "brain" of the computing device, and it is be able to:
 >*The control unit tells the datapath how to operate like the conductor of the train. Depending on the instruction, the datapath will route signals to different components, turn on and off different parts of the datapath, and monitor the state of the CPU."*
 
 
-### The Memory Unit  
+### [The Memory Unit ](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=2245s) 
 The CPU is able to *read* **and** *write* bits of data to and from a memory unit connected to it -- an expandable **storage device** (we know it as RAM in practice). 
 >As the name suggests, this device does NOT execute anything, it simply **retains** (store) information. 
 
  <span style="background-color:yellow; color: black">  The "*data*" that is stored in this expandable resource pool  is not just simply **inputs**, i.e: images, videos, documents, etc,  but **also instructions** that make up a *program*. This is where your instruction resides when it is *about* to be **executed** by the CPU. </span>
 
+#### [Addressing Convention](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=2515s)
 Since the memory unit can **store** a huge amount of data (in Gigabytes), the CPU must be able to *read* just a particular $$N$$ bits of relevant data from the memory unit. It is able to do this by giving an **address** as an input to the memory unit. The memory unit **receives this address** and output the data stored at the given address. To *write* onto the memory unit, the CPU must provide two inputs: the **address** where this $$N$$ bits of data should be stored, and the data itself. 
 
 We will learn more about the anatomy of the memory unit, but for now we can think of it as a device that can store a huge amount of data, separated into addressable segments that can hold $$N$$ bit of data each, as shown in the figure below. It generally receives three kinds of input, 1-bit WE signal (write enable), address, and data input (bit size varies, depending on how much data can the memory holds). 
@@ -193,7 +194,7 @@ We will learn more about the anatomy of the memory unit, but for now we can thin
 	* **Each subsequent word has their addresses increased by 4**.  
 	> The definition of a *word* actually may depend on the ISA. The computer model that we learn for this course is a 32-bit architecture, **therefore we define 1 `WORD` to be 32 bits.** 
   
-### Programmability of a Von Neumann Machine
+### [Programmability of a Von Neumann Machine](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=2881s)
   
 
 We can clearly see how electronic devices that are designed based on this model is *programmable* (i.e: a **close** physical manifestation of a Universal Turing Machine). 
@@ -228,7 +229,7 @@ Beside defining the machine's operation types, the ISA should also define the su
 Let's dive in to the $$\beta$$ ISA right away.   
 
 
-### $$\beta$$ ISA Format
+### [$$\beta$$ ISA Format](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=3169s)
 
 Each instruction that the $$\beta$$ supports is written in a **specific encoding.** There are in total of 32 disctinct operations/instructions that the $$\beta$$ should be able to execute, each having its own operation encoding (`OPCODE`). 
 
@@ -240,7 +241,7 @@ All instructions have the same characteristics:
 * Only **one instruction** is executed in each clock cycle. Each
 instruction is considered **atomic** and is presumed to **complete** *before* the next instruction is executed. 
 
-### $$\beta$$ Machine Model
+### [$$\beta$$ Machine Model](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=3264s)
 The $$\beta$$ is a **general-purpose** 32-bit architecture. All registers are 32 bits wide. There are 33 registers in total (in the entire CPU):
 * The PC register: contain the *address* of the **instruction** that's supposed to be **executed** by the CPU.
 	* When loaded with an *address*, it can point to any location in the *byte-addressed* memory. 
@@ -260,7 +261,7 @@ Note that :
 * **Conditional branch instructions** (BEQ and BNE) are *separated* from comparison instructions (CMPLE, CMPLT, CMPEQ). 
 	> Branch instructions test the value of a register that can be the result of a previous compare instruction.
 
-### $$\beta$$ Instruction Encoding 
+### [$$\beta$$ Instruction Encoding ](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=3640s)
 
 There are **only two types** of instruction encoding: Without Literal (Type 1) and With Literal (Type 2). All integer manipulation is between registers, with **up to two** source operands (one may be a sign-extended 16-bit literal), and **one destination** register.
 - **Instructions *without* literals** (Type 1) include arithmetic and logical operations between two registers whose result is placed in a third register.
@@ -319,7 +320,7 @@ The 32-bit instruction `I` is segmented to various sections:
 
 
 
-#### High Level language, Assembly Language, and Machine Language
+#### [High Level language, Assembly Language, and Machine Language](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=4153s)
 
   
 We usually code in higher level language such as Python, Ruby, C/C++, Java, Javascript, C# and so on. However, our machines do not understand these languages *directly*. The human-friendly, intuitive high-level programming syntaxes are ultimately just a bunch of ones and zeros stored inside the machine. 
@@ -361,7 +362,7 @@ Don't worry yet as of now. What we need to know (and get familiar with) is simpl
 
 
 
-## Preview: The $$\beta$$ CPU
+## [Preview: The $$\beta$$ CPU](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=4478s)
 
 The $$\beta$$ CPU falls under the family of RISC (reduced instruction set computing) processor. This type of computer processor possesses a small but highly optimised set of instructions, and are currently used for smartphones and tablet computers, among other devices. 
 
@@ -382,7 +383,7 @@ The $$\beta$$ CPU hardware is therefore designed so that it can ***implement*** 
 
 
 
-## Summary
+## [Summary](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=4650s)
 You may want to watch the post lecture videos here:
 * [Part 1: Instruction Set](https://youtu.be/NLdUPdHBsxo)
 * [Part 2: Beta Primer](https://youtu.be/KTxbjm-Qm0c)

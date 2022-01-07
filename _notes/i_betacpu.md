@@ -19,7 +19,7 @@ Singapore University of Technology and Design
 # Building the $$\beta$$ CPU
 [You can find the lecture video here.](https://youtu.be/4T9MR8BSzt0) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
 
-## Overview
+## [Overview](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=0s)
 
 In the previous chapter, we were introduced to the $$\beta$$ ISA, a CPU blueprint that specifies what instructions the CPU can process, how it interacts with the memory unit, the basic CPU components, instruction formats, and many more. 
 
@@ -36,7 +36,7 @@ We will go through the workings of each instruction and understand how the given
 
   
 
-## Instruction Cycles
+## [Instruction Cycles](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=119s)
 ### Instruction Fetch
 
 The first thing a CPU must do is to **compute** the *address* (`ia[31:0]`) of the instruction to execute next, and then **fetch** (read) them (`id[31:0]`) from the Physical Memory Unit  (RAM). 
@@ -72,7 +72,7 @@ The $$\beta$$ CPU  is comprised of the following standard parts that typically m
 
   
 
-### Program Counter and Physical Memory Unit
+### [Program Counter and Physical Memory Unit](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=402s)
 
  
 The PC is a 32-bit register (i.e: a set of **32** 1-bit registers). Its job is to store the address of the **current** instruction that is executed. 
@@ -93,7 +93,7 @@ If `RESET=1` then the value of the PC REG in the next cycle will be equivalent t
 
 > The memory unit is neatly segmented into **instruction** memory and **data** memory for the sake of **learning** and **simplicity**. In reality, this might not always be the case. Your operating system will do the memory management for you and decide where in the physical memory each process should reside and run. 
 
-### Register Files
+### [Register Files](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=657s)
 
 The REGFILE in $$\beta$$ ISA is the CPU's internal storage unit that is comprised of 32 sets of 32-bit registers, denoted as $$R_0, R_1, ...., R_{31}$$. **Each register is addressable in 5 bits**. For example: `00000` is the address of $$R_0$$, `00001` is the address of $$R_1$$, `00010` is the address of $$R_2$$, and so on.
 
@@ -136,7 +136,7 @@ The outputs of the demux is used as a selector (`EN` port) to each of the *2-to-
 
 > Note: although not drawn (to not clutter the figure further), all the registers are synchronized with the same CLK. 
 
-#### The Static and Dynamic Discipline of the REGFILE
+#### [The Static and Dynamic Discipline of the REGFILE](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=1161s)
 
 As mentioned above, the REGFILE unit has **2 combinational read ports** that is made up by the two large *32-to-1* 32-bit multiplexers drawn at the bottom of the figure. We can supply two read addresses: `RA1` and `RA2`. They are the selector signals of these two multiplexers. Therefore the time taken to produce valid output (32-bit) data at `RD1` and `RD2` is at least  the $$t_{pd}$$ of the multiplexer and $$t_{pd}$$ of the DFFs depending on when exactly the addresses become valid. 
 
@@ -152,7 +152,7 @@ Notice how the new data denoted as `new Reg[A]` supplied at port `WD` (to be wri
 
   
 
-### Control Logic Unit
+### [Control Logic Unit](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=1309s)
 
 The heart of the control logic unit (CU) is a **combinational** logic device that receives 6-bit `OPCODE` signal, 1-bit `z` signal, 1-bit `RESET` signal, and 1-bit `IRQ` signal as input. We will discuss about `RESET`, `z` and `IRQ` much later on.
 
@@ -184,7 +184,7 @@ The $$\beta$$ datapath can be reprogrammed by setting the appropriate control si
 * Control transfer datapath  (Type 2)
 
  
-## OP datapath
+## [OP datapath](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=1662s)
 
 This datapath involves:
 * Any logical computations using the ALU, and 
@@ -236,7 +236,7 @@ The highlighted lines in **pink** show how the signals should flow in order for 
 
 
 
-## OPC datapath
+## [OPC datapath](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=2061s)
 
  The `OPC` (Type 2 instruction) datapath is similar to the `OP` datapath, except that input to the `B` port of the ALU must comes from `c = I[16:0]`. 
 
@@ -282,7 +282,7 @@ SHRC(R1, 4, R6)
 There are three instructions that involve access to the Memory Unit: `LD`, `LDR` and `ST`. All of them are Type 2 instructions.
 
 
-### LD Datapath
+### [LD Datapath](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=2565s)
 
 The general format of the `LD` instruction is:
 
@@ -326,7 +326,7 @@ The control signals therefore must be set to:
 
 
 
-### LDR datapath
+### [LDR datapath](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=3044s)
 
 The `LDR` instruction is similar to the `LD` instruction, except in the method of computing the `EA` of the data loaded. 
 
@@ -371,7 +371,7 @@ The control signals therefore must be set to:
 
   
   
-### ST datapath
+### [ST datapath](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=2837s)
 
 The `ST` instruction does the opposite to what the `LD` instruction does. It allows the CPU to store contents from one of its REGFILE registers to the Memory Unit. 
 
@@ -454,7 +454,7 @@ We will not use the ALU at all when transferring control.
 > So far, we have only seen `PC` to be advanced by 4:  `PC` $$\leftarrow$$ `PC+4`. With instructions involving transfer-of-control or , we are going to set `PC` a little bit differently. 
 
 
-### BEQ datapath
+### [BEQ datapath](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=3642s)
 
 This instruction allows the `PC` to *branch* to a particular `EA` if the content of `Ra` is zero.  It is commonly used when checking for condition prior to branching, e.g: `if x==0, else`.
   
@@ -506,7 +506,7 @@ The control signals therefore must be set to:
 
   
   
-### BNE datapath
+### [BNE datapath](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=4011s)
 
 `BNE` is similar to  `BEQ`, but branches `PC` in the opposite way, i.e: when `Ra != 0`. It also utilizes the output `Z`.
   
@@ -549,7 +549,7 @@ The control signals therefore must be set to:
 
 
   
-### JMP Datapath
+### [JMP Datapath](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=4112s)
 
 `JMP` also allows the CPU to change its `PC` value, but without any condition (*jump*). 
   
@@ -614,7 +614,7 @@ is_zero: JMP(R31)
 
 
 
-## Exception Handling
+## [Exception Handling](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=4563s)
 
 **Exceptions** as the name suggests, is an event generated by the CPU when an *error* occurs. 
 
@@ -672,7 +672,7 @@ Finally, the $$\beta$$ processor accept external `RESET` signal that can reset t
 
 <img src="/50002/assets/contentimage/beta/reset.png"  class="center_full"/>
 
-## CPU Benchmarking
+## [CPU Benchmarking](https://www.youtube.com/watch?v=4T9MR8BSzt0&t=4767s)
 
 We always want a CPU that has a high performance (most instruction per second) at a low cost. Unfortunately there will always be a tradeoff between the two. We can benchmark the quality of a CPU by computing its $$MIPS$$ (million instruction per second),
 
