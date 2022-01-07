@@ -252,7 +252,7 @@ Due to this, we have **two** timing constraints called **$$t_1$$ and $$t_2$$** t
 
 Take into example a very simple combination as shown in the figure below, consisted of two Flip-Flops and one CL device in between. Let's name the Flip-Flop R1 on the left as the "upstream" Flip-Flop and the Flip-Flop R2 on the right as the "downstream" Flip-Flop: 
 
-<img src="https://dl.dropboxusercontent.com/s/2e6c8of9d5ipw0t/Q11.png?raw=1" style="width: 70%;">
+<img src="/50002/assets/contentimage/week3notes/1.png" style="width: 70%;">
 
 If we were to plot the timing diagram of the CLK, output of R1 ($$Q_{R1}$$), and the output of the CL (CL out), we have the following:
 <img src="https://dl.dropboxusercontent.com/s/dxcun9lssktr6rn/Q12.png?raw=1"  style="width: 70%;">
@@ -309,7 +309,7 @@ Look at the figure above. Let D be the "user" input to the Flip-Flop and OUT be 
 Due to the existence of a feedback loop in the D-latch as shown,
 
 
-<img src="https://dl.dropboxusercontent.com/s/8jiw0mlsq8xvzsv/dff.png?raw=1" style="width: 40%;" >
+<img src="https://dl.dropboxusercontent.com/s/8jiw0mlsq8xvzsv/dff.png?raw=1" style="width: 60%;" >
 
 ..it has a unique property where there exist a point in its voltage characteristics function whereby **Vin = Vout**. 
 
