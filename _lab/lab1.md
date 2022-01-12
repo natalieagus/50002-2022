@@ -114,7 +114,7 @@ We have included an ammeter (built from a 0V voltage source) so we can measure I
 
 ```cpp
 * plot Ids vs. Vds for 5 different Vgs values
-.include "/50002/nominal.jsim"
+.include "nominal.jsim"
 Vmeter vds drain 0v
 Vds vds 0 0v
 Vgs gate 0 0v
