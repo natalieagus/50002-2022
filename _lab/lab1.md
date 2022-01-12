@@ -305,7 +305,7 @@ Run the device-level simulation, and the following window should appear:
 
 <img src="/50002/assets/contentimage/lab1/10.png"  class="center_full"/>
 
-* To maximise the noise margin, we need to center the VTC transition. One possible way is to adjust the size of the NFET in the `nand2` definition as `SW=8 SL=1` and adjust the width (`SW`) of both pFETs until the plots for vin and vout intersect at about 1.65 volts. Keep the `SL` of the pFETs the same.  
+* To maximise the noise margin, we need to center the VTC transition. One possible way is to adjust the size of the NFET in the `nand2` definition as `SW=8 SL=1` and adjust the width (`SW`) of both pFETs until the plots for vin and vout (green and red line) intersect at about 1.65 volts. Keep the `SL` of the pFETs the same.  
   * You can also adjust SW, SL of both NFET and PFET as you wish, but we skip you that guessing game and give you the most optimal setting right away. 
 * Just try different integral widths (i.e, 9, 10, 11, …) for the value of `SW` of the pFETs in the `nand2` definition. 
 * Report the integral width that comes closest to having the curves intersect at 1.65V.
