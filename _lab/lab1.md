@@ -389,7 +389,6 @@ The first two cases are called tp **fall**, while the latter two cases are calle
 
 Therefore the computation of tp **fall** and tp **rise** for `nand2` gate is: 
 
-<br>
 $$
 \begin{aligned}
 t_{p_{FALL}} &= \text{time elapsed from when input }\geq \text{Vih to when output} \leq \text{ Vol}\\
