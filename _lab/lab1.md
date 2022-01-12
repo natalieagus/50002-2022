@@ -183,7 +183,7 @@ Make a measurement of IDS when **VGS=0V and VDS=2.5V**.
 <div class="yellowbox"><div class="custom_box"> **Record** down the estimated discharge time.  You will need this information for Checkoff 2.  </div></div><br>
 
 
-## Part 2: Gate-level Timing (90 mins)
+## Part 2: Gate-level Timing (45 mins)
 
 ### Setup and Introduction
 
@@ -319,7 +319,7 @@ Combine this netlist fragment with the `nand2` subckt definition given above and
  
 > **Note**: make these measurements using your “improved” `nand2` gate that has the centered VTC, i.e., with the updated widths for the PFETS.
 
-## Contamination and Propagation delays (45 mins)
+## Part 3: Contamination and Propagation delays (45 mins)
 
 Now that we have the MOSFETs ratioed properly to **maximize noise immunity**, let’s measure the contamination time (tc) and propagation time (tp) of the `nand2` gate. 
 
