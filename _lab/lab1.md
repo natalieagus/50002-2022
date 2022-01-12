@@ -141,7 +141,10 @@ After you enter the netlist above, you might want to **save** your efforts for l
 </div>
 </div>  
 <br>
-After a pause, a **waveform** window will pop up where we can take some measurements.  
+
+<img src="/50002/assets/contentimage/lab1/9.png"  class="center_full"/>
+
+After a pause, a **waveform** window will pop up and we can take some measurements.  
   * As you move the mouse over the waveform window, a moving cursor will be displayed on the first waveform above the mouse’s position and a readout giving the cursor coordinates will appear in the upper left hand corner of the window.  
   * To measure the delta (difference) between two points, position the mouse so the cursor is on top of the first point. Now click left and drag the mouse (i.e., move the mouse while holding its left button down) to bring up a second cursor that you can then position over the second point.  
   * The readout in the upper left corner will show the coordinates for both cursors and the delta between the two coordinates.  
