@@ -194,7 +194,7 @@ Make a measurement of IDS when **VGS=0V and VDS=2.5V**.
 The following JSim netlist shows you how to define your own circuit elements using the “.subckt” statement:
 
 ```cpp
-* circuit for Lab#1, parts C thru F
+* circuit for Lab#1, Task C thru F
 .include "nominal.jsim"
 
 * 2-input NAND: inputs are A and B, output is Z
