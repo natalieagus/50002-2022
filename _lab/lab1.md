@@ -183,7 +183,7 @@ Make a measurement of IDS when **VGS=0V and VDS=2.5V**.
 <div class="yellowbox"><div class="custom_box"> **Record** down the estimated discharge time.  You will need this information for Checkoff 2.  </div></div><br>
 
 
-## Part 2: Gate-level Timing (45 mins)
+## Part 2: Noise Immunity(45 mins)
 
 ### Setup and Introduction
 
