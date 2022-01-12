@@ -191,7 +191,7 @@ Make a measurement of IDS when **VGS=0V and VDS=2.5V**.
 ### Setup and Introduction
 
 #### Defining Circuit Elements Using “.subckt” 
-The following JSim netlist shows you how to define your own circuit elements using the “.subckt” statement:
+Create a **new file** and paste the following code. The following JSim netlist shows you how to define your own circuit elements using the “.subckt” statement:
 
 ```cpp
 * circuit for Lab#1, Task C thru F
@@ -287,7 +287,7 @@ We’ll need to keep the PN junctions in the source and drain diffusions **rever
 To **maximize noise margins** we want to have the **transition** in the voltage transfer characteristic (VTC) of the `nand2` gate **centered halfway** between ground and the power supply voltage (3.3V) 
 > Why? Ask yourself, and review the lecture on [digital abstraction](https://natalieagus.github.io/50002/notes/digitalabstraction).  
  
-To determine the VTC for `nand2`, we’ll perform a `dc` analysis to plot the gate’s output voltage as a function of the input voltage using the following additional netlist statements:
+To determine the VTC for `nand2`, we’ll perform a `dc` analysis to plot the gate’s output voltage as a function of the input voltage using the following additional netlist statements. Paste this under the `nand2` and `inverter` declaration you made above in the new file. 
 
 ```cpp
 * dc analysis to create VTC
@@ -301,9 +301,13 @@ Voh voh 0 3v
 .plot vin vout voh vol
 ```
 
-Combine this netlist fragment with the `nand2` subckt definition given above and run the simulation.  
-* To center the VTC transition, keep the size of the NFET in the `nand2` definition as `SW=8 SL=1` and adjust the width of both pFETs until the plots for vin and vout intersect at about 1.65 volts.  
-* Just try different integral widths (i.e, 9, 10, 11, …). 
+Run the device-level simulation, and the following window should appear: 
+
+<img src="/50002/assets/contentimage/lab1/10.png"  class="center_full"/>
+
+* To maximise the noise margin, we need to center the VTC transition. One possible way is to adjust the size of the NFET in the `nand2` definition as `SW=8 SL=1` and adjust the width (`SW`) of both pFETs until the plots for vin and vout intersect at about 1.65 volts. Keep the `SL` of the pFETs the same.  
+  * You can also adjust SW, SL of both NFET and PFET as you wish, but we skip you that guessing game and give you the most optimal setting right away. 
+* Just try different integral widths (i.e, 9, 10, 11, …) for the value of `SW` of the pFETs in the `nand2` definition. 
 * Report the integral width that comes closest to having the curves intersect at 1.65V.
 
 <div class="yellowbox"><div class="custom_box">**Record** down the SW value you found.  You will need this information for Checkoff 3.</div></div><br>
