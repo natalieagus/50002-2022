@@ -239,7 +239,7 @@ The goal of this section is to study this particular combinational multiplier th
 
 Here is a detailed bit-level description of how a **4-bit** by **4-bit** unsigned multiplication works.  This diagram assumes **we only want the low-order 4 bits** of the 8-bit product.
 
-<img src="/50002/assets/contentimage/lab3/18.png"  class=" center_fifty"/>
+<img src="/50002/assets/contentimage/lab3/18.png"  class=" center_seventy"/>
 
 This diagram can be **extended** in a straightforward way to 32-bit by 32-bit multiplication.  
 > Remember again that since our machine is only 32-bit, that means we only can store the low-order 32-bits of the result, you don’t need to include the circuitry that generates the rest of the 64-bit product.
