@@ -221,7 +221,7 @@ Here’s the detailed schematic of the **right arithmetic shifter**.
 
 Finally, we can combine all three shifters together to form the total shifter output:
 
-<img src="/50002/assets/contentimage/lab3/17.png"  class=" center_seventy"/>
+<img src="/50002/assets/contentimage/lab3/17.png"  class=" center_full"/>
 
 > Another approach that **adds** latency but **saves** gates is to use the *left shift logic* for **both** left and right shifts, but for right shifts, **reverse** the bits of the `A` input first on the way in and **reverse** the bits of the output on the way out.
 
