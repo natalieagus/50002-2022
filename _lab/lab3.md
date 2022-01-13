@@ -38,8 +38,8 @@ The lecture notes on [Logic Synthesis](https://natalieagus.github.io/50002/notes
 
 The lab will reinforce your understanding on how you can build the circuit to conform to the logic that you want, e.g: adder circuit will perform binary addition of input A and B, etc, and make it **PROGRAMMABLE** using the control signal: `ALUFN`. 
 
-## Introduction: More JSim
-*(you really should’ve read the appendix of this handout before coming to class)*
+## Introduction
+*(you really should’ve read the [Appendix](https://natalieagus.github.io/50002/lab/lab3#appendix-jsim-tricks) of this handout before coming to class)*
 
 In this lab, we will build the **arithmetic and logic unit (ALU)** for the Beta processor. 
 > The ALU is a **combinational** logic device that has two **32-bit inputs** (which we will call “A” and “B”) and produces one **32-bit output**. 
