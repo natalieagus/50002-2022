@@ -52,8 +52,8 @@ Before we begin, there are a few more JSim tricks that you have to know to make 
 The building blocks for our design will be a family of **logic gates **that are part of a **standard cell library**, declared for you in the file called `stdcell.jsim` given in your courseware. [You can find its documentation here](https://drive.google.com/open?id=1ArkRewfiBqJGmVqzkiGzFxbS0fZ-2eWw&authuser=nn88blue%40gmail.com&usp=drive_fs). The available combinational gates are listed in the table below along with information about their **timing**, **loading** and **size**. You can access the library by starting your netlist with the following include statements:
 
 ```cpp
-.include " nominal.jsim"
-.include " stdcell.jsim" 
+.include "nominal.jsim"
+.include "stdcell.jsim" 
 ```
 
 <div class="redbox"><div class="custom_box">We will no longer need to create custom gates from scratch using MOSFET, unlike in our Lab 1 and 2. From **now onwards**, please build your combinational logic devices using the gates provided in `stdcel.jsim`.</div></div><br>
