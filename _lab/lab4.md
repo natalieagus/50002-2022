@@ -257,7 +257,7 @@ Study the output to ensure that you have the intended signals. You can click on 
 
 <span style="background-color:yellow; color: black">**IMPORTANT:** comment back the header and the test instructions after you are done. The file `lab4_pc.jsim` should only contain the definition of your pc unit subcircuit only. We will import it later inside `lab4_beta.jsim`.</span>
 
-## Task C: REGFILE Unit
+## Task B: REGFILE Unit
 ### REGFILE Unit Schematic
 Here is the suggested REGFILE Unit schematic that you can implement. 
 
@@ -339,7 +339,7 @@ If everything works as expected, you should see the following message when you c
 
 <span style="background-color:yellow; color: black">**IMPORTANT:** comment back the header and the test instructions after you are done. The file `lab4_regfile.jsim` should only contain the definition of your pc unit subcircuit only. We will import it later inside `lab4_beta.jsim`.</span>
 
-## Task B: CONTROL Unit
+## Task C: CONTROL Unit
 ### CONTROL Unit Schematic
 Here is the suggested **CONTROL** Unit schematic that you can implement. 
 
@@ -371,7 +371,7 @@ Some of the signals can connect directly to the appropriate logic, e.g., `ALUFN[
 We have already provided you with the bare Control Unit ROM as shown in the schematic above. Further processing for control signals: `PCSEL, wasel, wdsel, werf, wr` are needed. 
 
 ### WR 
-We do need to be careful with the write enable signal for main memory (WR) which needs to be valid even before the first instruction is fetched from memory. So you should include some additional logic that forces `wr` to `0b0` when `reset=1` – the signal XWR from the ROM needs to combine appropriately with `reset` to form WR. 
+We do need to be careful with the write enable signal for main memory (WR) which needs to be **valid** even before the first instruction is fetched from memory. WR is an input to the main memory, and recall that ALL inputs need to be VALID (0 is also a valid value!) in order for the main memory to give a valid output data. You should include some additional logic that forces `wr` to `0b0` when `reset=1`. the signal XWR from the ROM needs to combine appropriately with `reset` to form WR. 
 
 We have provided the `reset` mux to handle this in `lab4_control.jsim`:
 ```cpp
