@@ -178,7 +178,7 @@ In total, you should utilise 32 4-to-1 multiplexers to build the boolean unit. <
 
 <img src="/50002/assets/contentimage/lab3/25.png"  class=" center_fifty"/>
 
-### Part D: Shifter
+### Part 4: Shifter
 Design a **32-bit shifter** that implements `SRA`, `SHR` and `SHL` instructions.  
 * The `A[31:0]` input supplies the data to be shifted  
 * The **low-order** 5 bits of the `B[4:0]`  are used as the **shift count** (i.e., from 0 to 31 bits of shift)
