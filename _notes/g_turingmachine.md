@@ -335,6 +335,9 @@ For example:
 * We can also write another program, lets say a music player app. When we run this program, our computer turns into a music player. 
 
 Therefore, we can say that our computer is **programmable**, because the program that we wrote is translated into **a set of instructions** that our machine can understand. 
+* It is reconfigurable, able to perform a plethora of different tasks depending on what apps we can make, install, and run on it
+* It commonly has undefined function at the time of manufacture: some bought computers to watch movies, to browse, to edit photos, to code, to write books, to play games, etc. 
+  * This is different from simple washing machines that comes with preset functions 
 
 >Our (general purpose) computer is a (close enough) physical manifestation of a Universal Turing Machine (albeit with "finite" tape). 
 
