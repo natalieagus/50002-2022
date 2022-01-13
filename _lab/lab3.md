@@ -307,7 +307,7 @@ If all expected values are correct, you should see the following window pops up 
 ## Appendix: JSim Tricks
 
 ### Standard Cell Library
-The building blocks for our design will be a family of **logic gates **that are part of a **standard cell library**, declared for you in the file called `stdcell.jsim` given in your courseware. [You can find its documentation here](https://drive.google.com/open?id=1ArkRewfiBqJGmVqzkiGzFxbS0fZ-2eWw&authuser=nn88blue%40gmail.com&usp=drive_fs). The available combinational gates are listed in the table below along with information about their **timing**, **loading** and **size**. You can access the library by starting your netlist with the following include statements:
+The building blocks for our design will be a family of **logic gates **that are part of a standard cell library**, declared for you in the file called `stdcell.jsim` given in your courseware. [You can find its documentation here](https://drive.google.com/open?id=1ArkRewfiBqJGmVqzkiGzFxbS0fZ-2eWw&authuser=nn88blue%40gmail.com&usp=drive_fs). The available combinational gates are listed in the table below along with information about their **timing**, **loading** and **size**. You can access the library by starting your netlist with the following include statements:
 
 ```cpp
 .include "nominal.jsim"
