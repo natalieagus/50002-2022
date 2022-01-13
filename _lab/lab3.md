@@ -46,7 +46,7 @@ In this lab, we will build the **arithmetic and logic unit (ALU)** for the Beta 
 > We will start by designing each piece of the ALU as a separate circuit (Task A and B), each producing its own 32-bit output. 
 > We will then combine these outputs into a single ALU result (Task C).
 
-Before we begin, there are a few more JSim tricks provided as Appendix in this handout that you have to know to make it easier to build such a huge programmable device. 
+Before we begin, there are a few more JSim tricks provided as [Appendix](https://natalieagus.github.io/50002/lab/lab3#appendix) in this handout that you have to know to make it easier to build such a huge programmable device. 
 
 ## Task A: Design the ALU Components
 The arithmetic logic unit is the **heart** of a **CPU**; it is responsible for all sorts of **logic computations**. The basic family of operations that a general-purpose ALU should have include: 
@@ -114,7 +114,7 @@ Here’s the detailed schematic of the adder. Please label the nodes yourself be
 To use the test jig `lab3_testadder.jsim`:
 1. Uncomment the `lab3_testadder.jsim` file in the header and comment the rest as such: 
   <img src="/50002/assets/contentimage/lab3/28.png"  class=" center_fifty"/>
-2. Do a **GATE**-level simulation because now we use stdcell library instead of building our own gates using transistor 
+2. Do a **GATE**-level simulation because now we use stdcell library instead of building our own gates using transistor (see [Appendix](https://natalieagus.github.io/50002/lab/lab3#gate-level-simulation))
 3. A waveform window showing the adder32 inputs and outputs should appear as such:
 
 <img src="/50002/assets/contentimage/lab3/6.png"  class=" center_full"/>
