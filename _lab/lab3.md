@@ -46,7 +46,7 @@ In this lab, we will build the **arithmetic and logic unit (ALU)** for the Beta 
 > We will start by designing each piece of the ALU as a separate circuit (Task A and B), each producing its own 32-bit output. 
 > We will then combine these outputs into a single ALU result (Task C).
 
-Before we begin, there are a few more JSim tricks provided as [Appendix](https://natalieagus.github.io/50002/lab/lab3#appendix) in this handout that you have to know to make it easier to build such a huge programmable device. 
+Before we begin, there are a few more JSim tricks provided as [Appendix](https://natalieagus.github.io/50002/lab/lab3#appendix-jsim-tricks) in this handout that you have to know to make it easier to build such a huge programmable device. 
 
 ## Task A: Design the ALU Components
 The arithmetic logic unit is the **heart** of a **CPU**; it is responsible for all sorts of **logic computations**. The basic family of operations that a general-purpose ALU should have include: 
@@ -367,7 +367,7 @@ will connect all twelve nodes (`A5, A4, ..., A0, B5, B4, ..., B0`) **TOGETHER**.
 .connect A0 B0
 ```
 
-## Bus unit
+### Bus unit
 The above can be **tedious** to type. To fix this, can define a two-terminal device that uses    internally, and then use the usual **iteration** rules (see next section) to make many instances of the device with one `X` (device) statement:
 
 ```cpp
