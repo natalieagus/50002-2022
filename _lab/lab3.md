@@ -176,7 +176,7 @@ In total, you should utilise 32 4-to-1 multiplexers to build the boolean unit. <
 
 <img src="/50002/assets/contentimage/lab3/30.png"  class=" center_fifty"/>
 
-<img src="/50002/assets/contentimage/lab3/25.png"  class=" center_fifty"/>
+<img src="/50002/assets/contentimage/lab3/25.png"  class=" center_seventy"/>
 
 ### Part 4: Shifter
 Design a **32-bit shifter** that implements `SRA`, `SHR` and `SHL` instructions.  
@@ -230,7 +230,7 @@ Finally, we can combine all three shifters together to form the total shifter ou
 
 <img src="/50002/assets/contentimage/lab3/31.png"  class=" center_fifty"/>
 
-<img src="/50002/assets/contentimage/lab3/26.png"  class=" center_fifty"/>
+<img src="/50002/assets/contentimage/lab3/26.png"  class=" center_seventy"/>
 
 ## Task B: Studying the Multiplier
 Open `lab3_mult.jsim` and realise that this file contains the circuitry for a **multiplier unit**. 
@@ -293,7 +293,7 @@ Note that the `Z`, `V`, and `N` signals from the adder/subtractor unit are **INC
 
 <img src="/50002/assets/contentimage/lab3/32.png"  class=" center_fifty"/>
 
-<img src="/50002/assets/contentimage/lab3/27.png"  class=" center_fifty"/>
+<img src="/50002/assets/contentimage/lab3/27.png"  class=" center_seventy"/>
 
 When you run the gate-level simulation, you should see the following plot pops up:
 <img src="/50002/assets/contentimage/lab3/23.png"  class=" center_full"/>
