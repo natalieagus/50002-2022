@@ -195,7 +195,7 @@ Remember we need to add a way to set the PC to zero on `reset`.  We use a two-in
 We have given you the nodes for constant `0x80000000` called `RESET[31:0]`, please utilise that. 
 
 ### 32-bit PC Reg
-<span style="background-color:yellow; color: black">The PC is a separate **32-bit register** that can be built using the `dreg` component from the parts library</span>. 
+<span style="background-color:yellow; color: black">The PC is a separate **32-bit register** that can be built using the `dreg` component from the standard cell library</span>, see [Appendix](https://natalieagus.github.io/50002/lab/lab4#appendix-3-standard-cells).  
 > You should include hardware for the **bottom two bits** of the PC even though they are always 0 anyway in this simulation; this will make debugging traces easier to interpret.
 
 
