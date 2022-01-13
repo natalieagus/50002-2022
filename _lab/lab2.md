@@ -87,6 +87,8 @@ Hints:
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer inside lab2_submit.jsim. </div></div><br>
 
+<img src="/50002/assets/contentimage/lab2/14.png"  class="center_seventy"/>
+
 ## Ripple-Carry Adder
 We can cascade FA units to form Ripple-Carry Adder. The module performs the addition of two one-bit inputs (`A` and `B`) incorporating the carry in from the **previous** stage (`Ci`).  The result appears on the `S` output and a carry (`Co`) is generated for the **next** stage. 
 
