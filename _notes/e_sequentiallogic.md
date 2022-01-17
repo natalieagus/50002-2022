@@ -37,7 +37,7 @@ We can connect memory device(s) together with combinational logic device(s) to f
 A sequential logic device has a *general* structure as shown below:
 
 
-<img src="https://dl.dropboxusercontent.com/s/7crg33w0e7yg2hn/Q1.png?raw=1"      >
+<img src="https://dropbox.com/s/7crg33w0e7yg2hn/Q1.png?raw=1"      >
 
   
 In the next few sections we will learn how to create this memory device labeled as **Registers** above (or more specifically, it is called *D Flip-Flop*). 
@@ -47,14 +47,14 @@ In the next few sections we will learn how to create this memory device labeled 
   
 A D Flip-Flop (memory device) is made using another device called a D-latch.  A D-latch can be created using a multiplexer with a **feedback** **loop**,
 
-<img src="https://dl.dropboxusercontent.com/s/612f6bsfepegsbb/Q2.png?raw=1" style="width: 50%;" >
+<img src="https://dropbox.com/s/612f6bsfepegsbb/Q2.png?raw=1" style="width: 50%;" >
 
 >Note: this is **not** the only way to make a D-latch. A simple Google search will present you with some other alternatives.  We just use a multiplexer here to explain the idea easily. 
 
 How it works:
 - In practice, G is clock (CLK) signal. It will periodically **switch** between `1`s and  `0`s (valid high voltage and valid low voltage) as shown in the image below:
 
-<img src="https://dl.dropboxusercontent.com/s/1s4wmuj1bsfpmfp/Q3.png?raw=1" style="width: 70%;">
+<img src="https://dropbox.com/s/1s4wmuj1bsfpmfp/Q3.png?raw=1" style="width: 70%;">
 
 - Q is the output of the latch, and D is the (external) input that's placed at the second input port the latch. 
 - Q is fed back as Q', the first input port of the latch. 
@@ -79,7 +79,7 @@ How it works:
 
 The figure below illustrates an example of 4-bit input and corresponding 4-bit output. Each of the device drawn as a rectangle (with the ">" symbol at its lower left corner) is called a **Flip-Flop** (see later section).  They are made up of D-latches. 
 
-<img src="https://dl.dropboxusercontent.com/s/ruxrkxm1r6kog88/s1.png?raw=1" style="width: 70%;"  >
+<img src="https://dropbox.com/s/ruxrkxm1r6kog88/s1.png?raw=1" style="width: 70%;"  >
 
   
   <span style="background-color:yellow; color: black">  **Note**: From this point onwards, `1` simply means valid high voltage, and  `0` means valid low voltage </span>. 
@@ -131,7 +131,7 @@ As explained in the previous notes,  $$t_{pd}$$ is the propagation delay of the 
 
 To address the second problem: the presence of **unstable/invalid output during transition of input**, we need to create another device called the *Edge-Triggered D Flip Flop* (or shortened as Flip-Flop) by putting two D-Latches in series as shown:
 
-<img src="https://dl.dropboxusercontent.com/s/gtqq3c7i9d6vz3c/Q1.png?raw=1" >
+<img src="https://dropbox.com/s/gtqq3c7i9d6vz3c/Q1.png?raw=1" >
 
 At first, each of the two rectangles are the symbol of a regular D-latch. Putting them in series (and ***inverting*** the CLK signal fed to the first latch) results in a Flip-Flop (the rectangular symbol on the right). The difference is that in a Flip-Flop, the CLK input port is represented by the > symbol at its lower left corner. 
 
@@ -170,7 +170,7 @@ We can decribe the structure of a Flip-Flop as follows:
 
 The explanation above is illustrated in terms of **waveforms** below. Take some time to study the waveforms and convince yourselves that they make sense. Note that "Q" here means the overall output of the Flip-Flop, which is signal produced by the Q port of the slave latch. 
 
-<img src="https://dl.dropboxusercontent.com/s/lsovnj1u8s9d95i/ffwaveform.png?raw=1" style="width: 70%;"  >
+<img src="https://dropbox.com/s/lsovnj1u8s9d95i/ffwaveform.png?raw=1" style="width: 70%;"  >
 
  
 Notice two further behaviors in the Flip-Flop:
@@ -255,7 +255,7 @@ Take into example a very simple combination as shown in the figure below, consis
 <img src="/50002/assets/contentimage/week3notes/1.png" style="width: 70%;">
 
 If we were to plot the timing diagram of the CLK, output of R1 ($$Q_{R1}$$), and the output of the CL (CL out), we have the following:
-<img src="https://dl.dropboxusercontent.com/s/dxcun9lssktr6rn/Q12.png?raw=1"  style="width: 70%;">
+<img src="https://dropbox.com/s/dxcun9lssktr6rn/Q12.png?raw=1"  style="width: 70%;">
 
 
 From the diagram above, we can define two timing constraints for this particular scenario:
@@ -284,7 +284,7 @@ We can call the $$t_{PD} CL$$ (propagation delay of the CL) as the time taken to
 The propagation or contamination delays of a Flip-Flop is not considered a logic computation, because unlike combinational logic devices (that can be made to implement functionalities such as addition, subtraction, boolean expressions, etc), a Flip-Flop **does not implement** any other special functionalities except to function as a memory device. 
   
 
-**See [this supplementary document](https://dl.dropboxusercontent.com/s/gi4r2ea1tdv5x4d/Seq_Logic_Timing_Extras_2020.pdf?dl=1) to know more about timing computations for sequential logic device.**
+**See [this supplementary document](https://dropbox.com/s/gi4r2ea1tdv5x4d/Seq_Logic_Timing_Extras_2020.pdf?dl=1) to know more about timing computations for sequential logic device.**
 
 ## [Synchronization with Input](https://www.youtube.com/watch?v=HlizelEp4Yc&t=4980s)
 
@@ -296,7 +296,7 @@ In any sequential logic circuit we use a **single synchronous clock**, meaning t
 
 In practice, it is **not possible** for any arbitrary input to always be synchronised with the clock, i.e: to obey the $$t_S$$ and $$t_H$$ requirements (of the external input facing 'upstream' DFF) at all times. Recall that dynamic discipline is crucial for any sequential logic circuit to work properly. We are now going to discuss what happens if **dynamic discipline is violated**.
 
-<img src="https://dl.dropboxusercontent.com/s/ucujrzj5imp4xxy/metas.png?raw=1" style="width: 70%;" >
+<img src="https://dropbox.com/s/ucujrzj5imp4xxy/metas.png?raw=1" style="width: 70%;" >
 
 
 Look at the figure above. Let D be the "user" input to the Flip-Flop and OUT be the output "Q" of the Flip-Flop. When one of the timing constraints ($$t_{H}$$ in this case) imposed by the dynamic discipline is violated, we may end up storing the invalid values during read/memory mode. This event of storing invalid value is called the **metastable state**. 
@@ -309,13 +309,13 @@ Look at the figure above. Let D be the "user" input to the Flip-Flop and OUT be 
 Due to the existence of a feedback loop in the D-latch as shown,
 
 
-<img src="https://dl.dropboxusercontent.com/s/8jiw0mlsq8xvzsv/dff.png?raw=1" style="width: 60%;" >
+<img src="https://dropbox.com/s/8jiw0mlsq8xvzsv/dff.png?raw=1" style="width: 60%;" >
 
 ..it has a unique property where there exist a point in its voltage characteristics function whereby **Vin = Vout**. 
 
 We can measure and plot $$V_{in}$$ (Q') versus $$V_{out}$$ (Q) in the D-latch, and come up with a VTC plot as follows:
 
-<img src="https://dl.dropboxusercontent.com/s/t4ji250oufvdsun/metastable.png?raw=1" style="width: 80%;"  >
+<img src="https://dropbox.com/s/t4ji250oufvdsun/metastable.png?raw=1" style="width: 80%;"  >
 
 
 The red line signifies the feedback constraint, where we have **Q** at $$V_{out}$$ to be equivalent to **Q'** as $$V_{in}$$. **This is the effect of connecting the output of the multiplexer to itself, on the first input port**. 
@@ -364,7 +364,7 @@ Since there is **no lower bound** on $$\|V_{out} - V_m\|$$, then there is **no u
 > If an SL device enters the metastable state, it *might* eventually settle to a valid zero... or a valid one, but there is no guarantee when this will happen. It may take a second,  or it may take forever to settle. 
 
 <div class="yellowbox"> The only thing we can do is to <strong>minimize</strong> the metastable state's probability from happening. We can do that by introducing more <strong>delays</strong> between the first 'upstream' Flip-Flop and the CL devices downstream in the hopes that the signal will somehow settle towards either end before reaching the CL, as illustrated here:<br>
-<img src="https://dl.dropboxusercontent.com/s/g5sbabtn9ywwkod/series.png?raw=1"><br>
+<img src="https://dropbox.com/s/g5sbabtn9ywwkod/series.png?raw=1"><br>
 Note that this comes at the cost of <i>responsiveness</i> of the device. 
 </div>
  
@@ -377,7 +377,7 @@ You may want to watch the post lecture videos here:
 
 As stated above, a **sequential** logic device has a *general* structure as shown below:
 
-<img src="https://dl.dropboxusercontent.com/s/7crg33w0e7yg2hn/Q1.png?raw=1"      >
+<img src="https://dropbox.com/s/7crg33w0e7yg2hn/Q1.png?raw=1"      >
 
 During each clock period, it should be able to compute the next value (next state), and output value. The output at any point in time, is always affected by the current state, which is the state computed in the previous clock period / time step. Hence the name **sequential logic** comes from the fact that it is a type of **logic** circuit whose output depends **not only on the present** value of its input signals but on the *sequence of past inputs, (the input history) as well.*
 

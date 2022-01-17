@@ -95,7 +95,7 @@ One solution is increase the associativity of a DM cache is to build an **`N`-wa
 
 The figure below illustrates the structure of an NWSA cache:
 
-<img src="https://dl.dropboxusercontent.com/s/jbg0b7ajjcn79mg/nway.png?raw=1"    >
+<img src="https://dropbox.com/s/jbg0b7ajjcn79mg/nway.png?raw=1"    >
 
   
 
@@ -229,7 +229,7 @@ There's no one superior replacement policy. One replacement policy can be better
 We can further improve cache performance by **increasing the capacity of each cache line**. We can **fetch  `B` words of data at a time**, and this is especially useful if there's high locality of reference.  The figure below illustrates a cache line with `B=4`:
   
 
-<img src="https://dl.dropboxusercontent.com/s/ceamhyfon0dsofw/blocksize.png?raw=1"   style="width: 90%;"  >
+<img src="https://dropbox.com/s/ceamhyfon0dsofw/blocksize.png?raw=1"   style="width: 90%;"  >
 
 <span style="background-color:yellow; color: black"> The number of data **words** in each cache line is called the **block size** and is always a power of two. </span> 
 
@@ -314,7 +314,7 @@ The LRU bit is present in each cache line for FA and NWSA cache only regardless 
 The helper bits can be illustrated in a diagram like below. Below we have a sample of 3WSA cache with `b=2`:
   
 
-<img src="https://dl.dropboxusercontent.com/s/jdzkblgoyb6dh7i/3way.png?raw=1"    >
+<img src="https://dropbox.com/s/jdzkblgoyb6dh7i/3way.png?raw=1"    >
 
 > Test your understanding: How many LRU bits are needed? 
 
@@ -333,7 +333,7 @@ Given a memory unit of fixed size `M`, can use 2 bits less if we were to use wor
 
 For DM/NWSA cache with `B` blocks and **word addressing**, we need to divide the original requested address into the same **three segments**, but we don't have the default `00` in the lowest 2 bits of the address (as when byte addressing is used) anymore: 
 
-<img src="https://dl.dropboxusercontent.com/s/2dsjsjurxtndevq/wordbyte.png?raw=1" style="width: 70%;"   >
+<img src="https://dropbox.com/s/2dsjsjurxtndevq/wordbyte.png?raw=1" style="width: 70%;"   >
 
 * Lowest`b`-bits to index each word in a cache line block. 
 * `K`-bits to index each cache line or set. 

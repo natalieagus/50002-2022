@@ -127,7 +127,7 @@ From the result above, **x** is the fastest machine. Hence we choose **x**.
 ## Clumsy Lab Assistant (Basic)
 Notta Kalew, a somewhat fumble-fingered lab assistant, has deleted the opcode field from the following table describing the control logic of an unpipelined Beta processor.
 
-<img src="https://dl.dropboxusercontent.com/s/hr0j3m2pmgbhvot/Q1.png?raw=1"  >
+<img src="https://dropbox.com/s/hr0j3m2pmgbhvot/Q1.png?raw=1"  >
 
   
 
@@ -223,7 +223,7 @@ Incidentally, adding a third read port would eliminate the need for the <code>RA
 ## New Beta Instruction (Basic)
 1. Write the register transfer language below corresponds to the instruction with the following control signal:
    
-	<img src="https://dl.dropboxusercontent.com/s/ysf5rtc0d9mwsil/ctrlnew.png?raw=1" width="20%" height="20%">
+	<img src="https://dropbox.com/s/ysf5rtc0d9mwsil/ctrlnew.png?raw=1" width="20%" height="20%">
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 	<div class="class=language-cpp highlighter-rouge">
@@ -463,7 +463,7 @@ Program 2, 4, and 5 can successfully <strong>detect</strong> this faulty. All of
 ## Quality Control (Intermediate)
 One Beta manufacturer is having quality-control problems with their design. In particular, they've had reliability issues with various device connections that are circled in the diagram below.
 
-<img src="https://dl.dropboxusercontent.com/s/i71imaa2toxsnk7/betafault.png?raw=1"  >
+<img src="https://dropbox.com/s/i71imaa2toxsnk7/betafault.png?raw=1"  >
 
 Your job is to **write some test programs** to help determine if a machine is fault-free. ==Assume that when a device connection is "faulty," the indicated **bus or signal** is always **producing** "0" instead of the *expected value*.==
 

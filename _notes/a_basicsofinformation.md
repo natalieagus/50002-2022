@@ -134,7 +134,7 @@ More precisely, it is called the **fixed length encoding**, that is used in prac
 Example of encoding is character encoding so that the string of bits can be displayed to us properly: 
 * **Number Encoding** : 4-bits to represent each number 1 to 10 
 * **7-bit** ASCII encoding for english characters (no need to memorize, it's just here for fun information only)
-<img src="https://dl.dropboxusercontent.com/s/0xizcif6yux3uyi/ascii.jpg?raw=1"    >
+<img src="https://dropbox.com/s/0xizcif6yux3uyi/ascii.jpg?raw=1"    >
 * **16-bit** Unicode (UTF-16) encoding: for other language alphabets that are fixed, e.g: Russian, Korean
 
 We can create electronic devices that are able to *map* (decode) a given encoded information, perform computations based on the received information, and encode back the output so that the results can be interpreted by us (users) or other devices. 

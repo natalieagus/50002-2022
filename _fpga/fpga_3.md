@@ -79,7 +79,7 @@ Now if you **hold** `io_button[0]` **long enough** then the output is reset back
 
 Consider the following time-plot of `reset`, `slowclock` and actual FPGA `clk`:
 
-<img src="https://dl.dropboxusercontent.com/s/u8hh5xcjpej97yl/timesync.png?raw=1"   style="width: 70%;"  >
+<img src="https://dropbox.com/s/u8hh5xcjpej97yl/timesync.png?raw=1"   style="width: 70%;"  >
 
 It is **entirely possible** for the slowclock (rising edge) to entirely **miss** the "reset" button (in our example, we used `io_button[0]` as manual reset) press *if the press isn't covering the shaded region* (depending on how slow the clock is).  
 
@@ -118,7 +118,7 @@ We need another module called the **edge detector** because we just want to have
 > In 1 second, 100 million cycles of the FPGA clock have passed. We only one ONE out of the 100 million cycles to trigger the +2.  
 
 The time diagram below illustrates how an edge detector work:
-<img src="https://dl.dropboxusercontent.com/s/f6jzjq0smatdb5r/edge.png?raw=1"    style="width: 70%;" >
+<img src="https://dropbox.com/s/f6jzjq0smatdb5r/edge.png?raw=1"    style="width: 70%;" >
 
 Add the edge-detector component (under Pulse Manipulation), and declare it in `seq_plus_two.luc`:
 ```cpp
@@ -481,7 +481,7 @@ Then connect the 3 LEDs on a breadboard with some resistors. If you don't know h
 * Connect the resistor anywhere within the circuit loop. 
 
 All three LEDs should light up if you key in the right sequence: 
-<img src="https://dl.dropboxusercontent.com/s/d4il3wbpcvtshx9/outputvalues.png?raw=1"     >
+<img src="https://dropbox.com/s/d4il3wbpcvtshx9/outputvalues.png?raw=1"     >
 
 Likewise, you can define an **input** pin in the following format,
 ```cpp

@@ -24,7 +24,7 @@ Each topic's questions are grouped into **three** categories: basic, intermediat
 
 ## RAM Hardware (Basic)
 Take a look at the following memory cells. The rightmost bit line corresponds to the LSB, and the leftmost bit line corresponds to the MSB.
-<img src="https://dl.dropboxusercontent.com/s/472uv0zpzuuwtyf/ramtech.png?raw=1"  >
+<img src="https://dropbox.com/s/472uv0zpzuuwtyf/ramtech.png?raw=1"  >
 
 1. Are these cells made up of SRAM or DRAM? 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
@@ -172,7 +172,7 @@ Each question asks which cache(s) give the best hit rate for the sequence. Answe
 
 ## DM Cache Arithmetic (Basic)
 The diagram below illustrates a blocked, direct-mapped cache for a computer that uses 32-bit data words and 32-bit byte addresses. Assume that memory location `0x0012347B` was present in the cache.
-<img src="https://dl.dropboxusercontent.com/s/z5hvlhyk97wa2xa/QnCache.png?raw=1"  style="width: 80%;">
+<img src="https://dropbox.com/s/z5hvlhyk97wa2xa/QnCache.png?raw=1"  style="width: 80%;">
 
 1. Using the row and column labels from the figure, in what cache location could we find the data from that memory location? You may assume that e.g: Row 15 means index `0xF`, Row 14 means index `0xE`, and so on. 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
@@ -188,7 +188,7 @@ The diagram below illustrates a blocked, direct-mapped cache for a computer that
 
 Take a look at the following 3-way set associative cache:
 
-<img src="https://dl.dropboxusercontent.com/s/eou2p0yh6j56s3k/3w.png?raw=1" style="width: 80%;" >
+<img src="https://dropbox.com/s/eou2p0yh6j56s3k/3w.png?raw=1" style="width: 80%;" >
 
 The shaded region indicates that the tag-data cells are filled with some data. For the LRU bit, the higher value means that the item is more recently used. Assume that word addressing is used. The label A, B, C, and 0 to 7 drawn in the picture is for you to identify which corresponding set and DM cache a particular data resides. According to the diagram, we have 8 sets, indexed from 0 to 7, and three DM caches (A to C) in total.
 

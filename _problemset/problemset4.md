@@ -73,7 +73,7 @@ You are given a Turing machine (TM) with three states `(S0, S1, S2)` and a `HALT
 
 The tape is used to encode a binary number with three symbols, “0”, “1” and “\_”, where “\_” is used to signal the **beginning** and **end** of the number. For instance, the binary number “1011” is represented on the tape as `_,1,0,1,1,_` (*most significant bit on the left*).
 
-<img src="https://dl.dropboxusercontent.com/s/4s0rvpzhm6twih9/tmqns.png?raw=1" style="width: 70%;" >
+<img src="https://dropbox.com/s/4s0rvpzhm6twih9/tmqns.png?raw=1" style="width: 70%;" >
 
 
 If the tape is in the initial configuration `_,1,0,1,1,_`:
@@ -103,7 +103,7 @@ The figure below shows a particular tape state *before* and *after* a Turing Mac
 
 Indicate **which of the following Turing Machine specification** [A], [B], [C], [D], [E] shown below is/are able to produce the "after" tape state *in exactly 12 cycles.
 
-<img src="https://dl.dropboxusercontent.com/s/isangqp3fexcao5/edgeDetectorTM.png?raw=1" style="width: 70%;" >
+<img src="https://dropbox.com/s/isangqp3fexcao5/edgeDetectorTM.png?raw=1" style="width: 70%;" >
 
 * **Specification 1**: 
 	$$\begin{matrix}

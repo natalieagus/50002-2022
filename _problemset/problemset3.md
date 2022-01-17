@@ -33,7 +33,7 @@ Each topic's questions are grouped into **three** categories: basic, intermediat
   
 
 Consider the following diagram of a simple sequential circuit:
-<img src="https://dl.dropboxusercontent.com/s/63cip82ur4u3y64/Q1.png?raw=1" style="width: 70%;" >
+<img src="https://dropbox.com/s/63cip82ur4u3y64/Q1.png?raw=1" style="width: 70%;" >
   
 The components labeled CL1 and CL2 are combinational; R1 and R2 are edge triggered flip flops. Timing parameters for each component are as noted. Answer both questions below:
 
@@ -67,10 +67,10 @@ The components labeled CL1 and CL2 are combinational; R1 and R2 are edge trigger
 
 ## Timing Plot Analysis (Basic)
 Consider the following unusual D-latch configuration:
-<img src="https://dl.dropboxusercontent.com/s/vxvoeomb1zyc7h0/Q7.png?raw=1" style="width: 70%;" >
+<img src="https://dropbox.com/s/vxvoeomb1zyc7h0/Q7.png?raw=1" style="width: 70%;" >
  
 Now we feed it the following input signal and CLK signal. **Which of the following signal plots represent the output of this device made out of 3 D-latches?** Assume that the jagged edges means unknown value and that the contents of each latch in the beginning is unknown.
-<img src="https://dl.dropboxusercontent.com/s/7a8ww9nvk0lzlfq/Q7b.png?raw=1" style="width: 70%;" >
+<img src="https://dropbox.com/s/7a8ww9nvk0lzlfq/Q7b.png?raw=1" style="width: 70%;" >
 
 <div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 <p>
@@ -86,7 +86,7 @@ Signal 5, although it has "invalid" values for two clock cycles isn't the answer
 
 Consider the following circuit, and notice the **feedback loop**:
 
-<img src="https://dl.dropboxusercontent.com/s/jhq2pg9rs70rlrj/Q8.png?raw=1" style="width: 80%;">
+<img src="https://dropbox.com/s/jhq2pg9rs70rlrj/Q8.png?raw=1" style="width: 80%;">
 
 Setup time, hold time, propagation delay, and contamination delay (all in nanoseconds) of each component is as written above. Lets now analyse its timing constraints:
 
@@ -134,7 +134,7 @@ Setup time, hold time, propagation delay, and contamination delay (all in nanose
 ## Metastable State Analysis (Basic)
 
 Consider the following D-latch device and its VTC plot:
-<img src="https://dl.dropboxusercontent.com/s/ojcjpgj8g7da5oj/Q9.png?raw=1" style="width: 70%;">
+<img src="https://dropbox.com/s/ojcjpgj8g7da5oj/Q9.png?raw=1" style="width: 70%;">
   
 
 We are given the following specification about the multiplexer's valid operating voltage ranges: $$V_{IL} = 1V, V_{OL} = 0.5V, V_{IH} = 3V, V_{OH} = 3.5V$$. The noise margin is $$0.5V$$ and we can assume that the device obeys the **static discipline**.
@@ -166,7 +166,7 @@ We are given the following specification about the multiplexer's valid operating
 
 The following circuit diagram implements a sequential circuit with two state bits, `S0` and `S1`:
 
-<img src="https://dl.dropboxusercontent.com/s/etums208i4we063/fig1.png?raw=1" style="width: 70%;" >
+<img src="https://dropbox.com/s/etums208i4we063/fig1.png?raw=1" style="width: 70%;" >
 
 The specifications are as follows:
 * **tpd, tcd, ts, th,** of both registers: 0.5s, 0.3s, 1.0s, and 0.5s respectively.
@@ -305,7 +305,7 @@ State whether the following is *true or false* and explain your answer:
 
 What is the *purpose* of these FSMs?
 
-<img src="https://dl.dropboxusercontent.com/s/ssyur5zn29v5rsq/fsmmeally.png?raw=1" style="width: 70%;"  >
+<img src="https://dropbox.com/s/ssyur5zn29v5rsq/fsmmeally.png?raw=1" style="width: 70%;"  >
 
 
 <div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
@@ -318,7 +318,7 @@ The purpose of both machines is to detect the presence of an edge and output a <
 
 Your friend plot the timing diagram of the machine in Diagram A and obtain the following output:
 
-<img src="https://dl.dropboxusercontent.com/s/cws3uke3gekty4k/plotfsm.png?raw=1"  style="width: 70%;">
+<img src="https://dropbox.com/s/cws3uke3gekty4k/plotfsm.png?raw=1"  style="width: 70%;">
 
 Assume that the machine starts at `S0`. While referring to the FSM diagram up above, write the current state that occurs at instances `[A], [B], [C],` and `[D]` respectively. 
 
@@ -343,7 +343,7 @@ The ACME Company has recently received an order from a Mr. Wiley E. Coyote for t
   
 Unfortunately the design notes for the P3 are *incomplete*. Using the specification above and clues gleaned from the partially completed diagrams below **fill in the information that is missing from the state transition diagram** with its **accompanying truth table**. 
 
-<img src="https://dl.dropboxusercontent.com/s/1ww80s7vpxznf1k/Q1%202.png?raw=1" style="width: 90%;">
+<img src="https://dropbox.com/s/1ww80s7vpxznf1k/Q1%202.png?raw=1" style="width: 90%;">
 
 When done,
 *  Each state in the transition diagram should be assigned a 2-bit state name S1S0 (note that in this design the state name is not derived from the combination that opens the lock),
@@ -360,7 +360,7 @@ Also, **what is the combination of the lock**?
 <p>
 This state machine is a <strong>Moore machine</strong>. The completed state transition diagram and truth table is as follows:
 <br>
-<img src="https://dl.dropboxusercontent.com/s/nstfdu7qea4dozo/Q2%202.png?raw=1">
+<img src="https://dropbox.com/s/nstfdu7qea4dozo/Q2%202.png?raw=1">
 <br>
 The combination for the lock is <code>100</code>.
 </p></div>
@@ -381,7 +381,7 @@ Construct a "divisible-by-3" FSM that accepts a binary number entered one bit at
 	</ul>
 	<br>This leads to the following transition diagram where each state corresponds to each of the possible values of N mod 3.
 	<br>
-	<img src="https://dl.dropboxusercontent.com/s/kp3njg0hbw6kwwb/FSMqn.png?raw=1"  >
+	<img src="https://dropbox.com/s/kp3njg0hbw6kwwb/FSMqn.png?raw=1"  >
 	<br>
 	</p></div>
 
@@ -424,7 +424,7 @@ Construct a "divisible-by-3" FSM that accepts a binary number entered one bit at
 
 Consider the schematic of a machine as follows, which function is to: *detect a sequence of three or more consecutive 1’s, and output: 1 after three or more consecutive 1’s, or 0 otherwise.*
 
-<img src="https://dl.dropboxusercontent.com/s/nx1s0kw3iu0cvqz/Q6.png?raw=1" style="width: 70%;" >
+<img src="https://dropbox.com/s/nx1s0kw3iu0cvqz/Q6.png?raw=1" style="width: 70%;" >
 
 Let's analyse the circuit by answering the questions below:
 1. If the circuit has an **initial** state of `AB=00`, and the input at `t=0` is `x=0`, what will the immediate next state be?
@@ -502,16 +502,16 @@ Let's analyse the circuit by answering the questions below:
 
 Take a look at the following State Machine circuitry:
 
-<img src="https://dl.dropboxusercontent.com/s/d8o2nhv1ugouf2g/Q3.png?raw=1"  style="width: 70%;">
+<img src="https://dropbox.com/s/d8o2nhv1ugouf2g/Q3.png?raw=1"  style="width: 70%;">
 
 The device `A2` has the following schematic:
 
-<img src="https://dl.dropboxusercontent.com/s/9e2jzfrwtjto34p/Q4.png?raw=1" style="width: 50%;">
+<img src="https://dropbox.com/s/9e2jzfrwtjto34p/Q4.png?raw=1" style="width: 50%;">
 
 
 It is made out of this device we call `A000R` with **tcd** = `1ns`, and **tpd** = `3ns` with the following schematic:
 
-<img src="https://dl.dropboxusercontent.com/s/55rj88ehoozyo6y/Q5.png?raw=1" style="width: 50%;">
+<img src="https://dropbox.com/s/55rj88ehoozyo6y/Q5.png?raw=1" style="width: 50%;">
 
 The truth table for `A000R` is as follows: 
 

@@ -195,7 +195,7 @@ Answer the following questions. **For convenience sake, although all data is in 
 	</p></div><br>
 	
 During execution of `gcd(28,70)`, the Beta processor is halted and the contents of portions of the stack are found to contain the following: 
-<img src="https://dl.dropboxusercontent.com/s/z954a19n78di4od/1.png?raw=1" style="width: 70%;" >
+<img src="https://dropbox.com/s/z954a19n78di4od/1.png?raw=1" style="width: 70%;" >
 
 
 

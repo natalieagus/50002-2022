@@ -61,7 +61,7 @@ The most naive way to use voltage to encode information is to use ‘low’ volt
 
 Anything that is between the low and high threshold value is called the invalid zone, as shown in the figure below:
   
-<img src="https://dl.dropboxusercontent.com/s/6uo61vk9yze1aot/Volt.png?raw=1"  style="width: 90%;"    >
+<img src="https://dropbox.com/s/6uo61vk9yze1aot/Volt.png?raw=1"  style="width: 90%;"    >
 
 > The values of operating voltage in practice is commonly set to be 0.3V for low voltage and 3.3V for high voltage. 
   
@@ -89,7 +89,7 @@ Consider two digital devices connected in series as shown in the figure below. T
 
 >*Why is this so?*
 
-<img src="https://dl.dropboxusercontent.com/s/9lejkhiqx50ga8y/p4.png?raw=1"    style="width: 80%;" >
+<img src="https://dropbox.com/s/9lejkhiqx50ga8y/p4.png?raw=1"    style="width: 80%;" >
 
 This explanation can be made clear with the following example. Suppose we supply 0.5V and Device 1 is able to produce also 0.5V, which means digital bit . 
 * However, the problem is that a *wire*, that connects two or more combinational devices together is susceptible to **noise**. 
@@ -107,7 +107,7 @@ Instead of naively setting some voltage $$V_{high}$$ and $$V_{low}$$ as we did a
 
 Hence, we need to have something called the **noise margin** -- the yellow region illustrated in the Figure below. The noise margin is formed by setting *four* Voltage specifications:  $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, $$V_{ih}$$, where  $$V_{ol}$$< $$V_{il}$$< $$V_{ih}$$ < $$V_{oh}$$ which **defines** what range of voltage values signifies a **valid** digital bit  and a **valid** digital bit `0` *for any combinational logic component in the system*: 
   
-<img src="https://dl.dropboxusercontent.com/s/pt0n36pmy9ncyc6/Volt_2.png?raw=1"     >
+<img src="https://dropbox.com/s/pt0n36pmy9ncyc6/Volt_2.png?raw=1"     >
 
 >   <span style="background-color:yellow; color: black"> The *noise margin* adds as a **precaution** against external disturbances (noise). </span>
 
@@ -142,7 +142,7 @@ The VTC is a **plot** between the input voltage ($$V_{in}$$) to a digital system
 
 The image below shows the VTC of a **buffer**: a *low* $$V_{in}$$ gives a *low* $$V_{out}$$ and vice versa. 
 
-<img src="https://dl.dropboxusercontent.com/s/vod5ltqh4kq9119/vtcbuffer.png?raw=1"   60%"  height="60%" alt ="Figure 4"/>
+<img src="https://dropbox.com/s/vod5ltqh4kq9119/vtcbuffer.png?raw=1"   60%"  height="60%" alt ="Figure 4"/>
 
 > What will the VTC of an inverter look like? 
 
