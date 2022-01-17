@@ -518,7 +518,7 @@ For each configuration indicate **how**:
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 <ol type="a">
-<li> Let X = F(F1, F2, F3, F4), Z = G(G1, G2, G3, G4), Y = H(C1, C2, C3). The necessary control signals are:
+<li> Let X = F(F1, F2, F3, F4) be the function of four variables with the four inputs connected to node F1-F4, Z = G(G1, G2, G3, G4) be another function of four variables with the four inputs connected to node G1-G4, and Y = H(C1, C2, C3) be the function with three unrelated input variables with the three inputs connected to node C1-C3 in the diagram above. The necessary control signals are:
 <ul>
 <li> MA = 1 </li>
 <li> MB = 1 </li>
@@ -526,13 +526,13 @@ For each configuration indicate **how**:
 <li> MD = 1 (select C2) </li>
 <li>  ME = 2 (select C3) </li>
 </ul></li><br>
-<li> Let Y = F(A1, A2, A3, A4, A5). This can be implemented using both 4-input logic functions, and selecting between the two outputs with the 3-input logic function.
+<li> Let Y = F(A1, A2, A3, A4, A5), where A1 to A5 are the five input variables which we can **map** to the input nodes in the diagram above. Let input A1-A4 be connected to node F1-F4 and G1-G4 (they're connected to the same 4 inputs) and A5 be connected to node C1. This can be implemented using both 4-input logic functions, and selecting between the two outputs with the 3-input logic function.
 <ul>
 <li>  Z=f(A1, A2, A3, A4, 0), </li>
 <li> X=f(A1, A2, A3, A4, 1), </li>
 <li>  Y= Z if A5=0, else Y=X </li>
 </ul>
-So Z calculates F for the case when A5 = 0, X calculates F for the case when A5 = 1, and Y is selecting between X and Z with a multiplexer function. A1-A4 represents F1-F4 and G1-G4 (they're connected to the same 4 inputs) and A5 represents C1. 
+So Z calculates F for the case when A5 = 0, X calculates F for the case when A5 = 1, and Y is selecting between X and Z with a multiplexer function. 
 <br><br>
 The necessary control signals are:
 <ul>
@@ -542,7 +542,7 @@ The necessary control signals are:
 <li>MD = X (value doesn't matter) </li>
 <li> ME = 0 (select C1) </li>
 </ul></li><br>
-<li> Let Z = G(G1, G2, G3, G4) be the function of the 4 variables. Let X = F(F1, F2, F3, F4) and  let Y = H(C1, C2, X) = H(C1, C2, F(F1, F2, F3, F4)). The functions of six variables which can be implemented (along with the 4-variable function) are all those functions that can be re-written as a function of 3 variables. The inputs to this function of three variables must be 2 of the original variables and some function of the remaining four variables. The necessary control signals are:
+<li> Let Z = G(G1, G2, G3, G4) be the function of the 4 variables, so the four inputs are connected directly to node G1-G4. Then, let X = F(F1, F2, F3, F4) and  let Y = H(C1, C2, X) = H(C1, C2, F(F1, F2, F3, F4)). The functions of six variables which can be implemented (along with the 4-variable function) are all those functions that can be re-written as a function H of 3 variables. The inputs to this function of three variables must be 2 of the original variables and some function of the remaining four variables. The necessary control signals are:
 <ul>
 <li> MA = 0 </li>
 <li> MB = 1 </li>
@@ -550,7 +550,7 @@ The necessary control signals are:
 <li> MD = 0 (select C1) </li>
 <li> ME = 1 (select C2) </li>
 </ul></li><br>
-<li> Let: X = F(F1, F2, F3, F4), Z = G(G1, G2, G3, G4), Y = H(C1, X, Z) = H(C1, F(F1, F2, F3, F4), G(G1, G2, G3, G4)). The functions of nine variables that can be implemented are all those functions that can be re-written as a function of 3 variables. The inputs to this three-variable function will be one of the original variables, plus two separate functions of 4 variables (these two 4-variable functions will have the remaining 8 original variables as inputs).
+<li> Let: X = F(F1, F2, F3, F4), Z = G(G1, G2, G3, G4), Y = H(C1, X, Z) = H(C1, F(F1, F2, F3, F4), G(G1, G2, G3, G4)). The 9 inputs are connected to node F1-F4, G1-G4, and C1. The functions of nine variables that can be implemented are all those functions that can be re-written as a function H of 3 variables. The inputs to this three-variable function will be one of the original variables, plus two separate functions of 4 variables (these two 4-variable functions will have the remaining 8 original variables as inputs).
 <ul>
 <li> MA = 0 </li>
 <li>MB = 0 </li>
@@ -560,7 +560,7 @@ The necessary control signals are:
 </ul></li><br>
 <li> The functions of 6 variables which we can implement must be of the form: Y = C(C1, C2, F(F1,F2,F3,F4)) or the form of Y = C(C1,F(F1, F2, F3, F4), G(G1, G2, G3, G4)). <i>This second function will have some overlap between C1, F1-4, and G1-4; some variables will be connected to multiple inputs.</i>
 <br><br>
-Essentially, the functions we are able to implement are only those for which <strong>we can factor a set of 4 variables out of the equation.</strong> For example, the following function cannot be implemented by the CLB: Y = A1A2A3A4A5 + A1A2A3A4A6 + A1A2A3A5A6 + A1A2A4A5A6 + A1A3A4A5A6 +A2A3A4A5A6. This function cannot be broken down into either of the forms mentioned above.
+Essentially, the functions we are able to implement are only those for which <strong>we can factor a set of 4 variables out of the equation.</strong> For example, the following function cannot be implemented by the CLB: Y = A1A2A3A4A5 + A1A2A3A4A6 + A1A2A3A5A6 + A1A2A4A5A6 + A1A3A4A5A6 + A2A3A4A5A6. This function **cannot** be broken down into either of the forms mentioned above.
 </li></ol></p></div><br>
 
 
