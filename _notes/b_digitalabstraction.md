@@ -142,7 +142,7 @@ The VTC is a **plot** between the input voltage ($$V_{in}$$) to a digital system
 
 The image below shows the VTC of a **buffer**: a *low* $$V_{in}$$ gives a *low* $$V_{out}$$ and vice versa. 
 
-<img src="https://dropbox.com/s/vod5ltqh4kq9119/vtcbuffer.png?raw=1"   60%"  height="60%" alt ="Figure 4"/>
+<img src="https://dropbox.com/s/vod5ltqh4kq9119/vtcbuffer.png?raw=1"   width="60%" alt ="Figure 4"/>
 
 > What will the VTC of an inverter look like? 
 
