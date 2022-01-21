@@ -107,7 +107,7 @@ Hence our candidates are further narrowed into 48 students after knowing that th
 </p></div><br>
 
 
-## Deck of Cards (Intermediate)
+## Bits of Information (Intermediate)
  
 **(a.)** Someone picks a name out of a hat known to contain the names of 5 women and 3 men, and tells you a man has been selected. **How much information have they given you about the selection?**
 
