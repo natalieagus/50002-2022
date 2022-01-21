@@ -40,7 +40,7 @@ We are literally <i>told</i> that the first hex digit is <code>B = 1011</code>. 
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-Initially, there are 101 choices. The information that Bob gave Alice narrows down the choices into 26. The information given is therefore: $$\log_2(101) - \log_2(26) = 1.958$$. 
+Initially, there are 101 choices. The information that Bob gave Alice narrows down the choices into 26. The information given is therefore: $$\log_2(101) - \log_2(26) = 1.958$$ 
 </p></div><br>
 
 
