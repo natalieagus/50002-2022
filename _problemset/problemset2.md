@@ -404,7 +404,7 @@ She has burned out 97 of her chips, and needs your help before destroying the re
 <ol type="1">
 <li> When: $$A=0, B=1$$ or $$A=1, B=0$$
 .. it means that there's an <strong>open connection</strong> between VDD and GND. This caused the gate to short circuit, and hence its burning out.</li><br>
-<li> <strong>Yes</strong>, when: $$A=1, B=1 \text{ then} C=0$$ or $$A=0, B=0 \text{ then} C=1$$ This is when the pullup and pulldown circuit aren't both ON at the same time.</li><br>
+<li> <strong>Yes</strong>, when: $$A=1, B=1 \text{ then } C=0$$ or $$A=0, B=0 \text{ then } C=1$$ This is when the pullup and pulldown circuit aren't both ON at the same time.</li><br>
 <li> <strong>No</strong>. When: $$A=1, B=0$$ then the circuit will burn out again, since the pullup and pulldown will be active, thus burning out the circuit. Also, the output is not defined when: $$A=0, B=1$$ This is because neither the pullup or pulldown are active.</li><br>
 <li><strong>Yes</strong>. It exhibits the behavior of an <strong>inverter</strong>, i.e: A and B are connected to the same Vin.</li>
 </ol>
