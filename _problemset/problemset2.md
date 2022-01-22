@@ -322,7 +322,7 @@ Hence this make **Y** to be the **SUM** output and **Z** to be the **CARRY** out
 
 The following diagram shows a schematic for the pulldown circuitry for a particular CMOS gate:
 
-<img src="  https://dropbox.com/s/40jd3vijlsjq12v/Q1%202.png?raw=1" style="width: 70%;"  >
+<img src="  https://dropbox.com/s/40jd3vijlsjq12v/Q1%202.png?raw=1" style="width: 50%;"  >
 
 1. What is the correct schematic for the **pullup** circuitry?
 
@@ -339,7 +339,7 @@ $$\overline{(A+B) C + D} = (\overline{A} \text{ }\overline{B} + \overline{C}) \o
 <i>Note: We don't need to add inverter in the inputs. Convince yourself that this is true by tracing some input combinations to the output terminal.</i>
 <br>
 <img src="
-https://dropbox.com/s/6romn7t1g594ddz/pfetup.png?raw=1"  style="width: 70%;" >
+https://dropbox.com/s/6romn7t1g594ddz/pfetup.png?raw=1"  style="width: 50%;" >
 </li><br>
 <li>From the pulldown diagram, it seems like the output is 0 if D is 1, or A and C is 1, or B and C is 1. Therefore, the output for the gate is the <strong>inverse</strong> of the expression of the pulldown circuitry, which is the output of the pullup circuitry above: $$\overline{(A+B) C + D} = (\overline{A} \text{ }\overline{B} + \overline{C}) \overline{D}$$
 </li><br>
