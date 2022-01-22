@@ -98,7 +98,7 @@ This explanation can be made clear with the following example. Suppose we supply
 > *Note that a noise can knock the voltage down as well, this is just an example that's detrimental to the function of the devices in this example.*
 
   
-Device 1 in the figure above **violates** static discipline because *given a **valid** input, it *may* be **unable** to produce a valid output (to **reach** the next device 2)*, because the `0.5V` produced at the output of Device 1 may meet some disturbances that caused it to be slightly off, e.g: `0.55V`.
+Device 1 in the figure above **violates** static discipline because *given a **valid** input, it *may* be **unable** to produce a valid output (to **reach** the next device 2), because the `0.5V` produced at the output of Device 1 may meet some disturbances that caused it to be slightly off, e.g: `0.55V`.
 
 Hence, we need to account for the presence of some light **noise**.
 
