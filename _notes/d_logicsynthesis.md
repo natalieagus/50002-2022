@@ -434,9 +434,8 @@ Explanation for the schematic above:
 	> - For example, when $$A=0, B=0, C_{in}=1$$, the second output line of the decoder from the top is  `1`
 		<br>
 		<img src="https://dropbox.com/s/o5meriyxc47k0bn/sel1.png?raw=1" >
-	> - There's a pulldown at the S line, which drains the `VDD` and results in `0` at S line towards the inverter. There's no pulldown for the $$C_{out}$$ line, so the value fed in towards the inverter in the $$C_{out}$$ line is `1`
-	> - There's a pulldown for S (it is connected to the ground), which makes it 0, and no pulldown for the $$C_{out}$$, which makes it 1.<br>
-	> - Therefore, when $$A=0, B=0, C_i=1$$, $$S=0$$ and $$C_{out}$$ is `1`. 
+	> - There's a pulldown at the S line, which drains the `VDD` and results in `0` at S line towards the inverter. There's no pulldown for the $$C_{out}$$ line, so the value fed in towards the inverter in the $$C_{out}$$ line is `1`. The inverter invert these values as their final output.
+	> - Therefore, when $$A=0, B=0, C_i=1$$, $$S=1$$ and $$C_{out}$$ is `0`. 
 
 - Note the **presence of inverters by invention** at the end of the two vertical output lines for $$S$$ and $$C_{out}$$, so the overall output is inverted to be  `1` for $$S$$ and `0` for $$C_{out}$$.
 
