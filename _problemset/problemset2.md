@@ -116,7 +116,7 @@ During lecture, we learned a first set of principles that define a combinational
 We also learned a second set of rules, that a set of interconnected elements ***is*** a combinational device if:
 1.  **Each** circuit element is combinational
 2.  Every input is connected to exactly **one** output or to some vast supply of 0's and 1's. 
-	> *Note: read this carefully. This does NOT mean that a combinational device must just have one output and one input. **This means that *for each input of a combinational device*, it is connected to *exactly ONE output* of the "previous" device.*** 
+	> Note: read this carefully. This does NOT mean that a combinational device must just have one output and one input. This means that for each input of a combinational device, it is connected to exactly ONE output of the "previous" device.
 3.  The circuit contains **no** directed cycles
 
 In this problem, we ask you to think carefully about why these rules work - in particular, why *an acyclic circuit of combinational devices,* constructed according to the second principle, is itself a combinational device as defined by the first. 
