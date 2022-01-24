@@ -159,7 +159,7 @@ $$\begin{matrix}
 x & y & z \\ 
 \hline 
 0 & 0 & 0 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \\ 1 & 1 & 1 \\ \hline \end{matrix}$$</li>
-<li> We can construct the truth table from left to right, i.e: solve the truth table for each component from the leftmost all the way to the rightmost, one by one.</li>
+<li> We can construct the truth table from left to right, i.e: solve the truth table for each component from the leftmost (inputs) all the way to the rightmost (outputs), one by one.</li>
 <br>
 <li> The total propagation delay is the sum of each device's (A and B) propagation delay: 3 + 2 = 5.</li>
 <br>
