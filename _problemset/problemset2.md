@@ -148,7 +148,7 @@ a_0  & a_1  &  A _{a_0, a_1}  &  b_0​  &  b_1  & B_{b_0, b_1}\\
 
 3.  **Specify a propagation delay** (the upper bound required for each combinational device) for the circuit.
 
-4.  **Describe** a general procedure by which a propagation delay can be computed for an arbitrary acyclic circuit containing only combinational components. \textit{Hint: add a timing specification to each circuit node}.
+4.  **Describe** a general procedure by which a propagation delay can be computed for an arbitrary acyclic circuit containing only combinational components. Hint: add a timing specification to each circuit node.
 
 5.  Do your general procedures for computing functional specifications and propagation delays work if the restriction to acyclic circuits is relaxed (lifted)? **Explain**.
 
