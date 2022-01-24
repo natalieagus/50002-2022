@@ -376,7 +376,7 @@ Y &= AB \bar{C} \bar{D} + AB \bar{C}D + \bar{A} \bar{B}CD + \bar{A}BCD + ABCD \\
 &= CD + C\bar{B} + AB
 \end{aligned}$$
 <br>
-<i>Note: convince yourself that the simplified form allows you to make a cheaper and smaller combinational logic device (because we use lesser number of gates).</i>
+<i>Note: convince yourself that the simplified form allows you to make a cheaper and smaller combinational logic device (because we use less number of gates).</i>
 </p></div><br>
 
   

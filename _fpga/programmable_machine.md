@@ -194,7 +194,7 @@ The number of states depends on how complicated your game is. However you can be
 <img src="https://dropbox.com/s/gf992dyc1xu235b/FSM.png?raw=1"   >
 
 `BUTTON PRESS` **event** is invoked when the control unit **receives button press signal** from either player:
-* When any player press a button, we want to check if the player's current button press is lesser than 3. If yes, increment the button count, and increment the player's score based on the current collectible number in the counter, and then reset the counter. 
+* When any player press a button, we want to check if the player's current button press is less than 3. If yes, increment the button count, and increment the player's score based on the current collectible number in the counter, and then reset the counter. 
 * If the player has pressed the button 3 times before, then no score update / counter reset is done. 
 
 After either cases above is done, we have to check if both players have pressed their buttons for 3x as well (game is supposed to end if all players have used up their button presses regardless of time left). If yes, proceed to `COMPUTE WINNER` **event**. Otherwise, go back to `IDLE` state. 
@@ -259,7 +259,7 @@ game_fsm.BRANCHCHECK_P1P2BUTTONCOUNT:
 		game_fsm.d = game_fsm.IDLE;
 	}
 ```
-Therefore actually the **same game** can be implemented with lesser states if we merge all the *branch* + *next check/computation* states into a single state. As an example, we chose to display almost all branching state except the `BRANCH CHECK BUTTON COUNT P=3` state above as purely a branching state without performing further computation -- similar to how its done in $$\beta$$. 
+Therefore actually the **same game** can be implemented with less states if we merge all the *branch* + *next check/computation* states into a single state. As an example, we chose to display almost all branching state except the `BRANCH CHECK BUTTON COUNT P=3` state above as purely a branching state without performing further computation -- similar to how its done in $$\beta$$. 
 
 <span style="background-color:yellow; color: black"> **Tips**: If you are a beginner, then perhaps it is easier to debug if you simplify your states (even though you end up with more states) </span>. 
 

@@ -76,7 +76,7 @@ Consider a machine whose job is to add $$1$$ to any *arbitrary* length input and
 
 > The key feature for a Turing Machine is this *infinite* tape (hence its capability of processing arbitrary input).
 
-A Turing Machine with the following specification can easily solve the problem and is capable to accept any **arbitrarily** long input with **lesser number of states**:
+A Turing Machine with the following specification can easily solve the problem and is capable to accept any **arbitrarily** long input with **less number of states**:
 
 <img src="https://dropbox.com/s/j7nxw2pwh5cau03/tmincr.png?raw=1"   >
 
@@ -134,7 +134,7 @@ Once found, it halts and wrote the final value (`ACCEPT`):
 <img src="https://dropbox.com/s/4t9kyrtvlsfjh7m/tm6.png?raw=1"  style="width: 70%;" >
 
 As practice, you can try the running the machine using another set of input that will result in a `REJECT`. 
-> Can you solve the problem with lesser states? Why or why not?
+> Can you solve the problem with less states? Why or why not?
 
 ## [Turing Machine as a Function](https://www.youtube.com/watch?v=cmfDBAiogA0&t=1211s)
 
