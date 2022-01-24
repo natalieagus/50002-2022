@@ -302,7 +302,7 @@ Or the **primitive** way:
 
 <img src="https://dropbox.com/s/x2ktjw4gqxx979r/devmos2.png?raw=1"  style="width: 60%;"   > 
 
-	If what you want is for $$Y$$ to be <code>0</code> when $$B,C$$ are both <code>1</code> then there's no need to put an inverter in the end. Just draw the complementary pullup and call it a day 
+If what you want is for $$Y$$ to be <code>0</code> when $$B,C$$ are both <code>1</code> then there's no need to put an inverter in the end. Just draw the complementary pullup and call it a day 
 <br>
 * **Step 3:** Construct the **complementary** pull-up circuitry and assemble. 
 	>  Refer to the CMOS recipe in the previous chapter. 
