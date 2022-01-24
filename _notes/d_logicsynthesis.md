@@ -438,7 +438,7 @@ Explanation for the schematic above:
 	> - There's a pulldown for S (it is connected to the ground), which makes it 0, and no pulldown for the $$C_{out}$$, which makes it 1.<br>
 	> - Therefore, when $$A=0, B=0, C_i=1$$, $$S=0$$ and $$C_{out}$$ is `1`. 
 
-- Note the **presence of inverters by invention** at the end of the two vertical output lines for $$S$$ and $$C_{out}$$, so the overall output is inverted to be  `1` for $$S$$S and `0` for $$C_{out}$$.
+- Note the **presence of inverters by invention** at the end of the two vertical output lines for $$S$$ and $$C_{out}$$, so the overall output is inverted to be  `1` for $$S$$ and `0` for $$C_{out}$$.
 
 - By **invention**, the location of the "pulldown" circuits **correspond to a `1` in the truth table** for that particular output ($$S$$ or $$C_{out}$$).
 
