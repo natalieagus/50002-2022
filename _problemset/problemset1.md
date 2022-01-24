@@ -159,7 +159,7 @@ After spending the afternoon in the dentist's chair, Ben has invented a new lang
 If you're told that the first letter of the message is "A", **give an expression for the number of bits of information you have received.**
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-Recall that the information received is inversely proportional to the probability of that choice occurring, and to quantify the information in terms of bits, we take $$\log_2\text{(probability of that choice occurring)}$$
+Recall that the information received is inversely proportional to the probability of that choice occurring, and to quantify the information in terms of bits, we take $$\log_2\left(\frac{1}{\text{probability of that choice occurring}}\right)$$
 Hence the expression is:
 $$I = \log_2 \frac{1}{p(A)}$$
 </p></div><br> 
@@ -272,7 +272,7 @@ Each dice throw can result in any number between 1 to 6, which requires: $$\log_
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 With the same idea as the previous part, the last dice throws solve the mystery on whether we will get number 1, 2, 3, 4, 5, or 6. Hence we are given: $$\log_2(6)=2.585$$ bits from the last throw.
 <br><br>
-<i>Note that this is significantly different from the bits of information that has been given to us so far. The nine dice throws have given us: $$9*log2(6)$$ bits of information. The last nice throws give us another: $$\log_2(6)$$ bits of information. Please pay close attention to the wording of the question.</i>
+<i>Note that this is significantly different from the bits of information that has been given to us so far. The nine dice throws have given us: $$9*\log_2(6)$$ bits of information. The last nice throws give us another: $$\log_2(6)$$ bits of information. Please pay close attention to the wording of the question.</i>
 </p></div><br>
 
 

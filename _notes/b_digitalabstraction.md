@@ -153,7 +153,7 @@ The purpose of plotting a VTC (*typically obtained from device measurements, i.e
 
 Explanation of the VTC figure above:
 - The red zone is called the **forbidden zone**. It is formed by the four voltage specifications: $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, and $$V_{ih}$$ that we set for the entire system. <br>
-- The name *'forbidden zone'* comes e the fact that  <span style="background-color:yellow; color: black">any value within this zone means that the device receives **valid** input but is unable to produce a valid output</span> hence **violating the static disciplin**e and cannot be used as a combinational logic device.
+- The name *'forbidden zone'* comes from the fact that  <span style="background-color:yellow; color: black">any value within this zone means that the device receives **valid** input but is unable to produce a valid output</span> hence **violating the static discipline** and cannot be used as a combinational logic device.
 
 You can quickly tell if a digital device can be *potentially* be used as a combinational logic device **iff**: you can **find** a set of these four voltage specifications: $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, and $$V_{ih}$$ **whereby its VTC curve  does not cross the forbidden zone** and that $$V_{ol}$$< $$V_{il}$$ < $$V_{ih}$$ < $$V_{oh}$$.
 * We typically begin by *guessing* each value of $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, and $$V_{ih}$$ and check if the curve crosses the forbidden zone (check if static discpline obeyed) formed by these four values. 
