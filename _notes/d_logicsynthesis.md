@@ -448,7 +448,7 @@ The properties of ROM are as follows:
 1. ROMs ignore the structure of combinational functions (our truth table is "**hardcoded**". 
 2. The selectors are like **addresses** of an entry.
 3. For an $$N$$-input boolean function, the size of ROM is roughly $$2^N \times \text{ \#outputs}$$. 
-	> For example, the Full Adder has 3 inputs (A, B, $$C_{in}$$), and 2 outputs (S and $$C_{out}$$). Hence the size of the ROM is $$2^3 * 2 = 16$$.
+	> For example, the Full Adder has 3 inputs (A, B, $$C_{in}$$), and 2 outputs ($$S$$ and $$C_{out}$$). Hence the size of the ROM is $$2^3 * 2 = 16$$.
 
 
 ## [Summary](https://www.youtube.com/watch?v=yXBAy432vT8&t=4421s)
