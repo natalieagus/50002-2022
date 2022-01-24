@@ -263,13 +263,13 @@ A & B & C & OUT \\
   
 
 Choose all the correct Boolean expression of this circuit:
-1. $$OUT = \bar{C} + \bar{B}$$
+(a). $$OUT = \bar{C} + \bar{B}$$
 
-1. $$OUT = \bar{A} \cdot \bar{B} + A \cdot \bar{B} + B \cdot \bar{C}$$
+(b). $$OUT = \bar{A} \cdot \bar{B} + A \cdot \bar{B} + B \cdot \bar{C}$$
 
-1. $$OUT = \bar{A} \cdot \bar{C} + A \cdot B \cdot \bar{C} + \bar{B}$$
+(c). $$OUT = \bar{A} \cdot \bar{C} + A \cdot B \cdot \bar{C} + \bar{B}$$
 
-1. $$OUT = \bar{A} \cdot B + A \cdot B \cdot \bar{C} + \bar{B}$$
+(d). $$OUT = \bar{A} \cdot B + A \cdot B \cdot \bar{C} + \bar{B}$$
 
 
 
