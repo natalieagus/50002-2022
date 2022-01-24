@@ -159,7 +159,7 @@ After spending the afternoon in the dentist's chair, Ben has invented a new lang
 If you're told that the first letter of the message is "A", **give an expression for the number of bits of information you have received.**
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-Recall that the information received is inversely proportional to the probability of that choice occurring, and to quantify the information in terms of bits, we take $$\log_2\frac{1}{\text{probability of that choice occurring}}$$
+Recall that the information received is inversely proportional to the probability of that choice occurring, and to quantify the information in terms of bits, we take $$\log_2\left(\frac{1}{\text{probability of that choice occurring}}\right)$$
 Hence the expression is:
 $$I = \log_2 \frac{1}{p(A)}$$
 </p></div><br> 
