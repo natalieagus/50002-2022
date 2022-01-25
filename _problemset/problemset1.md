@@ -402,7 +402,7 @@ When answering the questions below, assume that all voltages are constrained to 
 <li> 0.5V. That is the lowest amount of **Vout** that the device can produce.</li><br>
 <li> We can choose $$V_{OL} = 0.5V$$ from the graph, since the device is capable of producing such low voltage. With NM of 0.5V, that means that: $$V_{IL} = V_{OL} + 0.5V = 1V$$
 From the graph, we can also choose $$V_{OH} = 4V$$ 
-as the part with the highest gain in the middle of the graph can most probably be the forbidden zone. Therefore, $$V_{IH} = V_{OH} - 0.5V.= 3.5V$$</li><br>
+as the part with the highest gain in the middle of the graph can most probably be the forbidden zone. Therefore, $$V_{IH} = V_{OH} - 0.5V= 3.5V$$</li><br>
 <li>This device is an inverter, since a high input produces a low output and vice versa.</li></ol></p></div><br>
 
   

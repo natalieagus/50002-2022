@@ -29,7 +29,7 @@ Each topic's questions are grouped into **three** categories: basic, intermediat
 ## Combinational Logic Timing (Basic)
 
 Consider the following combinational logic device.
-<img src="https://dropbox.com/s/hsjn3h2yy149dxx/Q10.png?raw=1"    style="width: 70%;" >
+<img src="/50002/assets/contentimage/pset2/1.png"  class="center_seventy"/>
 
  Each logic gate has the same:
  - Propagation delay,  tpd= 2ns, 
@@ -47,7 +47,7 @@ Overall  **tcd** = 1ns, **tcd** ​= 1ns  (counting the shortest path from XOR g
 
 **Draw** the truth table for the following CMOS circuitry:
 
-<img src="https://dropbox.com/s/crosfbfiqf1iueg/Q11.png?raw=1" style="width: 50%;">
+<img src="/50002/assets/contentimage/pset2/7.png"  class="center_seventy"/>
 
 
 
@@ -64,14 +64,14 @@ $$
 Use only NAND gates to redraw the circuit below. Use as few NAND gates as possible.
 
   
-<img src="https://dropbox.com/s/ri0c3l74ormsqwa/Q7.png?raw=1" style="width: 70%;"  >
+<img src="/50002/assets/contentimage/pset2/2.png"  class="center_seventy"/>
 
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 If you directly convert with just NAND gates then you'll get:  
 <br>
-<img src="https://dropbox.com/s/ekfful2ybo9n5je/Q8.png?raw=1"  style="width: 50%;" > 
+<img src="https://dropbox.com/s/ekfful2ybo9n5je/Q8.png?raw=1"  style="width: 60%;" > 
 <br>
 You can minimise them first by minimising the boolean expression:  $$AC + \bar{A}C + B\bar{C} = C+B\bar{C} = C + B = \overline{\bar{C}\bar{B}}$$ Then we can easily draw this: <br>
  <img src="https://dropbox.com/s/43ecrhtx84m2kpa/Q8new.png?raw=1" style="width: 50%;" ></p></div><br>
@@ -83,26 +83,24 @@ You can minimise them first by minimising the boolean expression:  $$AC + \bar{A
 ## Full Adder Timing Analysis (Intermediate)
 
 Refer to the FA circuitry below:
-<img src="https://dropbox.com/s/nqfbozivm2mdrvf/Q12.png?raw=1" style="width: 60%;" >
+
+<img src="/50002/assets/contentimage/pset2/8.png"  class="center_seventy"/>
 
 Answer the following questions:
 1. **Compute** the  **tpd​**  and  **tcd** of the full adder above.
 2.  If we were to put several of these FAs to form an 8-bit ripple-carry adder as shown, **compute** the **tpd** and **tcd**  of an 8-bit ripple-carry adder made of 8 of these FA circuits. 
 
-	<img src="https://dropbox.com/s/y30lar5nypnbh52/Q13.png?raw=1"  style="width: 70%;">
+	<img src="/50002/assets/contentimage/pset2/9.png"  class="center_seventy"/>
 
-	*Hint: In the figure,  C0​  is assumed to be **grounded** for this particular **instance**, so this sample device can only add two numbers and not subtract them.*
-
-	*However, is the computation of tpd​  and  **tcd** of an 8-bit ripple carry adder usage specific?* 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 <ol type="1">
 <li> The **tpd** is 1.8 and the **tcd**  is 0.3 for a single FA. </li>
 <br>
-<li> For the 8-bit ripple-carry adder, we do not have an input  **C0** as it is grounded However the tcd​  is <i>still</i> 0.3 as the specification of contamination delay is <strong>not</strong> usage specific. Its  **tpd**  is approximately 8 times bigger than a single FA, then its **tpd** = 14.4. To be exact, if  **Ai XOR Bi** is <i>parallel</i>, meaning that **Ai**, **Bi** are given and valid at the **same time** for all adder units $$i=0,1,...7$$
-Then the **tpd** is: $$1.8+7\times1.3=10.9$$</li>
+<li> For the 8-bit ripple-carry adder, one might think at first that its  **tpd**  is simply 8 times bigger than a single FA, that is 14.4. However, note that inputs  **Ai**, **Bi** are given as a valid signal at the **same time** for all adder units $$i=0,1,...7$$ That means **Ai** XOR **Bi** computation for all units happen *in parallel* during the first 0.5ns only. 
+Hence, the **tpd** of the 8-bit RCA is: $$1.8+7\times1.3=10.9$$</li>
 <br>
-However if the question is asking for the  **tcd**  of  <strong>this</strong>  particular device with no  **C0** input terminal at all then the answer is  0.6ns  since there's no  **C0**. </ol></p></div><br>
+The contamination delay of the 8-bit RCA remains at 0.3ns.</ol></p></div><br>
 
 
 ## Combinational Construction Rules (Challenging)
@@ -123,10 +121,12 @@ In this problem, we ask you to think carefully about why these rules work - in p
 
 Consider the following 2-input acyclic circuit whose two components, A and B, are each combinational devices. 
 
-<img src="https://dropbox.com/s/divqzx422azog4h/Q1.png?raw=1"  style="width: 70%;" >
+<img src="/50002/assets/contentimage/pset2/3.png"  class="center_full"/>
 
 
-The propagation delay for each device is specified in nanoseconds. 
+The propagation delay for each device is specified in nanoseconds:
+* Device A tpd: 3ns
+* Device B tpd: 2ns 
 
 The **functional specifications for each component** are given as truth tables detailing output values for each combination of inputs, where $$A _{a_0, a_1}$$ denotes the output from device A, and $$B _{b_0, b_1}$$ denotes the output from device B:
 
@@ -156,7 +156,7 @@ a_0  & a_1  &  A _{a_0, a_1}  &  b_0​  &  b_1  & B_{b_0, b_1}\\
 <ol type="1">
 <li> The truth table is as follows:
 $$\begin{matrix}
-x & y & z \\ 
+X & Y & Z \\ 
 \hline 
 0 & 0 & 0 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \\ 1 & 1 & 1 \\ \hline \end{matrix}$$</li>
 <li> We can construct the truth table from left to right, i.e: solve the truth table for each component from the leftmost (inputs) all the way to the rightmost (outputs), one by one.</li>
@@ -174,7 +174,7 @@ x & y & z \\
 
 ## CMOS Circuit Boolean Expression (Basic)
 
-<img src="https://dropbox.com/s/x1surj7fotwv45a/Q9.png?raw=1" style="width: 70%;"  >
+<img src="/50002/assets/contentimage/pset2/10.png"  class="center_fifty"/>
 
 1. **Draw** the truth table of the CMOS circuit above. 
 2. What is the **boolean** expression for the CMOS circuit shown?
@@ -199,16 +199,16 @@ A & B & C & D & F \\ \hline 0 & 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 1 & 1 \\ 0 & 0 & 1 
 ## Combinational Circuit's Functional Specs (Basic)
 Consider the following circuit that implements the 2-input function $$H(A,B)$$:
 
-<img src="  https://dropbox.com/s/2vy52yuzs24xfc4/Q2new.png?raw=1" style="width: 70%;"  >
+<img src="/50002/assets/contentimage/pset2/4.png"  class="center_seventy"/>
 
 1. Write down the **truth table** for $$H$$.
 
 2. Give a **sum-of-products expression** that corresponds to your truth table.
 3. Using the information below, what are the **tcd** and **tpd** of the circuit?
-	- **tcd** and **tpd** of NR2:  5, 30
-	- **tcd** and **tpd** of ND2: 5, 30
-	- **tcd** and **tpd** of AN2:  6, 50
-	- **tcd** and **tpd** of OR2: 10, 20
+	- **tcd** and **tpd** of NOR:  5, 30
+	- **tcd** and **tpd** of NAND: 5, 30
+	- **tcd** and **tpd** of AND:  6, 50
+	- **tcd** and **tpd** of OR: 10, 20
 	- **tcd** and **tpd** of INV: 1, 3
 
 
@@ -284,7 +284,7 @@ Choose all  correct Boolean expression(s) of this circuit:
 
 What is the the **sum-of-products** for the following ROM (Read Only Memory)?
 
-<img src="  https://dropbox.com/s/7kymm3qcwldfd9q/rom.png?raw=1"  style="width: 50%;" >
+<img src="/50002/assets/contentimage/pset2/5.png"  class="center_fifty"/>
 
   
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
@@ -322,7 +322,7 @@ Hence this make **Y** to be the **SUM** output and **Z** to be the **CARRY** out
 
 The following diagram shows a schematic for the pulldown circuitry for a particular CMOS gate:
 
-<img src="  https://dropbox.com/s/40jd3vijlsjq12v/Q1%202.png?raw=1" style="width: 50%;"  >
+<img src="/50002/assets/contentimage/pset2/6.png"  class="center_seventy"/>
 
 1. What is the correct schematic for the **pullup** circuitry?
 
@@ -419,16 +419,29 @@ She has burned out 97 of her chips, and needs your help before destroying the re
 
 A certain function F has the following truth table:
 
-<img src="https://dropbox.com/s/klra9666sk8rcuz/Q3.png?raw=1" style="width: 40%;"  >
+$$\begin{matrix}
+A & B & C & F \\
+\hline
+0 & 0 & 0 & 1\\
+0 & 0 & 1 & 0\\
+0 & 1 & 0 & 0\\
+0 & 1 & 1 & 1\\
+1 & 0 & 0 & 1\\
+1 & 0 & 1 & 1\\
+1 & 1 & 0 & 0\\
+1 & 1 & 1 & 1\\
+\hline
+\end{matrix}
+$$
 
 
 Answer the following questions based on the truth table:
 
 1. Write a sum-of-products expression for F.
 
-3. Write a minimal sum-of-products expression for F. Show a combinational circuit that implements F using INV and OR, and AND gates. Then implement it using only NAND gates.
-4. Implement F using one 4-input MUX and inverter.
-1. Write a minimal sum-of-products expression for NOT(F).
+2. Write a minimal sum-of-products expression for F. Show a combinational circuit that implements F using INV and OR, and AND gates. Then implement it using only NAND gates.
+3. Implement F using one 4-input MUX and inverter.
+4. Write a minimal sum-of-products expression for NOT(F).
 
 
 
