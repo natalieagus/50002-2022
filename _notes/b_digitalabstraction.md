@@ -22,7 +22,11 @@ Singapore University of Technology and Design
 
 ## [Overview](https://www.youtube.com/watch?v=xkVIr8jrtX0&t=0s)
 
-One of the cheapest ways to encode information in terms of 0s and 1s is using   <span style="background-color:yellow; color: black"> voltage levels</span>. This is how digital circuits work. This method of determining *discrete* values out of analog voltage (which value is originally made up of real number, and therefore *continuous* and *infinite*) is called the **digital abstraction**. We need to find a way to determine **digital** signal values out of analog voltage values. 
+One of the cheapest ways to encode information in terms of 0s and 1s is using   <span style="background-color:yellow; color: black"> voltage levels</span>, illustrated in the diagram below. 
+
+<img src="/50002/assets/contentimage/notes_b/1.png"  class="center_seventy"/>
+
+This is how digital circuits work. This method of determining *discrete* values out of analog voltage (which value is originally made up of real number, and therefore *continuous* and *infinite*) is called the **digital abstraction**. We need to find a way to determine **digital** signal values out of analog voltage values. 
 
 What are the benefits of the digital abstraction?
 1.  The digital abstraction is where one interprets voltage values as **binary** values, thus allowing us to encode information using voltages.
