@@ -419,7 +419,7 @@ as the part with the highest gain in the middle of the graph can most probably b
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-No. This device gain is less than 1, hence it cannot be used as a combinational device.
+No. This device gain is not more than 1, hence it cannot be used as a combinational device.
 </p></div><br>
 
 **(b).** You are designing a new logic family and trying to decide on values of the four parameters: Vol, Vil, Vih, and **Voh** that lead to non-zero noise margins for various possible inverter designs. Four proposed inverter designs exhibit the VTC shown in the diagrams below. **For each design, either specify four suitable values** of Vol, Vil, Vih, and **Voh** or **explain why no values can obey the static discipline.** 
