@@ -60,8 +60,8 @@ Notable parts of  MOSFET and its function:
   4.  Source and drain is physically symmetrical, we name them depending on the type of the MOSFET.
 
 Some basic recap before we move on: 
-> Current flows from higher potential (+) to lower potential (-)
-> Electron flows from lower potential (-) to higher potential (+)
+* Current flows from higher potential (+) to lower potential (-)
+* Electron flows from lower potential (-) to higher potential (+)
 
   
 
