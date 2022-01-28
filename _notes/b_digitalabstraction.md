@@ -78,7 +78,7 @@ The static discipline is one of the **contracts** bound for all logical elements
 
 This contract **guarantees** the behavior for each processing block in a system, so that a set of such interconnected devices may work properly (are able to pass and compute valid information at the end of the chain of connections). This is necessary so that the system has a **predictable behavior.**
 
-> **However this doesn't mean that the opposite is true.** a device that receives invalid input *does not always have to* produce invalid output. We don't care much and cannot define or guarantee the behaviour of the combinational device if it receives invalid input -- it may or may not produce a valid output.
+> **However this doesn't mean that the opposite is true**. A device that receives invalid input *does NOT always have to* produce invalid output. **We cannot determine the output of the combinational logic device IF invalid input is given**. Recall that you need to add a **pulldown** resistor at each input for your Mini Hardware Project to give a valid `0` when the switch is **open**. That is because without the pulldown resistor, the input will not be connected to anything (open wire) and this will supply an **invalid input**, resulting in an **undetermined or unpredictable** output for your MHP. In a nutshell, we don't care much and cannot define or guarantee the behaviour of the combinational device if it receives invalid input -- it may or may not produce a valid output.
 
 
 Therefore, one can say that **a combinational logic device always obeys the static discipline**. 
@@ -102,7 +102,7 @@ This explanation can be made clear with the following example. Suppose we supply
 > *Note that a noise can knock the voltage down as well, this is just an example that's detrimental to the function of the devices in this example.*
 
   
-Device 1 in the figure above **violates** static discipline because *given a **valid** input, it *may* be **unable** to produce a valid output (to **reach** the next device 2), because the `0.5V` produced at the output of Device 1 may meet some disturbances that caused it to be slightly off, e.g: `0.55V`.
+Device 1 in the figure above **violates** static discipline because *given a **valid** input, it may be **unable** to produce a valid output (to **reach** the next device 2), because the `0.5V` produced at the output of Device 1 may meet some disturbances that caused it to be slightly off, e.g: `0.55V`.
 
 Hence, we need to account for the presence of some light **noise**.
 
