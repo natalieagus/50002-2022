@@ -71,10 +71,11 @@ Use only NAND gates to redraw the circuit below. Use as few NAND gates as possib
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 If you directly convert with just NAND gates then you'll get:  
 <br>
-<img src="https://dropbox.com/s/ekfful2ybo9n5je/Q8.png?raw=1"  style="width: 60%;" > 
+<img src="/50002/assets/contentimage/pset2/11.png"  class="center_seventy"/>
 <br>
 You can minimise them first by minimising the boolean expression:  $$AC + \bar{A}C + B\bar{C} = C+B\bar{C} = C + B = \overline{\bar{C}\bar{B}}$$ Then we can easily draw this: <br>
- <img src="https://dropbox.com/s/43ecrhtx84m2kpa/Q8new.png?raw=1" style="width: 50%;" ></p></div><br>
+<img src="/50002/assets/contentimage/pset2/12.png"  class="center_fifty"/>
+ </p></div><br>
 
 
 
