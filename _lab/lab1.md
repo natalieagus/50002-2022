@@ -167,7 +167,7 @@ $$
 The actual effective resistance is given by $$\delta V_{DS}/\delta I_{DS}$$ and <span style="background-color:yellow; color: black">  clearly depends on which VDS we choose  </span>.  
 > Let’s use VDS = 1.2V.  
 
-We could determine the resistance graphically **from the slope of a line tangent to the IDS curve at VDS = 1.2V**.  But we can get a rough idea of the channel resistance by determining the **slope** of a line passing through the origin and the point we chose on the IDS curve, i.e., compute resistance as: $$1.2V / \delta I_{DS}$$.
+We could determine the resistance graphically **from the slope of a line tangent to the IDS curve at VDS = 1.2V**.  But we can get a rough idea of the channel resistance by determining the **slope** of a line passing through the origin and the point we chose on the IDS curve, i.e., compute channel resistance $$\approx 1.2V / \delta I_{DS}$$.
 
 Of course, the channel resistance depends on the dimensions of the MOSFET we used to make the measurement.  
 > For MOSFETs, their IDS is proportional to W/L where W is the width of the MOSFET (1.2 microns in this example) and L is the length (0.6 microns in this example).  
