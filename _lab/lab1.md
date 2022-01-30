@@ -60,13 +60,15 @@ In this lab, we will be using a simulation program, JSim, to make measurements o
 
 The (increasingly) complete JSim documentation can be found [here](https://drive.google.com/file/d/1Lc04nVEe6ch9-3wOMoKEa_sBVPuEDtkZ/view?usp=sharing). But we will try to include pertinent information for JSim in each lab writeup.
 
-> Extract 50002.zip, open it and simply double-click jsim.jar.
+<div class="redbox"><div class="custom_box">Download and extract 50002.zip (link in our **course handout**), open it and simply double-click the `jsim.jar` for this lab. For some newer OS like MacOS Monterey, path to Desktop and Documents **may be protected** and old Java programs like our `jsim` and `bsim` **will not even have access** to view files in these paths. This means you won't be able to open the template files. If this happens, you should place the 50002 folder in your `home` or `Downloads` directory instead. </div></div><br>
+
+
 
 ## User Interface
 ![Overview of the JSim user interface](/50002/assets/contentimage/lab1/1.png)
 
 Each icon means as follows:
-![Icons in JSim](/50002/assets/contentimage/lab1/2.png)
+<img src="/50002//50002/assets/contentimage/lab1/2.png"  class="center_seventy"/>
 
 ## Waveform Window
 The waveform window shows various **waveforms** in one or more “channels.”  Initially one channel is displayed for each `.plot` control statement in your netlist.  If more than one waveform is assigned to a channel, the plots are overlaid on top of each using a different drawing color for each waveform.  If you want to add a waveform to a channel simply add the appropriate signal name to the list appearing to the left of the waveform display (the name of each signal should be on a separate line).  You can also add the name of the signal you would like displayed to the appropriate `.plot` statement in your netlist and rerun the simulation.  If you simply name a node in your circuit, its voltage is plotted. You can also ask for the current through a voltage source by entering `I(Vid)`.
