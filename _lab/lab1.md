@@ -165,7 +165,7 @@ I_D = \mu_n C_{ox} \frac{W}{L} \left[(V_{GS} - V{th}) V_{DS} - \frac{V_{DS}^2}{2
 $$
 
 The actual effective resistance is given by $$\delta V_{DS}/\delta I_{DS}$$ and <span style="background-color:yellow; color: black">  clearly depends on which VDS we choose  </span>.  
-> Let’s use VDS = 1.2V.  
+> Let’s use VDS = 1.2V on the VGS = 5 curve.  
 
 We could determine the resistance graphically **from the slope of a line tangent to the IDS curve at VDS = 1.2V**.  But we can get a rough idea of the channel resistance by determining the **slope** of a line passing through the origin and the point we chose on the IDS curve, i.e., compute channel resistance $$\approx 1.2V / \delta I_{DS}$$.
 
