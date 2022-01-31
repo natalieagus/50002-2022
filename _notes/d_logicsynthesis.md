@@ -328,7 +328,7 @@ The symbol for a mux is as shown in the image below. The truth table is written 
 * `k` bits selector signal(s) --*this is also an input, but we have a special name for them them: selector*-- , and 
 * 1-bit output. 
 
-It's functioncomponents: the inputs, the selector signal(s), and the output. It basically "*allows*" oneeither of the input signals to be reflected at  `OUT`pass through when selected. 
+It's function components: the inputs, the selector signal(s), and the output. It basically "*allows*" one of the input signals to pass through when selected to be reflected at `OUT`. 
 
 For example in the case of 2-input mux below, when S=0, it will reflect whatever value the signal  $$A$$ carries (`1` or `0`) as its output:
 
