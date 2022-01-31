@@ -68,7 +68,7 @@ The (increasingly) complete JSim documentation can be found [here](https://drive
 ![Overview of the JSim user interface](/50002/assets/contentimage/lab1/1.png)
 
 Each icon means as follows:
-<img src="/50002//50002/assets/contentimage/lab1/2.png"  class="center_seventy"/>
+<img src="/50002/assets/contentimage/lab1/2.png"  class="center_seventy"/>
 
 ## Waveform Window
 The waveform window shows various **waveforms** in one or more “channels.”  Initially one channel is displayed for each `.plot` control statement in your netlist.  If more than one waveform is assigned to a channel, the plots are overlaid on top of each using a different drawing color for each waveform.  If you want to add a waveform to a channel simply add the appropriate signal name to the list appearing to the left of the waveform display (the name of each signal should be on a separate line).  You can also add the name of the signal you would like displayed to the appropriate `.plot` statement in your netlist and rerun the simulation.  If you simply name a node in your circuit, its voltage is plotted. You can also ask for the current through a voltage source by entering `I(Vid)`.
@@ -170,8 +170,10 @@ The actual effective resistance is given by $$\delta V_{DS}/\delta I_{DS}$$ and 
 We could determine the resistance graphically **from the slope of a line tangent to the IDS curve at VDS = 1.2V**.  But we can get a rough idea of the channel resistance by determining the **slope** of a line passing through the origin and the point we chose on the IDS curve, i.e., compute channel resistance $$\approx 1.2V / \delta I_{DS}$$.
 
 Of course, the channel resistance depends on the dimensions of the MOSFET we used to make the measurement.  
-> For MOSFETs, their IDS is proportional to W/L where W is the width of the MOSFET (1.2 microns in this example) and L is the length (0.6 microns in this example).  
-When reporting the effective channel resistance, it’s useful to report the sheet resistance, i.e., the resistance when W/L = 1.  That way you can easily estimate the effective channel resistance for other size devices by scaling the sheet resistance appropriately.  
+> For MOSFETs, their $$I_{DS}$$ is **proportional** to W/L where W is the width of the MOSFET (1.2 microns in this example) and L is the length (0.6 microns in this example) of the MOSFET.  Refer to [this](https://natalieagus.github.io/50002/notes/cmostechnology#the-mosfet) notes if you can't visualise which is the width and length of the MOSFET. 
+> 
+>When reporting the effective *channel* resistance, it’s useful to report the **sheet** resistance, i.e., the resistance when W/L = 1.  That way you can easily estimate the effective channel resistance for other size devices by scaling the sheet resistance appropriately.  
+>
 > Since W/L = 2 for the device you measured, it conducts twice as much current and has half the channel resistance as a device with W/L = 1, so you need to double the channel resistance you computed above in order to estimate the effective channel sheet resistance.
 
 <div class="yellowbox"><div class="custom_box"> **Record** down the value for the effective channel sheet resistance you calculated from that measurement.  You need this information to get Checkoff 1. You can access the checkoffs 1 to 7 for Lab 1 through eDimension.  </div></div><br>
