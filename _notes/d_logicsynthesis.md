@@ -404,7 +404,7 @@ Some properties about decoders:
 
     $$
     \begin{matrix}
-    S_0 & S_1 & O_0 & O_1 & O_2 & O_3\\
+    S_1 & S_0 & O_0 & O_1 & O_2 & O_3\\
     \hline
     0 & 0 & 1 & 0 & 0 & 0 \\
     0 & 1 & 0 & 1 & 0 & 0 \\
