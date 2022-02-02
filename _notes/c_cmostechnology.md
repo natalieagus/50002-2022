@@ -175,7 +175,7 @@ Eventually, a space-charge builds up forming an **electric field** as denoted in
 
 For NFETs, when there's presence of high (positive) voltage at the gate, it repels the extra holes at the p-type bulk. Basically, a positive voltage applied to the gate attracts electrons (which are minority in the p-type substrate) to the interface between the gate dielectric and the two n-types semiconductors (drain and source). 
 
-These electrons form a conducting **n-type channel** between the source and the drain, called the **inversion layer**. When there's *potential difference* between the drain and the source, the current will flow from source to drain through this inversion layer. 
+These electrons form a conducting **n-type channel** between the source and the drain, called the **inversion layer**. When there's *potential difference* between the drain and the source, the current will flow from drain to source through this inversion layer. 
 
 For PFETs the opposite happens. When there's presence of low (negative) voltage at the gate, it repels the extra electrons at the n-type bulk. Basically, holes (which are minority in the n-type substrate) are the majority in the region between the gate dielectric and the two p-types semiconductors, forming a conducting **p-type channel** (inversion layer). When there's potential difference between drain and source, then the current will flow from source to drain through this inversion layer. 
 

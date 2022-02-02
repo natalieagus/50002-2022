@@ -405,7 +405,7 @@ $$
 \begin{aligned}
 t_{p_{FALL}} &= \text{time elapsed from when input }\geq \text{Vih to when output} \leq \text{ Vol}\\
 t_{p_{RISE}} &= \text{time elapsed from when input }\leq \text{Vil to when output} \geq \text{ Voh}\\
-t_{pd} &= \min(t_{p_{RISE}}, t_{p_{FALL}})
+t_{pd} &= \max(t_{p_{RISE}}, t_{p_{FALL}})
 \end{aligned}
 $$
 
