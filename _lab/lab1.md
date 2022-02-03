@@ -350,7 +350,7 @@ Recall that <span style="background-color:yellow; color: black">**the contaminat
 * The period of output remaining at valid `0` (before rising to valid `1` eventually) after input that was previously at valid `1` has turned invalid 
 * The period of output remaining at valid `0` (before rising to valid `1` eventually) after input that was previously at valid `0` has turned invalid 
   
-> Note that *output remaining at valid `1`* means to maintain output voltage value above Voh, while *input at valid `1`* means to receive input voltage valyue above Vih. The same applies for valid `0` on both input and output. Revise the lecture on [Digital Abstraction](https://natalieagus.github.io/50002/notes/digitalabstraction) if you're still confused about this concept of valid `0` and `1`. 
+> Note that *output remaining at valid `1`* means to maintain output voltage value above Voh, while *input at valid `1`* means to receive input voltage value above Vih. The same applies for valid `0` on both input and output. Revise the lecture on [Digital Abstraction](https://natalieagus.github.io/50002/notes/digitalabstraction) if you're still confused about this concept of valid `0` and `1`. 
 
 The first two cases are called tc **fall**, while the latter two cases are called tc **rise**. The name rise or fall depends on whether the **output** is about to fall or rise. 
 
@@ -417,7 +417,7 @@ Following standard practice, we’ll choose the logic thresholds as follows:
 > Vih  = 80% of power supply voltage = 2.6V
 > Voh = 90% of power supply voltage = 3V
 
-<div class="redbox"><div class="custom_box">Review the lecture on [CMOS Technology ](https://natalieagus.github.io/50002/notes/cmostechnology)to refresh your understanding on propagation delay and contamination delay. This is **VERY** important especially for Week 3 materials.  </div></div><br>
+<div class="redbox"><div class="custom_box">Review the lecture on <a href="https://natalieagus.github.io/50002/notes/cmostechnology">CMOS Technology</a> to refresh your understanding on propagation delay and contamination delay. This is **VERY** important especially for Week 3 materials.  </div></div><br>
 
 #### Generating test signal
 The final thing that we have to prepare to plot a VTC is to generate a test signal. You can use a voltage source with either a pulse or piecewise linear waveform to generate test signals for your circuit.  Here’s how to enter them in your netlist:
