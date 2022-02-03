@@ -84,7 +84,7 @@ Signal 5, although it has "invalid" values for two clock cycles isn't the answer
 
 ## Another Timing Computation (Basic)
 
-Consider the following circuit, and notice the **feedback loop**:
+Consider the following circuit, and notice the **feedback loop**. You may assume that the circuit has been **reset**, that is all dffs are outputting a valid (reset) signal (e.g: bit `0` in reset state) in the beginning:
 
 <img src="https://dropbox.com/s/jhq2pg9rs70rlrj/Q8.png?raw=1" style="width: 80%;">
 
