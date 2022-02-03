@@ -417,7 +417,7 @@ Following standard practice, we’ll choose the logic thresholds as follows:
 > Vih  = 80% of power supply voltage = 2.6V
 > Voh = 90% of power supply voltage = 3V
 
-<div class="redbox"><div class="custom_box">Review the lecture on [CMOS Technology ](https://natalieagus.github.io/50002/notes/cmostechnology)to refresh your understanding on propagation delay and contamination delay. This is **VERY** important especially for Week 3 materials.  </div></div><br>
+<div class="redbox"><div class="custom_box">Review the lecture on <a href="https://natalieagus.github.io/50002/notes/cmostechnology">CMOS Technology</a> to refresh your understanding on propagation delay and contamination delay. This is **VERY** important especially for Week 3 materials.  </div></div><br>
 
 #### Generating test signal
 The final thing that we have to prepare to plot a VTC is to generate a test signal. You can use a voltage source with either a pulse or piecewise linear waveform to generate test signals for your circuit.  Here’s how to enter them in your netlist:
