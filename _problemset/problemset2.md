@@ -40,7 +40,7 @@ Compute the **overall** propagation delay and contamination delay for the circui
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 Overall  **tpd** = 6ns (counting paths from the AND gate, OR gate, and XOR gate). 
 <br><br>
-Overall  **tcd** = 1ns, **tcd** ​= 1ns  (counting the shortest path from XOR gate). </p></div><br>
+Overall  **tcd** = 1ns (counting the shortest path from XOR gate). </p></div><br>
 
 
 ## Tracing CMOS Circuit (Basic)
