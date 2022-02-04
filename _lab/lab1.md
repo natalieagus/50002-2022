@@ -22,7 +22,7 @@ Modified by: Kenny Choo, Natalie Agus, Oka Kurniawan (2021)
 The following files inside your `/50002/` folder are what you're going to open and modify or study for this lab, then submit (unless otherwise stated):
 - `lab1_submit.jsim` 
 
-You need to head to edimension to answer a bunch of questionnaire there for this lab. **No file submission is required. **
+You need to head to edimension to answer a bunch of questionnaire there for this lab. 
 
 ## Related Class Materials
 The lecture notes on [Digital Abstraction](https://natalieagus.github.io/50002/notes/digitalabstraction) and [CMOS Technology](https://natalieagus.github.io/50002/notes/cmostechnology) are closely related to this lab.
