@@ -185,7 +185,7 @@ The template **Io Base** already prepare these terminal namings for you, and def
 <br><img src="https://dropbox.com/s/bjtd5hrfo3ejvwj/constraintfile.png?raw=1" style="width: 70%;"  >
 
 The `.acf` file defines input and output pins from the original schematic of `Alchitry Au` to its symbols to be used when we code, e.g: `io_led`, `io_dip`, etc. The ones with the keyword `pulldown` signifies **input** pins, while the rest are digital output. 
-> An input pin with `pulldown` resistor will by default give a value of `0` if there's no input being supplied to prevent a *floating/undefined* input volrage.** It is useful to read abit about <a href="https://www.electronics-tutorials.ws/logic/pull-up-resistor.html" target="_blank">pull-down and pull-up resistors</a>  if you were to implement a unit from scratch like our Mini-Hardware Project.  
+> An input pin with `pulldown` resistor will by default give a value of `0` if there's no input being supplied to prevent a *floating/undefined* input voltage.** It is useful to read abit about <a href="https://www.electronics-tutorials.ws/logic/pull-up-resistor.html" target="_blank">pull-down and pull-up resistors</a>  if you were to implement a unit from scratch like our Mini-Hardware Project.  
 
 This document will not teach you how to define more inputs for use on the `Br` board yet, or use the 7-segments to display numbers. If you're interested to learn more, read the tutorial from the original author about <a href="https://alchitry.com/io-element" target="_blank">Io Element</a>
 
