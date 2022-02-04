@@ -76,11 +76,11 @@ Now you should see that you have a project with several files:
 > You need to do your own self-study part to fill in the gaps and understand how the code works better by reading the <a href="https://alchitry.com/lucid" target="_blank">tutorials</a> provided by the original developer. The course handout also provides you some useful self-study materials. This document is only made to *complement* and *speed up* your self-study process, but it doesn't mean that you can forget about reading anything else. 
 
 If you haven't read any tutorials about Lucid and Alchitry yet, here's some quick information: 
-* Under `Source`, thats where you will write **all** your script. `alu.luc` is like the `main` script, so do not delete that. 
+* Under `Source`, thats where you will write **all** your script. `au_top.luc` is like the `main` script, so do not delete that. 
 
-* `alu.luc` is the only script that can interface with **external input and output**, like LED, switches and buttons.  
+* `au_top.luc` is the only script that can interface with **external input and output**, like LED, switches and buttons.  
 * Each `.luc` script should describe a **component** (combinational / sequential).
-*  Typically in `alu.luc` we **combine** all components together with input/output, forming a whole complete device. 
+*  Typically in `au_top.luc` we **combine** all components together with input/output, forming a whole complete device. 
 * Under `Components` is where you can **add** standard components (like standard library modules). Right click on it and click `Add Components`, and you'll be faced with a phethora of modules which you may or may not use depending on your application:
 <br><img src="https://dropbox.com/s/guc9ll03qiivdrx/1d.png?raw=1"  style="width: 60%;" ><br> 
 But a few important ones that you probably can't live without are: **counter, edge detector, button conditioner.** We will meet them soon. 
