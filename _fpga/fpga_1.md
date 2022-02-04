@@ -181,7 +181,7 @@ Now build your code (it may take awhile, 2-3 minutes depending on your computer 
 
 Alchitry Io is basically our **input-output device**. We use the LEDs to debug like a monitor, and buttons to supply input. ye*s, it is very very primitive, and **it is very difficult**  to **debug** so always test each small module before integrating it!*
 
-The template **Io Base** already prepare these terminal namings for you, and define it under `Constraints` file. Open io.acf and you will see the following:
+The template **Io Base** already prepare these terminal namings for you, and define it under `Constraints` file. Open `io.acf` and you will see the following:
 <br><img src="https://dropbox.com/s/bjtd5hrfo3ejvwj/constraintfile.png?raw=1" style="width: 70%;"  >
 
 The `.acf` file defines input and output pins from the original schematic of `Alchitry Au` to its symbols to be used when we code, e.g: `io_led`, `io_dip`, etc. The ones with the keyword `pulldown` signifies **input** pins, while the rest are digital output. 
