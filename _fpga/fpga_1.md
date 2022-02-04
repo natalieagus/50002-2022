@@ -76,11 +76,11 @@ Now you should see that you have a project with several files:
 > You need to do your own self-study part to fill in the gaps and understand how the code works better by reading the <a href="https://alchitry.com/lucid" target="_blank">tutorials</a> provided by the original developer. The course handout also provides you some useful self-study materials. This document is only made to *complement* and *speed up* your self-study process, but it doesn't mean that you can forget about reading anything else. 
 
 If you haven't read any tutorials about Lucid and Alchitry yet, here's some quick information: 
-* Under `Source`, thats where you will write **all** your script. `alu.luc` is like the `main` script, so do not delete that. 
+* Under `Source`, thats where you will write **all** your script. `au_top.luc` is like the `main` script, so do not delete that. 
 
-* `alu.luc` is the only script that can interface with **external input and output**, like LED, switches and buttons.  
+* `au_top.luc` is the only script that can interface with **external input and output**, like LED, switches and buttons.  
 * Each `.luc` script should describe a **component** (combinational / sequential).
-*  Typically in `alu.luc` we **combine** all components together with input/output, forming a whole complete device. 
+*  Typically in `au_top.luc` we **combine** all components together with input/output, forming a whole complete device. 
 * Under `Components` is where you can **add** standard components (like standard library modules). Right click on it and click `Add Components`, and you'll be faced with a phethora of modules which you may or may not use depending on your application:
 <br><img src="https://dropbox.com/s/guc9ll03qiivdrx/1d.png?raw=1"  style="width: 60%;" ><br> 
 But a few important ones that you probably can't live without are: **counter, edge detector, button conditioner.** We will meet them soon. 
@@ -181,11 +181,11 @@ Now build your code (it may take awhile, 2-3 minutes depending on your computer 
 
 Alchitry Io is basically our **input-output device**. We use the LEDs to debug like a monitor, and buttons to supply input. ye*s, it is very very primitive, and **it is very difficult**  to **debug** so always test each small module before integrating it!*
 
-The template **Io Base** already prepare these terminal namings for you, and define it under `Constraints` file. Open io.acf and you will see the following:
+The template **Io Base** already prepare these terminal namings for you, and define it under `Constraints` file. Open `io.acf` and you will see the following:
 <br><img src="https://dropbox.com/s/bjtd5hrfo3ejvwj/constraintfile.png?raw=1" style="width: 70%;"  >
 
 The `.acf` file defines input and output pins from the original schematic of `Alchitry Au` to its symbols to be used when we code, e.g: `io_led`, `io_dip`, etc. The ones with the keyword `pulldown` signifies **input** pins, while the rest are digital output. 
-> An input pin with `pulldown` resistor will by default give a value of `0` if there's no input being supplied to prevent a *floating/undefined* input volrage.** It is useful to read abit about <a href="https://www.electronics-tutorials.ws/logic/pull-up-resistor.html" target="_blank">pull-down and pull-up resistors</a>  if you were to implement a unit from scratch like our Mini-Hardware Project.  
+> An input pin with `pulldown` resistor will by default give a value of `0` if there's no input being supplied to prevent a *floating/undefined* input voltage. It is useful to read abit about <a href="https://www.electronics-tutorials.ws/logic/pull-up-resistor.html" target="_blank">pull-down and pull-up resistors</a>  if you were to implement a unit from scratch like our Mini-Hardware Project.  
 
 This document will not teach you how to define more inputs for use on the `Br` board yet, or use the 7-segments to display numbers. If you're interested to learn more, read the tutorial from the original author about <a href="https://alchitry.com/io-element" target="_blank">Io Element</a>
 
