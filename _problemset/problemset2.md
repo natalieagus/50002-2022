@@ -398,14 +398,14 @@ She has burned out 97 of her chips, and needs your help before destroying the re
 1. **What is burning out Anna's test chips?** Give a specific scenario, including input values together with a description of the failure scenario. For what input combinations will this failure occur?
 
 3. Are there input combinations for which Anna can expect a valid output at C? **Explain**.
-4. One of Anna's test chips has failed by **burning out the pullup** connected to A as well as the pulldown connected to B. Each of the burned out FETs appears as an open circuit, but the rest of the circuit remains functional. *Can the resulting circuit be used as a combinational device whose two inputs are A and B?* **Explain** its behavior for each combination of valid inputs.  
+4. One of Anna's test chips has failed by **burning out the pullup** connected to A as well as the pulldown connected to B. Each of the burned out FETs appears as an open circuit (no connection), but the rest of the circuit remains functional. *Can the resulting circuit be used as a combinational device whose two inputs are A and B?* **Explain** its behavior for each combination of valid inputs.  
 5. In order to salvage her remaining two chips, Anna *connects the A and B inputs of each and tries to use it as a single-input gate.* Can the result be used as a single-input combinational device? **Explain**.
 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 <ol type="1">
 <li> When: $$A=0, B=1$$ or $$A=1, B=0$$
-.. it means that there's an <strong>open connection</strong> between VDD and GND. This caused the gate to short circuit, and hence its burning out.</li><br>
+.. it means that there's a <strong>connection</strong> between VDD and GND. This caused the gate to short circuit, and hence its burning out.</li><br>
 <li> <strong>Yes</strong>, when: $$A=1, B=1 \text{ then } C=0$$ or $$A=0, B=0 \text{ then } C=1$$ This is when the pullup and pulldown circuit aren't both ON at the same time.</li><br>
 <li> <strong>No</strong>. When: $$A=1, B=0$$ then the circuit will burn out again, since the pullup and pulldown will be active, thus burning out the circuit. Also, the output is not defined when: $$A=0, B=1$$ This is because neither the pullup or pulldown are active.</li><br>
 <li><strong>Yes</strong>. It exhibits the behavior of an <strong>inverter</strong>, i.e: A and B are connected to the same Vin.</li>

@@ -212,20 +212,20 @@ Contents of the pull-up circuit:
 
   1.  All FETs in the pull-up circuit are PFETs.
   2. Hence all of their bulks are connected to the `VDD`, and so are all of their Sources.
-  3. It is called 'pull-up' because when there is any open connection from the Source (`VDD`) to the Drain output, then the output of the overall CMOS circuit is 1.
+  3. It is called 'pull-up' because when there is any  connection from the Source (`VDD`) to the Drain output, then the output of the overall CMOS circuit is 1.
   4. **We call the pull-up circuit to be ON if there exists any direct path for *current* to flow from any source of the PFETs in the pull-up circuit to the logic output drain.** 
 
   
 Contents of the pull-down circuit:
  1.  All FETs in the pull-down circuit are NFETS.
  2.  Hence all of their bulks are connected to `GND`, and so are all of their Sources.
-3.  It is called 'pull-down' because when there is open connection to from the Source (`GND`) to the Drain output, then the output of the overall CMOS circuit is 0
-4.  **We call the pull-down circuit to be ON if there exists any direct path for *electrons* to flow from any source of the NFETs in the pull-up circuit to the logic output drain.** 
+1.  It is called 'pull-down' because when there is  connection to from the Source (`GND`) to the Drain output, then the output of the overall CMOS circuit is 0
+2.  **We call the pull-down circuit to be ON if there exists any direct path for *electrons* to flow from any source of the NFETs in the pull-up circuit to the logic output drain.** 
 
 
 ## [The CMOS Complements Recipe](https://www.youtube.com/watch?v=JqgZcV_1IU4&t=1388s)
 
-Imagine if pull-up and pull-down circuit (as an overall) are both "ON". This means that there exists a direct open connection to `GND` from the `VDD` (the source of the pull-up to the source of the pull-down) resulting in **short-circuit**. 
+Imagine if pull-up and pull-down circuit (as an overall) are both "ON". This means that there exists a direct  connection to `GND` from the `VDD` (the source of the pull-up to the source of the pull-down) resulting in **short-circuit**. 
 
 Hence, **it is very important for a CMOS circuit to contain  <span style="background-color:yellow; color: black">complementary</span> pull-ups and pull-downs**. This means that only one component -- either pull-up or pull-down -- is **ON**. 
 
