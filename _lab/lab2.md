@@ -125,7 +125,7 @@ For example, to completely test all possible input combinations for a 2-input ga
 * Then we plug in `A`, `B`, and `Ci` signals to FA, getting its output: `S`, and `Co`. 
 * Afterwards, we plot them (line 11-15). 
 
-Once you are somewhat confident that your circuit works properly, go to `lab2_submit.jsim` and click the Fast Transient Analysis button. A window as such should pop up:
+Once you are somewhat confident that your circuit works properly, go to `lab2_submit.jsim` and click the **Fast Transient Analysis** (not device level simulation!) button. A window as such should pop up:
 
 <img src="/50002/assets/contentimage/lab2/12.png"  class="center_full"/>
 This plot represents all signals produced by `s[5:0]` given various `a` and `b` values as time progresses (time is the x-axis). You can **zoom** in to see the plots better. 
