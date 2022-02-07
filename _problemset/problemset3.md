@@ -69,7 +69,7 @@ The components labeled CL1 and CL2 are combinational; R1 and R2 are edge trigger
 Consider the following unusual D-latch configuration:
 <img src="https://dropbox.com/s/vxvoeomb1zyc7h0/Q7.png?raw=1" style="width: 70%;" >
  
-Now we feed it the following input signal and CLK signal. **Which of the following signal plots represent the output of this device made out of 3 D-latches?** Assume that the jagged edges means unknown value and that the contents of each latch in the beginning is invalid. The plots below are drawn as if we were to measure it from the beginning (at t=0).
+Now we feed it the following input signal and CLK signal. **Which of the following signal plots represent the output of this device made out of 3 D-latches?** Assume that the jagged edges means unknown value and that the contents of each latch in the beginning is unknown. The plots below are drawn as if we were to measure it from the beginning (at t=0).
 
 <img src="https://dropbox.com/s/7a8ww9nvk0lzlfq/Q7b.png?raw=1" style="width: 70%;" >
 
