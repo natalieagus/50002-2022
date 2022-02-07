@@ -118,7 +118,7 @@ $$\begin{aligned} I = \log_2 \left(\frac{1}{N/M}\right) = \log_2 \left(\frac{1}{
 </p></div><br>
   
 
-**(b.)** You're given a standard deck of 52 playing cards that you start to turn face up, card by card. So far as you know, they're in completely random order. How many **new bits of information** do you get when the **first** card is flipped over? The **fifth** card? The **last** card?
+**(b.)** You're given a standard deck of 52 playing cards that you start to turn face up, card by card. So far as you know, they're in completely random order. How many **new bits of information** do you get when the **first** card is flipped over? The **fifth** card? The **last** card? Note that the goal is to know what card(s) has/have been flipped. 
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 The first card has: $$\log_2 52$$ bits of information. The fifth card has: $$\log_2 48$$ bits of information. The last card has 0 bits of information.
