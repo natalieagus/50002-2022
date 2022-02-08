@@ -128,7 +128,7 @@ For example, to completely test all possible input combinations for a 2-input ga
 Once you are somewhat confident that your circuit works properly, go to `lab2_submit.jsim` and click the **Fast Transient Analysis** (not device level simulation!) button. A window as such should pop up:
 
 <img src="/50002/assets/contentimage/lab2/12.png"  class="center_full"/>
-This plot represents all signals produced by `s[5:0]` given various `a` and `b` values as time progresses (time is the x-axis). You can **zoom** in to see the plots better. 
+This plot represents all signals produced by `s[4:0]` given various `a` and `b` values as time progresses (time is the x-axis). You can **zoom** in to see the plots better. 
 
 Click on the top right hand corner green tick button to check if all values are as expected. If everything works correctly, this window should pop up:
 
