@@ -37,7 +37,7 @@ The lecture notes on **[CMOS technology](https://natalieagus.github.io/50002/not
 
 **Task B:** Build 1-bit Full Adder using gates you built in Task 1
 <br>Related sections in the notes: ([logic synthesis](https://natalieagus.github.io/50002/notes/logicsynthesis))
-* [Sum-of-products] (https://natalieagus.github.io/50002/notes/logicsynthesis#sum-of-products)(you can build a FA using AND, OR, and INV gates)
+* [Sum-of-products](https://natalieagus.github.io/50002/notes/logicsynthesis#sum-of-products) (you can build a FA using AND, OR, and INV gates)
 * [Universal gates](https://natalieagus.github.io/50002/notes/logicsynthesis#universal-gates) (you can build a FA using NANDs only or NORs only)
 * Realise that there’s more than ONE way to construct a FA circuit. There’s no one *right or best* circuit. 
 
@@ -128,7 +128,7 @@ For example, to completely test all possible input combinations for a 2-input ga
 Once you are somewhat confident that your circuit works properly, go to `lab2_submit.jsim` and click the **Fast Transient Analysis** (not device level simulation!) button. A window as such should pop up:
 
 <img src="/50002/assets/contentimage/lab2/12.png"  class="center_full"/>
-This plot represents all signals produced by `s[5:0]` given various `a` and `b` values as time progresses (time is the x-axis). You can **zoom** in to see the plots better. 
+This plot represents all signals produced by `s[4:0]` given various `a` and `b` values as time progresses (time is the x-axis). You can **zoom** in to see the plots better. 
 
 Click on the top right hand corner green tick button to check if all values are as expected. If everything works correctly, this window should pop up:
 
