@@ -37,7 +37,7 @@ The lecture notes on **[CMOS technology](https://natalieagus.github.io/50002/not
 
 **Task B:** Build 1-bit Full Adder using gates you built in Task 1
 <br>Related sections in the notes: ([logic synthesis](https://natalieagus.github.io/50002/notes/logicsynthesis))
-* [Sum-of-products] (https://natalieagus.github.io/50002/notes/logicsynthesis#sum-of-products)(you can build a FA using AND, OR, and INV gates)
+* [Sum-of-products](https://natalieagus.github.io/50002/notes/logicsynthesis#sum-of-products) (you can build a FA using AND, OR, and INV gates)
 * [Universal gates](https://natalieagus.github.io/50002/notes/logicsynthesis#universal-gates) (you can build a FA using NANDs only or NORs only)
 * Realise that there’s more than ONE way to construct a FA circuit. There’s no one *right or best* circuit. 
 
