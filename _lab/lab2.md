@@ -116,15 +116,15 @@ clk7  	period = 640ns
 clk8  	period = 1280ns
 ```
 
-For example, to completely test all possible input combinations for a 2-input gate, you could connect `clk1` and `clk2` to the two inputs and simulate for `20ns`. See `lab2_debug.jsim` file for example.
+For example, to completely test all possible input combinations for a 2-input gate, you could connect `clk1` and `clk2` to the two inputs and simulate for `20ns`. See `lab2_debug.jsim` file for example. You can open `lab2_debug.jsim` and click the **Fast Transient Analysis** button. <span style="background-color:yellow; color: black">Comment out the line `.include "lab2checkoff.jsim"` in `lab2_submit.jsim` if you want to plot these **debug plots** instead of the **checkoff plots**. Don't forget to uncomment back this line for your final submission.</span>
 
 <img src="/50002/assets/contentimage/lab2/8.png"  class=" center_fifty"/>
 
-* Here we use `clk1`, `clk2`, and `clk3` to create signals for `A`, `B`, and `Ci` using an **inverter** (you can use a buffer too, it doesn't really matter). 
+* In `lab2_debug.jsim`, we use `clk1`, `clk2`, and `clk3` to create signals for `A`, `B`, and `Ci` using an **inverter** (you can use a buffer too, it doesn't really matter). 
 * Since each clock period is *double* the previous one, we will be able to create **all** 8 input combinations: `000, 001, …, 111` using these three clocks. 
 * Then we plug in `A`, `B`, and `Ci` signals to FA, getting its output: `S`, and `Co`. 
 * Afterwards, we plot them (line 11-15). 
-* <span style="background-color:yellow; color: black">Comment out the line `.include "lab2checkoff.jsim"` in `lab2_submit.jsim` if you want to plot these **debug plots** instead of the **checkoff plots**. Don't forget to uncomment back this line for your final submission.</span>
+
 
 Once you are somewhat confident that your circuit works properly, go to `lab2_submit.jsim` and click the **Fast Transient Analysis** (not device level simulation!) button. A window as such should pop up:
 
