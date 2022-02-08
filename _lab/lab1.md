@@ -453,7 +453,7 @@ Voh voh 0 3.0v
 > Note: make these measurements using your “improved” nand2 gate from Task C that has the centered VTC, i.e., with the updated widths for the PFETs.
 
 * We use an **inverter** (`inv`) to drive the `nand2` input since we would normally expect the test gate to be driven by the output of another gate (there are some subtle timing effects that we’ll miss if we drive the input directly with a voltage source).  
-* Run the simulation and measure the contamination and propagation delays for both the rising and falling output transitions.  You will meet such waveforms:
+* Run the simulation with the “**device-level simulation**” button and measure the contamination and propagation delays for both the rising and falling output transitions.  You will meet such waveforms:
   <img src="/50002/assets/contentimage/lab1/11.png"  class="center_full"/>
 
 * You will need to zoom in on the transitions in order to make an accurate measurement.  
