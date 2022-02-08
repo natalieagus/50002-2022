@@ -42,7 +42,7 @@ The lecture notes on **[CMOS technology](https://natalieagus.github.io/50002/not
 * Realise that there’s more than ONE way to construct a FA circuit. There’s no one *right or best* circuit. 
 
 ## 4-bit Ripple Carry Adder
-Your mission this week is to design and test a CMOS circuit that performs addition on **TWO** ***UNSIGNED*** <span style="background-color:yellow; color: black">4-bit inputs</span>: `A[4:0], B[4:0]`, producing a <span style="background-color:yellow; color: black">5-bit output</span> `S[4:0]`:
+Your mission this week is to design and test a CMOS circuit that performs addition on **TWO** ***UNSIGNED*** <span style="background-color:yellow; color: black">4-bit inputs</span>: `A[3:0], B[3:0]`, producing a <span style="background-color:yellow; color: black">5-bit output</span> `S[4:0]`:
 
 <img src="/50002/assets/contentimage/lab2/1.png"  class="center_fifty"/>
 
