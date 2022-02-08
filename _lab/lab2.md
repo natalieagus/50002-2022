@@ -116,7 +116,9 @@ clk7  	period = 640ns
 clk8  	period = 1280ns
 ```
 
-For example, to completely test all possible input combinations for a 2-input gate, you could connect `clk1` and `clk2` to the two inputs and simulate for `20ns`. See `lab2_debug.jsim` file for example. You can open `lab2_debug.jsim` and click the **Fast Transient Analysis** button. <span style="background-color:yellow; color: black">Comment out the line `.include "lab2checkoff.jsim"` in `lab2_submit.jsim` if you want to plot these **debug plots** instead of the **checkoff plots**. Don't forget to uncomment back this line for your final submission.</span>
+For example, to completely test all possible input combinations for a 2-input gate, you could connect `clk1` and `clk2` to the two inputs and simulate for `20ns`. See `lab2_debug.jsim` file for example. You can open `lab2_debug.jsim` and click the **Fast Transient Analysis** button. <span style="background-color:yellow; color: black">Comment out the line `.include "lab2checkoff.jsim"` in `lab2_submit.jsim` if you want to plot these **debug plots** instead of the **checkoff plots**. Don't forget to uncomment back this line for your final submission.</span>.
+
+Below is a screenshot on the contents of `lab2_submit.jsim`:
 
 <img src="/50002/assets/contentimage/lab2/8.png"  class=" center_fifty"/>
 
