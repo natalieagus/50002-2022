@@ -48,9 +48,7 @@ A combinational device is a specific type of digital device that has the followi
 3.  A **functional specification** that details the value of each output for each possible **combination** of inputs (can be illustrated in terms of truth table / boolean expression)
 	> Its circuit performs an operation assigned logically by a boolean expression or truth table.
 
-4. A **timing specification** consisting of an upper bound required  
-propagation time for the device to compute the specified output  
-values given a set of valid and stable input value(s)
+4. A **timing specification** consisting of an upper bound required propagation time for the device to compute the specified output values given a set of valid and stable input value(s)
 
 Later on you will learn another type of digital logic devices called the **sequential** logic device, whose output depends not only on the present input but also on the history of the inputs, hence having a *memory*. 
 
