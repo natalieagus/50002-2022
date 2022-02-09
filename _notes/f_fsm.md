@@ -82,7 +82,7 @@ S_i &  In & S_{i+1} & Out\\
 011 & 0 & 110 & 0 \\
 011 & 1 & 000 & 0\\
 110 & 0 & 001 & 1 \\
-110 & 1 & 011 & 1\\
+110 & 1 & 010 & 1\\
 \hline
 \end{matrix}
 $$
@@ -91,7 +91,7 @@ $$
  <span style="background-color:yellow; color: black">  **Important**: $$s$$ state bits allow us to encode up to  $$2^s$$ different states. </span>
 
 
-*Note: the output column in the figure above contains the output that depends on the *current* state only (also known as the Moore Machine, see next section).* 
+*Note: the output column in the figure above contains the output that depends on the current state only (also known as the Moore Machine, see next section).* 
 
 
 ## [Moore and Mealy Machine](https://www.youtube.com/watch?v=efLcdpqlAyI&t=615s)
