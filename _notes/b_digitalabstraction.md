@@ -100,7 +100,7 @@ This explanation can be made clear with the following example. Suppose we supply
 > *Note that a noise can knock the voltage down as well, this is just an example that's detrimental to the function of the devices in this example.*
 
   
-Device 1 in the figure above **violates** static discipline because *given a **valid** input, it may be **unable** to produce a valid output (to **reach** the next device 2), because the `0.5V` produced at the output of Device 1 may meet some disturbances that caused it to be slightly off, e.g: `0.55V`.
+Device 1 in the figure above **violates** static discipline because given a **valid** input, it may be **unable** to produce a valid output (to **reach** the next device 2), because the `0.5V` produced at the output of Device 1 may meet some disturbances that caused it to be slightly off, e.g: `0.55V`.
 
 Hence, we need to account for the presence of some light **noise**. Instead of naively setting some voltage $$V_{high}$$ and $$V_{low}$$ as we did above, we need to set a *range* of Voltages as valid bit `1` and `0` respectively and need to have something called the **noise margin** to tolerate noise. It is illustrated as the yellow region in the Figure below. The noise margin is formed by setting *four* Voltage specifications:  $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, $$V_{ih}$$, where  $$V_{ol}$$< $$V_{il}$$< $$V_{ih}$$ < $$V_{oh}$$ which **defines** what range of voltage values signifies a **valid** digital bit  and a **valid** digital bit `0` *for any combinational logic component in the system*: 
   
