@@ -108,7 +108,7 @@ Hence, we need to account for the presence of some light **noise**. Instead of n
 
 >   <span style="background-color:yellow; color: black"> The *noise margin* adds as a **precaution** against external disturbances (noise). </span>
 
-Below are the explanations necessary to understand the fFigure 3 above:
+Below are the explanations necessary to understand the figure above:
 1.  $$V_{ol}$$ (voltage output low) and $$V_{oh}$$ (voltage output high) is the voltage that **your system** outputs, depending on whether your system is outputting bit `0` or `1`. The output of this system is going to be received by another system after traversing through some wire.
 
  
