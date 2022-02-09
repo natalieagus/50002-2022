@@ -123,7 +123,7 @@ Below are the explanations necessary to understand the figure above:
 
   
 
-6.  In our previous case in Figure earlier, if $$V_{ol}$$ is set to be `0.5V`, and $$V_{il}$$ is set to be `0.6V`, then *Device 2*  will be able to **tolerate** up to `0.1V` of noise (if any). Therefore, `0.55V` in our example above is still '*seen*' as a valid bit `0` when it arrives at the input terminal of Device 2, thus making Device 1 ***obeys the static discipline.***
+6.  In our previous case earlier, if $$V_{ol}$$ is set to be `0.5V`, and $$V_{il}$$ is set to be `0.6V`, then *Device 2*  will be able to **tolerate** up to `0.1V` of noise (if any). Therefore, `0.55V` in our example above is still '*seen*' as a valid bit `0` when it arrives at the input terminal of Device 2, thus making Device 1 ***obeys the static discipline.***
 
 
 Once **set and chosen,** these four voltage specifications: $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, and $$V_{ih}$$ are to be obeyed by every digital **device in an entire combinational logic circuit**.
