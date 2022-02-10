@@ -498,7 +498,7 @@ They're obtained from "three" boxes:
 
 The Xilinx 4000 series field-programmable gate array (FPGA) can be programmed to emulate a circuit made up of many thousands of gates; for example, the *XC4025E* can emulate circuits with up to **25,000 gates**. 
 
-The heart of the FPGA architecture is a *configurable logic block (CLB)* which has a c**ombinational logic subsection** with the following circuit diagram:
+The heart of the FPGA architecture is a *configurable logic block (CLB)* which has a **combinational logic subsection** with the following circuit diagram:
 
 
 <img src="https://dropbox.com/s/kyx7a79owajbxde/Q5.png?raw=1"   >
