@@ -489,7 +489,7 @@ Let's analyse the circuit by answering the questions below:
 
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	The clock period has to satisfy the <strong>feedback</strong> path (t2 timing constraint), that is made up with **tpd** of the <code>dff</code>,  **tpd** of the <code>AND</code> gate,  **tpd** of the <code>OR</code> gate, plus **ts** of the register. This adds up to <code>2+2+2+1 = 7ns</code>. Hence the maximum frequency is $$\frac{1}{(7*10^{-9})}$$ <code> = 142.9MHz</code.
+	The clock period has to satisfy the <strong>feedback</strong> path (t2 timing constraint), that is made up with **tpd** of the <code>dff</code>,  **tpd** of the <code>AND</code> gate,  **tpd** of the <code>OR</code> gate, plus **ts** of the register. This adds up to <code>2+2+2+1 = 7ns</code>. Hence the maximum frequency is $$\frac{1}{(7*10^{-9})}$$ <code>= 142.9MHz</code.
 	</p>
 	</div><br>
 
