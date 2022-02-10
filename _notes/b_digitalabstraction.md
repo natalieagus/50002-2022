@@ -48,9 +48,7 @@ A combinational device is a specific type of digital device that has the followi
 3.  A **functional specification** that details the value of each output for each possible **combination** of inputs (can be illustrated in terms of truth table / boolean expression)
 	> Its circuit performs an operation assigned logically by a boolean expression or truth table.
 
-4. A **timing specification** consisting of an upper bound required  
-propagation time for the device to compute the specified output  
-values given a set of valid and stable input value(s)
+4. A **timing specification** consisting of an upper bound required propagation time for the device to compute the specified output values given a set of valid and stable input value(s)
 
 Later on you will learn another type of digital logic devices called the **sequential** logic device, whose output depends not only on the present input but also on the history of the inputs, hence having a *memory*. 
 
@@ -102,7 +100,7 @@ This explanation can be made clear with the following example. Suppose we supply
 > *Note that a noise can knock the voltage down as well, this is just an example that's detrimental to the function of the devices in this example.*
 
   
-Device 1 in the figure above **violates** static discipline because *given a **valid** input, it may be **unable** to produce a valid output (to **reach** the next device 2), because the `0.5V` produced at the output of Device 1 may meet some disturbances that caused it to be slightly off, e.g: `0.55V`.
+Device 1 in the figure above **violates** static discipline because given a **valid** input, it may be **unable** to produce a valid output (to **reach** the next device 2), because the `0.5V` produced at the output of Device 1 may meet some disturbances that caused it to be slightly off, e.g: `0.55V`.
 
 Hence, we need to account for the presence of some light **noise**. Instead of naively setting some voltage $$V_{high}$$ and $$V_{low}$$ as we did above, we need to set a *range* of Voltages as valid bit `1` and `0` respectively and need to have something called the **noise margin** to tolerate noise. It is illustrated as the yellow region in the Figure below. The noise margin is formed by setting *four* Voltage specifications:  $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, $$V_{ih}$$, where  $$V_{ol}$$< $$V_{il}$$< $$V_{ih}$$ < $$V_{oh}$$ which **defines** what range of voltage values signifies a **valid** digital bit  and a **valid** digital bit `0` *for any combinational logic component in the system*: 
   
@@ -110,7 +108,7 @@ Hence, we need to account for the presence of some light **noise**. Instead of n
 
 >   <span style="background-color:yellow; color: black"> The *noise margin* adds as a **precaution** against external disturbances (noise). </span>
 
-Below are the explanations necessary to understand the fFigure 3 above:
+Below are the explanations necessary to understand the figure above:
 1.  $$V_{ol}$$ (voltage output low) and $$V_{oh}$$ (voltage output high) is the voltage that **your system** outputs, depending on whether your system is outputting bit `0` or `1`. The output of this system is going to be received by another system after traversing through some wire.
 
  
@@ -125,7 +123,7 @@ Below are the explanations necessary to understand the fFigure 3 above:
 
   
 
-6.  In our previous case in Figure earlier, if $$V_{ol}$$ is set to be `0.5V`, and $$V_{il}$$ is set to be `0.6V`, then *Device 2*  will be able to **tolerate** up to `0.1V` of noise (if any). Therefore, `0.55V` in our example above is still '*seen*' as a valid bit `0` when it arrives at the input terminal of Device 2, thus making Device 1 ***obeys the static discipline.***
+6.  In our previous case earlier, if $$V_{ol}$$ is set to be `0.5V`, and $$V_{il}$$ is set to be `0.6V`, then *Device 2*  will be able to **tolerate** up to `0.1V` of noise (if any). Therefore, `0.55V` in our example above is still '*seen*' as a valid bit `0` when it arrives at the input terminal of Device 2, thus making Device 1 ***obeys the static discipline.***
 
 
 Once **set and chosen,** these four voltage specifications: $$V_{ol}$$, $$V_{oh}$$, $$V_{il}$$, and $$V_{ih}$$ are to be obeyed by every digital **device in an entire combinational logic circuit**.
