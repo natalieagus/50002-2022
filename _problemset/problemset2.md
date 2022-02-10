@@ -462,7 +462,7 @@ Then apply DeMorgan law:<br>
 <li> If we use A and B as the <strong>select</strong> inputs for the MUX, then the four data inputs of the MUX should be tied to one of "0" (ground), "1" (VDD), "C" or "NOT C". The following is one of the correct schematics that implement this function (there are other acceptable answers as well). Note that by changing the connections on the data inputs to the mux, we could implement any function of A, B and C.
 <br><img src="https://dropbox.com/s/0yykalujmctihu4/mux_stuff.png?raw=1"  style="width: 50%;" >
 </li><br>
-<li>We can just write *sum of produc*t for rows that results the `0`s in the table above, and then reduce the expression into: $$\overline{F} = B \overline{C} + \overline{A} \text{ } \overline{B} C$$</li></ol></p></div><br>
+<li>We can just write *sum of product* for rows that results the `0`s in the table above, and then reduce the expression into: $$\overline{F} = B \overline{C} + \overline{A} \text{ } \overline{B} C$$</li></ol></p></div><br>
 
 
 
