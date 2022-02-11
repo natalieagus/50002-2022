@@ -78,7 +78,7 @@ Consider a machine whose job is to add $$1$$ to any *arbitrary* length input and
 
 A Turing Machine with the following specification can easily solve the problem and is capable to accept any **arbitrarily** long input with **less number of states**:
 
-<img src="https://dropbox.com/s/j7nxw2pwh5cau03/tmincr.png?raw=1"   >
+<img src="https://www.dropbox.com/s/2ljstii81t6nn7b/tmincr.png?raw=1"   >
 
 With this sample input, the Turing Machine runs as follows:
 <img src="https://dropbox.com/s/34dxvi3tdwz1shu/tmi1.png?raw=1" style="width: 70%;"  >
