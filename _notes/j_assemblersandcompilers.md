@@ -107,23 +107,47 @@ BEQ(R1, begin_loop, R31)
 > `ADDC` is loaded at (byte) address `0x108`. Since `ADDC`'s length is 4 bytes, `SUBC` is loaded at the subsequent address : `0x10C`.
 
 * **Macroinstructions**: parameterized abbreviations, or shorthand. 
-	* These two macros, `WORD` and `LONG` allows us to assemble input `x` that is more than 256 into longer streams of bytes **(little endian)** 
+	* These two macros, `WORD` and `LONG` allows us to assemble input `x` that is more than 256 into longer streams of bytes
+	* There are two ways of storing bytes in memory: the **little endian** format where lowest byte stored at the lowest address and vice versa, and the **big endian** format where the highest byte is stored at the lowest address and vice versa. 
+	* The $$\beta$$ CPU follows the **little-endian** format
+  
   
 ```cpp
 .macro WORD(x) x%256 (x/256)%256 
 .macro LONG(x) WORD(x) WORD(x >> 16)
 ```
 
-> For example, writing: `LONG(0xDEADBEEF)` has the same effect as writing: `0xEF 0xBE 0xAD 0xDE`. The latter is so much harder to read. It will both result as the following in memory: `DE AD BE EF`.
+
+For example, suppose we want to store the word `0xDEADBEEF` to memory address `0x0`. We start by loading `0xEF` to address `0x0`, then `0xBE` to address `0x1`, and so on. This is so tedious to do. Using the **macro**: `LONG(0xDEADBEEF)` has the same effect as storing: `0xEF 0xBE 0xAD 0xDE` to memory in sequence from low to high memory address, resulting in the following: 
+
+| Address      | 0x0 | 0x1 | 0x2 | 0x3 |
+| ----------- | ----------- |----------- | ----------- | ----------- |
+| Content      | 0xEF       | 0xBE | 0xAD | 0xDE| 
 
 
-$$\beta$$ instructions are created by writing convenient macroinstructions. For example, we want to load the following instruction into memory:
+If one were to store `0xDEADBEEF` in big-endian format, it will result in: 
+
+| Address      | 0x0 | 0x1 | 0x2 | 0x3 |
+| ----------- | ----------- |----------- | ----------- | ----------- |
+| Content      | 0xDE       | 0xAD | 0xBE | 0xEF| 
+
+
+**Note** that our `bsim.jar` program displays the memory address the other way around, that is **high address** on the **left** and **low address** on the **right**, so our little-endian format in $$\beta$$ *looks like* the big-endian format for easy debugging: 
+
+| Address      | 0x3 | 0x2 | 0x1 | 0x0 |
+| ----------- | ----------- |----------- | ----------- | ----------- |
+| Content      | 0xDE       | 0xAD | 0xBE | 0xEF| 
+
+
+
+
+$$\beta$$ instructions are also created by writing **convenient** **macroinstructions**. For example, we want to load the following instruction into memory:
 `110000 00000 01111 1000 0000 0000 0000`
 The above is an `ADDC` instruction, to add contents of `R15` with `-32768` and store it at `R0`. 
 
 **Without any symbols**, would need to write them as:
-`0b00000000 0b10000000 0b00011111 0b11000000` to be loaded properly where `OPCODE` is at the higher address than `Rc` and so on. 
-> But the above is so unintuitive! We need to chop the original instruction into 1 byte chunks and "load" them from right to left 
+`0b00000000 0b10000000 0b00011111 0b11000000` to be loaded properly where the `OPCODE` is stored at a higher address than `Rc`, and `Rc` is at a higher memory address than `Ra`, and 16-bit constant `c` is at the lowest memory address of the entire word. 
+> But the above is so unintuitive! We need to chop the original instruction into 1 byte chunks and "load" them from right to left so they're stored from lowest to highest memory location to follow the little-endian format. 
 
 With a slight improvement from macro `LONG`, we can write them as: 
 `LONG(0b11000000000011111000000000000000)`

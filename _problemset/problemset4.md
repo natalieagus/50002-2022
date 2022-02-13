@@ -222,20 +222,8 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 
 ## Memory Addressing (Basic)
 
-1. You are given that the 32-bit *word* at memory address `0` has a binary form of:
 
-```cpp
-0000 0100 0000 0011 0000 0010 0000 0001
-```
-
-What is the value of the *byte* stored in address `0, 1, 2` and `3`, respectively? What are the hexadecimal forms of the bytes?
-
-<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-1, 2, 3, and 4 are stored at address <code>0, 1, 2, 3</code> respectively.  The hex form is the word: <code>0x04 03 02 01</code>.
-</p></div><br>
-
-
-2. How many bits of addresses are required at minimum to address the following chunk of data, assuming that they are **byte** addressable? 
+1. How many bits of addresses are required at minimum to address the following chunk of data, assuming that they are **byte** addressable? 
 
 ```cpp
 0000 0100 0000 0011 0000 0010 0000 0001
