@@ -21,7 +21,7 @@ Modified by: Kenny Choo, Natalie Agus, Oka Kurniawan (2021)
 
 ## Starter Code
 The following files inside your `/50002/` folder are what you're going to open and modify or study for this lab, then submit (unless otherwise stated):
-- `lab3_submit.jsim` 
+- `lab3_submit.jsim` (this is `lab3_alu.jsim` in your 50002 folder, we forgot to update the name. Please **update the name** to `lab3_submit.jsim` because that's what the bot expected)
 - `lab3_mult.jsim` (for study only, no submission of this file is required)
 
 ## Related Class Materials
