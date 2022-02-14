@@ -56,7 +56,7 @@ Since logic gates are used to implement the logic for the full adder, a good pla
 We have given you a headstart by implementing 2-input `nand`, 2-input `nor`, and `inv` for you inside `lab2_submit.jsim`. Now you just need to implement 2-input `xnor` and 2-input `xor` gates. 
 
 ## XOR and XNOR Gate Schematic
-It’s much easier to debug your circuit module-by-module rather than as one big lump.  XOR/XNOR can be challenging gates to design; here’s one suggestion for how they might be implemented. 
+It’s much easier to debug your circuit module-by-module rather than as one big lump.  XOR/XNOR can be challenging gates to design; here’s one suggestion for how they might be implemented. Use PFET with specs: SW as 4 and SL as 1, and NFET with specs: SW as 2 and SL as 1. 
 
 <img src="/50002/assets/contentimage/lab2/2.png"  class=" center_fifty"/>
 
