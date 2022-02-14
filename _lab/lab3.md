@@ -91,7 +91,7 @@ The following schematic is a big picture for how to go about the design:
 > Start by implementing the 32-bit add using a ripple-carry architecture. You’ll have to construct the 32-input NOR gate required to compute Z using a tree of smaller fan-in gates (the parts library only has gates with up to 4 inputs).
 
 #### Computing Overflow
-**Overflow** can never occur when the two operands to the addition have different signs; if the two operands have the same sign, then overflow can be detected if the sign of the result differs from the **sign** of the operands: 
+**Overflow** can never occur when the two operands to the addition have **different** signs; if the two operands have the same sign, then overflow can be detected if the sign of the result differs from the **sign** of the operands (Note that `XA` and `XB` are just the input nodes of the `FA`, refer to the diagram above): 
 
 $$\begin{align*}
 V = &XA_{31} \cdot XB_{31} \cdot \overline{S_{31}} + \overline{XA_{31}} \cdot \overline{XB_{31}} \cdot S_{31}
@@ -103,7 +103,7 @@ V = &XA_{31} \cdot XB_{31} \cdot \overline{S_{31}} + \overline{XA_{31}} \cdot \o
 #### Detailed Adder/Subtractor Schematic
 Here’s the detailed schematic of the adder. Please label the nodes yourself before coding them in jsim so that you don’t make typos and end up in a debugging nightmare. 
 
-<img src="/50002/assets/contentimage/lab3/4.png"  class=" center_seventy"/>
+<img src="/50002/assets/contentimage/lab3/adder.png"  class=" center_seventy"/>
 
 <div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`, and include `lab3adder.jsim` header to test your adder32 unit only. You can comment out `lab3checkoff.jsim` for the time being. 
 </div></div><br>
@@ -307,7 +307,7 @@ If all expected values are correct, you should see the following window pops up 
 ## Appendix: JSim Tricks
 
 ### Standard Cell Library
-The building blocks for our design will be a family of **logic gates **that are part of a standard cell library**, declared for you in the file called `stdcell.jsim` given in your courseware. [You can find its documentation here](https://drive.google.com/open?id=1ArkRewfiBqJGmVqzkiGzFxbS0fZ-2eWw&authuser=nn88blue%40gmail.com&usp=drive_fs). The available combinational gates are listed in the table below along with information about their **timing**, **loading** and **size**. You can access the library by starting your netlist with the following include statements:
+The building blocks for our design will be a family of **logic gates that are part of a standard cell library**, declared for you in the file called `stdcell.jsim` given in your courseware. [You can find its documentation here](https://drive.google.com/open?id=1ArkRewfiBqJGmVqzkiGzFxbS0fZ-2eWw&authuser=nn88blue%40gmail.com&usp=drive_fs). The available combinational gates are listed in the table below along with information about their **timing**, **loading** and **size**. You can access the library by starting your netlist with the following include statements:
 
 ```cpp
 .include "nominal.jsim"
