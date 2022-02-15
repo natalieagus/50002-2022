@@ -231,7 +231,7 @@ Let's dive in to the $$\beta$$ ISA right away.
 
 ### [$$\beta$$ ISA Format](https://www.youtube.com/watch?v=h1KGzAbJH4Q&t=3169s)
 
-Each instruction that the $$\beta$$ supports is written in a **specific encoding.** There are in total of 32 disctinct operations/instructions that the $$\beta$$ should be able to execute, each having its own operation encoding (`OPCODE`). 
+Each instruction that the $$\beta$$ supports is written in a **specific encoding.** There are in total of 32 distinct operations/instructions that the $$\beta$$ should be able to execute, each having its own operation encoding (`OPCODE`). 
 
 
 >The complete documentation on each instruction in detail can be found [here](https://dropbox.com/s/2hzbawz9v51g6fu/beta_documentation.pdf?dl=0).  
