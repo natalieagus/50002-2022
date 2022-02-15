@@ -310,7 +310,7 @@ The 32-bit instruction `I` is segmented to various sections:
 - Refer to the $$\beta$$ documentation to find out what ST does:
 	- To store the content of `Rc` to the memory unit
 	- In address: content of `Ra` + `c`
-	- 	In register sign language:
+	- In register transfer language:
 		- `PC` $$\leftarrow$$ `PC+4`
 		- `EA` $$\leftarrow$$ `Reg[Ra]`  + `SEXT[c]`
 		- `Mem[EA]` $$\leftarrow$$ `Reg[Rc]`
