@@ -368,7 +368,7 @@ will connect all twelve nodes (`A5, A4, ..., A0, B5, B4, ..., B0`) **TOGETHER**.
 ```
 
 ### Bus unit
-The above can be **tedious** to type. To fix this, can define a two-terminal device that uses    internally, and then use the usual **iteration** rules (see next section) to make many instances of the device with one `X` (device) statement:
+The above can be **tedious** to type. To fix this, you can define a two-terminal device that is used internally, and then use the usual **iteration** rules (see next section) to make many instances of the device with one `X` (device) statement:
 
 ```cpp
 * declare bus subcircuit
