@@ -69,7 +69,7 @@ Hence the answer to this question is: $$2^{80}$$
 
 ## Running a Turing Machine (Basic)
 
-You are given a Turing machine (TM) with three states `(S0, S1, S2)` and a `HALT` state and the following state transition diagram and state table. The TM operates by reading and then moving either left (“L”) or right (“R”) on an infinite tape. **Note that the question defined it as we move the machine here not the tape.**
+You are given a Turing machine (TM) with three states `(S0, S1, S2)` and a `HALT` state and the following state transition diagram and state table. The TM operates by reading and then moving either left (“L”) or right (“R”) on an infinite tape. **Note that the question defined it as we move the machine here (move the arrow), and not move the tape.**
 
 The tape is used to encode a binary number with three symbols, “0”, “1” and “\_”, where “\_” is used to signal the **beginning** and **end** of the number. For instance, the binary number “1011” is represented on the tape as `_,1,0,1,1,_` (*most significant bit on the left*).
 
