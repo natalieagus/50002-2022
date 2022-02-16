@@ -180,7 +180,7 @@ Indicate **which of the following Turing Machine specification** [A], [B], [C], 
 
 ## CPU Trivia (Basic)
 
-1. How much memory can a 32-bit von Neumann machine have? *Explain your answer.*
+1. How much memory can a 32-bit von Neumann machine have, assuming it has 32-bit address bus? *Explain your answer.*
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 	$$2^{32}$$ <strong>bytes</strong> because each address is also 32 bits long in a 32-bit von Neumann machine.
