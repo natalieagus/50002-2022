@@ -314,7 +314,7 @@ The building blocks for our design will be a family of **logic gates that are pa
 .include "stdcell.jsim" 
 ```
 
-<div class="redbox"><div class="custom_box">We will no longer need to create custom gates from scratch using MOSFET, unlike in our Lab 1 and 2. From **now onwards**, please build your combinational logic devices using the gates provided in `stdcel.jsim`.</div></div><br>
+<div class="redbox"><div class="custom_box">We will no longer need to create custom gates from scratch using MOSFET, unlike in our Lab 1 and 2. From **now onwards**, please build your combinational logic devices using the gates provided in `stdcell.jsim`.</div></div><br>
 
 ### Gate-level Simulation
 
