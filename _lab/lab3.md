@@ -127,7 +127,7 @@ Click the checkoff button (the **green tick** at the upper right window of JSim)
 ### Part 2: Compare Unit
 Design a 32-bit compare unit that generates one of two constants (`0` or `1`) depending on the `ALUFN` control signals (used to select the comparison to be performed) and the `Z`, `V`, and `N` outputs of the adder/subtractor unit.  
 
-<span style="background-color:yellow; color: black">Clearly the high order 31 bits of the output are **always zero** (use that connection to `connect0` in JSim to zero `cmp[31:1]`).  The least significant bit of the output is determined by the answer to the **comparison** being performed.
+<span style="background-color:yellow; color: black">Clearly the high order 31 bits of the output are **always zero** (use that connection to connect `0` in JSim to zero `cmp[31:1]`).  The least significant bit of the output is determined by the answer to the **comparison** being performed.
 </span>
 
 <img src="/50002/assets/contentimage/lab3/7.png"  class=" center_seventy"/>
@@ -314,7 +314,7 @@ The building blocks for our design will be a family of **logic gates that are pa
 .include "stdcell.jsim" 
 ```
 
-<div class="redbox"><div class="custom_box">We will no longer need to create custom gates from scratch using MOSFET, unlike in our Lab 1 and 2. From **now onwards**, please build your combinational logic devices using the gates provided in `stdcel.jsim`.</div></div><br>
+<div class="redbox"><div class="custom_box">We will no longer need to create custom gates from scratch using MOSFET, unlike in our Lab 1 and 2. From **now onwards**, please build your combinational logic devices using the gates provided in `stdcell.jsim`.</div></div><br>
 
 ### Gate-level Simulation
 
@@ -368,7 +368,7 @@ will connect all twelve nodes (`A5, A4, ..., A0, B5, B4, ..., B0`) **TOGETHER**.
 ```
 
 ### Bus unit
-The above can be **tedious** to type. To fix this, can define a two-terminal device that uses    internally, and then use the usual **iteration** rules (see next section) to make many instances of the device with one `X` (device) statement:
+The above can be **tedious** to type. To fix this, you can define a two-terminal device that is used internally, and then use the usual **iteration** rules (see next section) to make many instances of the device with one `X` (device) statement:
 
 ```cpp
 * declare bus subcircuit
@@ -454,5 +454,5 @@ There are many gates that are available in the standard cell library. We can use
 2. Design for **minimum cost** (minimum area)
 3. Design for the best cost / performance **ratio** (minimise area * latency)
 
-It is often possible to do all three at once but in some portions of the circuit some sort of *design tradeoff *will need to be made.  When designing your circuitry you should **choose** which of these three factors is most **important** to you and optimize your design (use the correct gates) accordingly. You will have to make such design choices in your 2D project. 
+It is often possible to do all three at once but in some portions of the circuit some sort of *design tradeoff* will need to be made.  When designing your circuitry you should **choose** which of these three factors is most **important** to you and optimize your design (use the correct gates) accordingly. You will have to make such design choices in your 2D project. 
 
