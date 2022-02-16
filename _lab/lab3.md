@@ -454,5 +454,5 @@ There are many gates that are available in the standard cell library. We can use
 2. Design for **minimum cost** (minimum area)
 3. Design for the best cost / performance **ratio** (minimise area * latency)
 
-It is often possible to do all three at once but in some portions of the circuit some sort of *design tradeoff *will need to be made.  When designing your circuitry you should **choose** which of these three factors is most **important** to you and optimize your design (use the correct gates) accordingly. You will have to make such design choices in your 2D project. 
+It is often possible to do all three at once but in some portions of the circuit some sort of *design tradeoff* will need to be made.  When designing your circuitry you should **choose** which of these three factors is most **important** to you and optimize your design (use the correct gates) accordingly. You will have to make such design choices in your 2D project. 
 
