@@ -87,6 +87,7 @@ The examples below should provide a straightforward hints on [how to convert bet
 
 
 
+
 ## [2's Complement](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=1113s)
 
 2's Complement is the way most computers or electronic machines choose to represent *signed* integers. Given a string of bits, we can compute its negative representation using 2's Complement. 
@@ -138,6 +139,12 @@ Example of encoding is character encoding so that the string of bits can be disp
 * **16-bit** Unicode (UTF-16) encoding: for other language alphabets that are fixed, e.g: Russian, Korean
 
 We can create electronic devices that are able to *map* (decode) a given encoded information, perform computations based on the received information, and encode back the output so that the results can be interpreted by us (users) or other devices. 
+
+## A Byte is 8 Bits
+
+The byte is a **unit** of digital information that consists of **8 bits**. Our system usually report storage amount (disk space, RAM, etc) in terms of **bytes** instead of bits. Historically, the byte (groups of 8 bits) is smallest **addressable** unit of memory in many computer architectures and therefore storage systems are typically reported in terms of **bytes**. A RAM of 1GB in size means that it can hold $$1 \times 8$$ billion bits of data.
+
+> The prefix "Giga" means $$10^9$$ in International Unit of Systems (SI), however when you plug in a 1GB RAM, your system might report it as 0.93GB instead. This is because in computing, *Giga* means $1024^3 = 2^30$ bytes exactly instead of $$10^9$$ bytes because we operate in **base** 2 instead of base 10 in SI. To avoid this confusion, there exist another set of prefixes: Kib, Mib, and Gib to denote $1024$ bytes, $1024^2$ bytes, and $1024^3$ bytes in digital systems. 
 
 
 ## [Information and uncertainty](https://www.youtube.com/watch?v=IicB30kA3pY&list=PLklpDKpv-EBj1agIq4vB1iB6ahMT8_2A_&index=1&t=1761s)
