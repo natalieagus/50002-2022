@@ -44,6 +44,12 @@ Suppose we have a simple sequential logic circuit called Machine $$M$$ as shown 
 In this example, Machine $$M$$ also has four control signals, symbolised as $$\text{A}_{\text{SEL}}$$, $$\text{B}_{\text{SEL}}$$, $$\text{A}_{\text{LE}}$$, and $$\text{B}_{\text{LE}}$$. These four control signals are dictated by a **control FSM unit** shown below, meaning that these four signals will vary accordingly at each time step, hence changing the *behaviour* of the circuit above when we need it: 
 <br><img src="https://dropbox.com/s/zshb59hefekv1nr/cfsm.png?raw=1"  style="width: 60%;" >
 
+R1 and R2 units are **not a regular dff**. They accept an additional control signal, denoted as `LE`. These control signals $$\text{A}_{\text{LE}}$$, $$\text{B}_{\text{LE}}$$ fed to R1 and R2 unit works as follows:
+* If $$\text{A}_{\text{LE}}$$ is `1`, then the current **input** to R1 will be reflected as R1's output in the next clock cycle. It's like "enabling" the R1, allowing it to "remember" new value. 
+* If $$\text{A}_{\text{LE}}$$ is `0`, then R1 will continue to produce it's **old** value as an output, whatever last value it was remembered when $$\text{A}_{\text{SEL}}$$ *was* `0` some time in the past. When $$\text{A}_{\text{SEL}}$$ is `0`, new values at the **input** node of R1 will be **ignored**. 
+
+> The detailed anatomy of R1 and R2 units are similar to [this section in your next lecture](https://natalieagus.github.io/50002/notes/betacpu#detailed-anatomy-of-the-regfile). The `WERF` signal in your Beta CPU is analogous to these register's `LE` signals. 
+
 Other notable components of $$M$$:
 * A decrement unit symbolised as `-1`
 * Computation of  `z = (input == 0) ? 1 : 0`
