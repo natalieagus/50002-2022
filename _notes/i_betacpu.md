@@ -173,7 +173,7 @@ Note that the `ALUFN` is 6 bits long, `PCSEL` is 3 bits long, `WDSEL` is 2 bits 
 
 In the Lab however, we also simplify this part. We simply assume that the IRQ signal given by the test file is guaranteed to be stable for the entire CPU clock cycle, and already fulfils the $$t_S$$ and $$t_H$$ requirements of the CPU clock cycle.   
 
-**For simplicity, we no longer display this register unit in the diagrams to explain the datapaths below.** The presence of the `CLK` signal there is written to remind you that the CPU should be able to *sample* the asynchronous `IRQ` signal  for each clock cycle. ==However, the heart of the Control Unit  itself is combinational logic device (e.g: ROM) and not a sequential one==. 
+**For simplicity, we no longer display this register unit in the diagrams to explain the datapaths below.** The presence of the `CLK` signal there is written to remind you that the CPU should be able to *sample* the asynchronous `IRQ` signal  for each clock cycle. However, the heart of the Control Unit itself is combinational logic device (e.g: ROM) and not a sequential one.
 
 ## Beta Datapaths
 
