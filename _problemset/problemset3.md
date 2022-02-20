@@ -493,10 +493,10 @@ Let's analyse the circuit by answering the questions below:
 	</p>
 	</div><br>
 
-10. What are the output sequences from `t=1` to `t=16` of the circuit when fed the following input (fed from *left* to *right*): `1101 1111 1110 0010` from `t=0` to `t=15` respectively? Assume that the initial states are `AB=00`.
+10. What are the output sequences from `t=0` to `t=15` of the circuit when fed the following input (fed from *left* to *right*): `1101 1111 1110 0010` from `t=0` to `t=15` respectively? Assume that the initial states are `AB=00`.
 	<div  cursor="pointer"  class="collapsible">Show Answer</div>  <div  class="content_answer">
 	<p>
-	Given that the initial state is <code>AB=00</code>, that makes <code>B = 1</code> at <code>t=0</code>.  This is doable the tedious way by simply tracing the output <code>y</code> sixteen times from <code>t=1</code> to <code>t=16</code>. We can also deduce from the functionality of the device, that is to <strong>detect</strong> three consecutive <code>1</code>'s and output <code>0</code> afterwards. The output sequence is therefore <code>0000 0011 1111 0000</code> from <code>t=1</code> to <code>t=16</code>. repectively.
+	Given that the initial state is <code>AB=00</code>, that makes <code>B = 1</code> at <code>t=0</code>.  This is doable the tedious way by simply tracing the output <code>y</code> sixteen times from <code>t=0</code> to <code>t=15</code>. We can also deduce from the functionality of the device, that is to <strong>detect</strong> three consecutive <code>1</code>'s and output <code>0</code> afterwards. The output sequence is therefore <code>0000 0011 1111 0000</code> from <code>t=0</code> to <code>t=15</code>. repectively.
 	</p></div>
 
 ## State-Machine Timing Computation (Intermediate)
