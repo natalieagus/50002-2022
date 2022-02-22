@@ -528,7 +528,7 @@ Xmem
 + moe 0 0 ma[11:2] mrd[31:0]    // port 2: memory data (read)
 + 0 clk wr ma[11:2] mwd[31:0]   // port 3: memory data (write)
 + $memory width=32 nlocations=1024 contents=(
-+ … binary representation of /50002/beta.uasm …
++ … binary representation of /50002/beta.uasm (assembly language)…
 + )
 
 // clock has 100ns cycle time, starts as 1 so first clock
@@ -553,7 +553,7 @@ Virq irq 0 pwl(0ns 0v, 1001ns 0v,
 +)
 ```
 
-> The source for the test program can be found at `beta.uasm.` You don't need to read this if you don't wish to. 
+> The source for the test program can be found at `lab4_checkoff.uasm` You don't need to read this if you don't wish to. 
 
 The checkoff program attempts to exercise all the features of the Beta architecture. If this program completes successfully, it enters a two-instruction loop at locations `0x3C4` and `0x3C8`.  It reaches `0x3C4` for the first time on cycle `277`.
 
@@ -573,7 +573,7 @@ The check is made just before the rising clock edge, i.e., after the current ins
 
 <div class="redbox"><div class="custom_box">If you get a verification error, check the instruction that has just finished executing at the time reported in the error message – the Beta has executed that instruction incorrectly for some reason. Trace back which datapath caused the error. For instance, if ia[31:0] gives the error, that gives you a clue that maybe your PC datapath is incorrect, or whatever instruction that comes **before** this was executed incorrectly.</div></div><br>
 
-> Almost **nobody’s** design executes the checkoff program correctly the first time!  To understand what went wrong, you’ll need to retrieve the error code and compare it with the table given at the beginning of `beta.uasm`.  The table will indicate at what label the program detected an error; for example if the error code is 0x288, then the checkoff program detected an error in the code just before label “bool1” in the program.  Looking through beta.uasm, you can locate the “bool1” label and see what results the program expected.  Now look at the waveforms of your Beta executing the same code and you can usually track down the error in your design.
+> Almost **nobody’s** design executes the checkoff program correctly the first time!  To understand what went wrong, you’ll need to retrieve the error code and compare it with the table given at the beginning of `lab4_checkoff.jsim`.  The table will indicate at what label the program detected an error; for example if the error code is 0x288, then the checkoff program detected an error in the code just before label “bool1” in the program.  Looking through `lab4_checkoff.jsim`, you can locate the “bool1” label and see what results the program expected.  Now look at the waveforms of your Beta executing the same code and you can usually track down the error in your design.
 > It will take some effort to debug your design, but stick with it!  If you’re stuck, get help from your fellow students or the course staff.  When it works, congratulate yourself: the design of a complete CPU at the gate-level is a significant accomplishment.  Of course, now the fun is just beginning—there are undoubtedly many ways you can make improvements, both large and small.  Good luck!
 
 ## Appendix 1: The cycle time of your Beta
