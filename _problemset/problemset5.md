@@ -368,8 +368,8 @@ There's only one instruction: <code>ST</code> that requires <code>RA2SEL</code> 
 <strong>Program 1</strong> and <strong>Program 4</strong> fulfills the criteria, and the other two don't. 
 <br><br>
 For <strong>Program 1</strong>:
-* The content store at <code>R2</code> will be 4 instead of 12 if the <code>ASEL</code> mux is faulty. 
 <ul>
+<li>The content stored at <code>R2</code> will be 4 instead of 12 if the <code>ASEL</code> mux is faulty. </li>
 <li> We will end up storing 8 instead of 12 to <code>Mem[constant + 8]</code> if <code>RA2SEL</code> signal remains <code>0</code> due to the faulty <code>CU</code>. </li>
 </ul>
 For <strong>Program 4</strong>:
