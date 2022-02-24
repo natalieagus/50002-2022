@@ -357,7 +357,7 @@ LDR(constant, R1)
 ADD(R1, R1, R2)  
 HALT()  
 
-.=0xABCC  
+.=0xBCC  
 constant: LONG(8)
 LONG(4)
 ```
