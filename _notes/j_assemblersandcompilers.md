@@ -142,7 +142,7 @@ If one were to store `0xDEADBEEF` in big-endian format, it will result in:
 
 
 $$\beta$$ instructions are also created by writing **convenient** **macroinstructions**. For example, we want to load the following instruction into memory:
-`110000 00000 01111 1000 0000 0000 0000`
+`110000 00000 11111 1000 0000 0000 0000`
 The above is an `ADDC` instruction, to add contents of `R31` with `-32768` and store it at `R0`. 
 
 **Without any symbols**, would need to write them as:
