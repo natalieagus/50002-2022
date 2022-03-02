@@ -279,7 +279,7 @@ The figure below shows the two types of $$\beta$$ instruction encoding:
 
 The 32-bit instruction `I` is segmented to various sections:
 
-1.  The `OPCODE =I[31:26]` is 6 bits long. The `OPCODE` signifies different types of operation. They are summarised in the table below:
+1.  The `OPCODE = I[31:26]` is 6 bits long. The `OPCODE` signifies different types of operation. They are summarised in the table below:
 
 <img src="https://dropbox.com/s/jq9rcou91vbu6ka/instr.png?raw=1"   >
 
