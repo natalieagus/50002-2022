@@ -382,9 +382,9 @@ The general format of the `ST` instruction is:
 <img src="https://dropbox.com/s/is3q37kvo167325/st_ins.png?raw=1"  style="width: 70%;" >
 
 The register transfer language for this instruction is: 
-`PC` $$\leftarrow$$ `PC+4`<br>
-`EA` $$\leftarrow$$ `Reg[Ra]+SEXT(c)`<br>
-`Mem[EA]`  $$\leftarrow$$   `Reg[Rc]`<br>
+* `PC` $$\leftarrow$$ `PC+4`<br>
+* `EA` $$\leftarrow$$ `Reg[Ra]+SEXT(c)`<br>
+* `Mem[EA]`  $$\leftarrow$$   `Reg[Rc]`<br>
 
 -  The ST instruction **stores**  data present in `Rc` to the Memory Unit. 
 
