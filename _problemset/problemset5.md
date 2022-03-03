@@ -223,7 +223,7 @@ Incidentally, adding a third read port would eliminate the need for the <code>RA
 ## New Beta Instruction (Basic)
 1. Write the register transfer language below corresponds to the instruction with the following control signal:
    
-	<img src="https://dropbox.com/s/ysf5rtc0d9mwsil/ctrlnew.png?raw=1" width="20%" height="20%">
+	<img src="https://dropbox.com/s/ysf5rtc0d9mwsil/ctrlnew.png?raw=1" width="40%" height="20%">
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 	<div class="class=language-cpp highlighter-rouge">
