@@ -214,7 +214,7 @@ The highlighted lines in **pink** show how the signals should flow in order for 
  The control signals therefore must be set to: 
 
 -  `ALUFN = F(OP)` 
-	> the `ALUFN` signal for the corresponding operation `OP`, for example, if `OPCODE = SUB` then `ALUFN  = 000001`, and so on.
+	> the `ALUFN` signal for the corresponding operation `OP`, for example, if `OPCODE = SUB` then `ALUFN  = 010001`, and so on.
 
 -  `WERF = 1`
 
