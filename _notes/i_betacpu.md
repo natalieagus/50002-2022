@@ -664,7 +664,7 @@ The control signals in the events of these exceptions therefore must be set to:
 
 -  `WASEL = 1`
 
-Note that since `WASEL = 1` and `WDSEL = 00` and `WERF = 1`,, then `PC+4` (supposed next instruction's address) is **stored** at `Reg[XP]` (register 30, or `11110` in binary) so that we may resume the execution once the exception has been handled. 
+Note that since `WASEL = 1` and `WDSEL = 00` and `WERF = 1`, then `PC+4` (supposed next instruction's address) is **stored** at `Reg[XP]` (register 30, or `11110` in binary) so that we may resume the execution once the exception has been handled. 
 
 
 ## CPU Reset
