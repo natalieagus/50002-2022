@@ -351,7 +351,7 @@ When done,
 
 *  The arcs leaving each state should be mutually exclusive and collectively exhaustive,
 
-*  The value for UNLOCK should be specified for each state, and o the truth table should be completed.
+*  The value for UNLOCK should be specified for each state, and the truth table should be completed.
 
 Also, **what is the combination of the lock**? 
 
