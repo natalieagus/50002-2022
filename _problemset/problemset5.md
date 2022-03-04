@@ -223,7 +223,7 @@ Incidentally, adding a third read port would eliminate the need for the <code>RA
 ## New Beta Instruction (Basic)
 1. Write the register transfer language below corresponds to the instruction with the following control signal:
    
-	<img src="https://dropbox.com/s/ysf5rtc0d9mwsil/ctrlnew.png?raw=1" width="20%" height="20%">
+	<img src="https://dropbox.com/s/ysf5rtc0d9mwsil/ctrlnew.png?raw=1" width="40%" height="20%">
 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 	<div class="class=language-cpp highlighter-rouge">
@@ -465,7 +465,7 @@ One Beta manufacturer is having quality-control problems with their design. In p
 
 <img src="https://dropbox.com/s/i71imaa2toxsnk7/betafault.png?raw=1"  >
 
-Your job is to **write some test programs** to help determine if a machine is fault-free. ==Assume that when a device connection is "faulty," the indicated **bus or signal** is always **producing** "0" instead of the *expected value*.==
+Your job is to **write some test programs** to help determine if a machine is fault-free. Assume that when a device connection is "faulty," the indicated **bus or signal** is always **producing** "0" instead of the *expected value*.
 
 **For each** of the circled connections, **write an instruction sequence** that when executed for a **specified number of cycles** will leave the following result in `R0`: 
 *  `1` in `R0` if the connection was working.

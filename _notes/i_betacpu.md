@@ -472,7 +472,7 @@ The register transfer language for this instruction is:
 * If the contents of  `Ra` are zero, the `PC` is loaded with the target address `EA`;
 * Otherwise, execution continues with the next sequential instruction.
 * <span style="background-color:yellow; color: black">The checking of the content of `Ra` is not done through ALU, but rather through the 32-bit NOR gate that produces `Z` (1-bit)</span>, The value of `Z` is fed to the CONTROL UNIT to determine whether PCSEL should be `001` or `000` depending on the value of `Z`.
-* The corresponding assembly instruction format runnable in BSIM is `BEQ(Ra, label, Rc)`* where `c` is **auto** computed as `(address_of_label - address_of_current_ins)/4-1`
+* The corresponding assembly instruction format runnable in BSIM is `BEQ(Ra, label, Rc)` where `c` is **auto** computed as `(address_of_label - address_of_current_ins)/4-1`
 
 
 
@@ -519,7 +519,7 @@ The register transfer language for this instruction is:
 `Reg[Rc]` $$\leftarrow$$ `PC`<br>
 `EA` $$\leftarrow$$ `PC + 4*SEXT(C)`<br>
 `if (Reg[Ra] != 0)` then `PC` $$\leftarrow$$ `EA`<br>
-* The corresponding assembly instruction format runnable in BSIM is `BNE(Ra, label, Rc)`* where `c` is **auto** computed as `(address_of_label - address_of_current_ins)/4-1`
+* The corresponding assembly instruction format runnable in BSIM is `BNE(Ra, label, Rc)` where `c` is **auto** computed as `(address_of_label - address_of_current_ins)/4-1`
 
 
 The figure below shows the datapath for the `BNE`: 
@@ -664,7 +664,7 @@ The control signals in the events of these exceptions therefore must be set to:
 
 -  `WASEL = 1`
 
-Note that since `WASEL = 1` and `WDSEL = 00` and `WERF = 1`,, then `PC+4` (supposed next instruction's address) is **stored** at `Reg[XP]` (register 30, or `11110` in binary) so that we may resume the execution once the exception has been handled. 
+Note that since `WASEL = 1` and `WDSEL = 00` and `WERF = 1`, then `PC+4` (supposed next instruction's address) is **stored** at `Reg[XP]` (register 30, or `11110` in binary) so that we may resume the execution once the exception has been handled. 
 
 
 ## CPU Reset
