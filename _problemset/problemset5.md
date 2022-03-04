@@ -351,7 +351,7 @@ HALT()
 **Program 4**:
 ```cpp
 .=0x000  
-CMOVE(5, R0)  
+ADDC(R31, 5, R0)  
 ST(R0, constant + 8, R31) 
 LDR(constant, R1)  
 ADD(R1, R1, R2)  
@@ -374,7 +374,7 @@ For <strong>Program 1</strong>:
 </ul>
 For <strong>Program 4</strong>:
 <ul>
-<li> The content of <code>R31</code>  is stored to <code>Mem[Constant+8]</code> instead of the content of <code>R0</code>. Therefore, <code>Mem[Constant+8]</code>  is <code>0</code> instead of <code>5</code>.</li>
+<li> The content of <code>R1</code>  is stored to <code>Mem[Constant+8]</code> instead of the content of <code>R0</code>. Therefore, <code>Mem[Constant+8]</code>  is <code>0</code> instead of <code>5</code>.</li>
 <li> The content of <code>R2</code> is <code>8</code> instead of <code>16</code>.</li>
 </ul>
 <strong>Program 2</strong> and <strong>Program 3</strong> also utilizes <code>ST</code> and <code>OP</code> instructions: <code>MUL</code>/<code>ADD</code>, etc that involve the <code>ASEL</code> mux but if you run them with the faulty Beta and with a working Beta, the end state is either the same or different due to one of the faulties only, and therefore can't be used to detect both faulties. 
