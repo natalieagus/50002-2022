@@ -151,14 +151,14 @@ Now suppose we want to vary the `y` input signal to the 8-bit adder in `seq_plus
 
 
 So the value `out` will be the following at each clock cycle:
-*At `t=0`: `out = 0`
-*At `t=1`: `out = 2`
-*At `t=2`: `out = 9`
-*At `t=3`: `out = 21`
-*At `t=4`: `out = 23`
-*At `t=5`: `out = 30`
-*At `t=6`: `out = 42`
-*At `t=7`: `out = 44`
+* At `t=0`: `out = 0`
+* At `t=1`: `out = 2`
+* At `t=2`: `out = 9`
+* At `t=3`: `out = 21`
+* At `t=4`: `out = 23`
+* At `t=5`: `out = 30`
+* At `t=6`: `out = 42`
+* At `t=7`: `out = 44`
 ... *you get the idea.*
 
 We can supply these `y` values using an FSM, having the following simple transition diagram and starting state `S0`:
