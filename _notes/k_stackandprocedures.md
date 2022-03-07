@@ -196,8 +196,8 @@ In $$\beta$$ `uasm`, we simply create these macros for `PUSH` and `POP`:
 * `POP(Rx)`: pop the value on top of the stack to `Reg[Rx]` 
 
 And also the following macros for easier stack management:
-	* `ALLOCATE(k) : ADDC(SP, 4*k, SP)`
-	* `DEALLOCATE(k) : SUBC(SP, 4*k, SP)`
+* `ALLOCATE(k) : ADDC(SP, 4*k, SP)`
+* `DEALLOCATE(k) : SUBC(SP, 4*k, SP)`
 >  They're both used to *move* `SP` to a reserved location for the start of the stack.  
 
 ###  [Example of stack usage](https://www.youtube.com/watch?v=u4TETujaNuk&t=1833s)
