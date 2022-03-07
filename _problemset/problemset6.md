@@ -38,11 +38,12 @@ What is the word at memory address `0xC`? And what is the word at memory address
 ## The Remainder (Basic)
  
  Refer to the C-code below:
+
 ```cpp
 int f(int a, int b){
 	 if (a<b) return [6];
 	 else return f(a-b, b);
-} 
+	} 
 ```
 
 The above C-code compiles to the following Beta assembly code:
