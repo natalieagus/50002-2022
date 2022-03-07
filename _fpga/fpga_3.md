@@ -115,7 +115,7 @@ counter slowClock(#DIV(26), .clk(clk), .rst(rst));
 ```
 
 We need another module called the **edge detector** because we just want to have that trigger to +2 *once* every 1 second.
-> In 1 second, 100 million cycles of the FPGA clock have passed. We only one ONE out of the 100 million cycles to trigger the +2.  
+> In 1 second, 100 million cycles of the FPGA clock have passed. We only want ONE out of the 100 million cycles to trigger the +2.  
 
 The time diagram below illustrates how an edge detector work:
 <img src="https://dropbox.com/s/f6jzjq0smatdb5r/edge.png?raw=1"    style="width: 70%;" >
