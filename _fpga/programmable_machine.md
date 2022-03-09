@@ -28,7 +28,7 @@ When you brainstorm for a game, try to keep two very **important** things in min
 2. **Think about the external I/O devices that you have to manage:**
 	* A recommended one will be simply a bunch of buttons for **input** (you can get nice, arcade game type buttons online) and small coloured LEDs, or 7 segments as output. 
 	* **Some upgrade:** You can buy bigger buttons, LEDs or 7 segments, and buy **transistors** (simple, cheap BJT ones) to be used as **amplifiers** using external power source if the voltage from the Au is not strong enough. 
-	* **More upgrade:** You can buy LED strips (e.g: WS2812B), and **read the specifications**: typically the type of serial data and clock cycles required to set the lights. 
+	* **More upgrade:** You can buy LED strips (e.g: WS2812B), and **read the specifications**: typically the type of serial data and clock cycles required to set the lights. The specification of the model that you buy **must be CLEAR**, compelete with details on how to encode information to light up your LEDs. [See this sample for WS2812B](https://www.dropbox.com/s/7kj6aa9n6817tid/WS2812.pdf?dl=0). 
 	* **Even more upgrade:** You can buy LED matrix. There are TWO types: a simple up to 8x8 dot matrix,
 <img src="https://dropbox.com/s/9fq8jdfe4n5h0zp/dot.png?raw=1"  style="width: 40%;"  >
 <br>
