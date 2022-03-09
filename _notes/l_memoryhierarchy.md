@@ -268,7 +268,7 @@ The FA cache has the following generic structure:
 
 `TAG` and `DATA` are made of SRAM cells:
 * `TAG` contains  **all bits** of address `A`.
-*`DATA` contains all bits of `Mem[A]`.
+* `DATA` contains all bits of `Mem[A]`.
 	> It will be 32 bits of data and 32 bits of address for $$\beta$$ CPU. 
 
 Note the presence of a device called the **tri-state buffer:**
