@@ -273,7 +273,3 @@ It will help tremendously if you started by designing the blueprint of your game
 Prepare your *complete* datapath diagram and state transition diagram (handwritten is fine) as shown in the example above. **You are highly recommended to keep your standard comparable, or better (by designing a proper instruction set, a RAM, and PC unit) than the example presented above.** 
 
 
-
-
- the design using an FPGA. 
-
