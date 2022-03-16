@@ -232,7 +232,7 @@ The complete datapath for the sample Counter game should look like this. In fact
 
 The complete code that describes the datapath along with the connection to the control logic can be found [here](https://github.com/natalieagus/SampleAlchitryProjects/blob/master/CounterGame/source/game_miniBeta.luc). 
 
-The black boxes signifies connection to **external input/output devices.** Interfacing with external devices is tricky, and may be frustrating at first. So it is important for you to finish ALL basic the other basic FPGA tutorials. **You need to take into account how to:**
+The black boxes signifies connection to **external input/output devices.** Interfacing with external devices is tricky, and may be frustrating at first. So it is important for you to finish ALL basic the other [basic FPGA tutorials](https://natalieagus.github.io/50002/fpga/). **You need to take into account how to:**
 1. **Debounce** a button press, and only producing a value `1` ONCE per button press **using an edge detector.**  
 2. Create a small combinational logic module to produce a value of `1`  ONCE every second (denoted as `SLOW TIMER`). You can use a basic `counter` module set with `DIV`: 
 	* `counter slow_timer(#SIZE(1),#DIV(26));`
