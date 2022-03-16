@@ -191,7 +191,7 @@ The number of states depends on how complicated your game is. However you can be
 	* `DECREASE TIMER`	event (blue)
 	* `COMPUTE WINNER` event (purple)
 
-<img src="https://dropbox.com/s/gf992dyc1xu235b/FSM.png?raw=1"   >
+<img src="/50002/assets/contentimage/1D/1d_FSM.png"  class="center_full"/>
 
 `BUTTON PRESS` **event** is invoked when the control unit **receives button press signal** from either player:
 * When any player press a button, we want to check if the player's current button press is less than 3. If yes, increment the button count, and increment the player's score based on the current collectible number in the counter, and then reset the counter. 
@@ -232,7 +232,7 @@ The complete datapath for the sample Counter game should look like this. In fact
 
 The complete code that describes the datapath along with the connection to the control logic can be found [here](https://github.com/natalieagus/SampleAlchitryProjects/blob/master/CounterGame/source/game_miniBeta.luc). 
 
-The black boxes signifies connection to **external input/output devices.** Interfacing with external devices is tricky, and may be frustrating at first. So it is important for you to finish ALL basic FPGA tutorials as linked in the [course document](https://docs.google.com/document/d/10G-WRqCuoDnmcUJH6keefA_oOU1KshD1UI8jnKo4dig/edit?usp=sharing). **You need to take into account how to:**
+The black boxes signifies connection to **external input/output devices.** Interfacing with external devices is tricky, and may be frustrating at first. So it is important for you to finish ALL basic the other basic FPGA tutorials. **You need to take into account how to:**
 1. **Debounce** a button press, and only producing a value `1` ONCE per button press **using an edge detector.**  
 2. Create a small combinational logic module to produce a value of `1`  ONCE every second (denoted as `SLOW TIMER`). You can use a basic `counter` module set with `DIV`: 
 	* `counter slow_timer(#SIZE(1),#DIV(26));`
