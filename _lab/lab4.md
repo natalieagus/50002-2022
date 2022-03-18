@@ -221,9 +221,9 @@ The high-order bit of the PC is dedicated as the **“Supervisor”** bit (see s
 2. **Bit 31** of the `PC+4` and **branch-offset** inputs to the **PCSEL** mux should be connected to the highest bit of the PC Reg output, `ia31`; i.e., the value of the supervisor bit doesn’t change when executing most instructions. 
     * Please ensure your answer in shift-and-add section takes this into account. 
     * We gave a sample implementation under add-4 unit:
-    <img src="/50002/assets/contentimage/lab4/7.png"  class=" center_fifty"/>
+    <img src="/50002/assets/contentimage/lab4/7.png"  class=" center_full"/>
 
-3. You’ll have to add logic to **bit 31 **of the `JT` input to the **PCSEL** mux to ensure that JMP instruction can only **clear** or **leave the supervisor bit unchanged**. Here’s a table showing the new value of the supervisor bit after a `JMP` as function of JT31 and the current value of the supervisor bit (PC31): <br>
+3. You’ll have to add logic to **bit 31** of the `JT` input to the **PCSEL** mux to ensure that JMP instruction can only **clear** or **leave the supervisor bit unchanged**. Here’s a table showing the new value of the supervisor bit after a `JMP` as function of JT31 and the current value of the supervisor bit (PC31): <br>
 
     old PC31 | JT31 | new PC31
     ---------|----------|---------
