@@ -105,7 +105,7 @@ Here’s the detailed schematic of the adder. Please label the nodes yourself be
 
 <img src="/50002/assets/contentimage/lab3/adder.png"  class=" center_seventy"/>
 
-<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`, and include `lab3adder.jsim` header to test your adder32 unit only. You can comment out `lab3checkoff.jsim` for the time being. 
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_alu.jsim`, and include `lab3adder.jsim` header to test your adder32 unit only. You can comment out `lab3checkoff.jsim` for the time being. 
 </div></div><br>
 
 <img src="/50002/assets/contentimage/lab3/5.png"  class=" center_seventy"/>
@@ -145,7 +145,7 @@ Here’s the detailed schematic of the compare unit:
 
 <img src="/50002/assets/contentimage/lab3/8.png"  class=" center_fifty"/>
 
-<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We have created a test jig to test your compare unit: `lab3_testcompare.jsim`. Remember to comment the rest of the test jigs, and only use the compare test jig to test this unit. </div></div><br>
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_alu.jsim`. We have created a test jig to test your compare unit: `lab3_testcompare.jsim`. Remember to comment the rest of the test jigs, and only use the compare test jig to test this unit. </div></div><br>
 
 <img src="/50002/assets/contentimage/lab3/29.png"  class=" center_fifty"/>
 
@@ -172,7 +172,7 @@ Here’s the detailed schematic of the Boolean unit:
 
 In total, you should utilise 32 4-to-1 multiplexers to build the boolean unit. <span style="background-color:yellow; color: black">**Please use JSim iterator explained above for this!**</span>
 
-<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We’ve created a test jig to test your boolean unit: `lab3_testboolean.jsim`. Use it to test that your boolean unit works properly. </div></div><br>
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_alu.jsim`. We’ve created a test jig to test your boolean unit: `lab3_testboolean.jsim`. Use it to test that your boolean unit works properly. </div></div><br>
 
 <img src="/50002/assets/contentimage/lab3/30.png"  class=" center_fifty"/>
 
@@ -226,7 +226,7 @@ Finally, we can combine all three shifters together to form the total shifter ou
 > Another approach that **adds** latency but **saves** gates is to use the *left shift logic* for **both** left and right shifts, but for right shifts, **reverse** the bits of the `A` input first on the way in and **reverse** the bits of the output on the way out.
 
 
-<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. We have created a test jig to test your shift unit: `lab3_testshifter.jsim`. Use it to test that your shifter unit works properly.  </div></div><br>
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_alu.jsim`. We have created a test jig to test your shift unit: `lab3_testshifter.jsim`. Use it to test that your shifter unit works properly.  </div></div><br>
 
 <img src="/50002/assets/contentimage/lab3/31.png"  class=" center_fifty"/>
 
@@ -289,7 +289,7 @@ Two additional control signals (`ALUFN[5:4]`) have been introduced to select whi
 
 Note that the `Z`, `V`, and `N` signals from the adder/subtractor unit are **INCLUDED** in the terminal list for the alu subcircuit (<span style="background-color:yellow; color: black">counted as ALU’s output</span>). **You should also have these signals as the ALU output for your 1D Project**. While these signals are NOT needed when using the ALU as part of the Beta, they are included here to make it easier for the test jig to pinpoint problems with your circuit.
 
-<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_submit.jsim`. When you’ve completed your design, you can use `lab3checkoff.jsim` to test your ALU implementation including the multiplier. </div></div><br> 
+<div class="yellowbox"><div class="custom_box">**Write** your answer in the space provided inside `lab3_alu.jsim`. When you’ve completed your design, you can use `lab3checkoff.jsim` to test your ALU implementation including the multiplier. </div></div><br> 
 
 <img src="/50002/assets/contentimage/lab3/32.png"  class=" center_fifty"/>
 
