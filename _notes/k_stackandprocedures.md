@@ -209,7 +209,7 @@ Assuming the initial content of `SP` is `0`, then in order for `SP` to point to 
 
 ALLOCATE(67)
 ```
-> `0x10C` is 268 in decimal. Since macro `ALLOCATE` will multiply the input by `4` before storing it at SP, we need to put `268/4=67` as the input t `ALLOCATE`.
+> `0x10C` is 268 in decimal. Since macro `ALLOCATE` will multiply the input by `4` before storing it at SP, we need to put `268/4=67` as the input to `ALLOCATE`.
 
 This is done to tell the CPU that the stack starts at address `0x010C` onwards, so that whatever content stored in the earlier addresses will not be overwritten by the stack. 
 > Otherwise, the stack will start at address 0. Typically what is stored address `0` is the **first executable instruction** (i.e: the beginning of our program). We usually don't want to overwrite any instructions. 
@@ -596,7 +596,7 @@ The state of the stack frame *right* before `fact(3)` branching, *right* before 
 
 Notice several things:
 * The stack size for each callee frame is constant. 
-	*  In this example, it is 7 **words** (1 word is 32 bytes). 
+	*  In this example, it is 7 **words** (1 word is 32 bits). 
 	* This is caused by 1 argument `PUSH`, two `PUSH` from callee entry sequence, and four `PUSH` of registers (to be used for computation). 
 
 * The current `BP` and `SP` (rendered in black) points to the **base** and the **top** of the stack of the *current* caller. 
