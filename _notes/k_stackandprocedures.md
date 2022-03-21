@@ -596,7 +596,7 @@ The state of the stack frame *right* before `fact(3)` branching, *right* before 
 
 Notice several things:
 * The stack size for each callee frame is constant. 
-	*  In this example, it is 7 **words** (1 word is 32 bytes). 
+	*  In this example, it is 7 **words** (1 word is 32 bits). 
 	* This is caused by 1 argument `PUSH`, two `PUSH` from callee entry sequence, and four `PUSH` of registers (to be used for computation). 
 
 * The current `BP` and `SP` (rendered in black) points to the **base** and the **top** of the stack of the *current* caller. 
