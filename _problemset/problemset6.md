@@ -277,7 +277,7 @@ int main(int argc, char **argv){
 }  
 ```  
 
-Refering to the C code in Part 2, state whether each of the following is stored in the: stack, data, or code part of the memory. 
+Refering to the C code in Part 2, state whether each of the following is stored in the: stack, data, or code part of the memory. Disclaimer: this question is a **legacy question**, you will not be tested how C compiles as this is not part of our current syllabus.
 > Note: *Data* is a space in the memory dedicated for global variables, static variables (initialized and uninitialized).  Dynamically allocated variables are stored in another segment called the "heap". Memory management is also language specific, but the general idea is pretty much the same. We will learn more about this in the next term.
 
 * Where is **z** stored?
