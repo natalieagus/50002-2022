@@ -407,7 +407,7 @@ When `IRQ` signal is 1 and the Beta is in “user mode” (PC31 is zero), an **i
 1.	PCSEL to `0b100` (select `0x80000008` as the next PC)
 2.	WASEL to `0b1` (select XP as the register file write address)
 3.	WERF to `0b1` (write into the register file)
-4.	WDSEL to `0b0` (select PC+4 as the data to be written into the register file)
+4.	WDSEL to `0b00` (select PC+4 as the data to be written into the register file)
 5.	WR to `0b0` (this ensures that if the interrupted instruction was a ST that it doesn’t get to write into main memory).
 
 Note that you’ll also want to add logic to **reset** the Beta; at the very least when **reset** is asserted you’ll need to force the PC to `0x80000000` and ensure that `WR` is 0 (to prevent your initialized main memory from being overwritten).
