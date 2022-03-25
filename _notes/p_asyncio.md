@@ -237,7 +237,7 @@ Each has the following specs for service time, average period, and deadline:
 <br>
 ### [Case 2: Weak, Non-Preemptive Policy](https://www.youtube.com/watch?v=gVntBILoDvg&t=2912s)
 
-Assume now we have the following hardware priority ordering: **Disk $$>$ Printer $$>$ Keyboard.**
+Assume now we have the following hardware priority ordering: **Disk $$>$$ Printer $$>$$ Keyboard.**
 
 Recall that in this weak policy, we
 * **Cannot interrupt** whatever service that is currently going on, but 
@@ -266,7 +266,7 @@ The **worst case** latency for each device is:
 ### [Case 3: Stricter Deadline with Weak Policy](https://www.youtube.com/watch?v=gVntBILoDvg&t=3540s)
 Suppose the system requires a stricter **deadline** as shown in the table below. 
 
-The hardware priority ordering: **Disk $$>$ Printer $$>$ Keyboard** with *weak policy* results in the following worst-case latency:
+The hardware priority ordering: **Disk $$>$$ Printer $$>$$ Keyboard** with *weak policy* results in the following worst-case latency:
 
 | Device | Service Time (ms) | Deadline (ms) | Period (ms) | Worst-case Latency (ms)
 |--|--|--|--|--|
@@ -285,7 +285,7 @@ Therefore the weak, non-pre-emptive policy will not work for this specification 
 
   
 ### [Case 4: Strong, Pre-emptive Policy](https://www.youtube.com/watch?v=gVntBILoDvg&t=3783s)
-Suppose we have the following interrupt handler priority ordering: **Disk handler $$>$ Printer  handler$$>$ Keyboard handler**. 
+Suppose we have the following interrupt handler priority ordering: **Disk handler $$>$$ Printer  handler$$>$$ Keyboard handler**. 
 
 The worst-case latency for each device is now:
 
