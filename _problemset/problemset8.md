@@ -132,7 +132,7 @@ The PA is <code>0x0492</code>. You can obtain it by figuring out how many bits i
 
 ## VM Party (Intermediate)
 
-Refer to the state of RAM, pagetable, and TLB below. The addresses in the RAM, D, and R bits are written in binary, while the VPN, PPN, and LRU are written in Hex.
+Refer to the state of RAM, pagetable, and TLB below. The addresses in the RAM, D, and R bits are written in binary, while the VPN, PPN, and LRU are written in Decimal.
 
 **The biggest LRU number refers to the MOST recently used item and vice versa,** and that BYTE addressing is used. The total size of the RAM is 4 PAGES and the total number of entries in the pagetable is 8. The letter A, B, C, and D written above refers to the entire page, meaning that address `000000` to `001100` belong to page A, address `010000` to `011100` belong to page B, and so on.
 
