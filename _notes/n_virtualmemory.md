@@ -156,7 +156,7 @@ The MMU utilizes the *Pagetable* to translate every memory reference requests fr
 
 <img src="https://dropbox.com/s/rek05rsjagk2m43/mmuusage.png?raw=1"   >
 
-* The *Pagetable* is stores mapping of the higher $$v$ bits of virtual address (called the **`VPN`** - Virtual Page Number) to a corresponding **`PPN`** (physical page number).  
+* The *Pagetable* is stores mapping of the higher $$v$$ bits of virtual address (called the **`VPN`** - Virtual Page Number) to a corresponding **`PPN`** (physical page number).  
 
 <span style="background-color:yellow; color: black"> The number of entries in the *Pagetable* is  $$2^v$$, because **exactly one entry** is needed *for every possible virtual page*. </span>
 
