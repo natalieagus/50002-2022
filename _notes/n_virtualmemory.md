@@ -313,6 +313,9 @@ This information gives us five **clues**:
 * `VA` is `8+4 = 12` bits long 
 * `PA` is `3+8 = 11` bits long
 
+<span style="background-color:yellow; color: black">We can assume that *instructions* are located at a separated physical memory (like our Beta), so we can spare ourselves the headache of resolving virtual to physical memory addresses on both instruction loading and data loading (`LD` and `ST` operations). **We assume for the sake of exercise in this course that we are looking at the portion of the RAM, Pagetable, and TLB that stores data only** and not instruction.  
+</span>
+
 **Example 1:** Now suppose the current instruction pointed by the PC is **`LD(R31, 0x2C8, R0)`**. 
 > A memory reference to address `0x2C8` is required. 
 
