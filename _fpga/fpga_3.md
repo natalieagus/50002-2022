@@ -419,7 +419,7 @@ When you have built and run the program, try pressing some of the `io_button` an
 
 
 ## Using External Output
-Finally, we will try to show the result `sc.out_result` on an external LED instead. You need to use the `Br` board for this (the middle board in the stack). Take a look  cuour custom <a href="https://drive.google.com/file/d/1T3Vth8YpqDq1iOcPEW6TWjwVH0-h-59C/view?usp=sharing" target="_blank">Br board schematic</a>. You can route your signals to any pin that supports IO and define them in the **constraints file.** 
+Finally, we will try to show the result `sc.out_result` on an external LED instead. You need to use the `Br` board for this (the middle board in the stack). Take a look  our custom <a href="https://drive.google.com/file/d/1T3Vth8YpqDq1iOcPEW6TWjwVH0-h-59C/view?usp=sharing" target="_blank">Br board schematic</a>. You can route your signals to any pin that supports IO and define them in the **constraints file.** 
 
 Create a new **constraint** file (at the osconstraint folder) and name it `custom` (or any other name that you want, as long as the extension is `.acf`) .
 
