@@ -405,7 +405,7 @@ This way **we do not have to "flush" the TLB whenever the CPU changes *context**
 
 Recall that a *cache* is used to store copies of memory addresses and its content: `A, Mem[A]`, so that access to the physical memory can be reduced on average. 
 
-There are two possible options on where to assemble the cache hardware, ****before**** or ****after**** the MMU, each having its pros and cons. 
+There are two possible options on where to assemble the cache hardware, **before** or **after** the MMU, each having its pros and cons. 
 
   <img src="https://dropbox.com/s/j7l3t20a9cmt2ez/cacheMMU.png?raw=1"  style="width: 70%;" >
 
