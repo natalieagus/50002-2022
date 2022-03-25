@@ -104,7 +104,7 @@ For *ease of execution* and *security*, the burden of process management is pass
 
 > Each process does not know the existence of another process and everything else that lives in the physical memory. They don't have to keep track of which addresses in the physical is occupied or free to use, and one process wont be able to corrupt another. 
 
-<span style="background-color:yellow; color: black"> *This provides a layer of **abstraction**, as the OS Kernel is the only *program* that needs to be carefully designed to perform good memory management.* </span>
+<span style="background-color:yellow; color: black"> This provides a layer of **abstraction**, as the OS Kernel is the only *program* that needs to be carefully designed to perform good memory management. </span>
 
 The rest of the processes in the computer can proceed **as if they're the only process running in the computer**.  
 
