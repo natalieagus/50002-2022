@@ -145,7 +145,7 @@ Refer to the state of RAM, pagetable, and TLB below. The addresses in the RAM, D
 	 **PO** is 4 bits, **PPN** is 2 bits, **VPN** is 3 bits.
 	</p></div><br>
 
-2. Which of the following instructions **does not** require access to the pagetable?
+2. Which of the following instructions **does not** require access to the pagetable? Assume that the pagetable, ram, and TLB presented refers the *data* portion only, so obviously instructions that does not do `LD` or `ST` does not require access to either of the three tables presented above. 
 	*	`ST(R0, 0b1111100, R31)`
 	*	`ST(R0, 0b0110100, R31)`
 	*	`ADDC(R31, 0x3, R0), ST(R0, 0b0010100, R31)`
