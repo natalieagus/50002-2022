@@ -312,7 +312,7 @@ Z logic can be added to the output of the RA1/RD1 port of the register file memo
 <img src="/50002/assets/contentimage/lab4/12.png"  class=" center_fifty"/>
 
 ### mwd[31:0] Output
-Finally, connect the output of the `RD2` port fo the register file memory above to produce `mwd[31:0]`. You can use the `bus` connection provided inside `stdcell` as explained above. For instance, if the output of the `RD2` port of your regfile memory is called `rb[31:0]`, we can create `mwd[31:0]` as such:
+Finally, connect the output of the `RD2` port of the register file memory above to produce `mwd[31:0]`. You can use the `bus` connection provided inside `stdcell` as explained above. For instance, if the output of the `RD2` port of your regfile memory is called `rb[31:0]`, we can create `mwd[31:0]` as such:
 ```cpp
 Xmwdout mwd[31:0] rb[31:0] bus
 ```
