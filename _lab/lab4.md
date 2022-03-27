@@ -602,7 +602,7 @@ Xid ports… $memory width=w nlocations=nloc options…
 
 The **width** and **nlocations** properties **must** be supplied: 
 * w specifies the width of each memory location in bits and must be between 1 and 32. 
-* nloc specifies the number of memory locations and must be between 1 and $$2^20$$.  
+* nloc specifies the number of memory locations and must be between 1 and $$2^{20}$$.  
 
 > All the ports of a memory access the same internal storage, but each port operates independently.  
 
