@@ -253,7 +253,7 @@ The **worst case** latency for each device is:
 
 <br>
 
-*   The worst case latency for *disk* is 0.8ms despite having the highest priority, because it has to acccount for service time for the *keyboard*, if the keyboard service has just started when interrupt by disk arrives. 
+*   The worst case latency for *disk* is 0.8ms despite having the highest priority, because it has to account for service time for the *keyboard*, if the keyboard service has just started when interrupt by disk arrives. 
 
 *  The worst case latency for *printer* is 1.3 because it has to take into account the scenario that the *keyboard* has just started when the interrupt by *printer* and *disk* arrive. 
 	> The printer, which has lower priority than disk will have to wait for both disk and keyboard to finish execution before it can be serviced. 
