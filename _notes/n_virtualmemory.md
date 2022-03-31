@@ -75,7 +75,7 @@ A **page** is identified by two things:
 * \+ and `page offset` (`PO`)
 	* This identifies the **word** line in a page
 
-<span style="background-color:yellow; color: black"> `PPN + offset` actually makes up the entire Physical Address `PA` space. </span> 
+<span style="background-color:yellow; color: black"> `PPN + PO` actually makes up the entire Physical Address `PA` space. </span> 
 
 **The number of bits required for `PO`** depends on how many 32-bit words are there in a page (page size). 
 **Example:**
