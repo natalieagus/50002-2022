@@ -225,7 +225,7 @@ The high-order bit of the PC is dedicated as the **“Supervisor”** bit (see s
 
 3. You’ll have to add logic to **bit 31** of the `JT` input to the **PCSEL** mux to ensure that JMP instruction can only **clear** or **leave the supervisor bit unchanged**. Here’s a table showing the new value of the supervisor bit after a `JMP` as function of JT31 and the current value of the supervisor bit (PC31): <br>
 
-    old PC31 | JT31 | new PC31
+    old PC31 (ia31) | JT31 (ra31) | new PC31
     ---------|----------|---------
     0 | -- | 0
     1 | 0 | 0

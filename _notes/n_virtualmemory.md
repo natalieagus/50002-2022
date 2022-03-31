@@ -72,7 +72,7 @@ In virtual memory, we use a part of the disk as an *extension* to the physical m
 A **page** is identified by two things: 
 * A Physical Page Number (`PPN`) 
 	* This identifies the entire *page*
-* \+ and `offset` 
+* \+ and `page offset` (`PO`)
 	* This identifies the **word** line in a page
 
 <span style="background-color:yellow; color: black"> `PPN + offset` actually makes up the entire Physical Address `PA` space. </span> 
