@@ -142,7 +142,7 @@ The figure below illustrates this scenario:
 
 **Although it goes without saying, it is worth reminding that only contents that reside on the physical memory has a physical address (PA).** 
 
-> Contents that are on the disk swap space *does not have a `PA`*. If they are needed for access by the CPU, the OS Kernel needs to migrate a them over to the RAM first, so that they have a corresponding `VA`-`PA` translation and are **accessible** by the CPU. </span>
+> Contents that are on the disk swap space *does not have a `PA`*. If they are needed for access by the CPU, the OS Kernel needs to migrate a them over to the RAM first, so that they have a corresponding `VA`-`PA` translation and are **accessible** by the CPU.
 
   
 
