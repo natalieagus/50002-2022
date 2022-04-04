@@ -210,7 +210,7 @@ The *Pagetable* is **stored in the Physical Memory** for practical reasons *beca
 
 > Given a `VA` of size `(v+p)` bits, the pagetable must store $$(2 + m + v) \times 2^v$$ bits
 
-It is expensive to store it in SRAM-based memory device. The OS Kernel manages a portion of the physical memor, dedicated to store the pagetable. 
+It is expensive to store it in SRAM-based memory device. The OS Kernel manages a portion of the physical memory, dedicated to store the pagetable. 
 
 The MMU device has a component called the `Pagetable Pointer`, and it can be set to point *to the first entry* of the pagetable in the physical memory (see the figure in the next section for illustration).
 
