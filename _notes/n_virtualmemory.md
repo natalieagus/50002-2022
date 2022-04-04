@@ -237,7 +237,7 @@ The TLB is a small, FA-design cache to store a copy some recently used Pagetable
 
 #### [Super Locality of Reference with TLB](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=2400s)
 
-<span style="background-color:yellow; color: black"> We know that there is *locality of reference* in *memory address* reference patterns. Therefore there is **super locality** of *page number* reference patterns (hit-rate of the TLB $$>$ 99\% in practice). </span> 
+<span style="background-color:yellow; color: black"> We know that there is *locality of reference* in *memory address* reference patterns. Therefore there is **super locality** of *page number* reference patterns (hit-rate of the TLB $$99\%$$ in practice). </span> 
 
 Also, note that the LRU bits in the TLB *is not the same* as the LRU bits in the Pagetable. 
 
