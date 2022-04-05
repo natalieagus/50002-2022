@@ -30,7 +30,7 @@ A few of its important role include *memory management*, *I/O handling*, and *pr
 
 
 ### [A Complete Process Context](https://www.youtube.com/watch?v=4pizOgCT11k&t=336s)
-In the previous chapter, we learned that each process has its own *VA to`PA`mapping* we call as part of a process **context**, hence allowing it to run on its own *virtual memory*.
+In the previous chapter, we learned that each process has its own *`VA` to `PA`mapping* we call as part of a process **context**, hence allowing it to run on its own *virtual memory*.
 
 Assigning a separate context for each process has two crucial benefits:
 
@@ -38,11 +38,11 @@ Assigning a separate context for each process has two crucial benefits:
 
 1.  Allows each process to run in **isolation** -- therefore every program can be written as if it has **access to all memory**, without considering where other programs reside. 
 
-The Kernel need to store  more information about a process (*and not just its`VA`to`PA`mapping*), so that it can *pause the execution* and *resume* any of them later on without any conflict. 
+The Kernel need to store  more information about a process (*and not just its `VA` to `PA` mapping*), so that it can *pause the execution* and *resume* any of them later on without any conflict. 
 
 A more complete list of components that make up a process **context** are:
-* Values of`R0, R1, ... R30`
-*`VA`to`PA`mapping
+* Values of `R0, R1, ... R30`
+* `VA` to `PA`mapping
 * PC value
 * Stack state
 * Program (and shared code)
@@ -65,10 +65,10 @@ To support a safe *virtual machine* for each process, we need to establish the n
 
 * The OS Kernel runs in *full privilege* mode called the **Kernel Mode**, and it oversees the execution of all processes in the computer system, handles real I/O devices, and emulate virtual I/O device for each process. 
 
-* All other programs do **not** have such *privileged* features like the kernel. We call these programs as running in *non-priveleged* **mode** called the **User Mode** with limited access to any hardware resources:
-	* No direct access to actual hardware, 
+* All other programs do **not** have such *privileged* features like the kernel. We call these programs as running in *non-privileged* **mode** called the **User Mode** with limited access to any hardware resources:
+	* No direct access to actual hardware 
 	* No direct access other process' address space
-	* No knowledge about other processes' context and processor state.
+	* No knowledge about other processes' context and processor state
 
 The Kernel will **handle** the need of these programs running in user mode for access to various hardware resources: access to I/O devices, interprocess communication, allocation/deallocation of  shared memory space, etc.  
 
@@ -111,7 +111,7 @@ To allow for proper multiplexing, four things must be supported ****in the hardw
 
 3.  **Two execution modes** in the system:
 	* **Kernel mode**: that allows the CPU to have ultimate access to all hardware and data, so that it can perform crucial process management tasks such as "*saving*" the states (Register contents, stack, PC, etc) of the interrupted process (to be resumed safely later on). 
-	* **User mode**: a non-priviledged mode that disallow programs to corrupt illegal memory space of other programs or hijack resources.  
+	* **User mode**: a non-privileged mode that disallow programs to corrupt illegal memory space of other programs or hijack resources.  
 
 4.  Other interrupts must be **disabled** when this process of "saving state" occurs  (otherwise data will be lost). 
 
@@ -127,7 +127,7 @@ One of the inputs that is received by the Control Unit is `IRQ` (1-bit).  In the
 At each CLK cycle, the Control Unit always checks whether `IRQ` is `1` or `0`. 
 > Note that `IRQ` may turn to be `1` asynchronously, e.g: in the "*middle*" of a particular CPU CLK cycle.  However the Control Unit is synchronised with CPU CLK. Therefore, this will only *trigger* an interrupt in the next CPU CLK tick. 
 * If `IRQ==0`, the Control Unit produces all control signals as dictated by `OPCODE` received.
-* Else if `IRQ==1`, the Control Unit *traps* the PC onto the interrupt handler located at `XAddr`, by setting `PCSEL` value into `101`; *so that the PC points to `XAddr` in the next clock cycle.* 
+* Else if `IRQ==1`, the Control Unit *traps* the PC onto the interrupt handler located at `XAddr`, by setting `PCSEL` value into `100`; *so that the PC points to `XAddr` in the next clock cycle.* 
 	* At the same time, it stores the address of the *next* instruction (`PC+4`) at Register `XP` (`R30`).  
 	* `R30` is a **special register** is always used to hold the *return address* in the event of interrupt (or illegal operation) so that the system knows how to resume the interrupted program later on. 
 
@@ -158,14 +158,14 @@ Afterwards, the service routine returns back to this interrupt handler. The hand
 
 > What is the value of `Reg[XP]-4`? 
 
-*It depends.* The **service routine** may or may not changethe value of `Reg[XP]` before returning to the interrupt handler:
+*It depends.* The **service routine** may or may not change the value of `Reg[XP]` before returning to the interrupt handler:
 * If the value of    `Reg[XP]` is unchanged, then the interrupted program resumes. 
 * Else, it means that the CPU executes *another* program.
 
 > In any case, `Reg[XP]-4`  contains the address of instruction that the CPU should execute when the interrupt handler returns. 
 
   
- ### [Dual Mode Hardware Support](https://www.youtube.com/watch?v=4pizOgCT11k&t=1971s)
+### [Dual Mode Hardware Support](https://www.youtube.com/watch?v=4pizOgCT11k&t=1971s)
 
 Since the OS Kernel is a program that manages the execution of all other processes in the system, it is **crucial** to *restrict* access to the Kernel for **safety reasons**.
 
@@ -190,7 +190,7 @@ With this notion, it is easy to enforce restricted access to the kernel space:
 * Programs runing in user mode (`PC31 == 0`) can never *load*/*store* to data from/to the kernel space.
 	 > Computations of addresses in `LD`, `LDR` and `ST` ignores the MSB. 
 * Entry to the kernel mode can only be done via restricted entry points. In $$\beta$$, there are only three entry points:
-	* Interrupts (setting PC to `Xaddr`), 
+	* Interrupts (setting PC to `Xaddr: 0x8000 0008`), 
 	* Illegal operations (setting PC to `ILLOP: 0x8000 0004`), or
 	* Reset (setting PC to `RESET: 0x8000 0000`)
 
