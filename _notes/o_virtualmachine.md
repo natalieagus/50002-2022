@@ -165,7 +165,7 @@ Afterwards, the service routine returns back to this interrupt handler. The hand
 > In any case, `Reg[XP]-4`  contains the address of instruction that the CPU should execute when the interrupt handler returns. 
 
   
- ### [Dual Mode Hardware Support](https://www.youtube.com/watch?v=4pizOgCT11k&t=1971s)
+### [Dual Mode Hardware Support](https://www.youtube.com/watch?v=4pizOgCT11k&t=1971s)
 
 Since the OS Kernel is a program that manages the execution of all other processes in the system, it is **crucial** to *restrict* access to the Kernel for **safety reasons**.
 
