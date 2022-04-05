@@ -30,7 +30,7 @@ A few of its important role include *memory management*, *I/O handling*, and *pr
 
 
 ### [A Complete Process Context](https://www.youtube.com/watch?v=4pizOgCT11k&t=336s)
-In the previous chapter, we learned that each process has its own *VA to`PA`mapping* we call as part of a process **context**, hence allowing it to run on its own *virtual memory*.
+In the previous chapter, we learned that each process has its own *`VA` to `PA`mapping* we call as part of a process **context**, hence allowing it to run on its own *virtual memory*.
 
 Assigning a separate context for each process has two crucial benefits:
 
@@ -38,11 +38,11 @@ Assigning a separate context for each process has two crucial benefits:
 
 1.  Allows each process to run in **isolation** -- therefore every program can be written as if it has **access to all memory**, without considering where other programs reside. 
 
-The Kernel need to store  more information about a process (*and not just its`VA`to`PA`mapping*), so that it can *pause the execution* and *resume* any of them later on without any conflict. 
+The Kernel need to store  more information about a process (*and not just its `VA` to `PA` mapping*), so that it can *pause the execution* and *resume* any of them later on without any conflict. 
 
 A more complete list of components that make up a process **context** are:
-* Values of`R0, R1, ... R30`
-*`VA`to`PA`mapping
+* Values of `R0, R1, ... R30`
+* `VA` to `PA`mapping
 * PC value
 * Stack state
 * Program (and shared code)
