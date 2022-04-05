@@ -111,7 +111,7 @@ To allow for proper multiplexing, four things must be supported ****in the hardw
 
 3.  **Two execution modes** in the system:
 	* **Kernel mode**: that allows the CPU to have ultimate access to all hardware and data, so that it can perform crucial process management tasks such as "*saving*" the states (Register contents, stack, PC, etc) of the interrupted process (to be resumed safely later on). 
-	* **User mode**: a non-priviledged mode that disallow programs to corrupt illegal memory space of other programs or hijack resources.  
+	* **User mode**: a non-privileged mode that disallow programs to corrupt illegal memory space of other programs or hijack resources.  
 
 4.  Other interrupts must be **disabled** when this process of "saving state" occurs  (otherwise data will be lost). 
 
@@ -158,7 +158,7 @@ Afterwards, the service routine returns back to this interrupt handler. The hand
 
 > What is the value of `Reg[XP]-4`? 
 
-*It depends.* The **service routine** may or may not changethe value of `Reg[XP]` before returning to the interrupt handler:
+*It depends.* The **service routine** may or may not change the value of `Reg[XP]` before returning to the interrupt handler:
 * If the value of    `Reg[XP]` is unchanged, then the interrupted program resumes. 
 * Else, it means that the CPU executes *another* program.
 
