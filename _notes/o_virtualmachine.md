@@ -190,7 +190,7 @@ With this notion, it is easy to enforce restricted access to the kernel space:
 * Programs runing in user mode (`PC31 == 0`) can never *load*/*store* to data from/to the kernel space.
 	 > Computations of addresses in `LD`, `LDR` and `ST` ignores the MSB. 
 * Entry to the kernel mode can only be done via restricted entry points. In $$\beta$$, there are only three entry points:
-	* Interrupts (setting PC to `Xaddr`), 
+	* Interrupts (setting PC to `Xaddr: 0x8000 0008`), 
 	* Illegal operations (setting PC to `ILLOP: 0x8000 0004`), or
 	* Reset (setting PC to `RESET: 0x8000 0000`)
 
