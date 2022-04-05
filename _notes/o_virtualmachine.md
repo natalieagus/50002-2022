@@ -66,9 +66,9 @@ To support a safe *virtual machine* for each process, we need to establish the n
 * The OS Kernel runs in *full privilege* mode called the **Kernel Mode**, and it oversees the execution of all processes in the computer system, handles real I/O devices, and emulate virtual I/O device for each process. 
 
 * All other programs do **not** have such *privileged* features like the kernel. We call these programs as running in *non-privileged* **mode** called the **User Mode** with limited access to any hardware resources:
-	* No direct access to actual hardware, 
+	* No direct access to actual hardware 
 	* No direct access other process' address space
-	* No knowledge about other processes' context and processor state.
+	* No knowledge about other processes' context and processor state
 
 The Kernel will **handle** the need of these programs running in user mode for access to various hardware resources: access to I/O devices, interprocess communication, allocation/deallocation of  shared memory space, etc.  
 
