@@ -226,7 +226,7 @@ There's no one superior replacement policy. One replacement policy can be better
 
 ## [The Cache Block Size](https://www.youtube.com/watch?v=2OARjqLK4io&t=1860s)
 
-We can further improve cache performance by **increasing the capacity of each cache line**. We can **fetch  `B` words of data at a time**, and this is especially useful if there's high locality of reference.  The figure below illustrates a cache line with `B=4`:
+We can further improve cache performance by **increasing the capacity of each cache line**. We can **fetch  `B` words of data at a time**, and this is especially useful if there's high locality of reference.  The figure below illustrates a cache line with block size of 4:
   
 
 <img src="https://dropbox.com/s/ceamhyfon0dsofw/blocksize.png?raw=1"   style="width: 90%;"  >
@@ -235,7 +235,7 @@ We can further improve cache performance by **increasing the capacity of each ca
 
 <span style="background-color:yellow; color: black"> Recall that `1 word = 32 bits`, and we address the entire word by its smallest byte address. </span>
 
-Hence to index or address each word in the cache line, we need $$b = \log_2(B)$$ bits. In the example above, we need `b=2` to address each column, taken from `A[3:2]` (assuming that `A` uses byte addressing). 
+Hence to index or address each word in the cache line, we need $$b = \log_2(B)$$ bits. In the example above, we need 2 bits to address each **column**, taken from `A[3:2]` (assuming that `A` uses byte addressing). 
 
 
 There are tradeoffs in determining the block size of our cache, since we always fetch (and / or overwrite) `B` words -- the entire block -- together at a time: 
@@ -311,7 +311,7 @@ The dirty bit is set to `1` **iff** the cache line is updated (CPU writes new va
 The LRU bit is present in each cache line for FA and NWSA cache only regardless of the block size.  DM cache does not have a replacement policy. For a cache of size `N`, we need `N log N` bits per cache. 
 
 
-The helper bits can be illustrated in a diagram like below. Below we have a sample of 3WSA cache with `b=2`:
+The helper bits can be illustrated in a diagram like below. Below we have a sample of 3WSA cache with block size of `2`:
   
 
 <img src="https://dropbox.com/s/jdzkblgoyb6dh7i/3way.png?raw=1"    >
