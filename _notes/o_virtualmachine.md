@@ -127,7 +127,7 @@ One of the inputs that is received by the Control Unit is `IRQ` (1-bit).  In the
 At each CLK cycle, the Control Unit always checks whether `IRQ` is `1` or `0`. 
 > Note that `IRQ` may turn to be `1` asynchronously, e.g: in the "*middle*" of a particular CPU CLK cycle.  However the Control Unit is synchronised with CPU CLK. Therefore, this will only *trigger* an interrupt in the next CPU CLK tick. 
 * If `IRQ==0`, the Control Unit produces all control signals as dictated by `OPCODE` received.
-* Else if `IRQ==1`, the Control Unit *traps* the PC onto the interrupt handler located at `XAddr`, by setting `PCSEL` value into `101`; *so that the PC points to `XAddr` in the next clock cycle.* 
+* Else if `IRQ==1`, the Control Unit *traps* the PC onto the interrupt handler located at `XAddr`, by setting `PCSEL` value into `100`; *so that the PC points to `XAddr` in the next clock cycle.* 
 	* At the same time, it stores the address of the *next* instruction (`PC+4`) at Register `XP` (`R30`).  
 	* `R30` is a **special register** is always used to hold the *return address* in the event of interrupt (or illegal operation) so that the system knows how to resume the interrupted program later on. 
 
