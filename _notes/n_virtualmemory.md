@@ -142,7 +142,7 @@ The figure below illustrates this scenario:
 
 **Although it goes without saying, it is worth reminding that only contents that reside on the physical memory has a physical address (PA).** 
 
-> Contents that are on the disk swap space *does not have a `PA`*. If they are needed for access by the CPU, the OS Kernel needs to migrate a them over to the RAM first, so that they have a corresponding `VA`-`PA` translation and are **accessible** by the CPU. </span>
+> Contents that are on the disk swap space *does not have a `PA`*. If they are needed for access by the CPU, the OS Kernel needs to migrate a them over to the RAM first, so that they have a corresponding `VA`-`PA` translation and are **accessible** by the CPU.
 
   
 
@@ -210,7 +210,7 @@ The *Pagetable* is **stored in the Physical Memory** for practical reasons *beca
 
 > Given a `VA` of size `(v+p)` bits, the pagetable must store $$(2 + m + v) \times 2^v$$ bits
 
-It is expensive to store it in SRAM-based memory device. The OS Kernel manages a portion of the physical memor, dedicated to store the pagetable. 
+It is expensive to store it in SRAM-based memory device. The OS Kernel manages a portion of the physical memory, dedicated to store the pagetable. 
 
 The MMU device has a component called the `Pagetable Pointer`, and it can be set to point *to the first entry* of the pagetable in the physical memory (see the figure in the next section for illustration).
 
@@ -237,7 +237,7 @@ The TLB is a small, FA-design cache to store a copy some recently used Pagetable
 
 #### [Super Locality of Reference with TLB](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=2400s)
 
-<span style="background-color:yellow; color: black"> We know that there is *locality of reference* in *memory address* reference patterns. Therefore there is **super locality** of *page number* reference patterns (hit-rate of the TLB $$>$ 99\% in practice). </span> 
+<span style="background-color:yellow; color: black"> We know that there is *locality of reference* in *memory address* reference patterns. Therefore there is **super locality** of *page number* reference patterns (hit-rate of the TLB $$99\%$$ in practice). </span> 
 
 Also, note that the LRU bits in the TLB *is not the same* as the LRU bits in the Pagetable. 
 
