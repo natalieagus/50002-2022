@@ -16,9 +16,9 @@ Information Systems Technology and Design
 Singapore University of Technology and Design
 
 # Asynchronous Handling of I/O Devices
-[You can find the lecture video here.](https://youtu.be/gVntBILoDvg) You can also **click** on each header to bring you to the section of the video covering the subtopic. 
+There's no pre-recorded video for this chapter as the file that was uploaded on YouTube was corrupted (no sound). Please watch the stream session instead, this chapter is very short and simple anyway. It is a precursor to what you'll learn in Term 5.  
   
-## [Overview](https://www.youtube.com/watch?v=gVntBILoDvg&t=0s)
+## Overview
 
   
 A single CPU can only do *one thing at a time*: execute an operation, load from one memory location, branch to another location, store to one memory location, attend to I/O requests (fetch input or write output to other devices), etc. 
@@ -42,7 +42,7 @@ Upon completion (of either case), the Kernel will return control (of CPU) to the
 
   
 
-## [Recap: Operating System Kernel](https://www.youtube.com/watch?v=gVntBILoDvg&t=697s)
+## Recap: Operating System Kernel
 
  
 
@@ -57,7 +57,7 @@ Kernel serves as an *intermediary* between any I/O devices (hardware) and user p
 
   
 
-## [The Supervisor Call](https://www.youtube.com/watch?v=gVntBILoDvg&t=1168s)
+## The Supervisor Call
 
 
 SVC is a 32-bit instruction that  triggers an *illop* exception, hence trapping the process onto the Kernel whenever it is executed.
@@ -125,7 +125,7 @@ One common example where `SVC` is made is when a process checks for *keyboard in
 
 *  The process can now get the requested keyboard character from `Reg[R0]`
 
-## [Asynchronous Input Handling](https://www.youtube.com/watch?v=gVntBILoDvg&t=1592s)
+## Asynchronous Input Handling
 
 Since I/O devices are asynchronous, an efficient way has to be devised to pass **new inputs**  to the CPU to be stored in the physical memory. 
 
@@ -149,7 +149,7 @@ Most modern system is **interrupt-driven**. That is, devices may request for *in
 
   
 
-## [Real-Time I/O Handling](https://www.youtube.com/watch?v=gVntBILoDvg&t=1967s)
+## Real-Time I/O Handling
 
  <img src="https://dropbox.com/s/npup101nnubwohm/rth.png?raw=1"    >
 
@@ -167,7 +167,7 @@ The amount of *latency* affects how "*real-time*" the machine reacts. The shorte
 
   
 
-## [Scheduling multiple interrupts](https://www.youtube.com/watch?v=gVntBILoDvg&t=2120s)
+## Scheduling multiple interrupts
 
 The computer is connected to multiple I/O devices (disk, keyboard, mouse, printer, monitor, etc). Each device is capable of making asynchronous interrupt requests. Whenever multiple interrupt requests are invoked, the Kernel has to decide how to schedule these interrupt requests.
 
@@ -181,7 +181,7 @@ There are two different policies that can be adopted to handle I/O interrupts:
 		* We call this type of Kernel that permits **context switch** even when the CPU is running in Kernel mode as **preemptive Kernel** (but not *reentrant*) -- and it requires more complex development as opposed to non-preemptive ones. 
 	> A *reentrant* kernel is made such that it allows multiple processes (running in different cores) to be executing in the kernel mode *at any given point of time* without causing any consistency problems among the kernel data structures.
 
-### [Setting Handler Priority Level](https://www.youtube.com/watch?v=gVntBILoDvg&t=2294s)
+###[Setting Handler Priority Level
 The **priority level** for each interrupt handler can be illustrated using the  higher `p` bits of PC -- meaning that the *location* of the handler in memory *matters*; it defines the handler's priority level.  
 > Some hardware tweaks on the CPU is needed to support this feature, but we don't have to dwell too deep into that at this point. 
 
@@ -192,7 +192,7 @@ The **priority level** for each interrupt handler can be illustrated using the  
 > This is analogous to what we have learned before. A system two mode: Kernel and user mode, is differentiated only with the MSB of the PC -- `1` for Kernel mode (hence enabling the highest privilege) and `0` for user mode. 
 
   
-### [Recurring Interrupts ](https://www.youtube.com/watch?v=gVntBILoDvg&t=2332s)
+###[Recurring Interrupts 
 
 Some interrupts may happen periodically, or at a bounded rate. 
 
@@ -204,7 +204,7 @@ Some interrupts may happen periodically, or at a bounded rate.
 
   
 
-## [Worked Example on Scheduling Policies](https://www.youtube.com/watch?v=gVntBILoDvg&t=2411s)
+## Worked Example on Scheduling Policies
 
 Each scheduling policy has its own pros and cons. Non-preemptive Kernel is simpler to develop, but without it the device with the slowest service time constraints response to the fastest devices. 
 
@@ -224,7 +224,7 @@ Each has the following specs for service time, average period, and deadline:
 | Printer | 0.4 |3 | 1
 
 
-### [Case 1: Without scheduling](https://www.youtube.com/watch?v=gVntBILoDvg&t=2505s)
+###[Case 1: Without scheduling
 
   Without any scheduling measure, the worst case latency seen **by each device** is the total service time of the other devices, as the interrupt requests *can arrive in any order.*
 
@@ -235,7 +235,7 @@ Each has the following specs for service time, average period, and deadline:
 | Printer | 0.4 |3 | 1 |1.3
 
 <br>
-### [Case 2: Weak, Non-Preemptive Policy](https://www.youtube.com/watch?v=gVntBILoDvg&t=2912s)
+###[Case 2: Weak, Non-Preemptive Policy
 
 Assume now we have the following hardware priority ordering: **Disk $$>$$ Printer $$>$$ Keyboard.**
 
@@ -263,7 +263,7 @@ The **worst case** latency for each device is:
   
 
 <br>
-### [Case 3: Stricter Deadline with Weak Policy](https://www.youtube.com/watch?v=gVntBILoDvg&t=3540s)
+###[Case 3: Stricter Deadline with Weak Policy
 Suppose the system requires a stricter **deadline** as shown in the table below. 
 
 The hardware priority ordering: **Disk $$>$$ Printer $$>$$ Keyboard** with *weak policy* results in the following worst-case latency:
@@ -284,7 +284,7 @@ Therefore the weak, non-pre-emptive policy will not work for this specification 
 > There's a need to somehow pre-empt the keyboard when the interrupt request for disk arrives so that the disk will not miss its deadline (see next section). 
 
   
-### [Case 4: Strong, Pre-emptive Policy](https://www.youtube.com/watch?v=gVntBILoDvg&t=3783s)
+###[Case 4: Strong, Pre-emptive Policy
 Suppose we have the following interrupt handler priority ordering: **Disk handler $$>$$ Printer  handler$$>$$ Keyboard handler**. 
 
 The worst-case latency for each device is now:
@@ -318,7 +318,7 @@ After both *disk* and *printer* are serviced, the *keyboard* is serviced at `t=0
 
 > To test your understanding, ask yourselves if another priority ordering such as **Printer handler > Disk handler > Keyboard handler** is *plausible*?  Why or why not? 
 
-### [Effective Interrupt Load](https://www.youtube.com/watch?v=gVntBILoDvg&t=4219s)
+###[Effective Interrupt Load
 
 The effective **Interrupt Load** these devices impose to the CPU is computed by multiplying the *maximum frequency* of each device interrupt with its own **service time**. 
 
