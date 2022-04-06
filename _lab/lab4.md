@@ -273,7 +273,7 @@ Open `lab4_regfile.jsim` and observe that the module interface has been provided
 Again, your job is to fill up each blanks between `BEGIN ANSWER` and `END ANSWER`
 
 ### WASEL and RA2SEL Mux
-Youu will need a mux controlled by `RA2SEL` to select the **correct** address for the B read port. The 5-bit 2-to-1 **WASEL** multiplexer determines the write address for the register file. 
+You will need a mux controlled by `RA2SEL` to select the **correct** address for the B read port. The 5-bit 2-to-1 **WASEL** multiplexer determines the write address for the register file. 
 
 We have provided the address for `Reg XP` for you, that is the 5-bit constant `30`: `0b11110`. Please utilise that in your implementation. 
 
