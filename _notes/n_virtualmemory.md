@@ -90,7 +90,7 @@ A **page** is identified by two things:
 * Suppose there are only 20 pages in total that can fit in the physical memory. 
 * The minimum bits required for `PPN` is $$\max(log_2(20)) = 5$$ bits. 
 
-Common misunderstanding: *page size* has nothing to do with *block size* we learned in the previous chapter. 
+Common misunderstanding: It is easy to confuse between page size and block size and think that they are related. The truth is that: *page size* has nothing to do with *block size* we learned in the previous chapter. 
   
 
 ## [Virtual Memory](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=1110s)
