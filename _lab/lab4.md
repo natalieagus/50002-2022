@@ -190,7 +190,7 @@ Xmux_unit0 control_signal 0 0 output_signal0 mux2
 
 <img src="/50002/assets/contentimage/lab4/4.png"  class=" center_fifty"/>
 
-Remember we need to add a way to set the PC to zero on `reset`.  We use a two-input 32-bit mux that selects `0x00000000` when the RESET signal is asserted, and the output of the PCSEL mux when RESET is not asserted. We will use the RESET signal to force the PC to zero during the first clock period of the simulation.
+Remember we need to add a way to set the PC to zero on `reset`.  We use a two-input 32-bit mux that selects `0x80000000` when the RESET signal is asserted, and the output of the PCSEL mux when RESET is not asserted. We will use the RESET signal to force the PC to zero during the first clock period of the simulation.
 
 We have given you the nodes for constant `0x80000000` called `RESET[31:0]`, please utilise that. 
 
