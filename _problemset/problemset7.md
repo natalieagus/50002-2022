@@ -190,7 +190,7 @@ Take a look at the following 3-way set associative cache:
 
 <img src="https://dropbox.com/s/eou2p0yh6j56s3k/3w.png?raw=1" style="width: 80%;" >
 
-The shaded region indicates that the tag-data cells are filled with some data. For the LRU bit, the higher value means that the item is more recently used. Assume that word addressing is used. The label A, B, C, and 0 to 7 drawn in the picture is for you to identify which corresponding set and DM cache a particular data resides. According to the diagram, we have 8 sets, indexed from 0 to 7, and three DM caches (A to C) in total.
+The shaded region indicates that the tag-data cells are filled with some data. For the LRU bit, the higher value means that the item is more recently used. Assume that **word** addressing is used unless stated otherwise, and each instruction is 32-bit long. The label A, B, C, and 0 to 7 drawn in the picture is for you to identify which corresponding set and DM cache a particular data resides. According to the diagram, we have 8 sets, indexed from 0 to 7, and three DM caches (A to C) in total.
 
 For each of the question below, assume higher bits of the address is zero and therefore isn't written. 
 
@@ -209,14 +209,14 @@ For each of the question below, assume higher bits of the address is zero and th
 		It replaces A7 and resides at A7.
 	</p></div><br>
 	
-4. How many bits of data can be contained in this 3-way set associative cache in total if it is meant to be used with a Beta CPU?
+4. How many bits of data can be contained in this 3-way set associative cache in total? 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 		768.
 	</p></div><br>
 	
-5. What is the value of t (i.e: the number of bits stored in the 'Tag' column) if this 3- way set associative cache is used with a Beta CPU? Recall that word addressing is used.
+5. What is the value of t (i.e: the number of bits stored in the 'Tag' column) if this 3- way set associative cache is used with a **Beta CPU? **
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-		27.
+		27, since Beta uses byte addressing.  
 	</p></div><br>
 	
 Another engineer would like to expand this 3-way set associative cache such that its block size is two.
@@ -226,12 +226,12 @@ Another engineer would like to expand this 3-way set associative cache such that
 	3.
 	</p></div><br>
 	
-2. What is the value of t now? i.e: How many bits are stored in the 'Tag' column of the cache? Recall that word addressing is used.
+2. What is the value of t now? i.e: How many bits are stored in the 'Tag' column of the cache? 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	26.
+	28, since now we need 1 bit to index the block, but k remains at 3 bits. 
 	</p></div><br>
 	
-3. How many bits of data can be stored in this 3-way set associative cache in total if it is meant to be used with a Beta CPU?
+3. How many bits of data can be stored in this 3-way set associative cache in total if it is meant to be used with a **Beta CPU?**
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	1536.
+	It is natural to think that the capacity is doubled, to be 1536 bits. However, the Beta CPU uses byte addressing, so only 25% of the cache is useful. That leaves with 384 bits. 
 	</p></div><br>
