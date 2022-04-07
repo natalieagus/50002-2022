@@ -190,7 +190,7 @@ Take a look at the following 3-way set associative cache:
 
 <img src="https://dropbox.com/s/eou2p0yh6j56s3k/3w.png?raw=1" style="width: 80%;" >
 
-The shaded region indicates that the tag-data cells are filled with some data. For the LRU bit, the higher value means that the item is more recently used. Assume that word addressing is used unless stated otherwise. The label A, B, C, and 0 to 7 drawn in the picture is for you to identify which corresponding set and DM cache a particular data resides. According to the diagram, we have 8 sets, indexed from 0 to 7, and three DM caches (A to C) in total.
+The shaded region indicates that the tag-data cells are filled with some data. For the LRU bit, the higher value means that the item is more recently used. Assume that **word** addressing is used unless stated otherwise, and each instruction is 32-bit long. The label A, B, C, and 0 to 7 drawn in the picture is for you to identify which corresponding set and DM cache a particular data resides. According to the diagram, we have 8 sets, indexed from 0 to 7, and three DM caches (A to C) in total.
 
 For each of the question below, assume higher bits of the address is zero and therefore isn't written. 
 
