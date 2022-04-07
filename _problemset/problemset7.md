@@ -233,5 +233,5 @@ Another engineer would like to expand this 3-way set associative cache such that
 	
 3. How many bits of data can be stored in this 3-way set associative cache in total if it is meant to be used with a Beta CPU?
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	1536, double the size before. 
+	It is natural to think that the capacity is doubled, to be 1536 bits. However, the Beta CPU uses byte addressing, so only 25% of the cache is useful. That leaves with 384 bits. 
 	</p></div><br>
