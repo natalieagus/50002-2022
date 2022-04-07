@@ -216,7 +216,7 @@ For each of the question below, assume higher bits of the address is zero and th
 	
 5. What is the value of t (i.e: the number of bits stored in the 'Tag' column) if this 3- way set associative cache is used with a Beta CPU? Recall that word addressing is used.
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-		27.
+		29, since k = 3 bits used to index each set. 
 	</p></div><br>
 	
 Another engineer would like to expand this 3-way set associative cache such that its block size is two.
@@ -228,10 +228,10 @@ Another engineer would like to expand this 3-way set associative cache such that
 	
 2. What is the value of t now? i.e: How many bits are stored in the 'Tag' column of the cache? Recall that word addressing is used.
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	26.
+	28, since now we need 1 bit to index the block, but k remains at 3 bits. 
 	</p></div><br>
 	
 3. How many bits of data can be stored in this 3-way set associative cache in total if it is meant to be used with a Beta CPU?
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	1536.
+	1536, double the size before. 
 	</p></div><br>
