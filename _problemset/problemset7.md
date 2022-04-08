@@ -231,7 +231,7 @@ Another engineer would like to expand this 3-way set associative cache such that
 	28, since now we need 1 bit to index the block, but k remains at 3 bits. 
 	</p></div><br>
 	
-3. How many bits of data can be stored in this 3-way set associative cache in total if it is meant to be used with a **Beta CPU?**
+3. How many bits of data can be stored in this 3-way set associative cache in total if it is used with a **Beta CPU?** (see the diagram above, we don't offset the last two bits of the address).
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 	It is natural to think that the capacity is doubled, to be 1536 bits. However, the Beta CPU uses byte addressing, so only 25% of the cache is useful. That leaves with 384 bits. 
 	</p></div><br>
