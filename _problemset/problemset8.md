@@ -125,7 +125,7 @@ Consider a virtual memory system that uses a single-level page map to translate 
 <img src="https://dropbox.com/s/93f6hoa3nk9iyah/vapa.png?raw=1"  style="width: 50%;">
 
 <div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-The PA is <code>0x0492</code>. You can obtain it by figuring out how many bits is the **VPN**. Given that there's 1024 bytes per page, this gives us the clue that `PO` (Page Offset) is **10 bits**, which means that **VPN** is consisted of **6 bits**: <code> 000111</code>. From the table, we find that the **PPN** is <code>1</code> for **VPN** `7`. Appending **PPN** and **PO** and making it 16 bits hex representation, we have PO: <code> 0010010010 </code> and PPN: <code> 000001 </code>. Appending them together and converting them to results in <code>0x0492</code>.
+The PA is <code>0x0492</code>. You can obtain it by figuring out how many bits is the **VPN**. Given that there's 1024 bytes per page, this gives us the clue that `PO` (Page Offset) is **10 bits**, which means that **VPN** is consisted of **6 bits**: <code> 000111</code>. From the table, we find that the **PPN** is <code>1</code> for **VPN** `7`. Appending **PPN** and **PO** and making it 16 bits hex representation, we have PO: <code> 0010010010 </code> and PPN: <code> 000001</code>. Appending them together and converting them to results in <code>0x0492</code>.
 </p></div><br>
 
 
