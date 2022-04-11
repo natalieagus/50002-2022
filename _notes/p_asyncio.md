@@ -159,7 +159,7 @@ Each interrupt request usually have a **deadline**, and the Kernel has to servic
 
 > For example, the Kernel has to service each keyboard input interrupt request quick enough so as to give the experience of a responsive system. 
 
-*Latency* is defined as the amount of elapsed time from interrupt is first requested up until  the Kernel services it. 
+*Latency* is defined as the amount of elapsed time from interrupt is first requested up until  the Kernel **BEGIN** servicing it. 
 
 The Kernel scheduler in the kernel has to ensure that the interrupt request is serviced **before its deadline**. 
 
