@@ -42,6 +42,7 @@ Take a look at the following memory cells. The rightmost bit line corresponds to
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 	<code>1100</code>
 	</p></div><br>
+	
 ## Cache Exercise (Basic)
 
 The following is a sequence of address references given as **word** addresses (given from left to right):

@@ -223,7 +223,7 @@ During execution of `gcd(28,70)`, the Beta processor is halted and the contents 
 
 5. At the time the stack snapshot was taken, what is the significance of the value `0x1254` in the location at SP?
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	Since `SP` points to the first unused location on the stack, the value in the location SP points to has <strong>no significance</strong> to the process, it’s just ununsed stack space.
+	Since `SP` points to the first unused location on the stack, the value in the location SP points to has <strong>no significance</strong> to the process, it’s just unused stack space.
 	</p></div><br>
 
 6.  The stack snapshot was taken just after the execution of a particular instruction. Could the snapshot have been taken just after the execution of the `PUSH(R1)` instruction near the beginning of the gcd procedure?
