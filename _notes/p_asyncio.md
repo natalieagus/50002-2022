@@ -332,9 +332,9 @@ We can easily compute the max frequency of each device:
 
 
 The load % from each device is therefore:
-* Keyboard: $$100 \times 0.0008 = 0.008 = 0.8\%$$ 
-* Disk: $$500 \times 0.0005 = 0.025 = 2.5\%$$
-* Printer: $$1000 \times 0.0004 = 0.4 = 4.0\%$$
+* Keyboard: $$100 \times 0.0008 = 0.08 = 8\%$$ 
+* Disk: $$500 \times 0.0005 = 0.25 = 25.0\%$$
+* Printer: $$1000 \times 0.0004 = 0.4 = 40.0\%$$
  
 The total Interrupt load of these devices on the CPU is 73%. The remaining fraction, 27% is what is left for processes to use to do *work* (computation). 
 
