@@ -316,7 +316,10 @@ After both *disk* and *printer* are serviced, the *keyboard* is serviced at `t=0
 
 *  The keyboard service time is spread out (red region) due to interrupts from printer and disks
 
-> To test your understanding, ask yourselves if another priority ordering such as **Printer handler > Disk handler > Keyboard handler** is *plausible*?  Why or why not? 
+#### Missing Deadline
+The strong priority ordering Disk  > Printer  > Keyboard as explained above **does not** fulfil the deadline for Printer or Keyboard, since the worst-case latency + service time for each Printer and Keyboard exceeds their deadline. What will be the **minimum deadline** for printer and keyboard in this case, so that the strong priority ordering of  Disk  > Printer  > Keyboard can fulfil all deadlines? 
+
+> To test your understanding, ask yourselves if another priority ordering such as **Printer handler > Disk handler > Keyboard handler** is *plausible* with the original deadlines?  Why or why not? In fact, is there any strong priority ordering that will work with such tight deadline combinations? 
 
 ###Effective Interrupt Load
 
