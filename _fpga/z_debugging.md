@@ -33,6 +33,7 @@ Start by selecting the `Debug Project` (bug looking icon) in the toolbar.
 Select the signals you would like to capture during debugging by ticking the respective checkboxes.
 
 > Example to debug FSM current state (`0`-indexed in output)
+
 <img src="/50002/assets/contentimage/debug_fpga/game_fsm.png"  class="center_full"/>
 
 
