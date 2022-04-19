@@ -151,7 +151,7 @@ Most modern system is **interrupt-driven**. That is, devices may request for *in
 
 ## Real-Time I/O Handling
 
- <img src="https://dropbox.com/s/npup101nnubwohm/rth.png?raw=1"    >
+ <img src="https://www.dropbox.com/s/h0e8epak5kz505o/rth.png?raw=1"    >
 
 When I/O interrupt requests are made by devices, they may not be immediately serviced by the Kernel. The figure above illustrates a general timeline from when a particular **interrupt request** is first made to the moment it is serviced.
 
