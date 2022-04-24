@@ -292,7 +292,7 @@ The 32-bit instruction `I` is segmented to various sections:
 	- `Ra` contains the source data. 
 	- `c` is a 16-bit signed constant or literal. 
 
->The reason for this Type 2  instruction is that some operations require a constant instead. For examplem we want to add the *content* of register `Ra` with a constant `c` $$= 4$$ instead. Then we can encode `c=0000 0000 0000 0100` as the last 16 bits of the instruction. 
+>The reason for this Type 2  instruction is that some operations require a constant instead. For example, we want to add the *content* of register `Ra` with a constant `c` $$= 4$$ instead. Then we can encode `c=0000 0000 0000 0100` as the last 16 bits of the instruction. 
   
 
 
