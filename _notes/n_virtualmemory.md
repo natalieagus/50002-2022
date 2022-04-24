@@ -185,7 +185,7 @@ There are three other columns, `D`, `R`, and `LRU` (if `LRU` is the chosen repla
 	* This bit is present only if replacement policy used is LRU. 
 	* It indicates the LRU ordering of the *pages* **resident** in the physical memory. 
 		> This information is used to decide which page in the physical memory can be *replaced* in the event that it is full and the CPU asks for a `VA` which actual *content* is not resident.  
-	* The number of LRU bits *needed per entry in the pagetable* is $$v$$ bits, since the number of entries in the pagetable is $$2^v$$.
+	* The number of LRU bits *needed per entry in the pagetable* is $$v$$ (#VPN) bits, since the number of entries in the pagetable is $$2^v$$. We assume a vanilla, naive LRU implementation here, although in practice various optimisation may be done. The LRU bits simply behaves as a **pointer** to the row *containing* the LRU PPN, therefore we need at least $$v$$ bits and not $$#PPN$$ bits. 
 
 #### [Pagetable Arithmetic](https://www.youtube.com/watch?v=19wS4GC6mbQ&t=1990s)
 
