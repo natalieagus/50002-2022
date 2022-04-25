@@ -257,7 +257,7 @@ To convert this Map back into boolean expression, we need to look at each group 
 	> You can also obtain the minimized expression using boolean algebra:
 	> - Reduction rule: $$\bar{A}M\bar{C}$$+$$\bar{A}MC$$ = $$\bar{A}M$$
 	> - Reduction rule: $$AM\bar{C}$$+$$AMC$$ = $$AM$$
-	> - So far we have: X = $$AM+ \bar{A}M+AM\bar{M}{C}$$
+	> - So far we have: X = $$AM+ \bar{A}M+A\bar{M}{C}$$
 	> - We can further reduce the first two terms, resulting in  X = $$M+A\bar{M}{C}$$
 	> - Use absorption rule to absorb $$\bar{M}$$, we end up with X = $$M+AC$$
 

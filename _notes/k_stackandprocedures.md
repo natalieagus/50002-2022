@@ -437,7 +437,7 @@ POP(R1)
 MOVE(BP, SP) | (3) 
 POP(BP) | (4)
 POP(LP) | (5)
-JMP(LP, 0, R31) | (6)
+JMP(LP, R31) | (6)
 ```
 
 
