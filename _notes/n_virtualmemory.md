@@ -194,10 +194,12 @@ There are three other columns, `D`, `R`, and `LRU` (if `LRU` is the chosen repla
 
 *  The actual size of the physical memory is: $$2^{m+p}$$ 
 
-*  The Pagetable must store $$(2 + m + v) \times 2^v$$ bits:
+*  The Pagetable must store $$(2 + m) \times 2^v$$ bits:
 	* There are $$2^v$$ rows, 
 	* each row stores `m` bits of `PPN`
-	* plus helper bits:  `2` bits for `D` and `R`, `v` bits for `LRU` ordering.
+	* plus helper bits:  `2` bits for `D` and `R`, `v` bits for `LRU` ordering
+	* The $$v$$ VPN bits are *not exactly stored* as entries in the pagetable, but used as *indexing* (addressing, eg: using a decoder to select exactly one pagetable row using $$v$$ bits as the selector to the decoder)
+	* Note that the $$v$$ bits is often drawn as the first column of the Pagetable. This is just to make your computation *easier*, but they're actually used for **indexing** only as explained in the point above. 
 
 *  There are $$2^{p}$$ bytes per page.
 
