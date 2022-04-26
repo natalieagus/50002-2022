@@ -210,7 +210,7 @@ There are three other columns, `D`, `R`, and `LRU` (if `LRU` is the chosen repla
 
 The *Pagetable* is **stored in the Physical Memory** for practical reasons *because of its rather large size*. 
 
-> Given a `VA` of size `(v+p)` bits, the pagetable must store $$(2 + m + v) \times 2^v$$ bits
+> Given a `VA` of size `(v+p)` bits, the pagetable must store $$(2 + m) \times 2^v$$ bits at least, plus whatever helper bits required, depends on the policy. 
 
 It is expensive to store it in SRAM-based memory device. The OS Kernel manages a portion of the physical memory, dedicated to store the pagetable. 
 
