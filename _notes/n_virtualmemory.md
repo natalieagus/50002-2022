@@ -194,7 +194,7 @@ There are three other columns, `D`, `R`, and `LRU` (if `LRU` is the chosen repla
 
 *  The actual size of the physical memory is: $$2^{m+p}$$ 
 
-*  The Pagetable must store $$(2 + m) \times 2^v$$ bits:
+*  The Pagetable must store $$(2 + m) \times 2^v$$ bits (please ignore the video's mistake in it stating $$2+m+v$$):
 	* There are $$2^v$$ rows, 
 	* each row stores `m` bits of `PPN`
 	* plus helper bits:  `2` bits for `D` and `R`, `v` bits for `LRU` ordering
