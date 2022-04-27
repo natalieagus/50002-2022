@@ -229,7 +229,7 @@ Another engineer would like to expand this 3-way set associative cache such that
 	
 2. What is the value of t now? i.e: How many bits are stored in the 'Tag' column of the cache? 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	26, since now we need 1 bit to index the block, but k remains at 3 bits. 
+	28, since now we need 1 bit to index the block, but k remains at 3 bits. 
 	</p></div><br>
 	
 3. How many bits of data can be stored in this 3-way set associative cache in total if it is used with a **Beta CPU** but we don't ignore the last two bits as usual? (see the diagram above, we don't offset the last two bits of the address JUST FOR THIS QUESTION, for thought experiment sake).
