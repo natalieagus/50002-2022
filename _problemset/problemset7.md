@@ -215,7 +215,7 @@ For each of the question below, assume higher bits of the address is zero and th
 		768.
 	</p></div><br>
 	
-5. What is the value of t (i.e: the number of bits stored in the 'Tag' column) if this 3- way set associative cache is used with a **Beta CPU? **
+5. What is the value of t (i.e: the number of bits stored in the 'Tag' column) if this 3- way set associative cache is used with a **Beta CPU?**
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
 		27, since Beta uses byte addressing.  
 	</p></div><br>
@@ -224,12 +224,12 @@ Another engineer would like to expand this 3-way set associative cache such that
 
 1. What is the value of k now? 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	3.
+	Still 3, doesn't change since the number of sets remain the same. 
 	</p></div><br>
 	
 2. What is the value of t now? i.e: How many bits are stored in the 'Tag' column of the cache? 
 	<div cursor="pointer" class="collapsible">Show Answer</div><div class="content_answer"><p>
-	28, since now we need 1 bit to index the block, but k remains at 3 bits. 
+	26, since now we need 1 bit to index the block, but k remains at 3 bits. 
 	</p></div><br>
 	
 3. How many bits of data can be stored in this 3-way set associative cache in total if it is used with a **Beta CPU** but we don't ignore the last two bits as usual? (see the diagram above, we don't offset the last two bits of the address JUST FOR THIS QUESTION, for thought experiment sake).
