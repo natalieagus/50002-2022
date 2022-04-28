@@ -32,7 +32,7 @@ The Turing Machine is a mathematical model of computation that defines an abstra
 
 <figure class="center_full">
 <img src="/50002/assets/contentimage/others/slice1.png"  />
-<figcaption style="text-align: center;">Dino-themed TM, courtesy of Beverly, a 50002 (2022) student.</figcaption>
+<figcaption style="text-align: center;">Dino-themed TM, courtesy of Beverley, a 50002 (2022) student.</figcaption>
 </figure>
 
 A Turing Machine is often represented as an "arrow" and a series of input written on a "tape", as drawn in the figure below:
