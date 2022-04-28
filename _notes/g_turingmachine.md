@@ -30,6 +30,11 @@ The Turing Machine is a mathematical model of computation that defines an abstra
 
 ## [Basics of Turing Machine](https://www.youtube.com/watch?v=cmfDBAiogA0&t=111s)
 
+<figure class="center_full">
+<img src="/50002/assets/contentimage/others/slice1.png"  />
+<figcaption style="text-align: center;">Dino-themed TM, courtesy of Beverly, a 50002 (2022) student.</figcaption>
+</figure>
+
 A Turing Machine is often represented as an "arrow" and a series of input written on a "tape", as drawn in the figure below:
  
 <img src="https://dropbox.com/s/n41r5z8o2p5dpea/tmeg.png?raw=1"  style="width: 70%;" >
